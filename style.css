@@ -1,0 +1,170 @@
+.up {
+  border-bottom: 3px solid #b70000;
+  background-color: #000000;
+  min-height: 200px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Gloria Hallelujah", cursive;
+}
+body {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  background-image: url("img/tło.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#logo {
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+#logo img {
+  width: 800px;
+  height: 180px;
+  margin-left: 20px;
+  padding: 0;
+}
+#a {
+  margin: 0;
+}
+div#eggs.row.col-sm-6 {
+  font-size: 20px;
+  margin-left: 10px;
+  font-family: "Archivo Narrow", sans-serif;
+}
+ol {
+  margin: 0;
+}
+/*posision off menu*/
+ol > li {
+  float: right;
+  list-style-type: none;
+  padding: 0;
+  font-size: 50px;
+  text-align: center;
+  margin: 0;
+}
+/*and posision*/
+/*link off menu*/
+ol > li > a {
+  text-decoration: none;
+  margin-right: 50px;
+  color: #ffffff;
+}
+/*and link*/
+/*reset of defult color in link*/
+ol > li > a:hover {
+  color: #ffffff;
+}
+/*and off reset*/
+ol > li > ul {
+  list-style-type: none;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  display: none;
+}
+/*the style off ul in list*/
+ol > li > ul > li {
+  margin-right: 50px;
+  font-family: "Special Elite", cursive;
+}
+ol > li > ul > li:hover {
+  border-top: 1px dashed #ffffff;
+  border-bottom: 1px dashed #ffffff;
+  border-left: 1px dashed #ffffff;
+  border-right: 1px dashed #ffffff;
+}
+/*and style*/
+/*reset off default color in link*/
+ol > li > ul > li > a:hover {
+  color: #ffffff;
+}
+/*and reset*/
+/*the style off link in option in menu*/
+ul > li > a {
+  text-decoration: none;
+  color: #ffffff;
+}
+/*and style*/
+ol > li:hover > ul {
+  display: block;
+}
+.main {
+  padding: 50px;
+  text-align: center;
+  color: #000000;
+}
+.main img {
+  border-radius: 50px;
+  width: 800px;
+  height: 500px;
+  border-top: #000000 2px solid;
+  border-bottom: #000000 2px solid;
+  border-left: #000000 2px solid;
+  border-right: #000000 2px solid;
+}
+.main a {
+  opacity: 0.9;
+}
+.main a:hover {
+  opacity: 5;
+}
+.peace img {
+  width: 250px;
+  height: 200px;
+}
+.peace {
+  display: inline-block;
+  margin-top: 10px;
+  border-top: #000000 2px solid;
+  border-bottom: #000000 2px solid;
+  border-left: #000000 2px solid;
+  border-right: #000000 2px solid;
+}
+
+.peace a {
+  opacity: 0.9;
+}
+
+.peace a:hover {
+  opacity: 9;
+}
+#slider {
+  padding-top: 30px;
+}
+figure {
+  margin: 8px;
+  padding: 0;
+}
+
+figcaption {
+  margin-top: 8px;
+  padding: 0;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  height: 30px;
+  color: #000000;
+  border-top: #000000 2px solid;
+  border-bottom: #000000 2px solid;
+  border-left: #000000 2px solid;
+  border-right: #000000 2px solid;
+}
+figcaption:hover {
+  color: #ffffff;
+  background-color: #000000;
+  border-top: #ffffff 2px solid;
+  border-bottom: #ffffff 2px solid;
+  border-left: #ffffff 2px solid;
+  border-right: #ffffff 2px solid;
+}
+figure a {
+  text-decoration: none;
+}

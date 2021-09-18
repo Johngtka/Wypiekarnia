@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="utf-8" />
+    <title>Strona Główna</title>
+    <!--JS odc 02, 36:17min-->
+    <meta name="description" content="Zamów swoje ulubione delicje" />
+    <meta
+      name="keywords"
+      content="ciasta, torty, i, wypieki, na, każdą, okazję"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="scripts.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!--Font section-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap"
+      rel="stylesheet"
+    />
+    <!--And of section-->
+    <!--The script with specifying the state of a digit, for example positive, negative or zero-->
+    <!--Print the given numbers and their range-->
+  </head>
+  <body onload="zmienslajd()">
+    <div class="up">
+      <div id="logo" onclick="x()">
+        <div id="a" class="row col-sm-6 visible">
+          <img src="img/logo.png" title="Logo" alt="Logo" />
+        </div>
+        <div id="eggs" class="row col-sm-6 invisible"></div>
+      </div>
+      <ol>
+        <li>
+          <a href="#">MENU &#9776;</a>
+          <ul>
+            <li>
+              <a href="#">Kontakt</a>
+            </li>
+            <li>
+              <a href="#">Aktualizacje</a>
+            </li>
+            <li>
+              <a href="#">Zamówienia</a>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <div style="clear: both"></div>
+    </div>
+    <!--<p>Określ pozycję liczby wegług osi liczbowej</p>
+    <input type="text" placeholder="Wpisz Liczbę" id="pole" />
+    <input type="submit" value="Sprawdź" onclick="sprawdz()" />
+    <div id="wynik"></div>
+    <p>Zobacz jakie liczby są w przedziale liczb które wybrałeś</h1><br>
+    <input type="text" placeholder="Wpisz Liczbę Mniejszą" id="pole1" />
+    <input type="text" placeholder="Wpisz Liczbę Większą" id="pole2" />
+    <input type="submit" value="Pokaż" onclick="wypisz()" />
+    <div id="linia"></div>
+    <span onclick="ustawslajd(1)" style="cursor: pointer">[ 1 ]</span>
+    <span onclick="ustawslajd(2)" style="cursor: pointer">[ 2 ]</span>
+    <span onclick="ustawslajd(3)" style="cursor: pointer">[ 3 ]</span>
+    <span onclick="ustawslajd(4)" style="cursor: pointer">[ 4 ]</span>
+    <span onclick="ustawslajd(5)" style="cursor: pointer">[ 5 ]</span>-->
+    <div class="main">
+      <h1><b>Nasze Produkty:</b></h1>
+      <div class="peace">
+        <figure>
+          <a href="#"><img src="slajdy/slajd1.png" alt="Torty" /></a>
+          <a href="#"
+            ><figcaption><b>Torty</b></figcaption></a
+          >
+        </figure>
+      </div>
+      <div class="peace">
+        <figure>
+          <a href="#"><img src="slajdy/slajd2.png" alt="Torty" /></a>
+          <a href="#"
+            ><figcaption><b>Ciasta</b></figcaption></a
+          >
+        </figure>
+      </div>
+      <div class="peace">
+        <figure>
+          <a href="#"><img src="slajdy/slajd3.png" alt="Torty" /></a>
+          <a href="#"
+            ><figcaption><b>Tarty</b></figcaption></a
+          >
+        </figure>
+      </div>
+      <br /><br />
+      <div class="peace">
+        <figure>
+          <a href="#"><img src="slajdy/slajd4.png" alt="Torty" /></a>
+          <a href="#"
+            ><figcaption><b>Babeczki</b></figcaption></a
+          >
+        </figure>
+      </div>
+      <div class="peace">
+        <figure>
+          <a href="#"><img src="slajdy/slajd5.png" alt="Torty" /></a>
+          <a href="#"
+            ><figcaption><b>Ciasteczka</b></figcaption></a
+          >
+        </figure>
+      </div>
+      <div class="peace">
+        <figure>
+          <a href="#"><img src="slajdy/slajd6.png" alt="Torty" /></a>
+          <a href="#"
+            ><figcaption><b>Bułeczki</b></figcaption></a
+          >
+        </figure>
+      </div>
+      <div id="slider"></div>
+    </div>
+    <footer>Lorem ipsum</footer>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
