@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  color: #ffffff;
   font-family: "Gloria Hallelujah", cursive;
 }
 body {
@@ -96,18 +97,19 @@ ol > li:hover > ul {
   display: block;
 }
 .main {
-  padding: 50px;
+  padding: 10px;
   text-align: center;
   color: #000000;
+  width: 100%;
 }
 .main img {
   border-radius: 50px;
   width: 800px;
   height: 500px;
-  border-top: #000000 2px solid;
-  border-bottom: #000000 2px solid;
-  border-left: #000000 2px solid;
-  border-right: #000000 2px solid;
+  border-top: #000000 6px solid;
+  border-bottom: #000000 6px solid;
+  border-left: #000000 6px solid;
+  border-right: #000000 6px solid;
 }
 .main a {
   opacity: 0.9;
@@ -119,6 +121,12 @@ ol > li:hover > ul {
   width: 250px;
   height: 200px;
 }
+.peace img:hover {
+  border-top: #ffffff 2px solid;
+  border-bottom: #ffffff 2px solid;
+  border-left: #ffffff 2px solid;
+  border-right: #ffffff 2px solid;
+}
 .peace {
   display: inline-block;
   margin-top: 10px;
@@ -127,7 +135,6 @@ ol > li:hover > ul {
   border-left: #000000 2px solid;
   border-right: #000000 2px solid;
 }
-
 .peace a {
   opacity: 0.9;
 }
@@ -142,7 +149,13 @@ figure {
   margin: 8px;
   padding: 0;
 }
-
+.peace:hover {
+  background-color: #000000;
+  border-top: #ffffff 2px solid;
+  border-bottom: #ffffff 2px solid;
+  border-left: #ffffff 2px solid;
+  border-right: #ffffff 2px solid;
+}
 figcaption {
   margin-top: 8px;
   padding: 0;
@@ -157,14 +170,21 @@ figcaption {
   border-left: #000000 2px solid;
   border-right: #000000 2px solid;
 }
-figcaption:hover {
-  color: #ffffff;
-  background-color: #000000;
-  border-top: #ffffff 2px solid;
-  border-bottom: #ffffff 2px solid;
-  border-left: #ffffff 2px solid;
-  border-right: #ffffff 2px solid;
-}
 figure a {
   text-decoration: none;
+}
+.main p,
+h1 {
+  color: #ffffff;
+  text-shadow: #000000 0.1em 0.1em 0.2em;
+}
+footer {
+  background-color: #000000;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 50px;
+  min-height: 10px;
+  font-family: "Cinzel", serif;
+  border-top: 3px #b70000 solid;
 }

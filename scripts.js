@@ -75,7 +75,7 @@ function zegarek() {
         numer++;
         if (numer > 6) numer = 1;
 
-        var plik = '<img src="slajdy/slajd' + numer + '.png" />';
+        var plik = '<a href="#"><img src="slajdy/slajd' + numer + '.png" /></a>';
 
         document.getElementById("slider").innerHTML = plik;
         $("#slider").fadeIn(500);
