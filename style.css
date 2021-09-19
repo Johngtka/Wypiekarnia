@@ -24,7 +24,7 @@ body {
   float: left;
 }
 #logo img {
-  width: 800px;
+  width: 400px;
   height: 180px;
   margin-left: 20px;
   padding: 0;
@@ -187,4 +187,23 @@ footer {
   min-height: 10px;
   font-family: "Cinzel", serif;
   border-top: 3px #b70000 solid;
+}
+.row {
+  margin: 20px 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+}
+
+.col {
+  display: inline-block;
+  margin: 0 10px;
+}
+#komentarz {
+  resize: none;
+}
+.main1 {
+  color: #ffffff;
+  width: 100%;
+  text-shadow: #000000 0.1em 0.1em 0.2em;
 }
