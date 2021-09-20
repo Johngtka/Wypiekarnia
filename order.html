@@ -58,7 +58,7 @@
               <a href="file:///D:/Wypiekarnia/index.html">Strona Główna</a>
             </li>
             <li>
-              <a href="#">Kontakt</a>
+              <a href="#">Kontakt &#9743;</a>
             </li>
             <li>
               <a href="#">Aktualizacje</a>
@@ -79,7 +79,7 @@
     <div id="linia"></div>-->
     <div class="main1">
       <form action="order.php" method="post" enctype="multipart/form-data">
-        <div class="row">
+        <!-- <div class="row">
           <fieldset>
             <legend>Wybierz Produkt:</legend>
 
@@ -114,7 +114,7 @@
               >
             </div>
           </fieldset>
-        </div>
+        </div>-->
 
         <!--<div class="row">
           <label for="silnik">Wybierz Smak:</label>
@@ -152,70 +152,20 @@
               </div>
               <div>
                 <label
-                  ><input type="checkbox" name="dod[]" value="3" />Tapicerka
-                  skórzana</label
+                  ><input type="checkbox" name="dod[]" value="3" />Posypka
+                  Czekoladowa</label
                 >
+                <div>
+                  <label
+                    ><input type="checkbox" name="dod[]" value="4" />Posypka
+                    Cukrowa</label
+                  >
+                </div>
               </div>
               <div>
                 <label
-                  ><input
-                    type="checkbox"
-                    name="dod[]"
-                    value="4"
-                  />Tempomat</label
-                >
-              </div>
-            </div>
-
-            <div class="col">
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="5" />Tylny Spojler
-                  Dachowy</label
-                >
-              </div>
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="6" />Radio z
-                  Bluetooth</label
-                >
-              </div>
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="7" />Reflektory
-                  Przeciwmgielne</label
-                >
-              </div>
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="8" />Przyciemnione
-                  tylne szyby</label
-                >
-              </div>
-            </div>
-            <div class="col">
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="9" />Czujniki
-                  parkowania</label
-                >
-              </div>
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="10" />Podgrzewane
-                  fotele</label
-                >
-              </div>
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="11" />Składane
-                  lusterka</label
-                >
-              </div>
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="12" />Światła LED
-                  do jazdy dziennej</label
+                  ><input type="checkbox" name="dod[]" value="5" />Owoce na
+                  wieszhu</label
                 >
               </div>
             </div>
@@ -262,7 +212,7 @@
         </div>
 
         <div class="row">
-          <label>Data dostawy:<input type="date" name="data" required /></label
+          <label>Data dostawy:<input type="date" name="data" /></label
           ><br /><br />
           <label
             >Czas dostawy:<input
@@ -280,7 +230,6 @@
             id="komentarz"
             rows="5"
             cols="80"
-            required
           ></textarea>
         </div>
         <div class="row">

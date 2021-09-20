@@ -76,10 +76,7 @@ ol > li > ul > li {
   font-family: "Special Elite", cursive;
 }
 ol > li > ul > li:hover {
-  border-top: 1px dashed #ffffff;
-  border-bottom: 1px dashed #ffffff;
-  border-left: 1px dashed #ffffff;
-  border-right: 1px dashed #ffffff;
+  border: 1px dashed #ffffff;
 }
 /*and style*/
 /*reset off default color in link*/
@@ -106,10 +103,7 @@ ol > li:hover > ul {
   border-radius: 50px;
   width: 800px;
   height: 500px;
-  border-top: #000000 6px solid;
-  border-bottom: #000000 6px solid;
-  border-left: #000000 6px solid;
-  border-right: #000000 6px solid;
+  border: #000000 6px solid;
 }
 .main a {
   opacity: 0.9;
@@ -122,18 +116,12 @@ ol > li:hover > ul {
   height: 200px;
 }
 .peace img:hover {
-  border-top: #ffffff 2px solid;
-  border-bottom: #ffffff 2px solid;
-  border-left: #ffffff 2px solid;
-  border-right: #ffffff 2px solid;
+  border: #ffffff 2px solid;
 }
 .peace {
   display: inline-block;
   margin-top: 10px;
-  border-top: #000000 2px solid;
-  border-bottom: #000000 2px solid;
-  border-left: #000000 2px solid;
-  border-right: #000000 2px solid;
+  border: #000000 2px solid;
 }
 .peace a {
   opacity: 0.9;
@@ -151,10 +139,7 @@ figure {
 }
 .peace:hover {
   background-color: #000000;
-  border-top: #ffffff 2px solid;
-  border-bottom: #ffffff 2px solid;
-  border-left: #ffffff 2px solid;
-  border-right: #ffffff 2px solid;
+  border: #ffffff 2px solid;
 }
 figcaption {
   margin-top: 8px;
@@ -165,10 +150,7 @@ figcaption {
   background-color: #ffffff;
   height: 30px;
   color: #000000;
-  border-top: #000000 2px solid;
-  border-bottom: #000000 2px solid;
-  border-left: #000000 2px solid;
-  border-right: #000000 2px solid;
+  border: #000000 2px solid;
 }
 figure a {
   text-decoration: none;
