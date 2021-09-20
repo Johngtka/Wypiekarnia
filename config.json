@@ -7,9 +7,45 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "e126987944593dfee041f8e2a68145db",
-      "css": "basket",
+      "uid": "ec488dfd1f548948c09671ca5a60ec92",
+      "css": "phone-squared",
+      "code": 61592,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "197375a3cea8cb90b02d06e4ddf1433d",
+      "css": "globe",
       "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "9affc98d652b86628d650ee58dbf0357",
+      "css": "basket",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "cddbeffea9d90c5db93d5d3e77b8893e",
+      "css": "cart-plus",
+      "code": 61975,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "bf882b30900da12fca090d9796bc3030",
+      "css": "mail",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "bc61ebcf2f5d8d08b1e9e62167df7617",
+      "css": "birthday",
+      "code": 61949,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "2626e3a1bbcd90e45849af3b58a1d594",
+      "css": "trash",
+      "code": 59394,
       "src": "entypo"
     }
   ]

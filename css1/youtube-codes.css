@@ -1,2 +1,8 @@
 
-.icon-basket:before { content: '\e800'; } /* '' */
+.icon-globe:before { content: '\e800'; } /* '' */
+.icon-basket:before { content: '\e801'; } /* '' */
+.icon-trash:before { content: '\e802'; } /* '' */
+.icon-mail:before { content: '\e803'; } /* '' */
+.icon-phone-squared:before { content: '\f098'; } /* '' */
+.icon-birthday:before { content: '\f1fd'; } /* '' */
+.icon-cart-plus:before { content: '\f217'; } /* '' */

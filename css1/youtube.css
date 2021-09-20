@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'youtube';
-  src: url('../font/youtube.eot?75952977');
-  src: url('../font/youtube.eot?75952977#iefix') format('embedded-opentype'),
-       url('../font/youtube.woff2?75952977') format('woff2'),
-       url('../font/youtube.woff?75952977') format('woff'),
-       url('../font/youtube.ttf?75952977') format('truetype'),
-       url('../font/youtube.svg?75952977#youtube') format('svg');
+  src: url('../font/youtube.eot?4397639');
+  src: url('../font/youtube.eot?4397639#iefix') format('embedded-opentype'),
+       url('../font/youtube.woff2?4397639') format('woff2'),
+       url('../font/youtube.woff?4397639') format('woff'),
+       url('../font/youtube.ttf?4397639') format('truetype'),
+       url('../font/youtube.svg?4397639#youtube') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'youtube';
-    src: url('../font/youtube.svg?75952977#youtube') format('svg');
+    src: url('../font/youtube.svg?4397639#youtube') format('svg');
   }
 }
 */
@@ -54,4 +54,10 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-basket:before { content: '\e800'; } /* '' */
+.icon-globe:before { content: '\e800'; } /* '' */
+.icon-basket:before { content: '\e801'; } /* '' */
+.icon-trash:before { content: '\e802'; } /* '' */
+.icon-mail:before { content: '\e803'; } /* '' */
+.icon-phone-squared:before { content: '\f098'; } /* '' */
+.icon-birthday:before { content: '\f1fd'; } /* '' */
+.icon-cart-plus:before { content: '\f217'; } /* '' */
