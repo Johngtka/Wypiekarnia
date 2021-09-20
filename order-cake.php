@@ -2,8 +2,8 @@
 <html lang="pl-PL">
   <head>
     <meta charset="utf-8" />
-    <title>Koszyk</title>
-    <!--JS odc 02, 36:17min-->
+    <title>Zamówienie Tortu</title>
+    <!--php odc 01, 15:38min-->
     <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta
       name="keywords"
@@ -42,6 +42,9 @@
       rel="stylesheet"
     />
     <!--And of section-->
+    <?php
+      
+    ?>
   </head>
   <body>
     <div class="up">
