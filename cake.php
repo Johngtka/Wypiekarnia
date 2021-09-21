@@ -57,11 +57,11 @@
           <ul>
             <li>
               <a href="http://localhost/Wypiekarnia/"
-                >Strona Główna<i class="icon-globe"></i
+                >Strona Główna</i
               ></a>
             </li>
             <li>
-              <a href="#">Kontakt<i class="icon-phone-squared"></i></a>
+              <a href="#">Kontakt</a>
             </li>
             <li>
               <a href="#">Aktualizacje &#9781;</a>
@@ -72,7 +72,7 @@
       <div style="clear: both"></div>
     </div>
     <div class="main1">
-      <form action="order.php" method="post">
+      <form action="order.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Tortu:</b></legend>
 				<div style="margin-top:10px;">

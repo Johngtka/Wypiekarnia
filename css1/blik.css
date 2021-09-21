@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'youtube';
-  src: url('../font/youtube.eot?4397639');
-  src: url('../font/youtube.eot?4397639#iefix') format('embedded-opentype'),
-       url('../font/youtube.woff2?4397639') format('woff2'),
-       url('../font/youtube.woff?4397639') format('woff'),
-       url('../font/youtube.ttf?4397639') format('truetype'),
-       url('../font/youtube.svg?4397639#youtube') format('svg');
+  font-family: "blik";
+  src: url("../font/blik.eot?57900173");
+  src: url("../font/blik.eot?57900173#iefix") format("embedded-opentype"),
+    url("../font/blik.woff2?57900173") format("woff2"),
+    url("../font/blik.woff?57900173") format("woff"),
+    url("../font/blik.ttf?57900173") format("truetype"),
+    url("../font/blik.svg?57900173#blik") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -14,13 +14,14 @@
 /*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-    font-family: 'youtube';
-    src: url('../font/youtube.svg?4397639#youtube') format('svg');
+    font-family: 'blik';
+    src: url('../font/blik.svg?57900173#blik') format('svg');
   }
 }
 */
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "youtube";
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "blik";
   font-style: normal;
   font-weight: normal;
   speak: never;
@@ -28,7 +29,7 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
+  margin-right: 0.2em;
   text-align: center;
   /* opacity: .8; */
 
@@ -41,7 +42,7 @@
 
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
-  margin-left: .2em;
+  margin-left: 0.2em;
 
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
@@ -54,10 +55,30 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-globe:before { content: '\e800'; } /* '' */
-.icon-basket:before { content: '\e801'; } /* '' */
-.icon-trash:before { content: '\e802'; } /* '' */
-.icon-mail:before { content: '\e803'; } /* '' */
-.icon-phone-squared:before { content: '\f098'; } /* '' */
-.icon-birthday:before { content: '\f1fd'; } /* '' */
-.icon-cart-plus:before { content: '\f217'; } /* '' */
+.icon-credit-card:before {
+  content: "\e800";
+} /* '' */
+.icon-globe:before {
+  content: "\e801";
+} /* '' */
+.icon-trash:before {
+  content: "\e802";
+} /* '' */
+.icon-phone-squared:before {
+  content: "\f098";
+} /* '' */
+.icon-mail-alt:before {
+  content: "\f0e0";
+} /* '' */
+.icon-cc-visa:before {
+  content: "\f1f0";
+} /* '' */
+.icon-cc-mastercard:before {
+  content: "\f1f1";
+} /* '' */
+.icon-cc-paypal:before {
+  content: "\f1f4";
+} /* '' */
+.icon-cart-plus:before {
+  content: "\f217";
+} /* '' */

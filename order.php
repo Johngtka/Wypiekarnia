@@ -10,9 +10,9 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="css1/youtube.css" type="text/css" />
     <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css1/blik.css" type="text/css" />
     <script src="scripts.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <!--Font section-->
@@ -83,7 +83,14 @@
             echo "<p>Na adres $adres i Numer Telefonu: $telefon<p>";
             echo "<p>Na termin: $data i Godzinę: $czas</p>";
             echo "<h1>Z komentarzem:</h1><br> $komentarz";
+            echo " <h1>Wybierz Metode Płatności:</h1>";
         ?>
+        <div class="pay">
+          <div class="option"><i class="icon-credit-card"></i></div>
+          <div class="option"><i class="icon-cc-paypal"></i></div>
+          <div class="option"><i class="icon-cc-visa"></i></div>
+          <div class="option"><i class="icon-cc-mastercard"></i></div>
+        </div>
     </div>
     <footer>Lorem ipsum</footer>
     <script src="js/bootstrap.min.js"></script>    
