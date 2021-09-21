@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="pl-PL">
-  <head>
-    <meta charset="utf-8" />
-    <title>Koszyk</title>
-    <!--JS odc 02, 36:17min-->
-    <meta name="description" content="Zamów swoje ulubione delicje" />
+    <head>
+        <meta charset="utf-8"/>
+        <title>Podsumowanie</title>
+        <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta
       name="keywords"
       content="ciasta, torty, i, wypieki, na, każdą, okazję"
@@ -41,12 +40,9 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap"
       rel="stylesheet"
     />
-    <?php
-      
-    ?>
     <!--And of section-->
-  </head>
-  <body>
+    </head>
+    <body>
     <div class="up">
       <div id="logo" onclick="x()">
         <div id="a">
@@ -74,8 +70,22 @@
       </ol>
       <div style="clear: both"></div>
     </div>
-    <div class="main"></div>
+    <div class="main">
+    <?php
+            $i = $_POST["i"];
+            $adres = $_POST["adres"];
+            $telefon = $_POST["telefon"];
+            $data = $_POST["data"];
+            $czas = $_POST["czas"];
+            $komentarz = $_POST["komentarz"];
+            echo "<h1>Podsumowanie</h1>";
+            echo "<p>Zamówiłeś $i Tortów</p>";
+            echo "<p>Na adres $adres i Numer Telefonu: $telefon<p>";
+            echo "<p>Na termin: $data i Godzinę: $czas</p>";
+            echo "<h1>Z komentarzem:</h1><br> $komentarz";
+        ?>
+    </div>
     <footer>Lorem ipsum</footer>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+    <script src="js/bootstrap.min.js"></script>    
+    </body>
 </html>

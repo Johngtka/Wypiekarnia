@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Zamówienie Tortu</title>
-    <!--php odc 01, 15:38min-->
+    <!--php odc 01, 38:35min-->
     <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta
       name="keywords"
@@ -42,9 +42,6 @@
       rel="stylesheet"
     />
     <!--And of section-->
-    <?php
-      
-    ?>
   </head>
   <body>
     <div class="up">
@@ -59,7 +56,7 @@
           <a href="#">MENU &#9776;</a>
           <ul>
             <li>
-              <a href="file:///D:/Wypiekarnia/index.html"
+              <a href="http://localhost/Wypiekarnia/"
                 >Strona Główna<i class="icon-globe"></i
               ></a>
             </li>
@@ -74,65 +71,19 @@
       </ol>
       <div style="clear: both"></div>
     </div>
-    <!--<p>Określ pozycję liczby wegług osi liczbowej</p>
-    <input type="text" placeholder="Wpisz Liczbę" id="pole" />
-    <input type="submit" value="Sprawdź" onclick="sprawdz()" />
-    <div id="wynik"></div>
-    <p>Zobacz jakie liczby są w przedziale liczb które wybrałeś</h1><br>
-    <input type="text" placeholder="Wpisz Liczbę Mniejszą" id="pole1" />
-    <input type="text" placeholder="Wpisz Liczbę Większą" id="pole2" />
-    <input type="submit" value="Pokaż" onclick="wypisz()" />
-    <div id="linia"></div>-->
     <div class="main1">
-      <form action="order.php" method="post" enctype="multipart/form-data">
-        <!-- <div class="row">
-          <fieldset>
-            <legend>Wybierz Produkt:</legend>
-
-            <div>
-              <label><input type="radio" value="1" name="tort" />Tort</label>
-            </div>
-            <div>
-              <label
-                ><input type="radio" value="2" name="ciasto" />Ciasto</label
-              >
-            </div>
-            <div>
-              <label><input type="radio" value="3" name="tarta" />Tarta</label>
-            </div>
-            <div>
-              <label
-                ><input type="radio" value="4" name="babeczka" />Babeczka</label
-              >
-            </div>
-            <div>
-              <label
-                ><input
-                  type="radio"
-                  value="5"
-                  name="Ciasteczko"
-                />Ciasteczko</label
-              >
-            </div>
-            <div>
-              <label
-                ><input type="radio" value="6" name="bułeczka" />Bułeczka</label
-              >
-            </div>
-          </fieldset>
-        </div>-->
-
-        <!--<div class="row">
-          <label for="silnik">Wybierz Smak:</label>
-          <select>
-            <option value="k">Kakaowy</option>
-            <option value="k">Kakaowy</option>
-          </select>
-        </div>-->
-
+      <form action="order.php" method="post">
+        <div class="row">
+				<legend><b>Rodzaj Tortu:</b></legend>
+				<div style="margin-top:10px;">
+					<input type="checkbox" name="u"><b>Urodzinowy(50zł/Kg)</b></input><br>
+					<input type="checkbox" name="d"><b>Dla smakoszy(20zł/Kg)</b></input><br>
+					<input type="checkbox" name="j"><b>Jubileuszowy(30zł/Kg)</b></input><br>
+					<input type="checkbox" name="s"><b>Ślubny(40zł/Kg)</b></input>
+				</div>
         <div class="row">
           <fieldset>
-            <legend>Dodatki:</legend>
+            <legend><b>Dodatki:</b></legend>
             <div class="col">
               <div>
                 <label
@@ -142,7 +93,7 @@
                     value="1"
                     disabled
                     checked
-                  />Zapakowany</label
+                  /><b>Zapakowany</b></label
                 >
               </div>
               <div>
@@ -153,44 +104,30 @@
                     value="2"
                     disabled
                     checked
-                  />W Eko Torebce</label
+                  /><b>W Eko Torebce</b></label
                 >
               </div>
               <div>
                 <label
-                  ><input type="checkbox" name="dod[]" value="3" />Posypka
-                  Czekoladowa</label
+                  ><input type="checkbox" name="dod[]" value="3" /><b>Posypka
+                  Czekoladowa</b></label
                 >
                 <div>
                   <label
-                    ><input type="checkbox" name="dod[]" value="4" />Posypka
-                    Cukrowa</label
+                    ><input type="checkbox" name="dod[]" value="4" /><b>Posypka
+                    Cukrowa</b></label
                   >
                 </div>
               </div>
               <div>
                 <label
-                  ><input type="checkbox" name="dod[]" value="5" />Owoce na
-                  wieszhu</label
+                  ><input type="checkbox" name="dod[]" value="5" /><b>Owoce na
+                  wieszhu</b></label
                 >
               </div>
             </div>
           </fieldset>
         </div>
-
-        <!--<div class="row">
-				<label for="choinka">Choinki Zapachowe:</label>
-				
-				<div style="margin-top:10px;">
-					<select id="chionka" name="choinka[]" multiple size="4">
-				
-						<option value="k">Kokosowa</option>
-						<option value="c" selected>Cytrynowa</option>
-						<option value="t">Truskawkowa</option>
-						<option value="b">Brzoskwiniowa</option>
-					
-					</select>
-				</div>-->
         <!--
 			<div class="row">
 				<div><label>Imię: <input type="text" name="imie" placeholder="Jak masz na imię?"></label></div>
@@ -200,28 +137,28 @@
 			-->
         <div class="row">
           <label
-            >Ilość kluczyków:<input type="number" name="kluczyk" step="1"
+            ><b>Ilość:</b><input type="number" placeholder="Wpisz ile chcesz tortów" name="i" step="1"
           /></label>
         </div>
 
         <div class="row">
           <label
-            >Adres Email:<input
+            ><b>Adres Email:</b><input
               type="email"
               placeholder="example@gmail.com"
               name="adres"
               required /></label
           ><br /><br />
           <label
-            >Numer Telefonu:<input type="tel" name="telefon" required
+            ><b>Numer Telefonu:</b><input type="tel" name="telefon" required
           /></label>
         </div>
 
         <div class="row">
-          <label>Data dostawy:<input type="date" name="data" /></label
+          <label><b>Data dostawy:</b><input type="date" name="data" /></label
           ><br /><br />
           <label
-            >Czas dostawy:<input
+            ><b>Czas dostawy:</b><input
               type="time"
               name="czas"
               min="09:00"
@@ -230,7 +167,7 @@
         </div>
 
         <div class="row">
-          <div><label for="komentarz">Uwagi do zamówienia:</label></div>
+          <div><label><b>Uwagi do zamówienia:</b></label></div>
           <textarea
             name="komentarz"
             id="komentarz"
