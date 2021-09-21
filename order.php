@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
+    <link rel="stylesheet" href="css1/font.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" href="css1/blik.css" type="text/css" />
     <script src="scripts.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <!--Font section-->
@@ -56,8 +56,7 @@
           <ul>
             <li>
               <a href="http://localhost/Wypiekarnia/"
-                >Strona Główna<i class="icon-globe"></i
-              ></a>
+                >Strona Główna<i class="icon-home"></i></a>
             </li>
             <li>
               <a href="#">Kontakt<i class="icon-phone-squared"></i></a>
@@ -68,10 +67,12 @@
           </ul>
         </li>
       </ol>
-      <div style="clear: both"></div>
+      <div style="clear: both;"></div>
     </div>
     <div class="main">
+      <!--the error sector to repair the errors is in 75 and 80 line-->
     <?php
+    
             $i = $_POST["i"];
             $adres = $_POST["adres"];
             $telefon = $_POST["telefon"];
@@ -85,11 +86,12 @@
             echo "<h1>Z komentarzem:</h1><br> $komentarz";
             echo " <h1>Wybierz Metode Płatności:</h1>";
         ?>
+      <!--and of sector-->
         <div class="pay">
-          <div class="option"><i class="icon-credit-card"></i></div>
-          <div class="option"><i class="icon-cc-paypal"></i></div>
-          <div class="option"><i class="icon-cc-visa"></i></div>
-          <div class="option"><i class="icon-cc-mastercard"></i></div>
+        <i class="icon-credit-card-alt"></i>
+        <i class="icon-cc-visa"></i>
+        <i class="icon-cc-mastercard"></i>
+        <i class="icon-cc-paypal"></i>
         </div>
     </div>
     <footer>Lorem ipsum</footer>

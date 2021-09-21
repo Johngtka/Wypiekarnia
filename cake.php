@@ -11,7 +11,6 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="css1/youtube.css" type="text/css" />
     <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <script src="scripts.js"></script>
@@ -57,11 +56,10 @@
           <ul>
             <li>
               <a href="http://localhost/Wypiekarnia/"
-                >Strona Główna</i
-              ></a>
+                >Strona Główna<i class="icon-home"></i></a>
             </li>
             <li>
-              <a href="#">Kontakt</a>
+              <a href="#">Kontakt<i class="demo-icon icon-phone-squared">&#xf098;</i></a>
             </li>
             <li>
               <a href="#">Aktualizacje &#9781;</a>
@@ -72,6 +70,15 @@
       <div style="clear: both"></div>
     </div>
     <div class="main1">
+      <!--<p>Określ pozycję liczby wegług osi liczbowej</p>
+    <input type="text" placeholder="Wpisz Liczbę" id="pole" />
+    <input type="submit" value="Sprawdź" onclick="sprawdz()" />
+    <div id="wynik"></div>
+    <p>Zobacz jakie liczby są w przedziale liczb które wybrałeś</h1><br>
+    <input type="text" placeholder="Wpisz Liczbę Mniejszą" id="pole1" />
+    <input type="text" placeholder="Wpisz Liczbę Większą" id="pole2" />
+    <input type="submit" value="Pokaż" onclick="wypisz()" />
+    <div id="linia"></div>-->
       <form action="order.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Tortu:</b></legend>
@@ -161,8 +168,8 @@
             ><b>Czas dostawy:</b><input
               type="time"
               name="czas"
-              min="09:00"
-              max="18:00"
+              min="10:00"
+              max="23:00"
           /></label>
         </div>
 
