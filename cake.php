@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
+    <link rel="stylesheet" href="css1/font.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <script src="scripts.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -59,7 +60,7 @@
                 >Strona Główna<i class="icon-home"></i></a>
             </li>
             <li>
-              <a href="#">Kontakt<i class="demo-icon icon-phone-squared">&#xf098;</i></a>
+              <a href="#">Kontakt<i class="icon-phone-squared"></i></a>
             </li>
             <li>
               <a href="#">Aktualizacje &#9781;</a>
