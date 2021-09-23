@@ -70,23 +70,20 @@
       <div style="clear: both;"></div>
     </div>
     <div class="main">
-      <!--the error sector to repair the errors is in 75 and 80 line-->
-    <?php
-    
-            $i = $_POST["i"];
-            $adres = $_POST["adres"];
-            $telefon = $_POST["telefon"];
-            $data = $_POST["data"];
-            $czas = $_POST["czas"];
-            $komentarz = $_POST["komentarz"];
-            echo "<h1>Podsumowanie</h1>";
-            echo "<p>Zamówiłeś $i Tortów</p>";
-            echo "<p>Na adres $adres i Numer Telefonu: $telefon<p>";
-            echo "<p>Na termin: $data i Godzinę: $czas</p>";
-            echo "<h1>Z komentarzem:</h1><br> $komentarz";
-            echo " <h1>Wybierz Metode Płatności:</h1>";
+        <?php
+          $i = $_POST["i"];
+          $adres = $_POST["adres"];
+          $telefon = $_POST["telefon"];
+          $data = $_POST["data"];
+          $czas = $_POST["czas"];
+          $komentarz = $_POST["komentarz"];
+          echo "<h1>Podsumowanie</h1>";
+          echo "<p>Zamówiłeś $i Tortów</p>";
+          echo "<p>Na adres $adres i Numer Telefonu: $telefon<p>";
+          echo "<p>Na termin: $data i Godzinę: $czas</p>";
+          echo "<h1>Z komentarzem:</h1><br> $komentarz";
+          echo " <h1>Wybierz Metode Płatności:</h1>";
         ?>
-      <!--and of sector-->
         <div class="pay">
         <i class="icon-credit-card-alt"></i>
         <i class="icon-cc-visa"></i>
