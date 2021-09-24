@@ -71,18 +71,30 @@
     </div>
     <div class="main">
         <?php
+          //require_once "dbconnect.php";
+          //$conn = new mysqli($host, $user, $password, $database);
           $i = $_POST["i"];
           $adres = $_POST["adres"];
           $telefon = $_POST["telefon"];
           $data = $_POST["data"];
           $czas = $_POST["czas"];
           $komentarz = $_POST["komentarz"];
-          echo "<h1>Podsumowanie</h1>";
-          echo "<p>Zamówiłeś $i Tortów</p>";
-          echo "<p>Na adres $adres i Numer Telefonu: $telefon<p>";
-          echo "<p>Na termin: $data i Godzinę: $czas</p>";
-          echo "<h1>Z komentarzem:</h1><br> $komentarz";
-          echo " <h1>Wybierz Metode Płatności:</h1>";
+          //$sql = "INSERT INTO 'klijęci' ('email', 'telefon') VALUES (NULL, $adres, $telefon);";
+              //if ($conn->querry($sql)===TRUE){
+                //echo "Record is add";
+              //}else{
+                //echo"błąd" . $sql . "<br>" . $conn->error;
+              //}
+              //$conn->close();
+          echo<<<END
+          <h1>Podsumowanie</h1>
+          <p>Zamówiłeś $i Tortów</p>
+          <p>Na adres $adres i Numer Telefonu: $telefon<p>
+          <p>Na termin: $data i Godzinę: $czas</p>
+          <h1>Z komentarzem:</h1>
+          <br> $komentarz
+          <h1>Wybierz Metode Płatności:</h1>
+          END;
         ?>
         <div class="pay">
         <i class="icon-credit-card-alt"></i>
