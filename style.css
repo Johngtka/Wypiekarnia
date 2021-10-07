@@ -18,6 +18,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+input:focus {
+  background-color: aqua;
+}
 #logo {
   margin: 0;
   padding: 0;

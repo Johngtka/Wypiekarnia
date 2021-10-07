@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Zamówienie Tortu</title>
-    <!--php odc 01, 38:35min-->
+    <!--php odc 01, 42:23min-->
     <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta
       name="keywords"
