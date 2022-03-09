@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 08 Mar 2022, 21:45
+-- Czas generowania: 09 Mar 2022, 19:27
 -- Wersja serwera: 10.4.13-MariaDB
 -- Wersja PHP: 7.4.8
 
@@ -29,9 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `klijęci` (
   `id` int(11) NOT NULL,
-  `email` text COLLATE utf8_polish_ci NOT NULL,
-  `telefon` text COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `imie` text NOT NULL,
+  `nazwisko` text NOT NULL,
+  `mail` text NOT NULL,
+  `telefon` text NOT NULL,
+  `logi` text NOT NULL,
+  `haslo` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
