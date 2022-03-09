@@ -41,6 +41,39 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap"
       rel="stylesheet"
     />
+    <style type="text/css">
+      h1{
+        width: 1000px;
+        height: 110px;
+        background-color: #ffffff;
+        opacity: 0.5;
+        color: #000000;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+      }
+      h2{
+        width: 1000px;
+        height: 110px;
+        background-color: #ffffff;
+        opacity: 0.5;
+        color: #000000;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+        padding-top: 25px;
+      }
+      a{
+        text-decoration: none;
+        color: #000000;
+        width: 400px;
+        height: 110px;
+        opacity: 0.5;
+      }
+      a:hover{
+        color: #000000;
+      }
+    </style>
     <script src="scripts.js"></script>
     <!--And of section-->
   </head>
@@ -56,10 +89,6 @@
         <li>
           <a href="#">MENU &#9776;</a>
           <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/"
-                >Strona Główna<i class="icon-home"></i></a>
-            </li>
             <li>
               <a href="#">Kontakt<i class="icon-phone-squared"></i></a>
             </li>
@@ -87,7 +116,19 @@
           $login = $_POST['login'];
           $haslo = $_POST['password'];
           $sql = "SELECT * FROM klijęci WHERE logi='$login' AND haslo='$haslo'";
-          $result = @$conn->query($sql);
+          if ($result = @$conn->query($sql)){
+            $ilosc = $result->num_rows;
+            if($ilosc>0){
+                $row = $result->fetch_assoc();
+                $user = $row['logi'];
+                $haslo = $row['haslo'];
+                echo "<h1>Witaj<br> $login</h1>";
+                echo "<h2><a href='http://localhost/Wypiekarnia/'>Strona Startowa</a></h2>";
+                $result->free();
+            }else{
+
+            }
+          }
           $conn->close();
         }
     ?>

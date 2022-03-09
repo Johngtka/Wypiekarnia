@@ -42,6 +42,40 @@
       rel="stylesheet"
     />
     <script src="scripts.js"></script>
+    <style type="text/css">
+      h1{
+        width: 1000px;
+        height: 110px;
+        background-color: #ffffff;
+        opacity: 0.5;
+        padding-top: 25px;
+        color: #000000;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+      }
+      h2{
+        width: 1000px;
+        height: 110px;
+        background-color: #ffffff;
+        opacity: 0.5;
+        color: #000000;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+        padding-top: 25px;
+      }
+      a{
+        text-decoration: none;
+        color: #000000;
+        width: 400px;
+        height: 110px;
+        opacity: 0.5;
+      }
+      a:hover{
+        color: #000000;
+      }
+    </style>
     <!--And of section-->
   </head>
   <body onload="zmienslajd()">
@@ -92,6 +126,8 @@
         $haslo = $_POST['password'];
         $sql ="INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')";
         $result = @$conn->query($sql);
+        echo "<h1>Witaj $username</h1>";
+        echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Startowa</a></h2>";
         $conn->close();
       }
     ?>
