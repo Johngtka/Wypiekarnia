@@ -86,7 +86,8 @@
         else{
           $login = $_POST['login'];
           $haslo = $_POST['password'];
-          
+          $sql = "SELECT * FROM klijęci WHERE logi='$login' AND `haslo`='$haslo'";
+          $result = @$conn->query($sql);
           $conn->close();
         }
     ?>

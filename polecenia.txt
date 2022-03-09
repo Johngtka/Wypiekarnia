@@ -1,0 +1,1 @@
+INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')
