@@ -127,7 +127,7 @@
         $sql ="INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')";
         $result = @$conn->query($sql);
         echo "<h1>Witaj $username</h1>";
-        echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Startowa</a></h2>";
+        echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania</a></h2>";
         $conn->close();
       }
     ?>
