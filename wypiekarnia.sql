@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 24 Wrz 2021, 13:17
--- Wersja serwera: 10.4.17-MariaDB
--- Wersja PHP: 8.0.2
+-- Czas generowania: 08 Mar 2022, 21:45
+-- Wersja serwera: 10.4.13-MariaDB
+-- Wersja PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -89,6 +89,21 @@ CREATE TABLE `relacje` (
   `data zamówienia` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zamowienia`
+--
+
+CREATE TABLE `zamowienia` (
+  `id` int(11) NOT NULL,
+  `produkt` text NOT NULL,
+  `cena` text NOT NULL,
+  `ilosc` text NOT NULL,
+  `data` date NOT NULL,
+  `godzina` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -112,7 +127,13 @@ ALTER TABLE `relacje`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- Indeksy dla tabeli `zamowienia`
+--
+ALTER TABLE `zamowienia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
@@ -131,6 +152,12 @@ ALTER TABLE `produkty`
 -- AUTO_INCREMENT dla tabeli `relacje`
 --
 ALTER TABLE `relacje`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `zamowienia`
+--
+ALTER TABLE `zamowienia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

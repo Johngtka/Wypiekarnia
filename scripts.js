@@ -64,22 +64,23 @@ function zegarek() {
     }
     var numer = Math.floor(Math.random() * 6) + 1;
 
-      var timer1 = 0;
-      var timer2 = 0;
+    var timer1 = 0;
+    var timer2 = 0;
+    function schowaj() {
+      $("#slider").fadeOut(500);
+    }
 
-      function schowaj() {
-        $("#slider").fadeOut(500);
-      }
+    function zmienslajd() {
+      numer++;
+      if (numer > 6) numer = 1;
 
-      function zmienslajd() {
-        numer++;
-        if (numer > 6) numer = 1;
+      var plik = '<a href="#"><img src="slajdy/slajd' + numer + '.png" /></a>';
 
-        var plik = '<a href="#"><img src="slajdy/slajd' + numer + '.png" /></a>';
+      document.getElementById("slider").innerHTML = plik;
+      $("#slider").fadeIn(500);
 
-        document.getElementById("slider").innerHTML = plik;
-        $("#slider").fadeIn(500);
+      timer1 = setTimeout("zmienslajd()", 5000);
+      timer2 = setTimeout("schowaj()", 4500);
+    }
 
-        timer1 = setTimeout("zmienslajd()", 5000);
-        timer2 = setTimeout("schowaj()", 4500);
-      }
+      

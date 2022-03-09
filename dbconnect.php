@@ -2,8 +2,5 @@
     $host="localhost";
     $user="root";
     $password="";
-    $database="wypiekarnia";    
-    $table1="klijęci";
-    $table="produkty";
-    $table3="relacje";
+    $database="wypiekarnia";
 ?>

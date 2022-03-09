@@ -80,62 +80,15 @@
     <input type="text" placeholder="Wpisz Liczbę Większą" id="pole2" />
     <input type="submit" value="Pokaż" onclick="wypisz()" />
     <div id="linia"></div>-->
-      <form action="1.php" method="POST">
+      <form action="5.php" method="POST">
         <div class="row">
-				<legend><b>Rodzaj Tortu:</b></legend>
+				<legend><b>Rodzaj Ciastek:</b></legend>
 				<div style="margin-top:10px;">
-					<input type="checkbox" name="urodzinowy"><b>Urodzinowy(50zł/Kg)</b></input><br>
-					<input type="checkbox" name="smakosz"><b>Dla smakoszy(20zł/Kg)</b></input><br>
-					<input type="checkbox" name="jubileuszowy"><b>Jubileuszowy(30zł/Kg)</b></input><br>
-					<input type="checkbox" name="slubny"><b>Ślubny(40zł/Kg)</b></input>
+					<input type="checkbox" name="czek"><b>Ciastka z czekoladą(5zł/100gr)</b></input><br>
+					<input type="checkbox" name="ziarna"><b>Ciastka Ziarna w Karmelu(5zł/100gr)</b></input><br>
+					<input type="checkbox" name="bakaliowe"><b>Ciastka Owsiane z bakaliami(7zł/100gr)</b></input><br>
+					<input type="checkbox" name="cantuccini"><b>Ciastka Cantuccini(6zł/100gr)</b></input>
 				</div>
-        <div class="row">
-          <fieldset>
-            <legend><b>Dodatki:</b></legend>
-            <div class="col">
-              <div>
-                <label
-                  ><input
-                    type="checkbox"
-                    name="dod[]"
-                    value="1"
-                    disabled
-                    checked
-                  /><b>Zapakowany</b></label
-                >
-              </div>
-              <div>
-                <label
-                  ><input
-                    type="checkbox"
-                    name="dod[]"
-                    value="2"
-                    disabled
-                    checked
-                  /><b>W Eko Torebce</b></label
-                >
-              </div>
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="3" /><b>Posypka
-                  Czekoladowa</b></label
-                >
-                <div>
-                  <label
-                    ><input type="checkbox" name="dod[]" value="4" /><b>Posypka
-                    Cukrowa</b></label
-                  >
-                </div>
-              </div>
-              <div>
-                <label
-                  ><input type="checkbox" name="dod[]" value="5" /><b>Owoce na
-                  wieszhu</b></label
-                >
-              </div>
-            </div>
-          </fieldset>
-        </div>
         <!--
 			<div class="row">
 				<div><label>Imię: <input type="text" name="imie" placeholder="Jak masz na imię?"></label></div>

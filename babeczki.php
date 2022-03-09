@@ -80,14 +80,14 @@
     <input type="text" placeholder="Wpisz Liczbę Większą" id="pole2" />
     <input type="submit" value="Pokaż" onclick="wypisz()" />
     <div id="linia"></div>-->
-      <form action="1.php" method="POST">
+      <form action="4.php" method="POST">
         <div class="row">
-				<legend><b>Rodzaj Tortu:</b></legend>
+				<legend><b>Rodzaj Babeczki:</b></legend>
 				<div style="margin-top:10px;">
-					<input type="checkbox" name="urodzinowy"><b>Urodzinowy(50zł/Kg)</b></input><br>
-					<input type="checkbox" name="smakosz"><b>Dla smakoszy(20zł/Kg)</b></input><br>
-					<input type="checkbox" name="jubileuszowy"><b>Jubileuszowy(30zł/Kg)</b></input><br>
-					<input type="checkbox" name="slubny"><b>Ślubny(40zł/Kg)</b></input>
+					<input type="checkbox" name="biala"><b>Babeczka Czekoladowa Biała(8zł/100gr)</b></input><br>
+					<input type="checkbox" name="carna"><b>Babeczka Czekoladowa Czarna(8zł/100gr)</b></input><br>
+					<input type="checkbox" name="malinowa"><b>Babeczka Malinowa(8zł/100gr)</b></input><br>
+					<input type="checkbox" name="sezonowa"><b>Babeczka Sezonowa(8zł/100gr)</b></input>
 				</div>
         <div class="row">
           <fieldset>
@@ -118,19 +118,17 @@
               <div>
                 <label
                   ><input type="checkbox" name="dod[]" value="3" /><b>Posypka
-                  Czekoladowa</b></label
-                >
-                <div>
-                  <label
-                    ><input type="checkbox" name="dod[]" value="4" /><b>Posypka
-                    Cukrowa</b></label
-                  >
-                </div>
+                  Cukrowa</b></label>
               </div>
               <div>
                 <label
                   ><input type="checkbox" name="dod[]" value="5" /><b>Owoce na
                   wieszhu</b></label
+                >
+              </div>
+              <div>
+                <label
+                  ><input type="checkbox" name="dod[]" value="6" /><b>Polewa Czekoladowa</b></label
                 >
               </div>
             </div>

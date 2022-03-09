@@ -80,14 +80,14 @@
     <input type="text" placeholder="Wpisz Liczbę Większą" id="pole2" />
     <input type="submit" value="Pokaż" onclick="wypisz()" />
     <div id="linia"></div>-->
-      <form action="1.php" method="POST">
+      <form action="3.php" method="POST">
         <div class="row">
-				<legend><b>Rodzaj Tortu:</b></legend>
+				<legend><b>Rodzaj Tarty:</b></legend>
 				<div style="margin-top:10px;">
-					<input type="checkbox" name="urodzinowy"><b>Urodzinowy(50zł/Kg)</b></input><br>
-					<input type="checkbox" name="smakosz"><b>Dla smakoszy(20zł/Kg)</b></input><br>
-					<input type="checkbox" name="jubileuszowy"><b>Jubileuszowy(30zł/Kg)</b></input><br>
-					<input type="checkbox" name="slubny"><b>Ślubny(40zł/Kg)</b></input>
+					<input type="checkbox" name="jablkowe"><b>Jabłkowa na mlecznym kremie(35zł/Kg)</b></input><br>
+					<input type="checkbox" name="wiosenne"><b>Wiosenna(30zł/Kg)</b></input><br>
+					<input type="checkbox" name="czekorz"><b>Czekoladowo-Orzechowa(25zł/Kg)</b></input><br>
+					<input type="checkbox" name="malinowe"><b>Malinowa(20zł/Kg)</b></input>
 				</div>
         <div class="row">
           <fieldset>
@@ -118,14 +118,7 @@
               <div>
                 <label
                   ><input type="checkbox" name="dod[]" value="3" /><b>Posypka
-                  Czekoladowa</b></label
-                >
-                <div>
-                  <label
-                    ><input type="checkbox" name="dod[]" value="4" /><b>Posypka
-                    Cukrowa</b></label
-                  >
-                </div>
+                  Czekoladowa</b></label>
               </div>
               <div>
                 <label

@@ -1,20 +1,21 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="pl-PL">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Podsumowanie</title>
-        <meta name="description" content="Zamów swoje ulubione delicje" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Twoje konto</title>
+    <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta
       name="keywords"
       content="ciasta, torty, i, wypieki, na, każdą, okazję"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
     <link rel="stylesheet" href="css1/font.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
     <script src="scripts.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!--https://github.com/Johngtka/Wypiekarnia.git-->
     <!--Font section-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,12 +41,13 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap"
       rel="stylesheet"
     />
+    <script src="scripts.js"></script>
     <!--And of section-->
-    </head>
-    <body>
+  </head>
+  <body onload="zmienslajd()">
     <div class="up">
       <div id="logo" onclick="x()">
-        <div id="a">
+        <div id="a" class="row col-sm-6 visible">
           <img src="img/logo.png" title="Logo" alt="Logo" />
         </div>
         <div id="eggs" class="row col-sm-6 invisible"></div>
@@ -54,7 +56,7 @@
         <li>
           <a href="#">MENU &#9776;</a>
           <ul>
-            <li>
+          <li>
               <a href="http://localhost/Wypiekarnia/"
                 >Strona Główna<i class="icon-home"></i></a>
             </li>
@@ -64,46 +66,35 @@
             <li>
               <a href="#">Aktualizacje &#9781;</a>
             </li>
+            <li>
+              <a href="http://localhost/Wypiekarnia/basket.php"
+                >Zamówienia<i class="icon-basket"></i
+              ></a>
+            </li>
           </ul>
         </li>
       </ol>
-      <div style="clear: both;"></div>
+      <div style="clear: both"></div>
     </div>
     <div class="main">
-        <?php
-          //require_once "dbconnect.php";
-          //$conn = new mysqli($host, $user, $password, $database);
-          $i = $_POST["i"];
-          $adres = $_POST["adres"];
-          $telefon = $_POST["telefon"];
-          $data = $_POST["data"];
-          $czas = $_POST["czas"];
-          $komentarz = $_POST["komentarz"];
-          //$sql = "INSERT INTO 'klijęci' ('email', 'telefon') VALUES (NULL, $adres, $telefon);";
-              //if ($conn->querry($sql)===TRUE){
-                //echo "Record is add";
-              //}else{
-                //echo"błąd" . $sql . "<br>" . $conn->error;
-              //}
-              //$conn->close();
-          echo<<<END
-          <h1>Podsumowanie</h1>
-          <p>Zamówiłeś $i Tortów</p>
-          <p>Na adres $adres i Numer Telefonu: $telefon<p>
-          <p>Na termin: $data i Godzinę: $czas</p>
-          <h1>Z komentarzem:</h1>
-          <br> $komentarz
-          <h1>Wybierz Metode Płatności:</h1>
-          END;
-        ?>
-        <div class="pay">
-        <i class="icon-credit-card-alt"></i>
-        <i class="icon-cc-visa"></i>
-        <i class="icon-cc-mastercard"></i>
-        <i class="icon-cc-paypal"></i>
-        </div>
+      <h1>Logowanie:</h1>
+        <form action="login.php" method="POST">
+            <div class="row">
+                <label>
+                <b>Login:</b><input type="text" name="login" placeholder="Wpisz Login" required/>
+                </label>
+            </div>
+            <div class="row">
+            <label>
+                <b>Hasło:</b><input type="password" name="password" placeholder="Wpisz Hasło" required /><br>
+            </label>
+            </div>
+            <input type="submit" value="Zaloguj"/><br><br>
+        </form>
+        <form action="rejestracja.php" method="POST"><input type="submit" value="Zarejestruj"></form>
+        <div id="slider"></div>
     </div>
     <footer>Lorem ipsum</footer>
-    <script src="js/bootstrap.min.js"></script>    
-    </body>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
