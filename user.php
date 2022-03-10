@@ -1,9 +1,5 @@
 <?php
-  session_start();
-  if(isset($_SESSION['zalogowany']) && $_SESSION['zalogowany']==true){
-    header('Location: user.php');
-    exit();
-  }
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -48,7 +44,40 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap"
       rel="stylesheet"
     />
-    <script src="scripts.js"></script>-->
+    <style type="text/css">
+      h1{
+        width: 1000px;
+        height: 110px;
+        background-color: #000000;
+        opacity: 0.5;
+        color: #ffffff;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+      }
+      h2{
+        width: 1000px;
+        height: 110px;
+        background-color: #000000;
+        opacity: 0.5;
+        color: #ffffff;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+        padding-top: 25px;
+      }
+      a{
+        text-decoration: none;
+        color: #ffffff;
+        width: 400px;
+        height: 110px;
+        opacity: 0.5;
+      }
+      a:hover{
+        color: #ffffff;
+      }
+    </style>-->
+    <script src="scripts.js"></script>
     <!--And of section-->
   </head>
   <body onload="zmienslajd()">
@@ -63,10 +92,6 @@
         <li>
           <a href="#">MENU &#9776;</a>
           <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/"
-                >Strona Główna<i class="icon-home"></i></a>
-            </li>
             <li>
               <a href="#">Kontakt<i class="icon-phone-squared"></i></a>
             </li>
@@ -84,28 +109,11 @@
       <div style="clear: both"></div>
     </div>-->
     <div class="main">
-      <h1>Logowanie:</h1>
-        <form action="login.php" method="POST">
-            <div class="row">
-                <label>
-                <b>Login:</b><input type="text" name="login" placeholder="Wpisz Login" required/>
-                </label>
-            </div>
-            <div class="row">
-            <label>
-                <b>Hasło:</b><input type="password" name="password" placeholder="Wpisz Hasło" required /><br>
-            </label>
-            </div>
-            <input type="submit" value="Zaloguj"/><br><br>
-        </form>
-        <form action="rejestracja.php" method="POST"><input type="submit" value="Zarejestruj"></form>
         <?php
-          if(isset($_SESSION['err']))
-          { 
-            echo $_SESSION['err'];
-          }
+            echo "<h1>Witaj<br>".$_SESSION['login']."</h1>";
+            echo "<h2><a href='http://localhost/Wypiekarnia/'>Strona Główna</a></h2>";
         ?>
-        <!--<div id="slider"></div>-->
+      <!--<br><div id="slider"></div><br><br><br><br>-->
     </div>
     <footer>Lorem ipsum</footer>
     <script src="js/bootstrap.min.js"></script>

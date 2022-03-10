@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl-PL">
   <head>
@@ -11,13 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css1/font.css" type="text/css" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <!--<link rel="stylesheet" href="style.css" type="text/css" />-->
     <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
     <script src="scripts.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <!--https://github.com/Johngtka/Wypiekarnia.git-->
     <!--Font section-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!--<link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap"
@@ -73,12 +76,12 @@
       a:hover{
         color: #ffffff;
       }
-    </style>
+    </style>-->
     <script src="scripts.js"></script>
     <!--And of section-->
   </head>
   <body onload="zmienslajd()">
-    <div class="up">
+    <!--<div class="up">
       <div id="logo" onclick="x()">
         <div id="a" class="row col-sm-6 visible">
           <img src="img/logo.png" title="Logo" alt="Logo" />
@@ -104,10 +107,9 @@
         </li>
       </ol>
       <div style="clear: both"></div>
-    </div>
+    </div>-->
     <div class="main">
     <?php
-        session_start();
         require_once "dbconnect.php";
         $conn = @new mysqli($host, $user, $password, $database);
         if ($conn->connect_errno!=0){
@@ -120,20 +122,23 @@
           if ($result = @$conn->query($sql)){
             $ilosc = $result->num_rows;
             if($ilosc==1){
+                $_SESSION['zalogowany'] = true;
                 $row = $result->fetch_assoc();
-                $user = $row['logi'];
-                $haslo = $row['haslo'];
-                echo "<h1>Witaj<br> $login</h1>";
-                echo "<h2><a href='http://localhost/Wypiekarnia/'>Strona Startowa</a></h2>";
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['login'] = $row['logi'];
+                $_SESSION['haslo'] = $row['haslo'];
+                unset($_SESSION['err']);
                 $result->free();
+                header('Location: user.php');
             }else{
-                 
+                 $_SESSION['err'] = '<span style="color: red"><b>*Nieprawidłowy login lub hasło</b></span>';  
+                 header('Location: konto.php');
             }
           }
           $conn->close();
         }
-    ?>
-        <br><div id="slider"></div><br><br><br><br>
+      ?>
+      <!--<br><div id="slider"></div><br><br><br><br>-->
     </div>
     <footer>Lorem ipsum</footer>
     <script src="js/bootstrap.min.js"></script>
