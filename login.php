@@ -45,9 +45,9 @@
       h1{
         width: 1000px;
         height: 110px;
-        background-color: #ffffff;
+        background-color: #000000;
         opacity: 0.5;
-        color: #000000;
+        color: #ffffff;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0;
@@ -55,9 +55,9 @@
       h2{
         width: 1000px;
         height: 110px;
-        background-color: #ffffff;
+        background-color: #000000;
         opacity: 0.5;
-        color: #000000;
+        color: #ffffff;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0;
@@ -65,13 +65,13 @@
       }
       a{
         text-decoration: none;
-        color: #000000;
+        color: #ffffff;
         width: 400px;
         height: 110px;
         opacity: 0.5;
       }
       a:hover{
-        color: #000000;
+        color: #ffffff;
       }
     </style>
     <script src="scripts.js"></script>

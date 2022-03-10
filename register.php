@@ -117,19 +117,19 @@
         if ($conn->connect_errno!=0){
           echo "Error:".$conn->connect_errno;
         }
-      else{
-        $imie = $_POST['name'];
-        $nazwisko = $_POST['subname'];
-        $adres = $_POST['adres'];
-        $telefon = $_POST['telefon'];
-        $username = $_POST['login'];
-        $haslo = $_POST['password'];
-        $sql ="INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')";
-        $result = @$conn->query($sql);
-        echo "<h1>Witaj $username</h1>";
-        echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania</a></h2>";
-        $conn->close();
-      }
+        else{
+          $imie = $_POST['name'];
+          $nazwisko = $_POST['subname'];
+          $adres = $_POST['adres'];
+          $telefon = $_POST['telefon'];
+          $username = $_POST['login'];
+          $haslo = $_POST['password'];
+          $sql ="INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')";
+          $result = @$conn->query($sql);
+          echo "<h1>Witaj $username</h1>";
+          echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania</a></h2>";
+          $conn->close();
+        }
     ?>
         <br><div id="slider"></div><br><br><br><br>
     </div>
