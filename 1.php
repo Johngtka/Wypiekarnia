@@ -90,6 +90,12 @@
           echo "<h1>Z komentarzem:</h1>";
           echo "<br> $komentarz";
           echo "<h1>Wybierz Metode Płatności:</h1>";
+          require_once "dbconnect.php";
+          $conn = @new mysqli($host, $user, $password, $database);
+          if ($conn->connect_errno!=0){
+            echo "Error:".$conn->connect_errno;
+          }else{
+          }
         ?>
         <div class="pay">
         <i class="icon-credit-card-alt"></i>

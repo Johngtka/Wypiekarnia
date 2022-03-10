@@ -84,10 +84,10 @@
         <div class="row">
 				<legend><b>Rodzaj Tortu:</b></legend>
 				<div style="margin-top:10px;">
-					<input type="checkbox" name="urodzinowy"><b>Urodzinowy(50zł/Kg)</b></input><br>
-					<input type="checkbox" name="smakosz"><b>Dla smakoszy(20zł/Kg)</b></input><br>
-					<input type="checkbox" name="jubileuszowy"><b>Jubileuszowy(30zł/Kg)</b></input><br>
-					<input type="checkbox" name="slubny"><b>Ślubny(40zł/Kg)</b></input>
+					<input type="checkbox" name="urodzinowy" value="pole1"><b>Urodzinowy(50zł/Kg)</b></input><br>
+					<input type="checkbox" name="smakosz" value="pole2"><b>Dla smakoszy(20zł/Kg)</b></input><br>
+					<input type="checkbox" name="jubileuszowy" value="pole3"><b>Jubileuszowy(30zł/Kg)</b></input><br>
+					<input type="checkbox" name="slubny" value="pole4"><b>Ślubny(40zł/Kg)</b></input>
 				</div>
         <div class="row">
           <fieldset>
