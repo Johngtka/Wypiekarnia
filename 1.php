@@ -79,6 +79,7 @@
           $komentarz = $_POST["komentarz"];
           echo "<h1>Podsumowanie</h1>";
           echo "<p>Zamówiłeś $i Tortów</p>";
+          
           if (isset($_POST['urodzinowy'])) echo "Urodzinowych<br><br>"; 
           if (isset($_POST['smakosz'])) echo "Dla Smakoszy<br>";
           if (isset($_POST['jubileuszowy']))echo "Jubileuszowych<br>";

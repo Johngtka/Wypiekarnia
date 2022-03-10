@@ -83,12 +83,17 @@
       <form action="5.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Ciastek:</b></legend>
-				<div style="margin-top:10px;">
-					<input type="checkbox" name="czek"><b>Ciastka z czekoladą(5zł/100gr)</b></input><br>
-					<input type="checkbox" name="ziarna"><b>Ciastka Ziarna w Karmelu(5zł/100gr)</b></input><br>
-					<input type="checkbox" name="bakaliowe"><b>Ciastka Owsiane z bakaliami(7zł/100gr)</b></input><br>
-					<input type="checkbox" name="cantuccini"><b>Ciastka Cantuccini(6zł/100gr)</b></input>
-				</div>
+        <div style="margin-top:10px;">
+          <label>
+          <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
+          <datalist id="browsers">
+            <option value="Ciastka z czekoladą(5zł/100gr)">
+            <option value="Ciastka Ziarna w Karmelu(5zł/100gr)">
+            <option value="Ciastka Owsiane z bakaliami(7zł/100gr)">
+            <option value="Ciastka Cantuccini(6zł/100gr)">
+          </datalist>
+        </label>
+        </div>
         <!--
 			<div class="row">
 				<div><label>Imię: <input type="text" name="imie" placeholder="Jak masz na imię?"></label></div>

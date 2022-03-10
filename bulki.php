@@ -83,19 +83,17 @@
       <form action="6.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Bułek:</b></legend>
-				<div style="margin-top:10px;">
-					<input type="checkbox" name="przenna"><b>Bułka Przenna(0,60gr/1szt)</b></input><br>
-					<input type="checkbox" name="kajzerka"><b>Bułka Kajzerka(0,80gr/1szt)</b></input><br>
-					<input type="checkbox" name="razowa"><b>Bułka Razowa(0,90gr/1szt)</b></input><br>
-					<input type="checkbox" name="ziarnista"><b>Bułka Ziarnista(0,50gr/1szt)</b></input>
-				</div>
-        <!--
-			<div class="row">
-				<div><label>Imię: <input type="text" name="imie" placeholder="Jak masz na imię?"></label></div>
-				<div><label>Hasło: <input type="password" name="haslo" placeholder="Wpisz Hasło"></label></div>
-				<div><label>Szukaj: <input type="search" name="fraza" placeholder="Wyszukaj"></label></div>
-			</div>
-			-->
+        <div style="margin-top:10px;">
+          <label>
+          <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
+          <datalist id="browsers">
+            <option value="Bułka Przenna(0,60gr/1szt)">
+            <option value="Bułka Kajzerka(0,80gr/1szt)">
+            <option value="Bułka Razowa(0,90gr/1szt)">
+            <option value="Bułka Ziarnista(0,50gr/1szt)">
+          </datalist>
+        </label>
+        </div>
         <div class="row">
           <label
             ><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1"

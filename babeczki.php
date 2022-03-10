@@ -83,12 +83,17 @@
       <form action="4.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Babeczki:</b></legend>
-				<div style="margin-top:10px;">
-					<input type="checkbox" name="biala"><b>Babeczka Czekoladowa Biała(8zł/100gr)</b></input><br>
-					<input type="checkbox" name="carna"><b>Babeczka Czekoladowa Czarna(8zł/100gr)</b></input><br>
-					<input type="checkbox" name="malinowa"><b>Babeczka Malinowa(8zł/100gr)</b></input><br>
-					<input type="checkbox" name="sezonowa"><b>Babeczka Sezonowa(8zł/100gr)</b></input>
-				</div>
+        <div style="margin-top:10px;">
+          <label>
+          <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
+          <datalist id="browsers">
+            <option value="Babeczka Czekoladowa Biała(8zł/100gr)">
+            <option value="Babeczka Czekoladowa Czarna(8zł/100gr)">
+            <option value="Babeczka Malinowa(8zł/100gr)">
+            <option value="Babeczka Sezonowa(8zł/100gr)">
+          </datalist>
+        </label>
+        </div>
         <div class="row">
           <fieldset>
             <legend><b>Dodatki:</b></legend>

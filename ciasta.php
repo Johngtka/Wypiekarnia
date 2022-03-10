@@ -83,12 +83,17 @@
       <form action="2.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Ciasta:</b></legend>
-				<div style="margin-top:10px;">
-					<input type="checkbox" name="drozdzowe"><b>Drożdżowe(15zł/Kg)</b></input><br>
-					<input type="checkbox" name="sernik"><b>Sernik(20zł/Kg)</b></input><br>
-					<input type="checkbox" name="brown"><b>Brown'e(25zł/Kg)</b></input><br>
-					<input type="checkbox" name="dziec"><b>Dziecięce(30zł/Kg)</b></input>
-				</div>
+        <div style="margin-top:10px;">
+          <label>
+          <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
+          <datalist id="browsers">
+            <option value="Drożdżowe(15zł/Kg)">
+            <option value="Sernik(20zł/Kg)">
+            <option value="Brown'e(25zł/Kg)">
+            <option value="Dziecięce(30zł/Kg)">
+          </datalist>
+        </label>
+        </div>
         <div class="row">
           <fieldset>
             <legend><b>Dodatki:</b></legend>

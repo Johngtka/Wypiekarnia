@@ -83,12 +83,17 @@
       <form action="3.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Tarty:</b></legend>
-				<div style="margin-top:10px;">
-					<input type="checkbox" name="jablkowe"><b>Jabłkowa na mlecznym kremie(35zł/Kg)</b></input><br>
-					<input type="checkbox" name="wiosenne"><b>Wiosenna(30zł/Kg)</b></input><br>
-					<input type="checkbox" name="czekorz"><b>Czekoladowo-Orzechowa(25zł/Kg)</b></input><br>
-					<input type="checkbox" name="malinowe"><b>Malinowa(20zł/Kg)</b></input>
-				</div>
+        <div style="margin-top:10px;">
+          <label>
+          <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
+          <datalist id="browsers">
+            <option value="Jabłkowa na mlecznym kremie(35zł/Kg)">
+            <option value="Wiosenna(30zł/Kg)">
+            <option value="Czekoladowo-Orzechowa(25zł/Kg)">
+            <option value="Malinowa(20zł/Kg)">
+          </datalist>
+        </label>
+        </div>
         <div class="row">
           <fieldset>
             <legend><b>Dodatki:</b></legend>

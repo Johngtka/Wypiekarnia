@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 10 Mar 2022, 13:14
+-- Czas generowania: 10 Mar 2022, 13:17
 -- Wersja serwera: 10.4.13-MariaDB
 -- Wersja PHP: 7.4.8
 
@@ -101,7 +101,7 @@ CREATE TABLE `relacje` (
 
 CREATE TABLE `zamowienia` (
   `id` int(11) NOT NULL,
-  `produkt` text NOT NULL,
+  `id_produkt` text NOT NULL,
   `cena` text NOT NULL,
   `ilosc` text NOT NULL,
   `dat` date NOT NULL,
