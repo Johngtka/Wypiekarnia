@@ -107,6 +107,7 @@
     </div>
     <div class="main">
     <?php
+        session_start();
         require_once "dbconnect.php";
         $conn = @new mysqli($host, $user, $password, $database);
         if ($conn->connect_errno!=0){
@@ -118,7 +119,7 @@
           $sql = "SELECT * FROM klijęci WHERE logi='$login' AND haslo='$haslo'";
           if ($result = @$conn->query($sql)){
             $ilosc = $result->num_rows;
-            if($ilosc>0){
+            if($ilosc==1){
                 $row = $result->fetch_assoc();
                 $user = $row['logi'];
                 $haslo = $row['haslo'];
@@ -126,7 +127,7 @@
                 echo "<h2><a href='http://localhost/Wypiekarnia/'>Strona Startowa</a></h2>";
                 $result->free();
             }else{
-
+                 
             }
           }
           $conn->close();

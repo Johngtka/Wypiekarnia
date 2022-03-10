@@ -46,10 +46,10 @@
       h1{
         width: 1000px;
         height: 110px;
-        background-color: #ffffff;
+        background-color: #000000;
         opacity: 0.5;
         padding-top: 25px;
-        color: #000000;
+        color: #ffffff;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0;
@@ -57,9 +57,9 @@
       h2{
         width: 1000px;
         height: 110px;
-        background-color: #ffffff;
+        background-color: #000000;
         opacity: 0.5;
-        color: #000000;
+        color: #ffffff;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0;
@@ -67,13 +67,13 @@
       }
       a{
         text-decoration: none;
-        color: #000000;
+        color: #ffffff;
         width: 400px;
         height: 110px;
         opacity: 0.5;
       }
       a:hover{
-        color: #000000;
+        color: #ffffff;
       }
     </style>
     <!--And of section-->
@@ -120,11 +120,11 @@
         else{
           $imie = $_POST['name'];
           $nazwisko = $_POST['subname'];
-          $adres = $_POST['adres'];
-          $telefon = $_POST['telefon'];
+          $mail = $_POST['adres'];
+          $num = $_POST['telefon'];
           $username = $_POST['login'];
           $haslo = $_POST['password'];
-          $sql ="INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')";
+          $sql ="INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$mail','$num','$username','$haslo')";
           $result = @$conn->query($sql);
           echo "<h1>Witaj $username</h1>";
           echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania</a></h2>";
