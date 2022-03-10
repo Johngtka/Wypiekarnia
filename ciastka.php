@@ -71,15 +71,6 @@
       <div style="clear: both"></div>
     </div>
     <div class="main1">
-      <!--<p>Określ pozycję liczby wegług osi liczbowej</p>
-    <input type="text" placeholder="Wpisz Liczbę" id="pole" />
-    <input type="submit" value="Sprawdź" onclick="sprawdz()" />
-    <div id="wynik"></div>
-    <p>Zobacz jakie liczby są w przedziale liczb które wybrałeś</h1><br>
-    <input type="text" placeholder="Wpisz Liczbę Mniejszą" id="pole1" />
-    <input type="text" placeholder="Wpisz Liczbę Większą" id="pole2" />
-    <input type="submit" value="Pokaż" onclick="wypisz()" />
-    <div id="linia"></div>-->
       <form action="5.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Ciastek:</b></legend>
@@ -94,13 +85,6 @@
           </datalist>
         </label>
         </div>
-        <!--
-			<div class="row">
-				<div><label>Imię: <input type="text" name="imie" placeholder="Jak masz na imię?"></label></div>
-				<div><label>Hasło: <input type="password" name="haslo" placeholder="Wpisz Hasło"></label></div>
-				<div><label>Szukaj: <input type="search" name="fraza" placeholder="Wyszukaj"></label></div>
-			</div>
-			-->
         <div class="row">
           <label
             ><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1"

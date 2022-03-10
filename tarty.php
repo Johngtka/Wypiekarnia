@@ -71,15 +71,6 @@
       <div style="clear: both"></div>
     </div>
     <div class="main1">
-      <!--<p>Określ pozycję liczby wegług osi liczbowej</p>
-    <input type="text" placeholder="Wpisz Liczbę" id="pole" />
-    <input type="submit" value="Sprawdź" onclick="sprawdz()" />
-    <div id="wynik"></div>
-    <p>Zobacz jakie liczby są w przedziale liczb które wybrałeś</h1><br>
-    <input type="text" placeholder="Wpisz Liczbę Mniejszą" id="pole1" />
-    <input type="text" placeholder="Wpisz Liczbę Większą" id="pole2" />
-    <input type="submit" value="Pokaż" onclick="wypisz()" />
-    <div id="linia"></div>-->
       <form action="3.php" method="POST">
         <div class="row">
 				<legend><b>Rodzaj Tarty:</b></legend>
