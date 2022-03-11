@@ -122,8 +122,21 @@
           $num = $_POST['telefon'];
           $username = $_POST['login'];
           $haslo = $_POST['password'];
-          $sql ="INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$mail','$num','$username','$haslo')";
-          $result = @$conn->query($sql);
+          $imie = htmlentities($imie,ENT_QUOTES,"UTF-8");
+          $nazwisko = htmlentities($nazwisko,ENT_QUOTES,"UTF-8");
+          $mail = htmlentities($mail,ENT_QUOTES,"UTF-8");
+          $num = htmlentities($num,ENT_QUOTES,"UTF-8");
+          $login = htmlentities($login,ENT_QUOTES,"UTF-8");
+          $haslo = htmlentities($haslo,ENT_QUOTES,"UTF-8");
+          $result = @$conn->query(
+            sprintf("INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$mail','$num','$username','$haslo')"
+            mysqli_real_escape_string($conn,$imie), 
+            mysqli_real_escape_string($conn,$nazwisko), 
+            mysqli_real_escape_string($conn,$mail),
+            mysqli_real_escape_string($conn,$num),
+            mysqli_real_escape_string($conn,$username),
+            mysqli_real_escape_string($conn,$login),
+            mysqli_real_escape_string($conn,$haslo)));
           echo "<h1>Witaj $username</h1>";
           echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania</a></h2>";
           $conn->close();

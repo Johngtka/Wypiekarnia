@@ -1,5 +1,9 @@
 <?php
       session_start();
+      if(!isset($_POST['login']) || !isset($_POST['haslo'])){
+        header('Location: konto.php');
+        exit();
+      }
         require_once "dbconnect.php";
         $conn = @new mysqli($host, $user, $password, $database);
         if ($conn->connect_errno!=0){
@@ -8,8 +12,13 @@
         else{
           $login = $_POST['login'];
           $haslo = $_POST['password'];
-          $sql = "SELECT * FROM klijęci WHERE logi='$login' AND haslo='$haslo'";
-          if ($result = @$conn->query($sql)){
+          $login = htmlentities($login,ENT_QUOTES,"UTF-8");
+          $haslo = htmlentities($haslo,ENT_QUOTES,"UTF-8");
+          if ($result = @$conn->query(
+            sprintf("SELECT * FROM klijęci WHERE logi='%s' AND haslo='%s'", 
+            mysqli_real_escape_string($conn,$login), 
+            mysqli_real_escape_string($conn,$haslo))))
+            {
             $ilosc = $result->num_rows;
             if($ilosc==1){
                 $_SESSION['zalogowany'] = true;

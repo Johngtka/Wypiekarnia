@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(!isset($_SESSION['zalogowany']))
+    {
+      header('Location: konto.php');
+      exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
