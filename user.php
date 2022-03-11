@@ -14,13 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css1/font.css" type="text/css" />
-    <!--<link rel="stylesheet" href="style.css" type="text/css" />-->
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
     <script src="scripts.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <!--https://github.com/Johngtka/Wypiekarnia.git-->
     <!--Font section-->
-    <!--<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap"
@@ -71,17 +71,16 @@
         color: #ffffff;
         width: 400px;
         height: 110px;
-        opacity: 0.5;
       }
       a:hover{
         color: #ffffff;
       }
-    </style>-->
+    </style>
     <script src="scripts.js"></script>
     <!--And of section-->
   </head>
   <body onload="zmienslajd()">
-    <!--<div class="up">
+    <div class="up">
       <div id="logo" onclick="x()">
         <div id="a" class="row col-sm-6 visible">
           <img src="img/logo.png" title="Logo" alt="Logo" />
@@ -100,20 +99,21 @@
             </li>
             <li>
               <a href="http://localhost/Wypiekarnia/basket.php"
-                >Zamówienia<i class="icon-basket"></i
+                >Koszyk<i class="icon-basket"></i
               ></a>
             </li>
           </ul>
         </li>
       </ol>
       <div style="clear: both"></div>
-    </div>-->
+    </div>
     <div class="main">
         <?php
             echo "<h1>Witaj<br>".$_SESSION['login']."</h1>";
+            echo "<h2><a href='logout.php'>Wyloguj</a></h2>";
             echo "<h2><a href='http://localhost/Wypiekarnia/'>Strona Główna</a></h2>";
         ?>
-      <!--<br><div id="slider"></div><br><br><br><br>-->
+      <br><div id="slider"></div><br><br><br><br>
     </div>
     <footer>Lorem ipsum</footer>
     <script src="js/bootstrap.min.js"></script>

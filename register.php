@@ -48,7 +48,6 @@
         height: 110px;
         background-color: #000000;
         opacity: 0.5;
-        padding-top: 25px;
         color: #ffffff;
         margin-left: auto;
         margin-right: auto;
@@ -70,7 +69,6 @@
         color: #ffffff;
         width: 400px;
         height: 110px;
-        opacity: 0.5;
       }
       a:hover{
         color: #ffffff;
@@ -102,7 +100,7 @@
             </li>
             <li>
               <a href="http://localhost/Wypiekarnia/basket.php"
-                >Zamówienia<i class="icon-basket"></i
+                >Koszyk<i class="icon-basket"></i
               ></a>
             </li>
           </ul>
