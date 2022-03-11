@@ -68,7 +68,7 @@
             </li>
             <li>
               <a href="http://localhost/Wypiekarnia/basket.php"
-                >Zamówienia<i class="icon-basket"></i
+                >Koszyk<i class="icon-basket"></i
               ></a>
             </li>
           </ul>
