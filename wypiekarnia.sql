@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 10 Mar 2022, 13:59
+-- Czas generowania: 11 Mar 2022, 12:00
 -- Wersja serwera: 10.4.13-MariaDB
 -- Wersja PHP: 7.4.8
 
@@ -36,6 +36,14 @@ CREATE TABLE `klijęci` (
   `logi` text NOT NULL,
   `haslo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `klijęci`
+--
+
+INSERT INTO `klijęci` (`id`, `imie`, `nazwisko`, `mail`, `telefon`, `logi`, `haslo`) VALUES
+(1, 'Janusz', 'Kowalski', 'jkowalski@interia.pl', '213745690', 'jkowalski333', 'qwerty'),
+(2, 'Tomasz', 'Kruciński', 'tomeczek420@wp.com', '1234567890', 'tomeczek420', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -146,7 +154,7 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT dla tabeli `klijęci`
 --
 ALTER TABLE `klijęci`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `produkty`
