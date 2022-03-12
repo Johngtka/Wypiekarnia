@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 11 Mar 2022, 12:00
+-- Czas generowania: 12 Mar 2022, 14:29
 -- Wersja serwera: 10.4.13-MariaDB
 -- Wersja PHP: 7.4.8
 
@@ -29,21 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `klijęci` (
   `id` int(11) NOT NULL,
-  `imie` text NOT NULL,
-  `nazwisko` text NOT NULL,
-  `mail` text NOT NULL,
-  `telefon` text NOT NULL,
-  `logi` text NOT NULL,
-  `haslo` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `klijęci`
---
-
-INSERT INTO `klijęci` (`id`, `imie`, `nazwisko`, `mail`, `telefon`, `logi`, `haslo`) VALUES
-(1, 'Janusz', 'Kowalski', 'jkowalski@interia.pl', '213745690', 'jkowalski333', 'qwerty'),
-(2, 'Tomasz', 'Kruciński', 'tomeczek420@wp.com', '1234567890', 'tomeczek420', '1234567890');
+  `imie` text COLLATE utf8mb4_polish_ci NOT NULL,
+  `nazwisko` text COLLATE utf8mb4_polish_ci NOT NULL,
+  `mail` text COLLATE utf8mb4_polish_ci NOT NULL,
+  `telefon` text COLLATE utf8mb4_polish_ci NOT NULL,
+  `logi` text COLLATE utf8mb4_polish_ci NOT NULL,
+  `haslo` text COLLATE utf8mb4_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -154,7 +146,7 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT dla tabeli `klijęci`
 --
 ALTER TABLE `klijęci`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `produkty`

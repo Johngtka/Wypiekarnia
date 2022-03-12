@@ -9,7 +9,7 @@
 <html lang="pl-PL">
   <head>
     <meta charset="utf-8" />
-    <title>Twoje konto</title>
+    <title>Logowanie</title>
     <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta
       name="keywords"

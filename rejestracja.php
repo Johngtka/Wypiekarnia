@@ -1,8 +1,12 @@
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl-PL">
   <head>
     <meta charset="utf-8" />
-    <title>Twoje konto</title>
+    <title>Rejestracja</title>
+</script>
     <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta
       name="keywords"
@@ -98,13 +102,16 @@
                 required /></label
             ></div>
             <div class="row">
-              <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="..." required/></label>
+              <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="Max 9 znaków" required/></label>
             </div>
             <div class="row">
-              <label><b>Login:</b><input type="text" name="login" placeholder="Wpisz Login" required/></label>
+              <label><b>Login:</b><input type="text" name="login" placeholder="Max 10 znaków" required/></label>
             </div>
             <div class="row">
-              <label><b>Hasło:</b><input type="password" name="password" placeholder="Wpisz Hasło" required/></label>
+              <label><b>Hasło:</b><input type="password" name="password" placeholder="..." required/></label>
+            </div>
+            <div class="row">
+              <label><input type="checkbox" name="rule" required/><b> - Akceptuje regulamin</b></label>
             </div>
             <input type="submit" value="Zarejestruj"/>
         </form>
