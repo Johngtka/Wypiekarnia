@@ -1,9 +1,9 @@
 <?php
-      session_start();
+      /*session_start();
       if(!isset($_POST['login']) || !isset($_POST['haslo'])){
         header('Location: konto.php');
         exit();
-      }
+      }*/
         require_once "dbconnect.php";
         $conn = @new mysqli($host, $user, $password, $database);
         if ($conn->connect_errno!=0){

@@ -110,7 +110,7 @@
     </div>
     <div class="main">
     <?php
-    session_start();
+        session_start();
         require_once "dbconnect.php";
         $conn = @new mysqli($host, $user, $password, $database);
         if ($conn->connect_errno!=0){
