@@ -87,8 +87,8 @@
   <body onload="zmienslajd()">
     <div class="up">
       <div id="logo" onclick="x()">
-        <div id="a" class="row col-sm-6 visible">
-          <img src="img/logo.png" title="Logo" alt="Logo" />
+      <div id="a" class="row col-sm-6">
+          <img src="img/logo1.png" title="Logo" alt="Logo" />
         </div>
         <div id="eggs" class="row col-sm-6 invisible"></div>
       </div>
