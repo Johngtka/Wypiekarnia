@@ -75,7 +75,11 @@
         <div class="row">
 				<legend><b>Rodzaj Ciastek:</b></legend>
         <div style="margin-top:10px;">
-          <label>
+          <label><input type="checkbox" name="czek" value="1"><b>Ciastka z czekoladą(5zł/100gr)</label></b></br>
+          <label><input type="checkbox" name="ziarna" value="2"><b>Ciastka Ziarna w Karmelu(5zł/100gr)</label></b></br>
+          <label><input type="checkbox" name="bakaliowe" value="3"><b>Ciastka Owsiane z bakaliami(7zł/100gr)</label></b></br>
+          <label><input type="checkbox" name="cantuccini" value="4"><b>Ciastka Cantuccini(6zł/100gr)</b></label>
+          <!--<label>
           <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
           <datalist id="browsers">
             <option value="Ciastka z czekoladą(5zł/100gr)">
@@ -83,7 +87,7 @@
             <option value="Ciastka Owsiane z bakaliami(7zł/100gr)">
             <option value="Ciastka Cantuccini(6zł/100gr)">
           </datalist>
-        </label>
+        </label>-->
         </div>
         <div class="row">
           <label

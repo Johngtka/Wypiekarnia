@@ -104,6 +104,7 @@ ol > li:hover > ul {
 h1 {
   color: #000000;
   text-shadow: #ffffff 0.1em 0.1em 0.2em;
+  margin: 0;
 }
 .main img {
   border-radius: 50px;

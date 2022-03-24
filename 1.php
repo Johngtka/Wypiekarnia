@@ -79,11 +79,10 @@
           $komentarz = $_POST["komentarz"];
           echo "<h1>Podsumowanie</h1>";
           echo "<p>Zamówiłeś $i Tortów</p>";
-          
-          if (isset($_POST['urodzinowy'])) echo "Urodzinowych<br><br>"; 
-          if (isset($_POST['smakosz'])) echo "Dla Smakoszy<br>";
-          if (isset($_POST['jubileuszowy']))echo "Jubileuszowych<br>";
-          if (isset($_POST['slubny'])) echo "Ślubnych<br>";
+          if (isset($_POST['urodzinowy'])) echo "<b>Urodzinowych</b><br>"; 
+          if (isset($_POST['smakosz'])) echo "<b>Dla Smakoszy</b><br>";
+          if (isset($_POST['jubileuszowy']))echo "<b>Jubileuszowych</b><br>";
+          if (isset($_POST['slubny'])) echo "<b>Ślubnych</b><br>";
           echo "<p>Na adres $adres<p>";
           echo "<p>Numer Telefonu: $telefon<p>";
           echo "<p>Na termin: $data</p>";
@@ -96,6 +95,7 @@
           if ($conn->connect_errno!=0){
             echo "Error:".$conn->connect_errno;
           }else{
+            
           }
         ?>
         <div class="pay">

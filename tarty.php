@@ -75,7 +75,11 @@
         <div class="row">
 				<legend><b>Rodzaj Tarty:</b></legend>
         <div style="margin-top:10px;">
-          <label>
+          <label><input type="checkbox" name="jablkowe" value="1"><b>Jabłkowa na mlecznym kremie(35zł/Kg)</label></b></br>
+          <label><input type="checkbox" name="wiosenne" value="2"><b>Wiosenna(30zł/Kg)</label></b></br>
+          <label><input type="checkbox" name="czekorz" value="3"><b>Czekoladowo-Orzechowa(25zł/Kg)</label></b></br>
+          <label><input type="checkbox" name="malinowe" value="4"><b>Malinowa(20zł/Kg)</b></label>
+          <!--<label>
           <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
           <datalist id="browsers">
             <option value="Jabłkowa na mlecznym kremie(35zł/Kg)">
@@ -83,7 +87,7 @@
             <option value="Czekoladowo-Orzechowa(25zł/Kg)">
             <option value="Malinowa(20zł/Kg)">
           </datalist>
-        </label>
+        </label>-->
         </div>
         <div class="row">
           <fieldset>

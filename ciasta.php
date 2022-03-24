@@ -75,7 +75,11 @@
         <div class="row">
 				<legend><b>Rodzaj Ciasta:</b></legend>
         <div style="margin-top:10px;">
-          <label>
+          <label><input type="checkbox" name="drozdzowe" value="1"><b>Drożdżowe(15zł/Kg)</label></b></br>
+          <label><input type="checkbox" name="sernik" value="2"><b>Sernik(20zł/Kg)</label></b></br>
+          <label><input type="checkbox" name="brown" value="3"><b>Brown'e(25zł/Kg)</label></b></br>
+          <label><input type="checkbox" name="dziec" value="4"><b>Dziecięce(30zł/Kg)</b></label>
+          <!--<label>
           <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
           <datalist id="browsers">
             <option value="Drożdżowe(15zł/Kg)">
@@ -83,7 +87,7 @@
             <option value="Brown'e(25zł/Kg)">
             <option value="Dziecięce(30zł/Kg)">
           </datalist>
-        </label>
+        </label>-->
         </div>
         <div class="row">
           <fieldset>

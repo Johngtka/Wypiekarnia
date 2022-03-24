@@ -75,7 +75,11 @@
         <div class="row">
 				<legend><b>Rodzaj Babeczki:</b></legend>
         <div style="margin-top:10px;">
-          <label>
+          <label><input type="checkbox" name="biala" value="1"><b>Babeczka Czekoladowa Biała(8zł/100gr)</label></b></br>
+          <label><input type="checkbox" name="czarna" value="2"><b>Babeczka Czekoladowa Czarna(8zł/100gr)</label></b></br>
+          <label><input type="checkbox" name="malinowa" value="3"><b>Babeczka Malinowa(8zł/100gr)</label></b></br>
+          <label><input type="checkbox" name="sezonowa" value="4"><b>Babeczka Sezonowa(8zł/100gr)</b></label>
+          <!--<label>
           <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
           <datalist id="browsers">
             <option value="Babeczka Czekoladowa Biała(8zł/100gr)">
@@ -83,7 +87,7 @@
             <option value="Babeczka Malinowa(8zł/100gr)">
             <option value="Babeczka Sezonowa(8zł/100gr)">
           </datalist>
-        </label>
+        </label>-->
         </div>
         <div class="row">
           <fieldset>

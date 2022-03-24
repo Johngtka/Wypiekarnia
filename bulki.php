@@ -75,7 +75,11 @@
         <div class="row">
 				<legend><b>Rodzaj Bułek:</b></legend>
         <div style="margin-top:10px;">
-          <label>
+          <label><input type="checkbox" name="przenna" value="1"><b>Bułka Przenna(0,60gr/1szt)</label></b></br>
+          <label><input type="checkbox" name="kajzerka" value="2"><b>Bułka Kajzerka(0,80gr/1szt)</label></b></br>
+          <label><input type="checkbox" name="razowa" value="3"><b>Bułka Razowa(0,90gr/1szt)</label></b></br>
+          <label><input type="checkbox" name="ziarnista" value="4"><b>Bułka Ziarnista(0,50gr/1szt)</b></label>
+          <!--<label>
           <input list="browsers" name="browser" placeholder="Wybierz rodzaj" required/>
           <datalist id="browsers">
             <option value="Bułka Przenna(0,60gr/1szt)">
@@ -83,7 +87,7 @@
             <option value="Bułka Razowa(0,90gr/1szt)">
             <option value="Bułka Ziarnista(0,50gr/1szt)">
           </datalist>
-        </label>
+        </label>-->
         </div>
         <div class="row">
           <label
