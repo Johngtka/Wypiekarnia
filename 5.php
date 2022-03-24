@@ -79,10 +79,10 @@
           $komentarz = $_POST["komentarz"];
           echo "<h1>Podsumowanie</h1>";
           echo "<p>Zamówiłeś $i</p>";
-          if (isset($_POST['czek'])) echo "Ciastka z czekoladą<br>"; 
-          if (isset($_POST['ziarna'])) echo "Ciastka Ziarna w Karmelu<br>";
-          if (isset($_POST['bakaliowe']))echo "Ciastka Owsiane z bakaliami<br>";
-          if (isset($_POST['cantuccini'])) echo "Ciastka Cantuccini<br>";
+          if (isset($_POST['czek'])) echo "<b>Ciastka z czekoladą</b><br>"; 
+          if (isset($_POST['ziarna'])) echo "<b>Ciastka Ziarna w Karmelu</b><br>";
+          if (isset($_POST['bakaliowe']))echo "<b>Ciastka Owsiane z bakaliami</b><br>";
+          if (isset($_POST['cantuccini'])) echo "<b>Ciastka Cantuccini</b><br>";
           echo "<p>Na adres $adres<p>";
           echo "<p>Numer Telefonu: $telefon<p>";
           echo "<p>Na termin: $data</p>";
