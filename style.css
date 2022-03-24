@@ -45,7 +45,7 @@ div#eggs.row.col-sm-6 {
 ol {
   margin: 0;
 }
-/*posision off menu*/
+/*pozycja menu*/
 ol > li {
   float: right;
   list-style-type: none;
@@ -54,19 +54,17 @@ ol > li {
   text-align: center;
   margin: 0;
 }
-/*and posision*/
-/*link off menu*/
+/*link i w menu*/
 ol > li > a {
   text-decoration: none;
   margin-right: 50px;
   color: #ffffff;
 }
-/*and link*/
-/*reset of defult color in link*/
+/*Resetowanie do koloru białego a nie niebieskiego linku*/
 ol > li > a:hover {
   color: #ffffff;
 }
-/*and off reset*/
+/*Stylizacja listy opcji w menu*/
 ol > li > ul {
   list-style-type: none;
   height: 20px;
@@ -75,7 +73,7 @@ ol > li > ul {
   font-size: 15px;
   display: none;
 }
-/*the style off ul in list*/
+/*Stylizacja opcji w liście*/
 ol > li > ul > li {
   margin-right: 50px;
   font-family: "Special Elite", cursive;
@@ -83,21 +81,20 @@ ol > li > ul > li {
 ol > li > ul > li:hover {
   border: 1px dashed #ffffff;
 }
-/*and style*/
-/*reset off default color in link*/
+/*Resetowanie koloru do białego w liście opcji*/
 ol > li > ul > li > a:hover {
   color: #ffffff;
 }
-/*and reset*/
-/*the style off link in option in menu*/
+/*Stylizacja linku w opcji*/
 ul > li > a {
   text-decoration: none;
   color: #ffffff;
 }
-/*and style*/
+/*ukrywanie listy opcji*/
 ol > li:hover > ul {
   display: block;
 }
+/*stylizacja main*/
 .main {
   padding: 10px;
   text-align: center;
