@@ -24,9 +24,9 @@ input:focus {
 #logo {
   margin: 0;
   margin-left: 50px;
-  width: 100px;
+  width: 200px;
   padding: 0;
-  height: 100px;
+  height: 200px;
   float: left;
 }
 #a img {
@@ -100,24 +100,28 @@ ol > li:hover > ul {
   text-align: center;
   width: 100%;
 }
+/*stylizacja akapitu i nagłówka h1*/
 .main p,
 h1 {
   color: #000000;
   text-shadow: #ffffff 0.1em 0.1em 0.2em;
   margin: 0;
 }
+/*stylizacja zdjęć w main*/
 .main img {
   border-radius: 50px;
   width: 800px;
   height: 500px;
   border: #000000 6px solid;
 }
+/*stylizacja linków które są zdjęciami w index*/
 .main a {
   opacity: 0.9;
 }
 .main a:hover {
   opacity: 5;
 }
+/*stylizacja stylizacja obrazków w kafelkach w index*/
 .peace img {
   width: 250px;
   height: 200px;
@@ -125,6 +129,7 @@ h1 {
 .peace img:hover {
   border: #ffffff 2px solid;
 }
+/*stylizacja samego kafelka z linkami*/
 .peace {
   display: inline-block;
   margin-top: 10px;
@@ -133,12 +138,8 @@ h1 {
 .peace a {
   opacity: 0.9;
 }
-
 .peace a:hover {
   opacity: 9;
-}
-#slider {
-  padding-top: 30px;
 }
 figure {
   margin: 8px;
@@ -162,6 +163,11 @@ figcaption {
 figure a {
   text-decoration: none;
 }
+/*stylizacja zdjęć w animowanej galeri*/
+#slider {
+  padding-top: 30px;
+}
+/*stylizacja stopki całego dokumentu*/
 footer {
   background-color: #000000;
   width: 100%;
@@ -172,25 +178,29 @@ footer {
   font-family: "Cinzel", serif;
   border-top: 3px #b70000 solid;
 }
+/*stylizacja wierszy formularza*/
 .row {
   margin: 20px 0;
   margin-left: auto;
   margin-right: auto;
   width: 1000px;
 }
-
+/*stylizacja kolumn formularza*/
 .col {
   display: inline-block;
   margin: 0 10px;
 }
+/*stylizacja pola z komentarzemw formularzu*/
 #komentarz {
   resize: none;
 }
+/*stylizacja drógiego main który jest w aktualizacjach*/
 .main1 {
   color: #000000;
   width: 100%;
   text-shadow: #ffffff 0.1em 0.1em 0.2em;
 }
+/*stylizacja ramki z płatnościami*/
 .pay {
   width: 60%;
   background-color: #ffffff;
