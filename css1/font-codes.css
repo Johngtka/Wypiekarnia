@@ -1,0 +1,11 @@
+
+.icon-trash:before { content: '\e802'; } /* '' */
+.icon-basket:before { content: '\e803'; } /* '' */
+.icon-home:before { content: '\e804'; } /* '' */
+.icon-mail:before { content: '\e805'; } /* '' */
+.icon-phone-squared:before { content: '\f098'; } /* '' */
+.icon-cc-visa:before { content: '\f1f0'; } /* '' */
+.icon-cc-mastercard:before { content: '\f1f1'; } /* '' */
+.icon-cc-paypal:before { content: '\f1f4'; } /* '' */
+.icon-cart-plus:before { content: '\f217'; } /* '' */
+.icon-credit-card-alt:before { content: '\f283'; } /* '' */
