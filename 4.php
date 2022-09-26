@@ -88,7 +88,8 @@
           echo "<p>Na termin: $data</p>";
           echo "<p>Godzinę: $czas</p>";
           echo "<h1>Z komentarzem:</h1>";
-          echo "<br> $komentarz";
+          echo "<br> $komentarz<br><br>";
+          echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
           echo "<h1>Wybierz Metode Płatności:</h1>";
         ?>
         <div class="pay">

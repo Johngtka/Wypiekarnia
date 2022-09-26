@@ -77,6 +77,7 @@
           $data = $_POST["data"];
           $czas = $_POST["czas"];
           $komentarz = $_POST["komentarz"];
+          $first="urodzinowy";
           echo "<h1>Podsumowanie</h1>";
           echo "<p>Zamówiłeś $i Tortów</p>";
           if (isset($_POST['urodzinowy'])) echo "<b>Urodzinowych</b><br>"; 
@@ -88,14 +89,15 @@
           echo "<p>Na termin: $data</p>";
           echo "<p>Godzinę: $czas</p>";
           echo "<h1>Z komentarzem:</h1>";
-          echo "<br> $komentarz";
+          echo "<br> $komentarz<br><br>";
+          echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
           echo "<h1>Wybierz Metode Płatności:</h1>";
           require_once "dbconnect.php";
           $conn = @new mysqli($host, $user, $password, $database);
           if ($conn->connect_errno!=0){
             echo "Error:".$conn->connect_errno;
           }else{
-            
+              
           }
         ?>
         <div class="pay">
