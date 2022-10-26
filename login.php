@@ -3,7 +3,7 @@
       //zabezpieczenie przed włamaniem do profilu użytkownika
       if(!isset($_POST['login']) || !isset($_POST['password'])){
         header('Location: konto.php');
-        exit();
+		exit();
       }
         //łączenie się z bazą i obsługa błędów instrukcji if w else jest program
         require_once "dbconnect.php";
@@ -22,9 +22,9 @@
             sprintf("SELECT * FROM klijeci WHERE logi='%s' AND haslo='%s'", 
             mysqli_real_escape_string($conn,$login), 
             mysqli_real_escape_string($conn,$haslo))))
-            {
+            { 
             $ilosc = $result->num_rows;
-            //przypisanie zmiennych do kolumn w bazie i przekierowanie do profilu użytkownika(proces logowania)
+            //przypisanie sesyjnych zmiennych do kolumn w bazie i przekierowanie do profilu użytkownika(proces logowania)
             if($ilosc==1){
                 $_SESSION['zalogowany'] = true;
                 $row = $result->fetch_assoc();
@@ -42,4 +42,4 @@
           }
           $conn->close();
         }
-?>
+?>			
