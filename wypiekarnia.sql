@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 08 Wrz 2022, 12:59
+-- Czas generowania: 01 Lis 2022, 17:50
 -- Wersja serwera: 10.4.13-MariaDB
 -- Wersja PHP: 7.4.8
 
@@ -108,12 +108,12 @@ CREATE TABLE `relacje` (
 
 CREATE TABLE `zamowienia` (
   `id` int(11) NOT NULL,
-  `id_produkt` int(11) NOT NULL,
-  `cena` int(11) NOT NULL,
+  `nazwa_produkt` text NOT NULL,
   `ilosc` text NOT NULL,
   `dat` date NOT NULL,
   `godzina` time NOT NULL,
   `mail` text NOT NULL,
+  `telefon` int(11) NOT NULL,
   `kom` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -171,7 +171,7 @@ ALTER TABLE `relacje`
 -- AUTO_INCREMENT dla tabeli `zamowienia`
 --
 ALTER TABLE `zamowienia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
