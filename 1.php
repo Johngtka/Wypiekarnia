@@ -66,28 +66,29 @@
     $komentarz = $_POST["komentarz"];
     echo "<h1>Podsumowanie</h1>";
     echo "<p>Zamówiłeś $i Tortów</p>";
-    if (isset($_POST['urodzinowy'])) {
+    if (isset($_POST['urodzinowy']) && $_POST['urodzinowy']) {
       echo "<b>Urodzinowych</b><br>";
       $opt = array('nazwa' => 'tort urodzinowy');
       $op = $opt['nazwa'];
     }
-    if (isset($_POST['smakosz'])) {
+    if (isset($_POST['smakosz']) && $_POST['smakosz']) {
       echo "<b>Dla Smakoszy</b><br>";
       $opt = array('nazwa' => 'tort smakosz');
       $op = $opt['nazwa'];
     }
-    if (isset($_POST['jubileuszowy'])) {
+    if (isset($_POST['jubileuszowy']) && $_POST['jubileuszowy']) {
       echo "<b>Jubileuszowych</b><br>";
       $opt = array('nazwa' => 'tort jubileusz');
       $op = $opt['nazwa'];
     }
-    if (isset($_POST['slubny'])) {
+    if (isset($_POST['slubny']) && $_POST['slubny']) {
       echo "<b>Ślubnych</b><br>";
       $opt = array('nazwa' => 'tort ślub');
       $op = $opt['nazwa'];
     }
     if (isset($_POST['urodzinowy']) || isset($_POST['smakosz']) || isset($_POST['jubileuszowy']) || isset($_POST['slubny'])) {
       header('Location: control.php');
+      exit();
     }
     echo "<p>Na adres $adres<p>";
     echo "<p>Numer Telefonu: $telefon<p>";
@@ -102,7 +103,7 @@
     if ($conn->connect_errno != 0) {
       echo "Error:" . $conn->connect_errno;
     } else {
-      $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, tel, kom) VALUES (NULL,'$op','$i','$data','$czas','$adres','$telefon','$komentarz')";
+      $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$op','$i','$data','$czas','$adres','$telefon','$komentarz')";
       $result = @$conn->query($sql);
       $conn->close();
     }
