@@ -88,10 +88,7 @@
     </div>
     <div class="main">
         <?php
-        if (!isset($_POST['urodzinowy']) || !isset($_POST['smakosz']) || !isset($_POST['jubileuszowy']) || !isset($_POST['slubny'])) {
-            header('Location: index.html');
-            exit();
-        }
+        session_start();
         echo "<h1><b><i>Musisz dokonać tylko 1 wyboru<br> Lub zrobic wiele zamówień!!!</i></b></h1>";
         echo '<h2><a href="index.html">Strona Główna</a></h2>';
         ?>
