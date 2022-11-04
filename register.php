@@ -14,6 +14,7 @@ session_start();
   <link rel="stylesheet" href="css1/font.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
   <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
+  <script src="scripts.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +30,6 @@ session_start();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
-  <script src="scripts.js"></script>
   <style type="text/css">
     h1 {
       width: 1000px;
