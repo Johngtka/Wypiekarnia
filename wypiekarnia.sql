@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 04 Lis 2022, 14:18
+-- Czas generowania: 04 Lis 2022, 16:32
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -52,7 +52,8 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (11, 'Siła PHP', '2022-07-27', 'Dziś jeszcze mocniej zastosowaliśmy PHP, i wprowadziliśmy jeszcze więcej modyfikacji do naszego serwisu'),
 (12, 'Zewnętrzne informacje', '2022-07-30', 'Aktualizacja obejmuje przebudowanie całego systemu naszej witryny w taki sposób aby kod był napisany w systemie MODULARNO-PROCEDURALNYM'),
 (13, 'Aktualizacja Bazy', '2022-08-25', 'W tej aktualizacji zmieniliśmy strukturę naszej bazy danych'),
-(14, 'Ożywienie zamówień', '2022-10-28', 'W tej aktualizacji w końcu udało nam się ukończyć budowę pełnego systemu tworzenia zamówień z obsługą rodzajów produktów przy dodawaniu do bazy zamówienia.');
+(14, 'Ożywienie zamówień', '2022-10-28', 'W tej aktualizacji w końcu udało nam się ukończyć budowę pełnego systemu tworzenia zamówień z obsługą rodzajów produktów przy dodawaniu do bazy zamówienia.'),
+(15, 'Prace Naprawcze', '2022-11-04', 'Właśnie wyszła nowa aktualizacja która naprawia min. zabezpieczenie przed zaznaczeniem wielu checkboxów, oraz przygotowujemy się do uruchomienia koszyka');
 
 -- --------------------------------------------------------
 
@@ -192,7 +193,7 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT dla tabeli `aktualizacje`
 --
 ALTER TABLE `aktualizacje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT dla tabeli `klijeci`

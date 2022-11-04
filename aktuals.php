@@ -112,7 +112,7 @@
                 //print_r($result1->fetch_row()[0]);
                 $_SESSION['akt'] = $result1->fetch_row()[0];
                 //wuszukanie wszystkich danych z tabeli aktualizacje i ich wyświetlenie z formatowaniem css
-                $result = @$conn->query("SELECT * FROM aktualizacje");
+                $result = @$conn->query("SELECT * FROM aktualizacje ORDER BY id DESC");
                 while ($row = $result->fetch_assoc()) {
             ?>
                     <div id="front-zwrot">

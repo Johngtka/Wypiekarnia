@@ -1,3 +1,4 @@
 INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')'
 DELETE FROM klijeci WHERE logi='$log' AND haslo='$pass'
 SELECT * FROM klijeci WHERE logi='%s' AND haslo='%s'
+INSERT INTO aktualizacje(id, Nazwa, `Data`, Opis) VALUES (NULL,"",DATE(""),"");
