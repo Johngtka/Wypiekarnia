@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Lis 2022, 11:01
+-- Czas generowania: 04 Lis 2022, 14:18
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -20,6 +20,39 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `wypiekarnia`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `aktualizacje`
+--
+
+CREATE TABLE `aktualizacje` (
+  `id` int(11) NOT NULL,
+  `Nazwa` text CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
+  `Data` date DEFAULT NULL,
+  `Opis` text CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `aktualizacje`
+--
+
+INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
+(1, 'Informację', '2020-12-10', 'Aktualizacja obejmuje dodanie formularzy zamówieniowych, oraz kilku innych opcji dotyczących interface\'u naszego sklepu'),
+(2, 'System U/R/L', '2021-02-10', 'Aktualizacja obejmuje rozpoczęcie pracy nad systemem umożliwiającym daiałania na kontach urzytkownika i logowanie'),
+(3, 'Podsumowanie', '2021-02-28', 'Aktualizacja obejmuje dodanie skryptu PHP który po wypełnieniu formularza z zamówieniem, podsumowuje zamówienia'),
+(4, 'Zaawansowany CSS', '2021-03-14', 'Aktualizacja obejmuje dodanie zaawansowanych akruszy stylów css i dodanie pewnych usprawnień'),
+(5, 'JS Fantazja', '2021-03-22', 'Aktualizacja obejmuje dodanie kodów JavaScriptu, w celu dodania trochę fantazji do naszej strony'),
+(6, 'System Logowania', '2021-04-17', 'Aktualizacja obejmuje stworzenie pełnego systemu U/R/L, któr działa i dodanie panelu konta urzytkownika'),
+(7, 'System Logowania(aktualizacja)', '2021-04-25', 'Aktualizacja obejmuje dodanie więcej opcji panelu użytkownika takich jak np. (wylogowanie, usuwanie, czy nieskończona jeszcze możliwość edycji danych konta)'),
+(8, 'Usprawnienie', '2021-04-30', 'Aktualizacja obejmuje tytułowe usprawnienie polączeń między skryptami PHP i dodanie zabezpieczeń na poziomie system,u U/R/L i innych'),
+(9, 'Analiza', '2021-05-24', 'Aktualizacja obejmuje szczegułową znalize całego systemu \'Wypiekarni\' oraz naprawienie znalezionych błędów i zabezpieczeń'),
+(10, 'Kontrolki', '2021-05-31', 'Aktualizacja obejmuje dodanie plików kontrolnych, które pełnią funkcję informacyjną dla użytkownika'),
+(11, 'Siła PHP', '2022-07-27', 'Dziś jeszcze mocniej zastosowaliśmy PHP, i wprowadziliśmy jeszcze więcej modyfikacji do naszego serwisu'),
+(12, 'Zewnętrzne informacje', '2022-07-30', 'Aktualizacja obejmuje przebudowanie całego systemu naszej witryny w taki sposób aby kod był napisany w systemie MODULARNO-PROCEDURALNYM'),
+(13, 'Aktualizacja Bazy', '2022-08-25', 'W tej aktualizacji zmieniliśmy strukturę naszej bazy danych'),
+(14, 'Ożywienie zamówień', '2022-10-28', 'W tej aktualizacji w końcu udało nam się ukończyć budowę pełnego systemu tworzenia zamówień z obsługą rodzajów produktów przy dodawaniu do bazy zamówienia.');
 
 -- --------------------------------------------------------
 
@@ -122,6 +155,12 @@ CREATE TABLE `zamowienia` (
 --
 
 --
+-- Indeksy dla tabeli `aktualizacje`
+--
+ALTER TABLE `aktualizacje`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `klijeci`
 --
 ALTER TABLE `klijeci`
@@ -148,6 +187,12 @@ ALTER TABLE `zamowienia`
 --
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `aktualizacje`
+--
+ALTER TABLE `aktualizacje`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT dla tabeli `klijeci`

@@ -1,6 +1,5 @@
 <?php
-    $host="localhost";
-    $user="root";
-    $password="";
-    $database="wypiekarnia";
-?>
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "wypiekarnia";

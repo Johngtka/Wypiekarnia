@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 
@@ -13,7 +16,7 @@
   <link rel="stylesheet" href="css1/font.css" type="text/css" />
   <script src="scripts.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <!--Font section-->
+  <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -26,10 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
-  <?php
-
-  ?>
-  <!--And of section-->
+  <!--koniec sekcji czcionek-->
 </head>
 
 <body>
@@ -53,7 +53,7 @@
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="#">Aktualizacje &#9781;</a>
+            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
         </ul>
       </li>
@@ -62,11 +62,11 @@
   </div>
   <div class="main">
     <?php
-    session_start();
     if (!isset($_SESSION['zalogowany'])) {
       header('Location: index.html');
       exit();
     }
+
     ?>
   </div>
   <footer>Lorem ipsum</footer>

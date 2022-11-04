@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="pl-PL">
 
@@ -12,7 +15,7 @@
   <link rel="stylesheet" href="css1/font.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <!--Font section-->
+  <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -25,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
-  <!--And of section-->
+  <!--koniec sekcji czcionek-->
 </head>
 
 <body>
@@ -49,7 +52,7 @@
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="#">Aktualizacje &#9781;</a>
+            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
         </ul>
       </li>
@@ -58,6 +61,7 @@
   </div>
   <div class="main">
     <?php
+    //system generowania odpowiednio spreparowanego podsumowania zamówienia
     $i = $_POST["i"];
     $adres = $_POST["adres"];
     $telefon = $_POST["telefon"];
@@ -66,6 +70,7 @@
     $komentarz = $_POST["komentarz"];
     echo "<h1>Podsumowanie</h1>";
     echo "<p>Zamówiłeś $i Tortów</p>";
+    //5 warunków sprawdzających czy dany checkbox jest zaznaczony i czy zaznaczone wszystkie
     if (isset($_POST['urodzinowy']) && $_POST['urodzinowy']) {
       echo "<b>Urodzinowych</b><br>";
       $opt = array('nazwa' => 'tort urodzinowy');
@@ -86,7 +91,8 @@
       $opt = array('nazwa' => 'tort ślub');
       $op = $opt['nazwa'];
     }
-    if (isset($_POST['urodzinowy']) || isset($_POST['smakosz']) || isset($_POST['jubileuszowy']) || isset($_POST['slubny'])) {
+    //zabezpieczenie przed zaznaczeniem wszystkich checkboxów prowadzące do kontrolki z informacją o tym
+    if (isset($_POST['urodzinowy']) && isset($_POST['smakosz']) && isset($_POST['jubileuszowy']) && isset($_POST['slubny'])) {
       header('Location: control.php');
       exit();
     }
@@ -98,11 +104,13 @@
     echo "<br> $komentarz<br><br>";
     echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     echo "<h1>Wybierz Metode Płatności:</h1>";
+    //sprawdzenie poprawności połączenia z bazą
     require_once "dbconnect.php";
     $conn = @new mysqli($host, $user, $password, $database);
     if ($conn->connect_errno != 0) {
       echo "Error:" . $conn->connect_errno;
     } else {
+      //wpisanie do tabeli zamówienia danych przesłanych z formularza z uwzględnieniem preparacji zamówienia
       $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$op','$i','$data','$czas','$adres','$telefon','$komentarz')";
       $result = @$conn->query($sql);
       $conn->close();

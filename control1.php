@@ -80,6 +80,11 @@ session_start();
                 <a href="#">MENU &#9776;</a>
                 <ul>
                     <li>
+                        <a href="http://localhost/Wypiekarnia/">Strona Główna
+                            <!--<i class="icon-home"></i>--> &#10224;
+                        </a>
+                    </li>
+                    <li>
                         <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
                     </li>
                     <li>
@@ -92,8 +97,8 @@ session_start();
     </div>
     <div class="main">
         <?php
-        echo "<h1><b><i>Musisz dokonać tylko 1 wyboru<br> Lub zrobic wiele zamówień!!!</i></b></h1>";
-        echo '<h2><a href="index.html">Strona Główna</a></h2>';
+        echo "<h1><b><i>Musisz się zalogować <br>aby zamawiać!!!</i></b></h1>";
+        echo '<h2><a href="konto.php">Logowanie</a></h2>';
         ?>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
