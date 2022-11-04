@@ -81,7 +81,6 @@ if (!isset($_SESSION['zalogowany'])) {
       color: #ffffff;
     }
   </style>
-  <script src="scripts.js"></script>
   <!--And of section-->
 </head>
 

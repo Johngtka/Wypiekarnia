@@ -30,7 +30,6 @@ session_start();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
-  <script src="scripts.js"></script>
   <style type="text/css">
     h1 {
       text-shadow: none;

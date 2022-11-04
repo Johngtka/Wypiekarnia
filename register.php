@@ -65,7 +65,6 @@ session_start();
       color: #ffffff;
     }
   </style>
-  <!--And of section-->
 </head>
 
 <body onload="zmienslajd()">
