@@ -30,6 +30,18 @@ session_start();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
+  <style type="text/css">
+    a {
+      text-decoration: none;
+      color: #000000;
+      width: 400px;
+      height: 110px;
+    }
+
+    a:hover {
+      color: #000000;
+    }
+  </style>
 </head>
 
 <body onload="zmienslajd()">
@@ -72,7 +84,6 @@ session_start();
       $result = @$conn->query($sql);
       $conn->close();
       session_unset();
-      header("Location:index.html");
     }
     ?>
     <h1>Już nas opuszczasz?</h1>
@@ -80,7 +91,7 @@ session_start();
     <h6>
       <p>Szkoda ale spokojnie nie gniewamy się.<br>Możesz do nas wrócić w każdej chwili.<br> A teraz, jak to mówił Ogórek z filmu Auta: <br><b>"<i>Leć, stasieniek, leć i odleć</i>"</b></p>
     </h6>
-
+    <h2><a href='http://localhost/Wypiekarnia/'>Strona Główna</a></h2>
     <div id="slider"></div>
   </div>
   <footer>Lorem ipsum</footer>

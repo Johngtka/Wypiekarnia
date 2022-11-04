@@ -107,10 +107,6 @@
             if ($conn->connect_errno != 0) {
                 echo "Error: " . $conn->connect_errno;
             } else {
-                //zliczenie ilości rekordów z tabeli aktualizacji i przypisanie jej do zmiennej sesyjnej jako obejście przed konwersją kodu z index.html na .php
-                $result1 = @$conn->query("SELECT COUNT(*) FROM aktualizacje");
-                //print_r($result1->fetch_row()[0]);
-                $_SESSION['akt'] = $result1->fetch_row()[0];
                 //wuszukanie wszystkich danych z tabeli aktualizacje i ich wyświetlenie z formatowaniem css
                 $result = @$conn->query("SELECT * FROM aktualizacje ORDER BY id DESC");
                 while ($row = $result->fetch_assoc()) {

@@ -86,7 +86,7 @@ session_start();
         </label>
       </div>
       <div class="row">
-        <label><input type="checkbox" name="urodzinowy" required><b> - Akceptuje Decyzje</b></label></br>
+        <label><input type="checkbox" required><b> - Akceptuje Decyzje</b></label></br>
       </div>
       <input type="submit" value="Usuń Profil" />
     </form>

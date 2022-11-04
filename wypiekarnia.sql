@@ -39,7 +39,7 @@ CREATE TABLE `aktualizacje` (
 --
 
 INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
-(1, 'Informację', '2020-12-10', 'Aktualizacja obejmuje dodanie formularzy zamówieniowych, oraz kilku innych opcji dotyczących interface\'u naszego sklepu'),
+(1, 'Informację', '2020-12-10', 'Aktualizacja obejmuje dodanie formularzy zamówieniowych, oraz kilku innych opcji dotyczących interfaceu naszego sklepu'),
 (2, 'System U/R/L', '2021-02-10', 'Aktualizacja obejmuje rozpoczęcie pracy nad systemem umożliwiającym daiałania na kontach urzytkownika i logowanie'),
 (3, 'Podsumowanie', '2021-02-28', 'Aktualizacja obejmuje dodanie skryptu PHP który po wypełnieniu formularza z zamówieniem, podsumowuje zamówienia'),
 (4, 'Zaawansowany CSS', '2021-03-14', 'Aktualizacja obejmuje dodanie zaawansowanych akruszy stylów css i dodanie pewnych usprawnień'),
@@ -47,7 +47,7 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (6, 'System Logowania', '2021-04-17', 'Aktualizacja obejmuje stworzenie pełnego systemu U/R/L, któr działa i dodanie panelu konta urzytkownika'),
 (7, 'System Logowania(aktualizacja)', '2021-04-25', 'Aktualizacja obejmuje dodanie więcej opcji panelu użytkownika takich jak np. (wylogowanie, usuwanie, czy nieskończona jeszcze możliwość edycji danych konta)'),
 (8, 'Usprawnienie', '2021-04-30', 'Aktualizacja obejmuje tytułowe usprawnienie polączeń między skryptami PHP i dodanie zabezpieczeń na poziomie system,u U/R/L i innych'),
-(9, 'Analiza', '2021-05-24', 'Aktualizacja obejmuje szczegułową znalize całego systemu \'Wypiekarni\' oraz naprawienie znalezionych błędów i zabezpieczeń'),
+(9, 'Analiza', '2021-05-24', 'Aktualizacja obejmuje szczegułową znalize całego systemu Wypiekarni oraz naprawienie znalezionych błędów i zabezpieczeń'),
 (10, 'Kontrolki', '2021-05-31', 'Aktualizacja obejmuje dodanie plików kontrolnych, które pełnią funkcję informacyjną dla użytkownika'),
 (11, 'Siła PHP', '2022-07-27', 'Dziś jeszcze mocniej zastosowaliśmy PHP, i wprowadziliśmy jeszcze więcej modyfikacji do naszego serwisu'),
 (12, 'Zewnętrzne informacje', '2022-07-30', 'Aktualizacja obejmuje przebudowanie całego systemu naszej witryny w taki sposób aby kod był napisany w systemie MODULARNO-PROCEDURALNYM'),
