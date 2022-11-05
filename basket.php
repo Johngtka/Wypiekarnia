@@ -11,7 +11,7 @@ session_start();
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-  <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
   <link rel="stylesheet" href="style.css" type="text/css" />
   <link rel="stylesheet" href="css1/font.css" type="text/css" />
   <script src="scripts.js"></script>
@@ -55,6 +55,9 @@ session_start();
           <li>
             <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
+          <li>
+            <a href="http://localhost/Wypiekarnia/konto.php">Konto &#9865;</a>
+          </li>
         </ul>
       </li>
     </ol>
@@ -66,7 +69,30 @@ session_start();
       header('Location: index.html');
       exit();
     }
-
+    require_once "dbconnect.php";
+    $conn = @new mysqli($host, $user, $password, $database);
+    if ($conn->connect_errno != 0) {
+      echo "Error:" . $conn->connect_errno;
+    } else {
+      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$_SESSION[login]' AND Nazwa = '$_SESSION[op]'");
+      while ($row = $result->fetch_assoc()) {
+    ?>
+        <p><?php echo $row['p']
+            ?></p>
+        <p><?php echo $row['i']
+            ?></p>
+        <p><?php echo $row['d']
+            ?></p>
+        <p><?php echo $row['g']
+            ?></p>
+    <?php
+        $idcli = $row['cliid'];
+        $idpro = $row['prodid'];
+        //$sql = "INSERT INTO relacje(id, id_klijenta, id_produktu, `status`, `data zamówienia`) VALUES (NULL,$idcli,$idpro,'oczekujący',)";
+        //$result1 = @$conn->query($sql);
+      }
+    }
+    $conn->close();
     ?>
   </div>
   <footer>Lorem ipsum</footer>

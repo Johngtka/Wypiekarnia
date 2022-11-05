@@ -11,7 +11,7 @@ session_start();
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-  <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
   <link rel="stylesheet" href="css1/font.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
   <script src="scripts.js"></script>
@@ -55,6 +55,9 @@ session_start();
           <li>
             <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
+          <li>
+            <a href="http://localhost/Wypiekarnia/konto.php">Konto &#9865;</a>
+          </li>
         </ul>
       </li>
     </ol>
@@ -74,23 +77,23 @@ session_start();
     //5 warunków sprawdzających czy dany checkbox jest zaznaczony i czy zaznaczone wszystkie
     if (isset($_POST['przenna'])) {
       echo "<b>Bułek Przennych</b><br>";
-      $opt = array('nazwa' => 'bułka przenna');
-      $op = $opt['nazwa'];
+      $opt = array('nazwa' => 'Bułka Przenna');
+      $_SESSION['op'] = $opt['nazwa'];
     }
     if (isset($_POST['kajzerka'])) {
       echo "<b>Bułek Kajzerek</b><br>";
-      $opt = array('nazwa' => 'bułka kajzerka');
-      $op = $opt['nazwa'];
+      $opt = array('nazwa' => 'Bułka Kajzerka');
+      $_SESSION['op'] = $opt['nazwa'];
     }
     if (isset($_POST['razowa'])) {
       echo "<b>Bułek Razowych</b><br>";
-      $opt = array('nazwa' => 'bułka razowa');
-      $op = $opt['nazwa'];
+      $opt = array('nazwa' => 'Bułka Razowa');
+      $_SESSION['op'] = $opt['nazwa'];
     }
     if (isset($_POST['ziarnista'])) {
       echo "<b>Bułek Ziarnistyk</b><br>";
-      $opt = array('nazwa' => 'bułka ziarnista');
-      $op = $opt['nazwa'];
+      $opt = array('nazwa' => 'Bułka Ziarnista');
+      $_SESSION['op'] = $opt['nazwa'];
     }
     //zabezpieczenie przed zaznaczeniem wszystkich checkboxów prowadzące do kontrolki z informacją o tym
     if (isset($_POST['przenna']) && isset($_POST['kajzerka']) && isset($_POST['razowa']) && isset($_POST['ziarnista'])) {
@@ -112,7 +115,7 @@ session_start();
       echo "Error:" . $conn->connect_errno;
     } else {
       //wpisanie do tabeli zamówienia danych przesłanych z formularza z uwzględnieniem preparacji zamówienia
-      $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$op','$i','$data','$czas','$adres','$telefon','$komentarz')";
+      $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$i','$data','$czas','$adres','$telefon','$komentarz')";
       $result = @$conn->query($sql);
       $conn->close();
     }

@@ -13,7 +13,7 @@ session_start();
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/font.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
-  <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
   <script src="scripts.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <!--sekcja czcionek-->

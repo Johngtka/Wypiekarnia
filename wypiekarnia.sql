@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 04 Lis 2022, 16:32
+-- Czas generowania: 05 Lis 2022, 23:22
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -44,16 +44,17 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (3, 'Podsumowanie', '2021-02-28', 'Aktualizacja obejmuje dodanie skryptu PHP który po wypełnieniu formularza z zamówieniem, podsumowuje zamówienia'),
 (4, 'Zaawansowany CSS', '2021-03-14', 'Aktualizacja obejmuje dodanie zaawansowanych akruszy stylów css i dodanie pewnych usprawnień'),
 (5, 'JS Fantazja', '2021-03-22', 'Aktualizacja obejmuje dodanie kodów JavaScriptu, w celu dodania trochę fantazji do naszej strony'),
-(6, 'System Logowania', '2021-04-17', 'Aktualizacja obejmuje stworzenie pełnego systemu U/R/L, któr działa i dodanie panelu konta urzytkownika'),
+(6, 'System Logowania', '2021-04-17', 'Aktualizacja obejmuje stworzenie pełnego systemu U/R/L, który działa i dodanie panelu konta urzytkownika'),
 (7, 'System Logowania(aktualizacja)', '2021-04-25', 'Aktualizacja obejmuje dodanie więcej opcji panelu użytkownika takich jak np. (wylogowanie, usuwanie, czy nieskończona jeszcze możliwość edycji danych konta)'),
-(8, 'Usprawnienie', '2021-04-30', 'Aktualizacja obejmuje tytułowe usprawnienie polączeń między skryptami PHP i dodanie zabezpieczeń na poziomie system,u U/R/L i innych'),
-(9, 'Analiza', '2021-05-24', 'Aktualizacja obejmuje szczegułową znalize całego systemu Wypiekarni oraz naprawienie znalezionych błędów i zabezpieczeń'),
+(8, 'Usprawnienie', '2021-04-30', 'Aktualizacja obejmuje tytułowe usprawnienie połączeń między skryptami PHP i dodanie zabezpieczeń na poziomie systemu U/R/L i innych'),
+(9, 'Analiza', '2021-05-24', 'Aktualizacja obejmuje szczegułową analize całego systemu Wypiekarni oraz naprawienie znalezionych błędów i zabezpieczeń'),
 (10, 'Kontrolki', '2021-05-31', 'Aktualizacja obejmuje dodanie plików kontrolnych, które pełnią funkcję informacyjną dla użytkownika'),
 (11, 'Siła PHP', '2022-07-27', 'Dziś jeszcze mocniej zastosowaliśmy PHP, i wprowadziliśmy jeszcze więcej modyfikacji do naszego serwisu'),
 (12, 'Zewnętrzne informacje', '2022-07-30', 'Aktualizacja obejmuje przebudowanie całego systemu naszej witryny w taki sposób aby kod był napisany w systemie MODULARNO-PROCEDURALNYM'),
 (13, 'Aktualizacja Bazy', '2022-08-25', 'W tej aktualizacji zmieniliśmy strukturę naszej bazy danych'),
-(14, 'Ożywienie zamówień', '2022-10-28', 'W tej aktualizacji w końcu udało nam się ukończyć budowę pełnego systemu tworzenia zamówień z obsługą rodzajów produktów przy dodawaniu do bazy zamówienia.'),
-(15, 'Prace Naprawcze', '2022-11-04', 'Właśnie wyszła nowa aktualizacja która naprawia min. zabezpieczenie przed zaznaczeniem wielu checkboxów, oraz przygotowujemy się do uruchomienia koszyka');
+(14, 'Ożywienie zamówień', '2022-10-28', 'W tej aktualizacji w końcu udało nam się ukończyć budowę pełnego systemu tworzenia zamówień z obsługą rodzajów produktów(ADIO) przy dodawaniu do bazy zamówienia.'),
+(15, 'Prace Naprawcze', '2022-11-04', 'Właśnie wyszła nowa aktualizacja która naprawia min. zabezpieczenie przed zaznaczeniem wielu checkboxów, oraz przygotowujemy się do uruchomienia koszyka'),
+(16, 'Ostatnie Poprawki', '2022-11-05', 'W tej aktualizacji dodaliśmy podstawową funkcjonalność koszyka mianowicie wyświetlenie zamówionych produktów. <br> Dodatkowo zmieniliśmy logo naszej strony na: <br><img id=\'k\' src=\'ic.png\'/>');
 
 -- --------------------------------------------------------
 
@@ -110,15 +111,18 @@ INSERT INTO `produkty` (`id`, `Nazwa`, `Cena`, `Masa`, `Składniki`, `Opis`) VAL
 (10, 'Tarta wiosenna', '30zł', '1Kg', 'Ciasto tartowe, owoce(Truskawki i Borówki), krem budyniowy z czekoladą białą ', 'Pyszna tarta, na randki i spotkania z przyjaciółmi'),
 (11, 'Tarta czekoladowo-orzechowa', '25zł', '1Kg', 'Ciasto tartowe, Krem czekoladowy, orzechy w karmelu', 'Pyszna tarta na jesienne wieczory'),
 (12, 'Tarta malinowa', '20zł', '1Kg', 'Ciasto tartowe, krem mleczno-czekoladowy, maliny', 'Przepyszna tarta na spotkania'),
-(13, 'Babeczka Sezonowa', '8zł', '100gr', 'Ciasto kruche małe, krem, owoce, żelatyna', 'babeczka modyfikowana sezonowo'),
-(14, 'Ciasteczka z czekoladą (Amerykańskie)', '5zł', '100gr', 'Mąka, masło, jajka, mleko, czekolada', 'Amerykańskie ciasteczka COCO'),
-(15, 'Ciasteczka Ziarna w Karmelu', '5zł', '100gr', 'karmel, ziarna', 'Na przekąske bardzo dobre'),
-(16, 'Ciasteczka owsiane z bakaliami', '7zł', '100gr', 'ziarna owsa, jajka, bakalie', 'Pyszne i zdrowe ciasteczka'),
-(17, 'Ciasteczka Cantuccini', '6zł', '150gr', 'Mąka, mleko, jajka, czekolada', 'Pyszne i lekkie Cantuccini po włosku'),
-(18, 'Bułka Przenna', '0,60gr', '1szt', 'Mleko, mąka, jajka', 'Pyszne, świeże bułeczki tylko u nas'),
-(19, 'Bułka Kajzerka', '0.80gr', '1szt', '...', '...'),
-(20, 'Bułka Razowa', '0,90gr', '1szt', 'Mąka, jajka, mleko, zakwas, ziarna', 'Pyszna i zdrowa bułeczka razowa'),
-(21, 'Bułka Ziarnista', '0,50gr', '1szt', 'Mąka, jajka, mleko, ziarna', 'Pyszna bułeczka z ziarnami');
+(13, 'Ciasteczka z czekoladą (Amerykańskie)', '5zł', '100gr', 'Mąka, masło, jajka, mleko, czekolada', 'Amerykańskie ciasteczka COCO'),
+(14, 'Ciasteczka Ziarna w Karmelu', '5zł', '100gr', 'karmel, ziarna', 'Na przekąske bardzo dobre'),
+(15, 'Ciasteczka owsiane z bakaliami', '7zł', '100gr', 'ziarna owsa, jajka, bakalie', 'Pyszne i zdrowe ciasteczka'),
+(16, 'Ciasteczka Cantuccini', '6zł', '150gr', 'Mąka, mleko, jajka, czekolada', 'Pyszne i lekkie Cantuccini po włosku'),
+(17, 'Bułka Przenna', '0,60gr', '1szt', 'Mleko, mąka, jajka', 'Pyszne, świeże bułeczki tylko u nas'),
+(18, 'Bułka Kajzerka', '0.80gr', '1szt', '...', '...'),
+(19, 'Bułka Razowa', '0,90gr', '1szt', 'Mąka, jajka, mleko, zakwas, ziarna', 'Pyszna i zdrowa bułeczka razowa'),
+(20, 'Bułka Ziarnista', '0,50gr', '1szt', 'Mąka, jajka, mleko, ziarna', 'Pyszna bułeczka z ziarnami'),
+(21, 'Babeczka Czekoladowa Biała', '9zł', '100gr', 'Babeczka kakaowa z polana białączekoladą', '...'),
+(22, 'Babeczka Czekoladowa Czarna', '7zł', '100gr', 'Babeczka z polana czarną czekoladą', '...'),
+(23, 'Babeczka Malinowa\r\n', '5zł', '100gr', 'Babeczka, polewa lukrowa, maliny', 'babeczka polana lukrem i posypana malinami'),
+(24, 'Babeczka Sezonowa', '8zł', '100gr', 'Ciasto kruche małe, krem, owoce, żelatyna', 'babeczka modyfikowana sezonowo\r\n');
 
 -- --------------------------------------------------------
 
@@ -128,8 +132,8 @@ INSERT INTO `produkty` (`id`, `Nazwa`, `Cena`, `Masa`, `Składniki`, `Opis`) VAL
 
 CREATE TABLE `relacje` (
   `id` int(11) NOT NULL,
-  `id klijenta` text COLLATE utf8_polish_ci NOT NULL,
-  `id produktu` text COLLATE utf8_polish_ci NOT NULL,
+  `id_klijenta` text COLLATE utf8_polish_ci NOT NULL,
+  `id_produktu` text COLLATE utf8_polish_ci NOT NULL,
   `status` text COLLATE utf8_polish_ci NOT NULL,
   `data zamówienia` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
@@ -193,7 +197,7 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT dla tabeli `aktualizacje`
 --
 ALTER TABLE `aktualizacje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT dla tabeli `klijeci`
@@ -205,7 +209,7 @@ ALTER TABLE `klijeci`
 -- AUTO_INCREMENT dla tabeli `produkty`
 --
 ALTER TABLE `produkty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT dla tabeli `relacje`

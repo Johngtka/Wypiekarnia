@@ -11,7 +11,7 @@ session_start();
     <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="icon" href="icon.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
     <link rel="stylesheet" href="css1/font.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <script src="scripts.js"></script>
