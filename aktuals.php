@@ -130,6 +130,7 @@
             <?php
                 }
                 //zamknięcie połączenia
+                $result->free();
                 $conn->close();
             }
             ?>

@@ -93,7 +93,7 @@ session_start();
     <div class="main">
         <?php
         echo "<h1><b><i>Musisz dokonać tylko 1 wyboru<br> Lub zrobic wiele zamówień!!!</i></b></h1>";
-        echo '<h2><a href="index.html">Strona Główna</a></h2>';
+        echo '<h2><a href="index.php">Strona Główna</a></h2>';
         ?>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>

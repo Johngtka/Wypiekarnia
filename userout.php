@@ -82,6 +82,7 @@ session_start();
       $pass = $_POST['haslo'];
       $sql = "DELETE FROM klijeci WHERE logi='$log' AND haslo='$pass'";
       $result = @$conn->query($sql);
+      $result->free();
       $conn->close();
       session_unset();
     }

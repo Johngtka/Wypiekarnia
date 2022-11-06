@@ -114,6 +114,7 @@ session_start();
       echo "<h1>Witaj<br> $username</h1>";
       echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania</a></h2>";
       $conn->close();
+      $result->free();
     }
     ?>
     <br>

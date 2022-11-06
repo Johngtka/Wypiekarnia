@@ -60,6 +60,9 @@ if (!isset($_SESSION['zalogowany'])) {
           <li>
             <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
+          <li>
+            <a href="http://localhost/Wypiekarnia/konto.php">Konto &#9865;</a>
+          </li>
         </ul>
       </li>
     </ol>

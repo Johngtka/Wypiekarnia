@@ -1,5 +1,4 @@
 <?php
-  session_start();
-  session_unset();
-  header("Location: konto.php");
-?>
+session_start();
+unset($_SESSION['zalogowany']);
+header("Location: konto.php");

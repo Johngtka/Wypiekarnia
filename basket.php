@@ -92,6 +92,7 @@ session_start();
         //$result1 = @$conn->query($sql);
       }
     }
+    $result->free();
     $conn->close();
     ?>
   </div>

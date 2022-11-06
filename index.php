@@ -11,6 +11,7 @@ if ($conn->connect_errno != 0) {
   //print_r($result1->fetch_row()[0]);
   $_SESSION['akt'] = $result1->fetch_row()[0];
 }
+$result1->free();
 $conn->close();
 ?>
 <!DOCTYPE html>
