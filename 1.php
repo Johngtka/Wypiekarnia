@@ -117,7 +117,6 @@ session_start();
       //wpisanie do tabeli zamówienia danych przesłanych z formularza z uwzględnieniem preparacji zamówienia
       $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$i','$data','$czas','$adres','$telefon','$komentarz')";
       $result = @$conn->query($sql);
-      $result->free();
       $conn->close();
     }
     ?>

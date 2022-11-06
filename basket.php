@@ -74,7 +74,7 @@ session_start();
     if ($conn->connect_errno != 0) {
       echo "Error:" . $conn->connect_errno;
     } else {
-      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$_SESSION[login]' AND Nazwa = '$_SESSION[op]'");
+      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, relacje.status AS stat, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia, relacje WHERE logi='$_SESSION[login]' AND Nazwa = '$_SESSION[op]'");
       while ($row = $result->fetch_assoc()) {
     ?>
         <p><?php echo $row['p']
@@ -85,14 +85,18 @@ session_start();
             ?></p>
         <p><?php echo $row['g']
             ?></p>
+        <p><?php echo $row['stat']
+            ?></p>
     <?php
         $idcli = $row['cliid'];
         $idpro = $row['prodid'];
-        //$sql = "INSERT INTO relacje(id, id_klijenta, id_produktu, `status`, `data zamówienia`) VALUES (NULL,$idcli,$idpro,'oczekujący',)";
+        //$date = $row['g'];
+        //$sql = "INSERT INTO relacje(id, id_klijenta, id_produktu, `status`, `data zamówienia`) VALUES (NULL,$idcli,$idpro,'oczekujący',$date)";
         //$result1 = @$conn->query($sql);
       }
     }
     $result->free();
+    //$result1->free();
     $conn->close();
     ?>
   </div>
