@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 06 Lis 2022, 17:50
+-- Czas generowania: 06 Lis 2022, 22:11
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -156,6 +156,13 @@ CREATE TABLE `zamowienia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Zrzut danych tabeli `zamowienia`
+--
+
+INSERT INTO `zamowienia` (`id`, `nazwa_produkt`, `ilosc`, `dat`, `godzina`, `mail`, `telefon`, `kom`) VALUES
+(1, 'Bułka Kajzerka', '5', '2022-11-23', '16:29:00', 'jkowalski@gmail.com', 232345123, 'hhh');
+
+--
 -- Indeksy dla zrzutów tabel
 --
 
@@ -221,7 +228,7 @@ ALTER TABLE `relacje`
 -- AUTO_INCREMENT dla tabeli `zamowienia`
 --
 ALTER TABLE `zamowienia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

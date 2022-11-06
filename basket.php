@@ -30,6 +30,38 @@ session_start();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
+  <style type="text/css">
+    h1 {
+      width: 100%;
+      height: 160px;
+      background-color: #000000;
+      opacity: 0.5;
+      color: #ffffff;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0;
+      padding-top: 20px;
+    }
+
+    #zwrot {
+      background-color: #ffffff;
+      border: 4px solid #000000;
+      min-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #zwrot p {
+      display: inline-block;
+      width: 20%;
+    }
+
+    #zwrot h3 {
+      margin: 0;
+      width: 20%;
+      display: inline-block;
+    }
+  </style>
 </head>
 
 <body>
@@ -64,6 +96,7 @@ session_start();
     <div style="clear: both"></div>
   </div>
   <div class="main">
+    <h1>Zamówienia<br> <?php echo $_SESSION['login'] ?></h1>
     <?php
     if (!isset($_SESSION['zalogowany'])) {
       header('Location: index.html');
@@ -74,19 +107,26 @@ session_start();
     if ($conn->connect_errno != 0) {
       echo "Error:" . $conn->connect_errno;
     } else {
-      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, relacje.status AS stat, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia, relacje WHERE logi='$_SESSION[login]' AND Nazwa = '$_SESSION[op]'");
+      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$_SESSION[login]' AND Nazwa = '$_SESSION[op]'");
       while ($row = $result->fetch_assoc()) {
     ?>
-        <p><?php echo $row['p']
-            ?></p>
-        <p><?php echo $row['i']
-            ?></p>
-        <p><?php echo $row['d']
-            ?></p>
-        <p><?php echo $row['g']
-            ?></p>
-        <p><?php echo $row['stat']
-            ?></p>
+        <div id="zwrot">
+          <h3>Nazwa</h3>
+          <h3>Ilość</h3>
+          <h3>Data</h3>
+          <h3>Godzina</h3>
+          <div style="clear: both"></div>
+          <p><?php echo $row['p']
+              ?></p>
+          <p><?php echo $row['i']
+              ?></p>
+          <p><?php echo $row['d']
+              ?></p>
+          <p><?php echo $row['g']
+              ?></p>
+          <!--<p><?php echo $row['stat']
+                  ?></p>-->
+        </div>
     <?php
         $idcli = $row['cliid'];
         $idpro = $row['prodid'];
