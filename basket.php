@@ -128,15 +128,14 @@ session_start();
                   ?></p>-->
         </div>
     <?php
-        $idcli = $row['cliid'];
-        $idpro = $row['prodid'];
-        //$date = $row['g'];
-        //$sql = "INSERT INTO relacje(id, id_klijenta, id_produktu, `status`, `data zamówienia`) VALUES (NULL,$idcli,$idpro,'oczekujący',$date)";
+        //$idcli = $row['cliid'];
+        //$idpro = $row['prodid'];
+        //$date = $row['d'];
+        //$sql = "INSERT INTO relacje(id, id_klijenta, id_produktu, `status`, `data zamówienia`) VALUES (NULL,$idcli,$idpro,'oczekujący','$date')";
         //$result1 = @$conn->query($sql);
       }
     }
     $result->free();
-    //$result1->free();
     $conn->close();
     ?>
   </div>
