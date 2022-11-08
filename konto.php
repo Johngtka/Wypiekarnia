@@ -1,7 +1,7 @@
 <!--przekierowanie do profilu jeśli jest zalogowany użytkownik(zabezpieczenie przed wejściem do profilu użytkownika bez logowania-->
 <?php
 session_start();
-if (isset($_SESSION['zalogowany']) && $_SESSION['zalogowany'] == true) {
+if (isset($_SESSION["user"])) {
   header('Location: user.php');
   exit();
 }

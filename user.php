@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['zalogowany'])) {
-  header('Location: konto.php');
-  exit();
-}
+require_once("czyzalogowany.php");
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -109,7 +105,7 @@ if (!isset($_SESSION['zalogowany'])) {
   </div>
   <div class="main">
     <?php
-    echo "<h1>Witaj<br>" . $_SESSION['login'] . "</h1>";
+    echo "<h1>Witaj<br>" . $zalogowany_urzytkownik['login']/*zmienna w której jest zapisany obiekt logowania z konkretnego pola*/ . "</h1>";
     echo "<h2><a href='logout.php'>Wyloguj</a></h2>";
     echo "<h2><a href='http://localhost/Wypiekarnia/'>Strona Główna &#10224;</a></h2>";
     echo '<h2><a href="http://localhost/Wypiekarnia/basket.php">Zamówienia <i class="icon-basket"></i

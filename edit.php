@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['zalogowany'])) {
-  header('Location: index.html');
-  exit();
-}
+require_once("czyzalogowany.php");
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">

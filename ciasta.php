@@ -1,10 +1,5 @@
 <?php
-//wywołanie kontrolki informującej o tym że aby zamawiać trzeba się zalogować
-session_start();
-if (!isset($_SESSION['zalogowany'])) {
-  header('Location: control1.php');
-  exit();
-}
+require_once("czyzalogowany.php");
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
