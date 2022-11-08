@@ -6,7 +6,7 @@ $conn = @new mysqli($host, $user, $password, $database);
 if ($conn->connect_errno != 0) {
   echo "Error: " . $conn->connect_errno;
 } else {
-  //sumoanie wierszy z tabeli aktualizacje i zapisywanie tej sumy do zmiennej
+  //sumowanie wierszy z tabeli aktualizacje i zapisywanie tej sumy do zmiennej
   $result1 = @$conn->query("SELECT COUNT(*) FROM aktualizacje");
   //print_r($result1->fetch_row()[0]);
   $_SESSION['akt'] = $result1->fetch_row()[0];
