@@ -115,6 +115,9 @@ h1 {
   height: 500px;
   border: #000000 6px solid;
 }
+.img-fluid{
+  width: 100%;
+}
 /*stylizacja linków które są zdjęciami w index*/
 .main a {
   opacity: 0.9;
