@@ -39,25 +39,13 @@ if (isset($_SESSION["user"])) {
         <style type="text/css">
             h1 {
                 width: 100%;
-                height: 110px;
+                height: 160px;
                 background-color: #000000;
                 opacity: 0.5;
                 color: #ffffff;
                 margin-left: auto;
                 margin-right: auto;
                 margin-bottom: 0;
-            }
-
-            h2 {
-                width: 100%;
-                height: 110px;
-                background-color: #000000;
-                opacity: 0.5;
-                color: #ffffff;
-                margin-left: auto;
-                margin-right: auto;
-                margin-bottom: 0;
-                padding-top: 25px;
             }
 
             a {
@@ -102,8 +90,7 @@ if (isset($_SESSION["user"])) {
             <div style="clear: both;"></div>
         </div>
         <div class="main">
-            <h1><b><i>Musisz się zalogować <br>aby zamawiać!!!</i></b></h1>
-            <h2><a href="konto.php">Logowanie</a></h2>
+            <h1><b><i>Musisz się zalogować!!!</i></b><br><br><a href="konto.php">Logowanie</a></h1>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
         <footer>Lorem ipsum</footer>
