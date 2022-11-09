@@ -70,14 +70,16 @@ session_start();
 <body>
     <div class="up">
         <div id="logo" onclick="x()">
-            <div id="a" class="row col-sm-6">
+            <div id="a">
                 <img src="img/logo1.png" title="Logo" alt="Logo" />
             </div>
-            <div id="eggs" class="row col-sm-6 invisible"></div>
+            <div id="eggs" class="invisible"></div>
         </div>
         <ol>
             <li>
-                <a href="#">MENU &#9776;</a>
+                <a href="#">
+                    <span id="menu-text">MENU</span> &#9776;
+                </a>
                 <ul>
                     <li>
                         <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
@@ -88,7 +90,7 @@ session_start();
                 </ul>
             </li>
         </ol>
-        <div style="clear: both;"></div>
+        <!-- <div style="clear: both;"></div> -->
     </div>
     <div class="main">
         <?php

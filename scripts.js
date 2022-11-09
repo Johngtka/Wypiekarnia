@@ -5,10 +5,8 @@ function zegarek() {
     var miesiac = dzisiaj.getMonth() + 1;
     var rok = dzisiaj.getFullYear();
     var godzina = (dzisiaj.getHours() < 10 ? "0" : "") + dzisiaj.getHours();
-    var minuta =
-      (dzisiaj.getMinutes() < 10 ? "0" : "") + dzisiaj.getMinutes();
-    var sekunda =
-      (dzisiaj.getSeconds() < 10 ? "0" : "") + dzisiaj.getSeconds();
+    var minuta = (dzisiaj.getMinutes() < 10 ? "0" : "") + dzisiaj.getMinutes();
+    var sekunda = (dzisiaj.getSeconds() < 10 ? "0" : "") + dzisiaj.getSeconds();
     document.getElementById("eggs").innerHTML =
       dzien +
       "/" +
@@ -21,27 +19,23 @@ function zegarek() {
       minuta +
       ":" +
       sekunda;
-
-    setTimeout("zegarek()", 1000);
   }
+
+  var timerTask = null;
+
   function x() {
     const logo = document.getElementById("a");
     const timer = document.getElementById("eggs");
-    if (logo.classList.contains("visible")) {
-      logo.classList.remove("visible");
-      logo.classList.add("invisible");
-
-      timer.classList.remove("invisible");
-      timer.classList.add("visible");
+    if(logo.classList.toggle("invisible")) {
       zegarek();
-    } else {
-      logo.classList.remove("invisible");
-      logo.classList.add("visible");
-
-      timer.classList.remove("visible");
-      timer.classList.add("invisible");
+      timerTask = setInterval(zegarek, 1000);
+    } else if(timerTask) {
+      clearInterval(timerTask);
+      timerTask = null;
     }
+    timer.classList.toggle("invisible");
   }
+
     var numer = Math.floor(Math.random() * 6) + 1;
 
     var timer1 = 0;
@@ -62,5 +56,3 @@ function zegarek() {
       timer1 = setTimeout("zmienslajd()", 5000);
       timer2 = setTimeout("schowaj()", 4500);
     }
-
-      

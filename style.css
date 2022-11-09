@@ -15,24 +15,34 @@ input:focus {
 .up {
   border-bottom: 3px solid #b70000;
   background-color: #000000;
-  min-height: 240px;
+  /* height: 240px; */
   margin: 0;
   padding: 0;
   width: 100%;
   color: #ffffff;
   font-family: "Gloria Hallelujah", cursive;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
 }
 #logo {
   margin: 0;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   width: 200px;
   padding: 0;
-  height: 200px;
+  /* height: 200px; */
   float: left;
 }
-#a img {
-  width: 200px;
-  height: 200px;
+
+@media(max-width: 600px){
+  #menu-text {
+      display: none;
+  }
+
+  #a img {
+    width: 100px;
+    height: 100px;
+  }
 }
 #a {
   margin: 0;
@@ -68,15 +78,16 @@ ol > li > a:hover {
 /*Stylizacja listy opcji w menu*/
 ol > li > ul {
   list-style-type: none;
-  height: 20px;
+  position: absolute;
+  /* height: 20px; */
   padding: 0;
   margin: 0;
+  right: 50px;
   font-size: 15px;
   display: none;
 }
 /*Stylizacja opcji w liście*/
 ol > li > ul > li {
-  margin-right: 50px;
   font-family: "Special Elite", cursive;
 }
 ol > li > ul > li:hover {
@@ -111,12 +122,16 @@ h1 {
 /*stylizacja zdjęć w main*/
 .main img {
   border-radius: 50px;
-  width: 800px;
-  height: 500px;
+  width: 80vw; 
+  height: 80vw;
   border: #000000 6px solid;
 }
-.img-fluid{
-  width: 100%;
+/* skalowanie się zdjęcia gdy ekran jest więkrzy */
+@media(min-width: 600px) {
+  .main img {
+    width: 800px; 
+    height: 600px;
+  }
 }
 /*stylizacja linków które są zdjęciami w index*/
 .main a {
