@@ -165,6 +165,7 @@ $conn->close();
     </p>
     <div id="slider"></div>
   </div>
+  </div>
   <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>

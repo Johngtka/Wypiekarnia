@@ -9,9 +9,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 input:focus {
   background-color: aqua;
 }
+
 .up {
   border-bottom: 3px solid #b70000;
   background-color: #000000;
@@ -25,6 +27,7 @@ input:focus {
   justify-content: space-between;
   padding: 0 50px;
 }
+
 #logo {
   margin: 0;
   /* margin-left: 50px; */
@@ -34,9 +37,9 @@ input:focus {
   float: left;
 }
 
-@media(max-width: 600px){
+@media(max-width: 600px) {
   #menu-text {
-      display: none;
+    display: none;
   }
 
   #a img {
@@ -44,20 +47,24 @@ input:focus {
     height: 100px;
   }
 }
+
 #a {
   margin: 0;
 }
+
 div#eggs.row.col-sm-6 {
   font-size: 20px;
   margin-left: 10px;
   margin: 0;
   font-family: "Archivo Narrow", sans-serif;
 }
+
 ol {
   margin: 0;
 }
+
 /*pozycja menu*/
-ol > li {
+ol>li {
   float: right;
   list-style-type: none;
   padding: 0;
@@ -65,18 +72,21 @@ ol > li {
   text-align: center;
   margin: 0;
 }
+
 /*linki w menu*/
-ol > li > a {
+ol>li>a {
   text-decoration: none;
   margin-right: 50px;
   color: #ffffff;
 }
+
 /*Resetowanie do koloru białego a nie niebieskiego linku*/
-ol > li > a:hover {
+ol>li>a:hover {
   color: #ffffff;
 }
+
 /*Stylizacja listy opcji w menu*/
-ol > li > ul {
+ol>li>ul {
   list-style-type: none;
   position: absolute;
   /* height: 20px; */
@@ -86,32 +96,39 @@ ol > li > ul {
   font-size: 15px;
   display: none;
 }
+
 /*Stylizacja opcji w liście*/
-ol > li > ul > li {
+ol>li>ul>li {
   font-family: "Special Elite", cursive;
 }
-ol > li > ul > li:hover {
+
+ol>li>ul>li:hover {
   border: 1px dashed #ffffff;
 }
+
 /*Resetowanie koloru do białego w liście opcji*/
-ol > li > ul > li > a:hover {
+ol>li>ul>li>a:hover {
   color: #ffffff;
 }
+
 /*Stylizacja linku w opcji*/
-ul > li > a {
+ul>li>a {
   text-decoration: none;
   color: #ffffff;
 }
+
 /*ukrywanie listy opcji*/
-ol > li:hover > ul {
+ol>li:hover>ul {
   display: block;
 }
+
 /*stylizacja main*/
 .main {
   padding: 10px;
   text-align: center;
   width: 100%;
 }
+
 /*stylizacja akapitu i nagłówka h1*/
 .main p,
 h1 {
@@ -119,55 +136,67 @@ h1 {
   text-shadow: #ffffff 0.1em 0.1em 0.2em;
   margin: 0;
 }
+
 /*stylizacja zdjęć w main*/
 .main img {
   border-radius: 50px;
-  width: 80vw; 
+  width: 80vw;
   height: 80vw;
   border: #000000 6px solid;
 }
+
 /* skalowanie się zdjęcia gdy ekran jest więkrzy */
 @media(min-width: 600px) {
   .main img {
-    width: 800px; 
+    width: 800px;
     height: 600px;
   }
 }
+
 /*stylizacja linków które są zdjęciami w index*/
 .main a {
   opacity: 0.9;
 }
+
 .main a:hover {
   opacity: 5;
 }
+
 /*stylizacja stylizacja obrazków w kafelkach w index*/
 .peace img {
   width: 250px;
   height: 200px;
 }
+
 .peace img:hover {
   border: #ffffff 2px solid;
 }
+
 /*stylizacja samego kafelka z linkami*/
 .peace {
   display: inline-block;
   margin-top: 10px;
   border: #000000 2px solid;
 }
+
 .peace a {
   opacity: 0.9;
 }
+
 .peace a:hover {
   opacity: 9;
 }
+
 figure {
   margin: 8px;
   padding: 0;
 }
+
 .peace:hover {
   background-color: #000000;
   border: #ffffff 2px solid;
 }
+
 figcaption {
   margin-top: 8px;
   padding: 0;
@@ -179,13 +208,15 @@ figcaption {
   color: #000000;
   border: #000000 2px solid;
 }
+
 figure a {
   text-decoration: none;
 }
+
 /*stylizacja zdjęć w animowanej galeri*/
-#slider {
+/* #slider {
   padding-top: 30px;
-}
+} */
 /*stylizacja stopki całego dokumentu*/
 footer {
   background-color: #000000;
@@ -197,6 +228,7 @@ footer {
   font-family: "Cinzel", serif;
   border-top: 3px #b70000 solid;
 }
+
 /*stylizacja wierszy formularza*/
 .row {
   margin: 20px 0;
@@ -204,21 +236,25 @@ footer {
   margin-right: auto;
   width: 1000px;
 }
+
 /*stylizacja kolumn formularza*/
 .col {
   display: inline-block;
   margin: 0 10px;
 }
+
 /*stylizacja pola z komentarzemw formularzu*/
 #komentarz {
   resize: none;
 }
+
 /*stylizacja drógiego main który jest w aktualizacjach*/
 .main1 {
   color: #000000;
   width: 100%;
   text-shadow: #ffffff 0.1em 0.1em 0.2em;
 }
+
 /*stylizacja ramki z płatnościami*/
 .pay {
   width: 60%;
@@ -227,6 +263,7 @@ footer {
   border: 4px solid #000000;
   margin-right: auto;
 }
+
 .pay i::before {
   font-size: 110px;
   width: auto;
