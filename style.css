@@ -37,21 +37,6 @@ input:focus {
   float: left;
 }
 
-@media(max-width: 600px) {
-  #menu-text {
-    display: none;
-  }
-
-  #a img {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-#a {
-  margin: 0;
-}
-
 div#eggs.row.col-sm-6 {
   font-size: 20px;
   margin-left: 10px;
@@ -120,6 +105,21 @@ ul>li>a {
 /*ukrywanie listy opcji*/
 ol>li:hover>ul {
   display: block;
+}
+
+@media(max-width: 600px) {
+  #menu-text {
+    display: none;
+  }
+
+  #a img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+#a {
+  margin: 0;
 }
 
 /*stylizacja main*/
