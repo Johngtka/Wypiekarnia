@@ -72,7 +72,6 @@ $conn->close();
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main">
     <h1><b>O piekarni:</b></h1>
@@ -165,8 +164,8 @@ $conn->close();
     </p>
     <div id="slider"></div>
   </div>
-  </div>
   <footer>Lorem ipsum</footer>
+  </div>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

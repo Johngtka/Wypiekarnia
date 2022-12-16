@@ -1,4 +1,5 @@
 <?php
+// podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
 require_once("czyzalogowany.php");
 ?>
 <!DOCTYPE html>
@@ -66,6 +67,17 @@ require_once("czyzalogowany.php");
       padding-top: 25px;
     }
 
+    @media(max-width:600px) {
+
+      h1,
+      h2,
+      h3,
+      a {
+        width: 100%;
+      }
+
+    }
+
     a {
       text-decoration: none;
       color: #ffffff;
@@ -103,11 +115,10 @@ require_once("czyzalogowany.php");
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main">
     <?php
-    echo "<h1>Witaj<br>" . $zalogowany_urzytkownik['login']/*zmienna w której jest zapisany obiekt logowania z konkretnego pola*/ . "</h1>";
+    echo "<h1>Witaj<br>" . $zalogowany_urzytkownik['login']/*zmienna w której jest zapisana kolumna z tablicy obiektu użytkownika*/ . "</h1>";
     echo "<h2><a href='logout.php'>Wyloguj</a></h2>";
     echo "<h2><a href='http://localhost/Wypiekarnia/'>Strona Główna &#10224;</a></h2>";
     echo '<h2><a href="http://localhost/Wypiekarnia/basket.php">Zamówienia <i class="icon-basket"></i
@@ -117,8 +128,8 @@ require_once("czyzalogowany.php");
     ?>
     <br>
     <div id="slider"></div><br><br><br><br>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

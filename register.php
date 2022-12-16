@@ -54,6 +54,15 @@ session_start();
       padding-top: 25px;
     }
 
+    @media(max-width:600px) {
+
+      h1,
+      h2,
+      a {
+        width: 100%;
+      }
+    }
+
     a {
       text-decoration: none;
       color: #ffffff;
@@ -95,11 +104,9 @@ session_start();
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main">
     <?php
-    session_start();
     require_once "dbconnect.php";
     $conn = @new mysqli($host, $user, $password, $database);
     if ($conn->connect_errno != 0) {
@@ -116,7 +123,6 @@ session_start();
       echo "<h1>Witaj<br> $username</h1>";
       echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania</a></h2>";
       $conn->close();
-      $result->free();
     }
     ?>
     <br>

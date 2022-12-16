@@ -23,16 +23,12 @@ if ($conn->connect_errno != 0) {
       mysqli_real_escape_string($conn, $haslo)
     )/*warunek wykonujący polecenie wyszukujące urzytkownika zapisany w funkcji konwertującej dane wejściowe w jeden ciąg znaków i uniewarzniającej działanie wszelkich poleceń sql zapisanych w formularzu logowania w danych wejściowych*/
   )) {
-    //ustawienie zmiennej ilość jako metody zmiennej z rezultatem zapytania zwracającej liczbe wierszyb
+    //ustawienie zmiennej ilość jako metody zmiennej z rezultatem zapytania zwracającej liczbe wierszy
     $ilosc = $result->num_rows;
     //przypisanie sesyjnych zmiennych do kolumn w bazie i przekierowanie do profilu użytkownika(proces logowania)
     if ($ilosc == 1) {
-      // $_SESSION['zalogowany'] = true;
       //stworzenie z rezultatu zapytania tablicy skojarzeniowej
       $row = $result->fetch_assoc();
-      // $_SESSION['id'] = $row['id'];
-      // $_SESSION['login'] = $row['logi'];
-      // $_SESSION['haslo'] = $row['haslo'];
       //utworzenie obiektu zawierającego zmienne z wyciągniętymi z bazy danymi logowania z konkretnych kolumn w tabeli
       $_SESSION["user"] = [
         "id" => $row['id'],

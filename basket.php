@@ -1,4 +1,5 @@
 <?php
+// start sesji
 session_start();
 ?>
 <!DOCTYPE html>
@@ -95,21 +96,25 @@ session_start();
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main">
-    <h1>Zamówienia<br> <?php echo $_SESSION['login'] ?></h1>
     <?php
-    if (!isset($_SESSION['zalogowany'])) {
-      header('Location: index.html');
+    // if sprawdzający czy istnieje obiekt urzytkownika
+    if (!isset($_SESSION['user'])) {
+      header('Location: index.php');
       exit();
-    }
-    require_once "dbconnect.php";
-    $conn = @new mysqli($host, $user, $password, $database);
-    if ($conn->connect_errno != 0) {
-      echo "Error:" . $conn->connect_errno;
     } else {
-      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$_SESSION[login]' AND Nazwa = '$_SESSION[op]'");
+      // połączenie z bazą wraz ze sprawdzeniem poprawności połączenia
+      require_once "dbconnect.php";
+      $conn = @new mysqli($host, $user, $password, $database);
+      if ($conn->connect_errno != 0) {
+        echo "Error:" . $conn->connect_errno;
+      }
+      // do zmiennej log dopisuje obiekt urzytkownika
+      $log = $_SESSION['user'];
+      // polecenie sql, log[login] to jest kolumna tablicy obiektu użytkownika, $_session[op] to jest zmienna tworzona na poziomie podsumowania zamówienia
+      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'");
+      // pętla która zwraca dane wyciągnięte z bazy jako poprawny wynik
       while ($row = $result->fetch_assoc()) {
     ?>
         <div id="zwrot">
@@ -130,18 +135,13 @@ session_start();
                   ?></p>-->
         </div>
     <?php
-        //$idcli = $row['cliid'];
-        //$idpro = $row['prodid'];
-        //$date = $row['d'];
-        //$sql = "INSERT INTO relacje(id, id_klijenta, id_produktu, `status`, `data zamówienia`) VALUES (NULL,$idcli,$idpro,'oczekujący','$date')";
-        //$result1 = @$conn->query($sql);
       }
     }
     $result->free();
     $conn->close();
     ?>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

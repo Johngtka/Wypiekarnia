@@ -1,4 +1,5 @@
 <?php
+// skrypt który ma realizować edycję danych konta
 session_start();
 if (!isset($_SESSION["user"])) {
     header('Location: edit.php');

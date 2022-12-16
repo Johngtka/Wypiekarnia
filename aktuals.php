@@ -41,12 +41,6 @@
             border-top: #ffffff solid 1px;
         }
 
-        .main {
-            padding: 0;
-            width: 100%;
-
-        }
-
         #front-zwrot>b {
             display: inline-block;
             background-color: #000000;
@@ -54,8 +48,8 @@
         }
 
         #c {
-            overflow-y: scroll;
-            height: 700px;
+            /* overflow-y: scroll; */
+            height: 100%dvh;
         }
 
         #front-zwrot>p {
@@ -105,7 +99,6 @@
                 </ul>
             </li>
         </ol>
-        <!-- <div style="clear: both"></div> -->
     </div>
     <div class="main">
         <div id="c">
@@ -118,7 +111,7 @@
             if ($conn->connect_errno != 0) {
                 echo "Error: " . $conn->connect_errno;
             } else {
-                //wuszukanie wszystkich danych z tabeli aktualizacje i ich wyświetlenie z formatowaniem css
+                //wuszukanie wszystkich danych z tabeli aktualizacje i ich wyświetlenie w pętli
                 $result = @$conn->query("SELECT * FROM aktualizacje ORDER BY id DESC");
                 while ($row = $result->fetch_assoc()) {
             ?>
@@ -137,8 +130,8 @@
             }
             ?>
         </div>
+        <footer>Lorem ipsum</footer>
     </div>
-    <footer>Lorem ipsum</footer>
     <script src="js/bootstrap.min.js"></script>
 </body>
 

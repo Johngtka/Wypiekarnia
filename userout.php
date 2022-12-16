@@ -67,10 +67,10 @@ session_start();
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main">
     <?php
+    // warunek sprawdzający czy nie istnieją login lub hasło z formulaża usówania konta
     if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
       header('Location: wyjscie.php');
       exit();

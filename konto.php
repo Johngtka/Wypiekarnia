@@ -1,6 +1,6 @@
-<!--przekierowanie do profilu jeśli jest zalogowany użytkownik(zabezpieczenie przed wejściem do profilu użytkownika bez logowania-->
 <?php
 session_start();
+// zabezpiecz enie przed bez celowym ponownym logowaniem
 if (isset($_SESSION["user"])) {
   header('Location: user.php');
   exit();
@@ -70,7 +70,6 @@ if (isset($_SESSION["user"])) {
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main">
     <h1>Logowanie:</h1>
@@ -85,7 +84,7 @@ if (isset($_SESSION["user"])) {
           <b>Hasło:</b><input type="password" name="password" placeholder="Wpisz Hasło" required />
         </label>
         <?php
-        //Wyświetlenie info o niepoprawnym logowaniu
+        //warunek sprawdzający czy jest ustawiony error jeśli tak to wyświetlić error
         if (isset($_SESSION['err'])) {
           echo $_SESSION['err'];
         }
@@ -95,8 +94,8 @@ if (isset($_SESSION["user"])) {
     </form>
     <form action="rejestracja.php" method="POST"><input type="submit" value="Zarejestruj"></form>
     <div id="slider"></div>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

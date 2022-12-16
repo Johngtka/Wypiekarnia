@@ -54,6 +54,16 @@ session_start();
             padding-top: 25px;
         }
 
+        @media(max-width:600px) {
+
+            h1,
+            h2,
+            a {
+                width: 100%;
+            }
+
+        }
+
         a {
             text-decoration: none;
             color: #ffffff;
@@ -90,16 +100,16 @@ session_start();
                 </ul>
             </li>
         </ol>
-        <!-- <div style="clear: both;"></div> -->
     </div>
-    <div class="main">
+    <div class="main1">
         <?php
+        // komunikat wyświetlany jak ktoś chce zamówić wszystkie produkty na raz
         echo "<h1><b><i>Musisz dokonać tylko 1 wyboru<br> Lub zrobic wiele zamówień!!!</i></b></h1>";
         echo '<h2><a href="index.php">Strona Główna</a></h2>';
         ?>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div id="slider"></div>
+        <footer>Lorem ipsum</footer>
     </div>
-    <footer>Lorem ipsum</footer>
     <script src="js/bootstrap.min.js"></script>
 </body>
 

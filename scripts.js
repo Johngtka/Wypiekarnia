@@ -50,7 +50,7 @@ function zmienslajd() {
 
   var plik = '<a href="#"><img class="img-fluid" src="slajdy/slajd' + numer + '.png" /></a>';
 
-  document.getElementById("slider").innerHTML = plik;
+  document.querySelector('#slider').innerHTML = plik;
   $("#slider").fadeIn(500);
 
   timer1 = setTimeout("zmienslajd()", 5000);

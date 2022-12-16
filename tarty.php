@@ -1,4 +1,5 @@
 <?php
+// podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
 require_once("czyzalogowany.php");
 ?>
 <!DOCTYPE html>
@@ -63,7 +64,6 @@ require_once("czyzalogowany.php");
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main1">
     <form action="3.php" method="POST">
@@ -100,8 +100,8 @@ require_once("czyzalogowany.php");
           <input type="reset" value="Wyczyść" />
         </div>
     </form>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

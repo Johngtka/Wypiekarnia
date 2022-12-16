@@ -70,7 +70,6 @@ session_start();
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main">
     <br>

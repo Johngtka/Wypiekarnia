@@ -63,7 +63,6 @@ session_start();
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both;"></div> -->
   </div>
   <div class="main">
     <?php
@@ -129,8 +128,8 @@ session_start();
       <i class="icon-cc-paypal"></i>
     </div>
     <br><br><br><br><br><br><br><br>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

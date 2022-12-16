@@ -60,17 +60,13 @@ session_start();
         </ul>
       </li>
     </ol>
-    <!-- <div style="clear: both"></div> -->
   </div>
   <div class="main">
     <h1>Tutaj morzesz się z nami skontaktować i zgłaszać błędy</h1>
     <p><b>-------------------------------------------------------------------------------------------------------------------------------------------------------------</b></p>
-    <form action="#" method="POST">
-
-    </form>
     <div id="slider"></div>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

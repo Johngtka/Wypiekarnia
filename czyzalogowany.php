@@ -1,12 +1,13 @@
 <?php
 //zaczęcie sesji
 session_start();
-//instrukcja sprawdzająca czy obiekt który jest zapisanymi danymi logowania jest ustawiony
+//instrukcja sprawdzająca istnieje obiekt użytkownika
 if (isset($_SESSION["user"])) {
     //przypisanie obiektu logowania do zmiennej
     $zalogowany_urzytkownik = $_SESSION["user"];
 } else {
 ?>
+    <!-- przeciwny warunek do if generuje error -->
     <!DOCTYPE HTML>
     <html lang="pl-PL">
 
@@ -46,6 +47,14 @@ if (isset($_SESSION["user"])) {
                 margin-left: auto;
                 margin-right: auto;
                 margin-bottom: 0;
+            }
+
+            @media(max-width: 600px) {
+
+                h1,
+                a {
+                    width: 100%;
+                }
             }
 
             a {
@@ -89,17 +98,16 @@ if (isset($_SESSION["user"])) {
                     </ul>
                 </li>
             </ol>
-            <!-- <div style="clear: both;"></div> -->
         </div>
         <div class="main">
             <h1><b><i>Musisz się zalogować!!!</i></b><br><br><a href="konto.php">Logowanie</a></h1>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <footer>Lorem ipsum</footer>
         </div>
-        <footer>Lorem ipsum</footer>
         <script src="js/bootstrap.min.js"></script>
     </body>
 
     </html>
 <?php
+    // jeśli istnieje obiekt użytkownika to nic się nie stanie, a właściwie to zmienna $zalogowany_urzytkownik trafi do pamięci serwerai będzie można z niej korzystać
     exit();
 }
