@@ -32,35 +32,16 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    h1 {
-      width: 100%;
-      height: 160px;
-      background-color: #000000;
-      opacity: 0.5;
-      color: #ffffff;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 0;
-      padding-top: 20px;
-    }
-
     #zwrot {
-      background-color: #ffffff;
-      border: 4px solid #000000;
-      min-width: 100%;
+      background-color: #fff;
+      border-top: 2px solid #000000;
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
       margin-left: auto;
       margin-right: auto;
-    }
-
-    #zwrot p {
-      display: inline-block;
-      width: 20%;
-    }
-
-    #zwrot h3 {
-      margin: 0;
-      width: 20%;
-      display: inline-block;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
     }
   </style>
 </head>
@@ -114,28 +95,23 @@ session_start();
       $log = $_SESSION['user'];
       // polecenie sql, log[login] to jest kolumna tablicy obiektu użytkownika, $_session[op] to jest zmienna tworzona na poziomie podsumowania zamówienia
       $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'");
+      // konkatenowanie otwarcia diva z wynikiem zapytania i pętlą z nazwami kolumn stylizowanymi za pomocą siatki css
+      echo '<div id="zwrot">' . "<p>Nazwa</p>" . "<p>Ilość</p>" . "<p>Data</p>" . "<p>Godzina</p>";
       // pętla która zwraca dane wyciągnięte z bazy jako poprawny wynik
       while ($row = $result->fetch_assoc()) {
     ?>
-        <div id="zwrot">
-          <h3>Nazwa</h3>
-          <h3>Ilość</h3>
-          <h3>Data</h3>
-          <h3>Godzina</h3>
-          <div style="clear: both"></div>
-          <p><?php echo $row['p']
-              ?></p>
-          <p><?php echo $row['i']
-              ?></p>
-          <p><?php echo $row['d']
-              ?></p>
-          <p><?php echo $row['g']
-              ?></p>
-          <!--<p><?php echo $row['stat']
-                  ?></p>-->
-        </div>
+        <p><?php echo $row["p"]
+            ?></p>
+        <p><?php echo $row["i"]
+            ?></p>
+        <p><?php echo $row["d"]
+            ?></p>
+        <p><?php echo $row["g"]
+            ?></p>
     <?php
       }
+      // zakończenie diva
+      echo '</div>';
     }
     $result->free();
     $conn->close();
