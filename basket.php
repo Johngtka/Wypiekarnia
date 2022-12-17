@@ -94,7 +94,7 @@ session_start();
       // do zmiennej log dopisuje obiekt urzytkownika
       $log = $_SESSION['user'];
       // polecenie sql, log[login] to jest kolumna tablicy obiektu użytkownika, $_session[op] to jest zmienna tworzona na poziomie podsumowania zamówienia
-      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'");
+      $result = @$conn->query("SELECT klijeci.id, produkty.id, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'");
       // konkatenowanie otwarcia diva z wynikiem zapytania i pętlą z nazwami kolumn stylizowanymi za pomocą siatki css
       echo '<div id="zwrot">' . "<p>Nazwa</p>" . "<p>Ilość</p>" . "<p>Data</p>" . "<p>Godzina</p>";
       // pętla która zwraca dane wyciągnięte z bazy jako poprawny wynik
