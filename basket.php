@@ -34,7 +34,7 @@ session_start();
   <style type="text/css">
     #zwrot {
       background-color: #fff;
-      border-top: 2px solid #000000;
+      border-top: 2px solid #000;
       width: 100%;
       padding-top: 10px;
       padding-bottom: 10px;
