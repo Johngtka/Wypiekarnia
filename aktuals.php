@@ -63,11 +63,6 @@
             width: 128px;
             height: 128px;
         }
-
-        /*#op {
-            text-align: center;
-            width: 700px;
-        }*/
     </style>
 </head>
 

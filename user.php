@@ -78,6 +78,26 @@ require_once("czyzalogowany.php");
 
     }
 
+    @media(max-width:850px) {
+
+      h1,
+      h2,
+      h3,
+      a {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:1000px) {
+
+      h1,
+      h2,
+      h3,
+      a {
+        width: 100%;
+      }
+    }
+
     a {
       text-decoration: none;
       color: #ffffff;

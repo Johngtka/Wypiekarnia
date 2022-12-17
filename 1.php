@@ -100,25 +100,26 @@ session_start();
     if (isset($_POST['urodzinowy']) && isset($_POST['smakosz']) && isset($_POST['jubileuszowy']) && isset($_POST['slubny'])) {
       header('Location: control.php');
       exit();
-    }
-    echo "<p>Na adres $adres<p>";
-    echo "<p>Numer Telefonu: $telefon<p>";
-    echo "<p>Na termin: $data</p>";
-    echo "<p>Godzinę: $czas</p>";
-    echo "<h1>Z komentarzem:</h1>";
-    echo "<br> $komentarz<br><br>";
-    echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
-    echo "<h1>Wybierz Metode Płatności:</h1>";
-    //sprawdzenie poprawności połączenia z bazą
-    require_once "dbconnect.php";
-    $conn = @new mysqli($host, $user, $password, $database);
-    if ($conn->connect_errno != 0) {
-      echo "Error:" . $conn->connect_errno;
     } else {
-      //wpisanie do tabeli zamówienia danych przesłanych z formularza z uwzględnieniem preparacji zamówienia
-      $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$i','$data','$czas','$adres','$telefon','$komentarz')";
-      $result = @$conn->query($sql);
-      $conn->close();
+      echo "<p>Na adres $adres<p>";
+      echo "<p>Numer Telefonu: $telefon<p>";
+      echo "<p>Na termin: $data</p>";
+      echo "<p>Godzinę: $czas</p>";
+      echo "<h1>Z komentarzem:</h1>";
+      echo "<br> $komentarz<br><br>";
+      echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
+      echo "<h1>Wybierz Metode Płatności:</h1>";
+      //sprawdzenie poprawności połączenia z bazą
+      require_once "dbconnect.php";
+      $conn = @new mysqli($host, $user, $password, $database);
+      if ($conn->connect_errno != 0) {
+        echo "Error:" . $conn->connect_errno;
+      } else {
+        //wpisanie do tabeli zamówienia danych przesłanych z formularza z uwzględnieniem preparacji zamówienia
+        $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$i','$data','$czas','$adres','$telefon','$komentarz')";
+        $result = @$conn->query($sql);
+        $conn->close();
+      }
     }
     ?>
     <div class="pay">

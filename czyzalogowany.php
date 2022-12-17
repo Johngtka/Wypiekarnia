@@ -49,7 +49,7 @@ if (isset($_SESSION["user"])) {
                 margin-bottom: 0;
             }
 
-            @media(max-width: 600px) {
+            @media screen {
 
                 h1,
                 a {
@@ -60,8 +60,6 @@ if (isset($_SESSION["user"])) {
             a {
                 text-decoration: none;
                 color: #ffffff;
-                width: 400px;
-                height: 110px;
             }
 
             a:hover {

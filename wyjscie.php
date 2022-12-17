@@ -36,6 +36,33 @@ session_start();
       text-decoration: underline;
       text-decoration-style: dashed;
     }
+
+    @media (max-width:600px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:850px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:1000px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 

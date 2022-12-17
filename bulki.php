@@ -31,6 +31,34 @@ require_once("czyzalogowany.php");
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
+  <style type="text/css">
+    @media (max-width:600px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:850px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:1000px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>

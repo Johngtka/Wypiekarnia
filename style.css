@@ -25,7 +25,14 @@ input:focus {
   font-family: "Gloria Hallelujah", cursive;
   display: flex;
   justify-content: space-between;
-  padding: 0 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+@media(max-width:600px) {
+  .up {
+    padding: 0;
+  }
 }
 
 #logo {

@@ -31,6 +31,34 @@ require_once("czyzalogowany.php");
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
+  <style type="text/css">
+    @media (max-width:600px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:850px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:1000px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -80,10 +108,10 @@ require_once("czyzalogowany.php");
       <div class="row">
         <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" /></label>
       </div>
-
+      <!-- required -->
       <div class="row">
-        <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
-        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" required /></label>
+        <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" /></label><br /><br />
+        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" /></label>
       </div>
 
       <div class="row">

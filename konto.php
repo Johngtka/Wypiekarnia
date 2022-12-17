@@ -36,8 +36,31 @@ if (isset($_SESSION["user"])) {
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    .row {
-      width: 100%;
+    @media (max-width:600px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:850px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:1000px) {
+
+      .row,
+      p,
+      label {
+        width: 100%;
+      }
     }
   </style>
 </head>

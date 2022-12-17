@@ -34,6 +34,7 @@ session_start();
         h1 {
             width: 100%;
             height: 110px;
+            text-align: center;
             background-color: #000000;
             opacity: 0.5;
             color: #ffffff;
@@ -45,6 +46,7 @@ session_start();
         h2 {
             width: 100%;
             height: 110px;
+            text-align: center;
             background-color: #000000;
             opacity: 0.5;
             color: #ffffff;
@@ -107,7 +109,6 @@ session_start();
         echo "<h1><b><i>Musisz dokonać tylko 1 wyboru<br> Lub zrobic wiele zamówień!!!</i></b></h1>";
         echo '<h2><a href="index.php">Strona Główna</a></h2>';
         ?>
-        <div id="slider"></div>
         <footer>Lorem ipsum</footer>
     </div>
     <script src="js/bootstrap.min.js"></script>
