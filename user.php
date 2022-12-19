@@ -112,7 +112,7 @@ require_once("czyzalogowany.php");
   <!--And of section-->
 </head>
 
-<body onload="zmienslajd()">
+<body>
   <div class="up">
     <div id="logo" onclick="x()">
       <div id="a">
@@ -147,7 +147,8 @@ require_once("czyzalogowany.php");
     echo "<h3><a href='wyjscie.php'>Usuń Konto</a></h3>";
     ?>
     <br>
-    <div id="slider"></div><br><br><br><br>
+    <div id="slider">
+    </div><br><br><br><br>
     <footer>Lorem ipsum</footer>
   </div>
   <script src="js/bootstrap.min.js"></script>

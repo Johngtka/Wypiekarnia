@@ -65,7 +65,7 @@ if (isset($_SESSION["user"])) {
   </style>
 </head>
 
-<body onload="zmienslajd()">
+<body>
   <div class="up">
     <div id="logo" onclick="x()">
       <div id="a">

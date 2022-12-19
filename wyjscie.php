@@ -66,7 +66,7 @@ session_start();
   </style>
 </head>
 
-<body onload="zmienslajd()">
+<body>
   <div class="up">
     <div id="logo" onclick="x()">
       <div id="a">
@@ -119,8 +119,8 @@ session_start();
       <input type="submit" value="Usuń Profil" />
     </form>
     <div id="slider"></div>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

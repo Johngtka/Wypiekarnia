@@ -103,30 +103,31 @@ require_once("czyzalogowany.php");
           <label><input type="checkbox" name="czekorz" value="3"><b>Czekoladowo-Orzechowa(25zł/Kg)</label></b></br>
           <label><input type="checkbox" name="malinowe" value="4"><b>Malinowa(20zł/Kg)</b></label>
         </div>
-        <div class="row">
-          <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" /></label>
-        </div>
+      </div>
+      <div class="row">
+        <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" /></label>
+      </div>
 
-        <div class="row">
-          <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
-          <label><b>Numer Telefonu:</b><input type="tel" name="telefon" required /></label>
-        </div>
+      <div class="row">
+        <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
+        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" required /></label>
+      </div>
 
-        <div class="row">
-          <label><b>Data dostawy:</b><input type="date" name="data" /></label><br /><br />
-          <label><b>Czas dostawy:</b><input type="time" name="czas" min="10:00" max="23:00" /></label>
-        </div>
+      <div class="row">
+        <label><b>Data dostawy:</b><input type="date" name="data" /></label><br /><br />
+        <label><b>Czas dostawy:</b><input type="time" name="czas" min="10:00" max="23:00" /></label>
+      </div>
 
-        <div class="row">
-          <div><label><b>Uwagi do zamówienia:</b></label></div>
-          <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje"></textarea>
-        </div>
-        <div class="row">
-          <input type="submit" value="Zamów!" />
-        </div>
-        <div class="row">
-          <input type="reset" value="Wyczyść" />
-        </div>
+      <div class="row">
+        <div><label><b>Uwagi do zamówienia:</b></label></div>
+        <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje"></textarea>
+      </div>
+      <div class="row">
+        <input type="submit" value="Zamów!" />
+      </div>
+      <div class="row">
+        <input type="reset" value="Wyczyść" />
+      </div>
     </form>
     <footer>Lorem ipsum</footer>
   </div>

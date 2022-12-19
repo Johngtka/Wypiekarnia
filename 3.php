@@ -30,6 +30,62 @@ session_start();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
+  <style type="text/css">
+    #basket {
+      width: 1000px;
+      height: 210px;
+      background-color: #000;
+      opacity: 0.5;
+      color: #ffffff;
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0;
+    }
+
+    #basket a {
+      text-decoration: none;
+      color: #ffffff;
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      height: 210px;
+    }
+
+    #basket a:first-child {
+      padding-top: 8%;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    @media(max-width:600px) {
+
+      #basket,
+      a {
+        width: 100%;
+      }
+
+    }
+
+    @media(max-width:850px) {
+
+      #basket,
+      a {
+        width: 100%;
+      }
+    }
+
+    @media(max-width:1000px) {
+
+      #basket,
+      a {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -108,7 +164,7 @@ session_start();
       echo "<h1>Z komentarzem:</h1>";
       echo "<br> $komentarz<br><br>";
       echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
-      echo "<h1>Wybierz Metode Płatności:</h1>";
+      // echo "<h1>Wybierz Metode Płatności:</h1>";
       //sprawdzenie poprawności połączenia z bazą
       require_once "dbconnect.php";
       $conn = @new mysqli($host, $user, $password, $database);
@@ -122,13 +178,14 @@ session_start();
       }
     }
     ?>
-    <div class="pay">
+    <!-- <div class="pay">
       <i class="icon-credit-card-alt"></i>
       <i class="icon-cc-visa"></i>
       <i class="icon-cc-mastercard"></i>
       <i class="icon-cc-paypal"></i>
-    </div>
-    <br><br><br><br><br><br><br><br>
+    </div> -->
+    <h1 id="basket"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1>
+    <div id="slider"></div>
     <footer>Lorem ipsum</footer>
   </div>
   <script src="js/bootstrap.min.js"></script>

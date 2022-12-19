@@ -32,7 +32,7 @@ session_start();
   <!--koniec sekcji czcionek-->
 </head>
 
-<body onload="zmienslajd()">
+<body>
   <div class="up">
     <div id="logo" onclick="x()">
       <div id="a">

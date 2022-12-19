@@ -34,12 +34,9 @@ session_start();
   <style type="text/css">
     #zwrot {
       background-color: #fff;
-      border-top: 2px solid #000;
       width: 100%;
       padding-top: 10px;
       padding-bottom: 10px;
-      margin-left: auto;
-      margin-right: auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
     }
@@ -93,10 +90,11 @@ session_start();
       }
       // do zmiennej log dopisuje obiekt urzytkownika
       $log = $_SESSION['user'];
+      // style="display: none;width: 100%;"
       // polecenie sql, log[login] to jest kolumna tablicy obiektu użytkownika, $_session[op] to jest zmienna tworzona na poziomie podsumowania zamówienia
-      $result = @$conn->query("SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'");
+      $result = @$conn->query("SELECT produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'");
       // konkatenowanie otwarcia diva z wynikiem zapytania i pętlą z nazwami kolumn stylizowanymi za pomocą siatki css
-      echo '<div id="zwrot">' . "<p>Nazwa</p>" . "<p>Ilość</p>" . "<p>Data</p>" . "<p>Godzina</p>";
+      echo '<div id="zwrot">' . "<h3>Nazwa</h3>" . "<h3>Ilość</h3>" . "<h3>Data</h3>" . "<h3>Godzina</h3>";
       // pętla która zwraca dane wyciągnięte z bazy jako poprawny wynik
       while ($row = $result->fetch_assoc()) {
     ?>
@@ -107,13 +105,16 @@ session_start();
         <p><?php echo $row["d"]
             ?></p>
         <p><?php echo $row["g"]
-            ?></p>
+            ?><a href="http://localhost/Wypiekarnia/relacje.php"><button>aktywuj zamówienie</button></a></p>
     <?php
       }
       // zakończenie diva
       echo '</div>';
     }
-    $result->free();
+    $sql = "SELECT klijeci.id as cliid , produkty.id as prodid, zamowienia.dat as dat FROM klijeci JOIN zamowienia,produkty";
+    $result1 = @$conn->query($sql);
+    $date = $result1->fetch_assoc();
+    @$_SESSION['rel'] = ["kid" => $date['cliid'], "pid" => $date['prodid'], "ordat" => $date['dat']];
     $conn->close();
     ?>
     <footer>Lorem ipsum</footer>

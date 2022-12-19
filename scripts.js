@@ -40,6 +40,10 @@ var numer = Math.floor(Math.random() * 6) + 1;
 
 var timer1 = 0;
 var timer2 = 0;
+window.onload = () => {
+  timer1 = setInterval(zmienslajd, 5000)
+  zmienslajd()
+}
 function schowaj() {
   $("#slider").fadeOut(500);
 }
@@ -52,7 +56,5 @@ function zmienslajd() {
 
   document.querySelector('#slider').innerHTML = plik;
   $("#slider").fadeIn(500);
-
-  timer1 = setTimeout("zmienslajd()", 5000);
   timer2 = setTimeout("schowaj()", 4500);
 }

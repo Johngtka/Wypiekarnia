@@ -44,7 +44,7 @@ session_start();
   </style>
 </head>
 
-<body onload="zmienslajd()">
+<body>
   <div class="up">
     <div id="logo" onclick="x()">
       <div id="a">
@@ -74,18 +74,19 @@ session_start();
     if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
       header('Location: wyjscie.php');
       exit();
-    }
-    require_once "dbconnect.php";
-    $conn = @new mysqli($host, $user, $password, $database);
-    if ($conn->connect_errno != 0) {
-      echo "Error:" . $conn->connect_errno;
     } else {
-      $log = $_POST['login'];
-      $pass = $_POST['haslo'];
-      $sql = "DELETE FROM klijeci WHERE logi='$log' AND haslo='$pass'";
-      $result = @$conn->query($sql);
-      $conn->close();
-      session_unset();
+      require_once "dbconnect.php";
+      $conn = @new mysqli($host, $user, $password, $database);
+      if ($conn->connect_errno != 0) {
+        echo "Error:" . $conn->connect_errno;
+      } else {
+        $log = $_POST['login'];
+        $pass = $_POST['haslo'];
+        $sql = "DELETE FROM klijeci WHERE logi='$log' AND haslo='$pass'";
+        $result = @$conn->query($sql);
+        $conn->close();
+        session_unset();
+      }
     }
     ?>
     <h1>Już nas opuszczasz?</h1>
@@ -95,8 +96,8 @@ session_start();
     </h6>
     <h2><a href='http://localhost/Wypiekarnia/'>Strona Główna</a></h2>
     <div id="slider"></div>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 

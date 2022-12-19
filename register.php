@@ -76,7 +76,7 @@ session_start();
   </style>
 </head>
 
-<body onload="zmienslajd()">
+<body>
   <div class="up">
     <div id="logo" onclick="x()">
       <div id="a">
@@ -126,9 +126,10 @@ session_start();
     }
     ?>
     <br>
-    <div id="slider"></div><br><br><br><br>
+    <div id="slider"></div>
+    <br><br><br><br>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   <script src="js/bootstrap.min.js"></script>
 </body>
 
