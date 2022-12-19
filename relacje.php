@@ -1,7 +1,3 @@
-<?php
-// start sesji
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 

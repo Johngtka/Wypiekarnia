@@ -1,6 +1,23 @@
+polecenie urzywane w rejestracji
 INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')'
+
+polecenie używane w procesie usówania konta
 DELETE FROM klijeci WHERE logi='$log' AND haslo='$pass'
+
+polecenie używane w procesie logowaia
 SELECT * FROM klijeci WHERE logi='%s' AND haslo='%s'
-INSERT INTO aktualizacje(id, Nazwa, `Data`, Opis) VALUES (NULL,"",DATE(""),"");
+
+polecenie (dla admina) dodające aktualizacje
+INSERT INTO aktualizacje(id, Nazwa, `Data`, Opis) VALUES (NULL,"",DATE(""),"")
+
+polecenie służące do sumowania liczby aktualizacji i używane w index
 SELECT COUNT(*) FROM aktualizacje
-SELECT klijeci.id AS cliid, produkty.id AS prodid, produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'
+
+polecenie używane w koszyku
+SELECT produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'
+
+polecenie używane w koszyku jako źródło inro dla dodania relacji
+SELECT klijeci.id as cliid , produkty.id as prodid, zamowienia.dat as dat FROM klijeci JOIN zamowienia,produkty
+
+polecenie używane w relacjach
+INSERT INTO relacje VALUES (NULL,$report[kid],$report[pid],'$status','$report[ordat]')
