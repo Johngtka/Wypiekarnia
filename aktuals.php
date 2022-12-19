@@ -32,20 +32,21 @@
         #front-zwrot {
             width: auto;
             height: auto;
-            background-color: #000000;
+            background-color: #000;
             opacity: 0.5;
-            color: #ffffff;
+            color: #fff;
             padding: 20px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 0;
-            border-top: #ffffff solid 1px;
+            margin: 0;
+            text-shadow: #000;
+            border-top: #fff solid 1px;
         }
 
         #front-zwrot>b {
             display: inline-block;
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #000;
+            color: #fff;
         }
 
         #c {
@@ -55,7 +56,7 @@
 
         #front-zwrot>p {
             display: inline-block;
-            color: #ffffff;
+            color: #fff;
             width: 100%;
         }
 
