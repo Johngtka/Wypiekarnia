@@ -49,8 +49,8 @@
         }
 
         #c {
-            /* overflow-y: scroll; */
-            height: 100%dvh;
+            overflow-y: scroll;
+            height: 100vh;
         }
 
         #front-zwrot>p {
