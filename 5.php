@@ -37,7 +37,7 @@ session_start();
       height: 210px;
       background-color: #000;
       opacity: 0.5;
-      color: #ffffff;
+      color: #fff;
       display: flex;
       margin-left: auto;
       margin-right: auto;
@@ -46,7 +46,7 @@ session_start();
 
     #basket a {
       text-decoration: none;
-      color: #ffffff;
+      color: #fff;
       width: 400px;
       margin-left: auto;
       margin-right: auto;
@@ -59,7 +59,7 @@ session_start();
     }
 
     a:hover {
-      color: #ffffff;
+      color: #fff;
     }
 
     @media screen and (max-width:600px) {

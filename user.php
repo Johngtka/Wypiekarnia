@@ -48,9 +48,9 @@ require_once("czyzalogowany.php");
     h2 {
       width: 1000px;
       height: 110px;
-      background-color: #000000;
+      background-color: #000;
       opacity: 0.5;
-      color: #ffffff;
+      color: #fff;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 0;
@@ -60,9 +60,9 @@ require_once("czyzalogowany.php");
     h3 {
       width: 1000px;
       height: 110px;
-      background-color: #000000;
+      background-color: #000;
       opacity: 0.5;
-      color: #ffffff;
+      color: #fff;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 0;
@@ -102,13 +102,13 @@ require_once("czyzalogowany.php");
 
     a {
       text-decoration: none;
-      color: #ffffff;
+      color: #fff;
       width: 400px;
       height: 110px;
     }
 
     a:hover {
-      color: #ffffff;
+      color: #fff;
     }
   </style>
   <!--And of section-->

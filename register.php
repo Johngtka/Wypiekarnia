@@ -35,9 +35,9 @@ session_start();
     h1 {
       width: 1000px;
       height: 110px;
-      background-color: #000000;
+      background-color: #000;
       opacity: 0.5;
-      color: #ffffff;
+      color: #fff;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 0;
@@ -46,9 +46,9 @@ session_start();
     h2 {
       width: 1000px;
       height: 110px;
-      background-color: #000000;
+      background-color: #000;
       opacity: 0.5;
-      color: #ffffff;
+      color: #fff;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 0;
@@ -64,15 +64,33 @@ session_start();
       }
     }
 
+    @media screen and (max-width:850px) {
+
+      h1,
+      h2,
+      a {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width:1000px) {
+
+      h1,
+      h2,
+      a {
+        width: 100%;
+      }
+    }
+
     a {
       text-decoration: none;
-      color: #ffffff;
+      color: #fff;
       width: 400px;
       height: 110px;
     }
 
     a:hover {
-      color: #ffffff;
+      color: #fff;
     }
   </style>
 </head>
@@ -122,7 +140,7 @@ session_start();
       $sql = "INSERT INTO klijeci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$mail','$num','$username','$haslo')";
       $result = @$conn->query($sql);
       echo "<h1>Witaj<br> $username</h1>";
-      echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania</a></h2>";
+      echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania <i class='fas'>&#xf406;</i></a></h2>";
       $conn->close();
     }
     ?>

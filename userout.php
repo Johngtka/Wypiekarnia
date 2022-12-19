@@ -34,13 +34,13 @@ session_start();
   <style type="text/css">
     a {
       text-decoration: none;
-      color: #000000;
+      color: #000;
       width: 400px;
       height: 110px;
     }
 
     a:hover {
-      color: #000000;
+      color: #000;
     }
   </style>
 </head>

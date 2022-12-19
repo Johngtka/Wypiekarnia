@@ -42,9 +42,9 @@ if (isset($_SESSION["user"])) {
             h1 {
                 width: 100%;
                 height: 160px;
-                background-color: #000000;
+                background-color: #000;
                 opacity: 0.5;
-                color: #ffffff;
+                color: #fff;
                 margin-left: auto;
                 margin-right: auto;
                 margin-bottom: 0;
@@ -58,13 +58,29 @@ if (isset($_SESSION["user"])) {
                 }
             }
 
+            @media screen and (max-width:850px) {
+
+                h1,
+                a {
+                    width: 100%;
+                }
+            }
+
+            @media screen and (max-width:1000px) {
+
+                h1,
+                a {
+                    width: 100%;
+                }
+            }
+
             a {
                 text-decoration: none;
-                color: #ffffff;
+                color: #fff;
             }
 
             a:hover {
-                color: #ffffff;
+                color: #fff;
             }
         </style>
     </head>

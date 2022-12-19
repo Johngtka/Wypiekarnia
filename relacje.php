@@ -73,6 +73,7 @@
         } else {
             $sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$report[pid],'$status','$report[ordat]')";
             $result = @$conn->query($sql);
+            $conn->close();
         }
         ?>
     </div>

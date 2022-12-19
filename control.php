@@ -36,9 +36,9 @@ session_start();
             width: 100%;
             height: 110px;
             text-align: center;
-            background-color: #000000;
+            background-color: #000;
             opacity: 0.5;
-            color: #ffffff;
+            color: #fff;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 0;
@@ -48,9 +48,9 @@ session_start();
             width: 100%;
             height: 110px;
             text-align: center;
-            background-color: #000000;
+            background-color: #000;
             opacity: 0.5;
-            color: #ffffff;
+            color: #fff;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 0;
@@ -67,15 +67,33 @@ session_start();
 
         }
 
+        @media screen and (max-width:850px) {
+
+            h1,
+            h2,
+            a {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:1000px) {
+
+            h1,
+            h2,
+            a {
+                width: 100%;
+            }
+        }
+
         a {
             text-decoration: none;
-            color: #ffffff;
+            color: #fff;
             width: 400px;
             height: 110px;
         }
 
         a:hover {
-            color: #ffffff;
+            color: #fff;
         }
     </style>
 </head>

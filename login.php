@@ -36,7 +36,6 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
           "haslo" => $row['haslo'],
         ];
         unset($_SESSION['err']);
-        $result->free();
         header('Location: user.php');
       } else {
         //błędne dane logowania z informacją i zwrotką do logowania
