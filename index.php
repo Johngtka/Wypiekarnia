@@ -29,6 +29,7 @@ $conn->close();
   <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
   <script src="scripts.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -60,14 +61,14 @@ $conn->close();
         </a>
         <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
-          <li>
             <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)
             </a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php">Konto &#9865;</a>
+            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+          </li>
+          <li>
+            <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
           </li>
         </ul>
       </li>

@@ -16,6 +16,7 @@ session_start();
     <link rel="stylesheet" href="style.css" type="text/css" />
     <script src="scripts.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <!--sekcja czcionek-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,7 +57,7 @@ session_start();
             padding-top: 25px;
         }
 
-        @media(max-width:600px) {
+        @media screen and (max-width:600px) {
 
             h1,
             h2,
@@ -107,7 +108,7 @@ session_start();
         <?php
         // komunikat wyświetlany jak ktoś chce zamówić wszystkie produkty na raz
         echo "<h1><b><i>Musisz dokonać tylko 1 wyboru<br> Lub zrobic wiele zamówień!!!</i></b></h1>";
-        echo '<h2><a href="index.php">Strona Główna</a></h2>';
+        echo '<h2><a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a></h2>';
         ?>
         <footer>Lorem ipsum</footer>
     </div>

@@ -17,6 +17,8 @@ require_once("czyzalogowany.php");
   <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
   <script src="scripts.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,7 +69,7 @@ require_once("czyzalogowany.php");
       padding-top: 25px;
     }
 
-    @media(max-width:600px) {
+    @media screen and (max-width:600px) {
 
       h1,
       h2,
@@ -78,7 +80,7 @@ require_once("czyzalogowany.php");
 
     }
 
-    @media(max-width:850px) {
+    @media screen and (max-width:850px) {
 
       h1,
       h2,
@@ -88,7 +90,7 @@ require_once("czyzalogowany.php");
       }
     }
 
-    @media(max-width:1000px) {
+    @media screen and (max-width:1000px) {
 
       h1,
       h2,
@@ -127,10 +129,10 @@ require_once("czyzalogowany.php");
         </a>
         <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
         </ul>
       </li>
@@ -139,12 +141,12 @@ require_once("czyzalogowany.php");
   <div class="main">
     <?php
     echo "<h1>Witaj<br>" . $zalogowany_urzytkownik['login']/*zmienna w której jest zapisana kolumna z tablicy obiektu użytkownika*/ . "</h1>";
-    echo "<h2><a href='logout.php'>Wyloguj</a></h2>";
-    echo "<h2><a href='http://localhost/Wypiekarnia/'>Strona Główna &#10224;</a></h2>";
-    echo '<h2><a href="http://localhost/Wypiekarnia/basket.php">Zamówienia <i class="icon-basket"></i
-            ></a></h2>';
-    echo "<h3><a href='http://localhost/Wypiekarnia/edit.php'>Edytuj Konto</a></h3>";
-    echo "<h3><a href='wyjscie.php'>Usuń Konto</a></h3>";
+    echo "<h2><a href='logout.php'><i class='fa'>&#xf08b;</i> Wyloguj</a></h2>";
+    echo "<h2><a href='http://localhost/Wypiekarnia/'><i class='icon-home'></i> Strona Główna</a></h2>";
+    echo '<h2><a href="http://localhost/Wypiekarnia/basket.php"><i class="icon-basket"></i
+    > Koszyk</a></h2>';
+    echo "<h3><a href='http://localhost/Wypiekarnia/edit.php'>&#9998; Edytuj Konto</a></h3>";
+    echo "<h3><a href='wyjscie.php'>&#128465; Usuń Konto</a></h3>";
     ?>
     <br>
     <div id="slider">

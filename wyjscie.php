@@ -16,6 +16,7 @@ session_start();
   <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
   <script src="scripts.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +38,7 @@ session_start();
       text-decoration-style: dashed;
     }
 
-    @media (max-width:600px) {
+    @media screen and (max-width:600px) {
 
       .row,
       p,
@@ -46,7 +47,7 @@ session_start();
       }
     }
 
-    @media(max-width:850px) {
+    @media screen and (max-width:850px) {
 
       .row,
       p,
@@ -55,7 +56,7 @@ session_start();
       }
     }
 
-    @media(max-width:1000px) {
+    @media screen and (max-width:1000px) {
 
       .row,
       p,
@@ -82,17 +83,17 @@ session_start();
         <ul>
           <li>
             <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <!--<i class="icon-home"></i>-->&#10224;
+              <i class="icon-home"></i>
             </a>
-          </li>
-          <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
             <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php">Konto &#9865;</a>
+            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+          </li>
+          <li>
+            <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
           </li>
         </ul>
       </li>

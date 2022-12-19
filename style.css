@@ -29,7 +29,7 @@ input:focus {
   padding-right: 50px;
 }
 
-@media(max-width:600px) {
+@media screen and (max-width:600px) {
   .up {
     padding: 0;
   }
@@ -114,7 +114,7 @@ ol>li:hover>ul {
   display: block;
 }
 
-@media(max-width: 600px) {
+@media screen and (max-width: 600px) {
   #menu-text {
     display: none;
   }
@@ -158,7 +158,7 @@ h1 {
 }
 
 /* skalowanie się zdjęcia gdy ekran jest więkrzy */
-@media(min-width: 600px) {
+@media screen and (min-width: 600px) {
   .main img {
     width: 800px;
     height: 600px;

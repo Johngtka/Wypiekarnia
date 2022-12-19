@@ -23,6 +23,7 @@ if (isset($_SESSION["user"])) {
         <link rel="stylesheet" href="style.css" type="text/css" />
         <script src="scripts.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <!--sekcja czcionek-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,7 +50,7 @@ if (isset($_SESSION["user"])) {
                 margin-bottom: 0;
             }
 
-            @media screen {
+            @media screen and (max-width: 600px) {
 
                 h1,
                 a {
@@ -84,7 +85,7 @@ if (isset($_SESSION["user"])) {
                     <ul>
                         <li>
                             <a href="http://localhost/Wypiekarnia/">Strona Główna
-                                <!--<i class="icon-home"></i>--> &#10224;
+                                <i class="icon-home"></i>
                             </a>
                         </li>
                         <li>
