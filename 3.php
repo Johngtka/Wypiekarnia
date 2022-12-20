@@ -32,7 +32,7 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    #basket {
+    #cart {
       width: 1000px;
       height: 210px;
       background-color: #000;
@@ -44,7 +44,7 @@ session_start();
       margin-bottom: 0;
     }
 
-    #basket a {
+    #cart a {
       text-decoration: none;
       color: #fff;
       width: 400px;
@@ -54,7 +54,7 @@ session_start();
       height: 210px;
     }
 
-    #basket a:first-child {
+    #cart a:first-child {
       padding-top: 8%;
     }
 
@@ -64,7 +64,7 @@ session_start();
 
     @media screen and (max-width:600px) {
 
-      #basket,
+      #cart,
       a {
         width: 100%;
       }
@@ -73,7 +73,7 @@ session_start();
 
     @media screen and (max-width:850px) {
 
-      #basket,
+      #cart,
       a {
         width: 100%;
       }
@@ -81,7 +81,7 @@ session_start();
 
     @media screen and (max-width:1000px) {
 
-      #basket,
+      #cart,
       a {
         width: 100%;
       }
@@ -185,7 +185,7 @@ session_start();
       <i class="icon-cc-mastercard"></i>
       <i class="icon-cc-paypal"></i>
     </div> -->
-    <h1 id="basket"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1>
+    <h1 id="cart"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1>
     <div id="slider"></div>
     <footer>Lorem ipsum</footer>
   </div>
