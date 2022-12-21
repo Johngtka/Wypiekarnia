@@ -1,3 +1,6 @@
+<?php
+require_once "czyzalogowany.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -27,6 +30,68 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
+    <style type="text/css">
+        #back {
+            width: 1000px;
+            height: 110px;
+            background-color: #000;
+            opacity: 0.5;
+            text-align: center;
+            padding: 3%;
+            color: #fff;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            /* margin-bottom: 0; */
+        }
+
+        #ret {
+            width: 1000px;
+            height: 110px;
+            background-color: #000;
+            opacity: 0.5;
+            text-align: center;
+            padding: 3%;
+            color: #fff;
+            font-size: 30px;
+            text-decoration: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #back a:hover {
+            color: #fff;
+        }
+
+        @media screen and (max-width:600px) {
+
+            #back,
+            #ret,
+            a {
+                width: 100%;
+            }
+
+        }
+
+        @media screen and (max-width:850px) {
+
+            #back,
+            #ret,
+            a {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:1000px) {
+
+            #back,
+            #ret,
+            a {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -63,7 +128,6 @@
     </div>
     <div class="main">
         <?php
-        require_once("czyzalogowany.php");
         require_once "dbconnect.php";
         $report = $_SESSION['rel'];
         $status = "w przygotowaniu";
@@ -71,11 +135,18 @@
         if ($conn->connect_errno != 0) {
             echo "Error:" . $conn->connect_errno;
         } else {
-            $sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$report[pid],'$status','$report[ordat]')";
+            $result1 = @$conn->query("SELECT id FROM produkty WHERE Nazwa='$_SESSION[op]'");
+            $row = $result1->fetch_assoc();
+            $sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$row[id],'$status','$report[ordat]')";
             $result = @$conn->query($sql);
             $conn->close();
+            unset($_SESSION["op"]);
         }
         ?>
+        <h1 id="back">Aktywowano zamówienie</h1>
+        <a id="ret" href="http://localhost/Wypiekarnia/basket.php">Powrót</a>
+        <div id="slider"></div>
+        <footer>Lorem ipsum</footer>
     </div>
 </body>
 

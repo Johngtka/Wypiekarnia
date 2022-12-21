@@ -106,7 +106,7 @@ session_start();
         <p><?php echo $row["d"]
             ?></p>
         <p><?php echo $row["g"]
-            ?><a href="http://localhost/Wypiekarnia/relacje.php"><button>aktywuj zamówienie</button></a></p>
+            ?><a href="http://localhost/Wypiekarnia/relacje.php"><button id="but">aktywuj zamówienie</button></a></p>
     <?php
       }
       // zakończenie diva
@@ -115,9 +115,10 @@ session_start();
     $sql = "SELECT klijeci.id as cliid , produkty.id as prodid, zamowienia.dat as dat FROM klijeci JOIN zamowienia,produkty";
     $result1 = @$conn->query($sql);
     $date = $result1->fetch_assoc();
-    @$_SESSION['rel'] = ["kid" => $date['cliid'], "pid" => $date['prodid'], "ordat" => $date['dat']];
+    @$_SESSION['rel'] = ["kid" => $date['cliid'], "ordat" => $date['dat']];
     $conn->close();
     ?>
+    <!-- <div id="slider"></div> -->
     <footer>Lorem ipsum</footer>
   </div>
   <script src="js/bootstrap.min.js"></script>

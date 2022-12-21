@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "czyzalogowany.php";
 ?>
 <!DOCTYPE HTML>
 <html lang="pl-PL">
