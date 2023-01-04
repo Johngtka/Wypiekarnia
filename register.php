@@ -3,12 +3,11 @@ require_once "PDO.php";
 $regtab = [
   'imie' => $_POST['name'],
   'nazwisko' => $_POST['subname'],
-  'mail' => $_POST['adres'],
   'num' => $_POST['telefon'],
   'username' => $_POST['login'],
   'haslo' => $_POST['password']
 ];
-if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['mail']) && isset($regtab['num']) && isset($regtab['username']) && isset($regtab['haslo'])) {
+if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['num']) && isset($regtab['username']) && isset($regtab['haslo'])) {
   $email = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
   // if (empty($email) || empty($regtab['haslo'])) {
   //   $_SESSION['logdata'] = "Wpisz Ponownie ;-)";
@@ -17,6 +16,7 @@ if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['mail'
   //   unset($_SESSION['logdata']);
   //   exit();
   // }
+  // 'mail' => $_POST['adres'],&& isset($regtab['mail'])
   $sql = "INSERT INTO klijeci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$regtab[imie]','$regtab[nazwisko]',:email,'$regtab[num]','$regtab[username]','$regtab[haslo]')";
   $query = $db->prepare($sql);
   $query->bindValue(':email', $email, PDO::PARAM_STR);
