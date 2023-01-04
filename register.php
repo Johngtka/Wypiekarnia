@@ -1,5 +1,30 @@
 <?php
-require_once "czyzalogowany.php";
+require_once "PDO.php";
+$regtab = [
+  'imie' => $_POST['name'],
+  'nazwisko' => $_POST['subname'],
+  'mail' => $_POST['adres'],
+  'num' => $_POST['telefon'],
+  'username' => $_POST['login'],
+  'haslo' => $_POST['password']
+];
+if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['mail']) && isset($regtab['num']) && isset($regtab['username']) && isset($regtab['haslo'])) {
+  $email = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
+  // if (empty($email) || empty($regtab['haslo'])) {
+  //   $_SESSION['logdata'] = "Wpisz Ponownie ;-)";
+  //   header('Location: rejestracja.php');
+  // } else {
+  //   unset($_SESSION['logdata']);
+  //   exit();
+  // }
+  $sql = "INSERT INTO klijeci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$regtab[imie]','$regtab[nazwisko]',:email,'$regtab[num]','$regtab[username]','$regtab[haslo]')";
+  $query = $db->prepare($sql);
+  $query->bindValue(':email', $email, PDO::PARAM_STR);
+  $query->execute();
+} else {
+  header('Location: rejestracja.php');
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -115,7 +140,8 @@ require_once "czyzalogowany.php";
             </a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781;</a>
+            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)
+            </a>
           </li>
           <li>
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
@@ -126,23 +152,8 @@ require_once "czyzalogowany.php";
   </div>
   <div class="main">
     <?php
-    require_once "dbconnect.php";
-    $conn = @new mysqli($host, $user, $password, $database);
-    if ($conn->connect_errno != 0) {
-      echo "Error:" . $conn->connect_errno;
-    } else {
-      $imie = $_POST['name'];
-      $nazwisko = $_POST['subname'];
-      $mail = $_POST['adres'];
-      $num = $_POST['telefon'];
-      $username = $_POST['login'];
-      $haslo = $_POST['password'];
-      $sql = "INSERT INTO klijeci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$mail','$num','$username','$haslo')";
-      $result = @$conn->query($sql);
-      echo "<h1>Witaj<br> $username</h1>";
-      echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania <i class='fas'>&#xf406;</i></a></h2>";
-      $conn->close();
-    }
+    echo "<h1>Witaj<br>" . $regtab['username'] . "</h1>";
+    echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania <i class='fas'>&#xf406;</i></a></h2>";
     ?>
     <br>
     <div id="slider"></div>

@@ -1,5 +1,16 @@
 <?php
-session_start();
+require_once 'PDO.php';
+if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
+  header('Location: wyjscie.php');
+  exit();
+} else {
+  $log = $_POST['login'];
+  $pass = $_POST['haslo'];
+  $sql = "DELETE FROM klijeci WHERE logi='$log' AND haslo='$pass'";
+  $query = $db->prepare($sql);
+  $query->execute();
+  session_unset();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -70,26 +81,6 @@ session_start();
     </ol>
   </div>
   <div class="main">
-    <?php
-    // warunek sprawdzający czy nie istnieją login lub hasło z formulaża usówania konta
-    if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
-      header('Location: wyjscie.php');
-      exit();
-    } else {
-      require_once "dbconnect.php";
-      $conn = @new mysqli($host, $user, $password, $database);
-      if ($conn->connect_errno != 0) {
-        echo "Error:" . $conn->connect_errno;
-      } else {
-        $log = $_POST['login'];
-        $pass = $_POST['haslo'];
-        $sql = "DELETE FROM klijeci WHERE logi='$log' AND haslo='$pass'";
-        $result = @$conn->query($sql);
-        $conn->close();
-        session_unset();
-      }
-    }
-    ?>
     <h1>Już nas opuszczasz?</h1>
     <p>------------------------------------</p>
     <h6>

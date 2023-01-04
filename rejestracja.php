@@ -108,6 +108,12 @@ session_start();
         <label>
           <b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label>
       </div>
+      <?php
+      // if (isset($_SESSION['logdata'])) {
+      //   echo $_SESSION['logdata'];
+      //   unset($_SESSION['logdata']);
+      // }
+      ?>
       <div class="row">
         <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="Max 9 znaków" required /></label>
       </div>
