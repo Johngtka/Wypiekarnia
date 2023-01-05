@@ -1,3 +1,9 @@
+<?php
+require_once("PDO.php");
+$sql = "SELECT * FROM aktualizacje ORDER BY id DESC";
+$query = $db->prepare($sql);
+$query->execute();
+?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 
@@ -100,29 +106,15 @@
     <div class="main">
         <div id="c">
             <?php
-            //system dynamicznych aktualizacji zarządzanych przez bazę danych
-            session_start();
-            require_once "dbconnect.php";
-            //połączenie i sprawdzenie poprawności połączenia z bazą
-            $conn = @new mysqli($host, $user, $password, $database);
-            if ($conn->connect_errno != 0) {
-                echo "Error: " . $conn->connect_errno;
-            } else {
-                //wuszukanie wszystkich danych z tabeli aktualizacje i ich wyświetlenie w pętli
-                $result = @$conn->query("SELECT * FROM aktualizacje ORDER BY id DESC");
-                while ($row = $result->fetch_assoc()) {
+            while ($row = $query->fetch()) {
             ?>
-                    <div id="front-zwrot">
-                        <b><i><?php echo $row['Nazwa'] ?></i></b>
-                        <p><?php echo $row['Data'] ?></p>
-                        <div style="clear: both"></div>
-                        <p id="#"><?php echo $row['Opis'] ?></p>
-                    </div>
-
+                <div id="front-zwrot">
+                    <b><i><?php echo $row['Nazwa'] ?></i></b>
+                    <p><?php echo $row['Data'] ?></p>
+                    <div style="clear: both"></div>
+                    <p id="#"><?php echo $row['Opis'] ?></p>
+                </div>
             <?php
-                }
-                //zamknięcie połączenia
-                $conn->close();
             }
             ?>
         </div>

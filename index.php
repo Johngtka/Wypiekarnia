@@ -1,17 +1,9 @@
 <?php
-session_start();
-require_once "dbconnect.php";
-//połączenie i sprawdzenie poprawności połączenia z bazą
-$conn = @new mysqli($host, $user, $password, $database);
-if ($conn->connect_errno != 0) {
-  echo "Error: " . $conn->connect_errno;
-} else {
-  //sumowanie wierszy z tabeli aktualizacje i zapisywanie tej sumy do zmiennej
-  $result1 = @$conn->query("SELECT COUNT(*) FROM aktualizacje");
-  //print_r($result1->fetch_row()[0]);
-  $_SESSION['akt'] = $result1->fetch_row()[0];
-}
-$conn->close();
+require_once 'PDO.php';
+$sql = "SELECT COUNT(*) FROM aktualizacje";
+$query = $db->prepare($sql);
+$query->execute();
+$_SESSION['akt'] = $query->fetch()[0];
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">

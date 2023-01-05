@@ -1,5 +1,15 @@
 <?php
-require_once "czyzalogowany.php";
+require_once("PDO.php");
+$prodtype = @['ur' => $_POST['urodzinowy'], 'sm' => $_POST['smakosz'], 'jub' => $_POST['jubileuszowy'], 'slub' => $_POST['slubny']];
+$orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
+if (isset($prodtype['ur']) && isset($prodtype['sm']) && isset($prodtype['jub']) && isset($prodtype['slub'])) {
+  header('Location: control.php');
+  exit();
+} else {
+  $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$orderdata[ilość]','$orderdata[data]','$orderdata[czas]','$orderdata[email]','$orderdata[telefon]','$orderdata[komentarz]')";
+  $query = $db->prepare($sql);
+  $query->execute();
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="pl-PL">
@@ -123,61 +133,35 @@ require_once "czyzalogowany.php";
   </div>
   <div class="main">
     <?php
-    //system generowania odpowiednio spreparowanego podsumowania zamówienia
-    $i = $_POST["i"];
-    $adres = $_POST["adres"];
-    $telefon = $_POST["telefon"];
-    $data = $_POST["data"];
-    $czas = $_POST["czas"];
-    $komentarz = $_POST["komentarz"];
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś $i Tortów</p>";
-    //5 warunków sprawdzających czy dany checkbox jest zaznaczony i czy zaznaczone wszystkie
-    if (isset($_POST['urodzinowy']) && $_POST['urodzinowy']) {
+    echo "<p>Zamówiłeś $orderdata[ilość] Tortów</p>";
+    if (isset($prodtype['ur'])) {
       echo "<b>Urodzinowych</b><br>";
       $opt = array('nazwa' => 'Tort Urodzinowy');
       $_SESSION['op'] = $opt['nazwa'];
     }
-    if (isset($_POST['smakosz']) && $_POST['smakosz']) {
+    if (isset($prodtype['sm'])) {
       echo "<b>Dla Smakoszy</b><br>";
       $opt = array('nazwa' => 'Tort dla Smakoszy');
       $_SESSION['op'] = $opt['nazwa'];
     }
-    if (isset($_POST['jubileuszowy']) && $_POST['jubileuszowy']) {
+    if (isset($prodtype['jub'])) {
       echo "<b>Jubileuszowych</b><br>";
       $opt = array('nazwa' => 'Tort Jubileusz');
       $_SESSION['op'] = $opt['nazwa'];
     }
-    if (isset($_POST['slubny']) && $_POST['slubny']) {
+    if (isset($prodtype['slub'])) {
       echo "<b>Ślubnych</b><br>";
       $opt = array('nazwa' => 'Tort Ślubny');
       $_SESSION['op'] = $opt['nazwa'];
     }
-    //zabezpieczenie przed zaznaczeniem wszystkich checkboxów prowadzące do kontrolki z informacją o tym
-    if (isset($_POST['urodzinowy']) && isset($_POST['smakosz']) && isset($_POST['jubileuszowy']) && isset($_POST['slubny'])) {
-      header('Location: control.php');
-      exit();
-    } else {
-      echo "<p>Na adres $adres<p>";
-      echo "<p>Numer Telefonu: $telefon<p>";
-      echo "<p>Na termin: $data</p>";
-      echo "<p>Godzinę: $czas</p>";
-      echo "<h1>Z komentarzem:</h1>";
-      echo "<br> $komentarz<br><br>";
-      echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
-      // echo "<h1>Wybierz Metode Płatności:</h1>";
-      //sprawdzenie poprawności połączenia z bazą
-      require_once "dbconnect.php";
-      $conn = @new mysqli($host, $user, $password, $database);
-      if ($conn->connect_errno != 0) {
-        echo "Error:" . $conn->connect_errno;
-      } else {
-        //wpisanie do tabeli zamówienia danych przesłanych z formularza z uwzględnieniem preparacji zamówienia
-        $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$i','$data','$czas','$adres','$telefon','$komentarz')";
-        $result = @$conn->query($sql);
-        $conn->close();
-      }
-    }
+    echo "<p>Na adres $orderdata[email]<p>";
+    echo "<p>Numer Telefonu: $orderdata[telefon]<p>";
+    echo "<p>Na termin: $orderdata[data]</p>";
+    echo "<p>Godzinę: $orderdata[czas]</p>";
+    echo "<h1>Z komentarzem:</h1>";
+    echo "<br> $orderdata[komentarz]<br><br>";
+    echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     ?>
     <!-- <div class="pay">
       <i class="icon-credit-card-alt"></i>
