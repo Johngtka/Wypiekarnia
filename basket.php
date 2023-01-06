@@ -80,7 +80,7 @@ if (!isset($_SESSION['user'])) {
           </li>
           <li>
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>]
+          </li>
           <li>
             <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
           </li>
