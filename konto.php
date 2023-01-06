@@ -82,7 +82,7 @@ if (isset($_SESSION["user"])) {
         <ul>
           <li>
             <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <!--<i class="icon-home"></i>--> &#10224;
+              <i class="icon-home"></i>
             </a>
           </li>
           <li>

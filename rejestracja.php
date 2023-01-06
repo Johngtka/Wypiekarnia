@@ -117,6 +117,11 @@ session_start();
       <div class="row">
         <label><b>Hasło:</b><input type="password" name="password" placeholder="..." required /></label>
       </div>
+      <?php
+      if (isset($_SESSION['errchx'])) {
+        echo $_SESSION['errchx'];
+      }
+      ?>
       <div class="row">
         <label><input type="checkbox" name="rule" required /><b> - Akceptuje regulamin</b></label>
       </div>

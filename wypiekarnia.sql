@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 04 Sty 2023, 20:32
+-- Czas generowania: 05 Sty 2023, 17:17
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -55,7 +55,8 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (14, 'Ożywienie zamówień', '2022-10-28', 'W tej aktualizacji w końcu udało nam się ukończyć budowę pełnego systemu tworzenia zamówień z obsługą rodzajów produktów(ADIO) przy dodawaniu do bazy zamówienia.'),
 (15, 'Prace Naprawcze', '2022-11-04', 'Właśnie wyszła nowa aktualizacja która naprawia min. zabezpieczenie przed zaznaczeniem wielu checkboxów, oraz przygotowujemy się do uruchomienia koszyka'),
 (16, 'Ostatnie Poprawki', '2022-11-05', 'W tej aktualizacji dodaliśmy podstawową funkcjonalność koszyka mianowicie wyświetlenie zamówionych produktów. <br> Dodatkowo zmieniliśmy logo naszej strony \r\n z: <br><img id=\'k\' src=\'img/icon.png\'/><br> na: <br><img id=\'k\' src=\'ic.png\'/>'),
-(17, 'System zamówień ukończony', '2022-12-19', 'W tej aktualizacji dodaliśmy możliwość ręcznego aktywowania zamówień przez użytkownika,<br> w celu lepszej automatyzacji pracy naszego sklepu. <br> Naprawiliśmy też kilka błędów związanych z koszykiem');
+(17, 'System zamówień ukończony', '2022-12-19', 'W tej aktualizacji dodaliśmy możliwość ręcznego aktywowania zamówień przez użytkownika,<br> w celu lepszej automatyzacji pracy naszego sklepu. <br> Naprawiliśmy też kilka błędów związanych z koszykiem'),
+(18, 'Następny Ubdate', '2023-01-05', 'W tej aktualizacji przebudowywujemy naszą aplikację, a właściwie silnik łączący się z bazą danych,<br> na silnik oparty o bibliotekę PDO która usprawni pracę nad serwisem.');
 
 -- --------------------------------------------------------
 
@@ -157,6 +158,13 @@ CREATE TABLE `zamowienia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Zrzut danych tabeli `zamowienia`
+--
+
+INSERT INTO `zamowienia` (`id`, `nazwa_produkt`, `ilosc`, `dat`, `godzina`, `mail`, `telefon`, `kom`) VALUES
+(1, 'Tort Jubileusz', '2', '2023-01-27', '15:48:00', 'jkowalski@wp.pl', 123123123, 'sfdfdfsd');
+
+--
 -- Indeksy dla zrzutów tabel
 --
 
@@ -198,7 +206,7 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT dla tabeli `aktualizacje`
 --
 ALTER TABLE `aktualizacje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT dla tabeli `klijeci`
@@ -222,7 +230,7 @@ ALTER TABLE `relacje`
 -- AUTO_INCREMENT dla tabeli `zamowienia`
 --
 ALTER TABLE `zamowienia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -107,7 +107,7 @@ require_once("czyzalogowany.php");
       </div>
 
       <div class="row">
-        <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" /></label>
+        <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" required /></label>
       </div>
 
       <div class="row">
@@ -116,13 +116,13 @@ require_once("czyzalogowany.php");
       </div>
 
       <div class="row">
-        <label><b>Data dostawy:</b><input type="date" name="data" /></label><br /><br />
-        <label><b>Czas dostawy:</b><input type="time" name="czas" min="10:00" max="23:00" /></label>
+        <label><b>Data dostawy:</b><input type="date" name="data" required /></label><br /><br />
+        <label><b>Czas dostawy:</b><input type="time" name="czas" min="10:00" max="23:00" required /></label>
       </div>
 
       <div class="row">
         <div><label><b>Uwagi do zamówienia:</b></label></div>
-        <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje"></textarea>
+        <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" required></textarea>
       </div>
 
       <div class="row">

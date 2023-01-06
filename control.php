@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: index.php');
+    exit();
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="pl-PL">
@@ -113,10 +117,10 @@ session_start();
                 </a>
                 <ul>
                     <li>
-                        <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+                        <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
                     </li>
                     <li>
-                        <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+                        <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
                     </li>
                 </ul>
             </li>

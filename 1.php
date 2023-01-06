@@ -1,14 +1,39 @@
 <?php
 require_once("PDO.php");
-$prodtype = @['ur' => $_POST['urodzinowy'], 'sm' => $_POST['smakosz'], 'jub' => $_POST['jubileuszowy'], 'slub' => $_POST['slubny']];
-$orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
-if (isset($prodtype['ur']) && isset($prodtype['sm']) && isset($prodtype['jub']) && isset($prodtype['slub'])) {
-  header('Location: control.php');
+if (!isset($_SESSION['user'])) {
+  header('Location: czyzalogowany.php');
   exit();
 } else {
-  $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$orderdata[ilość]','$orderdata[data]','$orderdata[czas]','$orderdata[email]','$orderdata[telefon]','$orderdata[komentarz]')";
-  $query = $db->prepare($sql);
-  $query->execute();
+  $prodtype = @['ur' => $_POST['urodzinowy'], 'sm' => $_POST['smakosz'], 'jub' => $_POST['jubileuszowy'], 'slub' => $_POST['slubny']];
+  $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
+  if (isset($prodtype['ur'])) {
+    $opt = ['nazwa' => 'Tort Urodzinowy'];
+    $_SESSION['op'] = $opt['nazwa'];
+    // setcookie('desc', $opt['nazwa']);
+  }
+  if (isset($prodtype['sm'])) {
+    $opt = ['nazwa' => 'Tort dla Smakoszy'];
+    $_SESSION['op'] = $opt['nazwa'];
+    // setcookie('desc', $opt['nazwa']);
+  }
+  if (isset($prodtype['jub'])) {
+    $opt = ['nazwa' => 'Tort Jubileusz'];
+    $_SESSION['op'] = $opt['nazwa'];
+    // setcookie('desc', $opt['nazwa']);
+  }
+  if (isset($prodtype['slub'])) {
+    $opt = ['nazwa' => 'Tort Ślubny'];
+    $_SESSION['op'] = $opt['nazwa'];
+    // setcookie('desc', $opt['nazwa']);
+  }
+  if (isset($prodtype['ur']) && isset($prodtype['sm']) && isset($prodtype['jub']) && isset($prodtype['slub'])) {
+    header('Location: control.php');
+    exit();
+  } else {
+    $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$orderdata[ilość]','$orderdata[data]','$orderdata[czas]','$orderdata[email]','$orderdata[telefon]','$orderdata[komentarz]')";
+    $query = $db->prepare($sql);
+    $query->execute();
+  }
 }
 ?>
 <!DOCTYPE HTML>
@@ -134,33 +159,14 @@ if (isset($prodtype['ur']) && isset($prodtype['sm']) && isset($prodtype['jub']) 
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś $orderdata[ilość] Tortów</p>";
-    if (isset($prodtype['ur'])) {
-      echo "<b>Urodzinowych</b><br>";
-      $opt = array('nazwa' => 'Tort Urodzinowy');
-      $_SESSION['op'] = $opt['nazwa'];
-    }
-    if (isset($prodtype['sm'])) {
-      echo "<b>Dla Smakoszy</b><br>";
-      $opt = array('nazwa' => 'Tort dla Smakoszy');
-      $_SESSION['op'] = $opt['nazwa'];
-    }
-    if (isset($prodtype['jub'])) {
-      echo "<b>Jubileuszowych</b><br>";
-      $opt = array('nazwa' => 'Tort Jubileusz');
-      $_SESSION['op'] = $opt['nazwa'];
-    }
-    if (isset($prodtype['slub'])) {
-      echo "<b>Ślubnych</b><br>";
-      $opt = array('nazwa' => 'Tort Ślubny');
-      $_SESSION['op'] = $opt['nazwa'];
-    }
-    echo "<p>Na adres $orderdata[email]<p>";
-    echo "<p>Numer Telefonu: $orderdata[telefon]<p>";
-    echo "<p>Na termin: $orderdata[data]</p>";
-    echo "<p>Godzinę: $orderdata[czas]</p>";
+    echo "<p>Zamówiłeś" . $orderdata['ilość'] . "</p>";
+    echo "<b>" . $_SESSION['op'] . "</b>";
+    echo "<p>Na adres" . $orderdata['email'] . "<p>";
+    echo "<p>Numer Telefonu:" . $orderdata['telefon'] . "<p>";
+    echo "<p>Na termin:" . $orderdata['data'] . "</p>";
+    echo "<p>Godzinę:" . $orderdata['czas'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
-    echo "<br> $orderdata[komentarz]<br><br>";
+    echo "<br> " . $orderdata['komentarz'] . "<br><br>";
     echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     ?>
     <!-- <div class="pay">

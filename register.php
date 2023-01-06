@@ -1,5 +1,9 @@
 <?php
 require_once "PDO.php";
+if (!isset($_SESSION['user'])) {
+  header('Location: index.php');
+  exit();
+}
 $regtab = [
   'imie' => $_POST['name'],
   'nazwisko' => $_POST['subname'],
@@ -16,11 +20,20 @@ if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['num']
   //   unset($_SESSION['logdata']);
   //   exit();
   // }
-  // 'mail' => $_POST['adres'],&& isset($regtab['mail'])
-  $sql = "INSERT INTO klijeci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$regtab[imie]','$regtab[nazwisko]',:email,'$regtab[num]','$regtab[username]','$regtab[haslo]')";
-  $query = $db->prepare($sql);
-  $query->bindValue(':email', $email, PDO::PARAM_STR);
-  $query->execute();
+  // 'mail' => $_POST['adres'],&& isset($regtab['mail']
+  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='$regtab[username]'");
+  $checkuser->execute();
+  if ($checkuser->rowCount() == 1) {
+    $_SESSION['errchx'] = '<span style="color: red"><b>*Taki użytkownik już istnieje</b></span>';
+    header('Location: rejestracja.php');
+    exit();
+  } else {
+    unset($_SESSION['errchx']);
+    $sql = "INSERT INTO klijeci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$regtab[imie]','$regtab[nazwisko]',:email,'$regtab[num]','$regtab[username]','$regtab[haslo]')";
+    $query = $db->prepare($sql);
+    $query->bindValue(':email', $email, PDO::PARAM_STR);
+    $query->execute();
+  }
 } else {
   header('Location: rejestracja.php');
   exit();

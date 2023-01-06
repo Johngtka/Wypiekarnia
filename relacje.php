@@ -1,5 +1,15 @@
 <?php
-require_once "czyzalogowany.php";
+require_once("PDO.php");
+$report = $_SESSION['rel'];
+$status = "w przygotowaniu";
+$prodsel = $db->prepare("SELECT id FROM produkty WHERE Nazwa='$_SESSION[op]'");
+$prodsel->execute();
+$row = $prodsel->fetch();
+
+$sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$row[id],'$status','$report[ordat]')";
+$relquery = $db->prepare($sql);
+$relquery->execute();
+// unset($_SESSION["op"]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -127,22 +137,6 @@ require_once "czyzalogowany.php";
         </ol>
     </div>
     <div class="main">
-        <?php
-        require_once "dbconnect.php";
-        $report = $_SESSION['rel'];
-        $status = "w przygotowaniu";
-        $conn = @new mysqli($host, $user, $password, $database);
-        if ($conn->connect_errno != 0) {
-            echo "Error:" . $conn->connect_errno;
-        } else {
-            $result1 = @$conn->query("SELECT id FROM produkty WHERE Nazwa='$_SESSION[op]'");
-            $row = $result1->fetch_assoc();
-            $sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$row[id],'$status','$report[ordat]')";
-            $result = @$conn->query($sql);
-            $conn->close();
-            unset($_SESSION["op"]);
-        }
-        ?>
         <h1 id="back">Aktywowano zamówienie</h1>
         <a id="ret" href="http://localhost/Wypiekarnia/basket.php">Powrót</a>
         <div id="slider"></div>

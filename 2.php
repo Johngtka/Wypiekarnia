@@ -1,5 +1,40 @@
 <?php
-require_once "czyzalogowany.php";
+require_once("PDO.php");
+if (!isset($_SESSION['user'])) {
+  header('Location: czyzalogowany.php');
+  exit();
+} else {
+  $prodtype = @['dr' => $_POST['drozdzowe'], 'ser' => $_POST['sernik'], 'bro' => $_POST['brown'], 'kid' => $_POST['dziec']];
+  $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
+  if (isset($prodtype['dr'])) {
+    $opt = ['nazwa' => 'Ciasto Drożdżowe'];
+    $_SESSION['op'] = $opt['nazwa'];
+    // setcookie('desc', $opt['nazwa']);
+  }
+  if (isset($prodtype['ser'])) {
+    $opt = ['nazwa' => 'Ciasto Drożdżowe'];
+    $_SESSION['op'] = $opt['nazwa'];
+    // setcookie('desc', $opt['nazwa']);
+  }
+  if (isset($prodtype['bro'])) {
+    $opt = ['nazwa' => 'Ciasto Browne'];
+    $_SESSION['op'] = $opt['nazwa'];
+    // setcookie('desc', $opt['nazwa']);
+  }
+  if (isset($prodtype['kid'])) {
+    $opt = ['nazwa' => 'Ciasto dziecięce'];
+    $_SESSION['op'] = $opt['nazwa'];
+    // setcookie('desc', $opt['nazwa']);
+  }
+  if (isset($prodtype['dr']) && isset($prodtype['ser']) && isset($prodtype['bro']) && isset($prodtype['kid'])) {
+    header('Location: control.php');
+    exit();
+  } else {
+    $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$orderdata[ilość]','$orderdata[data]','$orderdata[czas]','$orderdata[email]','$orderdata[telefon]','$orderdata[komentarz]')";
+    $query = $db->prepare($sql);
+    $query->execute();
+  }
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="pl-PL">
@@ -123,61 +158,16 @@ require_once "czyzalogowany.php";
   </div>
   <div class="main">
     <?php
-    //system generowania odpowiednio spreparowanego podsumowania zamówienia
-    $i = $_POST["i"];
-    $adres = $_POST["adres"];
-    $telefon = $_POST["telefon"];
-    $data = $_POST["data"];
-    $czas = $_POST["czas"];
-    $komentarz = $_POST["komentarz"];
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś $i Ciast</p>";
-    //5 warunków sprawdzających czy dany checkbox jest zaznaczony i czy zaznaczone wszystkie
-    if (isset($_POST['drozdzowe'])) {
-      echo "<b>Drożdżowych</b><br>";
-      $opt = array('nazwa' => 'Ciasto Drożdżowe');
-      $_SESSION['op'] = $opt['nazwa'];
-    }
-    if (isset($_POST['sernik'])) {
-      echo "<b>Serników</b><br>";
-      $opt = array('nazwa' => 'Ciasto Drożdżowe');
-      $_SESSION['op'] = $opt['nazwa'];
-    }
-    if (isset($_POST['brown'])) {
-      echo "<b>Brown'e</b><br>";
-      $opt = array('nazwa' => 'Ciasto Browne');
-      $_SESSION['op'] = $opt['nazwa'];
-    }
-    if (isset($_POST['dziec'])) {
-      echo "<b>Dziecięcych</b><br>";
-      $opt = array('nazwa' => 'Ciasto dziecięce');
-      $_SESSION['op'] = $opt['nazwa'];
-    }
-    //zabezpieczenie przed zaznaczeniem wszystkich checkboxów prowadzące do kontrolki z informacją o tym
-    if (isset($_POST['drozdzowe']) && isset($_POST['sernik']) && isset($_POST['brown']) && isset($_POST['dziec'])) {
-      header('Location: control.php');
-      exit();
-    } else {
-      echo "<p>Na adres $adres<p>";
-      echo "<p>Numer Telefonu: $telefon<p>";
-      echo "<p>Na termin: $data</p>";
-      echo "<p>Godzinę: $czas</p>";
-      echo "<h1>Z komentarzem:</h1>";
-      echo "<br> $komentarz<br><br>";
-      echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
-      // echo "<h1>Wybierz Metode Płatności:</h1>";
-      //sprawdzenie poprawności połączenia z bazą
-      require_once "dbconnect.php";
-      $conn = @new mysqli($host, $user, $password, $database);
-      if ($conn->connect_errno != 0) {
-        echo "Error:" . $conn->connect_errno;
-      } else {
-        //wpisanie do tabeli zamówienia danych przesłanych z formularza z uwzględnieniem preparacji zamówienia
-        $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$i','$data','$czas','$adres','$telefon','$komentarz')";
-        $result = @$conn->query($sql);
-        $conn->close();
-      }
-    }
+    echo "<p>Zamówiłeś" . $orderdata['ilość'] . "</p>";
+    echo "<b>" . $_SESSION['op'] . "</b>";
+    echo "<p>Na adres" . $orderdata['email'] . "<p>";
+    echo "<p>Numer Telefonu:" . $orderdata['telefon'] . "<p>";
+    echo "<p>Na termin:" . $orderdata['data'] . "</p>";
+    echo "<p>Godzinę:" . $orderdata['czas'] . "</p>";
+    echo "<h1>Z komentarzem:</h1>";
+    echo "<br> " . $orderdata['komentarz'] . "<br><br>";
+    echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     ?>
     <!-- <div class="pay">
       <i class="icon-credit-card-alt"></i>
