@@ -4,16 +4,22 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
   header('Location: index.php');
   exit();
 }
-$regtab = [
-  'imie' => $_POST['name'],
-  'nazwisko' => $_POST['subname'],
-  'num' => $_POST['telefon'],
-  'username' => $_POST['login'],
-  'haslo' => $_POST['password']
-];
-if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['num']) && isset($regtab['username']) && isset($regtab['haslo'])) {
-  $email = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='$regtab[username]'");
+$name = filter_input(INPUT_POST, 'name');
+$subname = filter_input(INPUT_POST, 'subname');
+$email = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
+$phone = filter_input(INPUT_POST, 'telefon');
+$uname = filter_input(INPUT_POST, 'login');
+$pass = filter_input(INPUT_POST, 'password');
+if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($uname) && isset($pass)) {
+  $regtab = [
+    'imie' => $name,
+    'nazwisko' => $subname,
+    'mail' => $email,
+    'telefon' => $phone,
+    'login' => $uname,
+    'haslo' => $pass
+  ];
+  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='$regtab[login]'");
   $checkuser->execute();
   if ($checkuser->rowCount() == 1) {
     $_SESSION['errchx'] = '<span style="color: red"><b>*Taki użytkownik już istnieje</b></span>';
@@ -21,9 +27,13 @@ if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['num']
     exit();
   } else {
     unset($_SESSION['errchx']);
-    $sql = "INSERT INTO klijeci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$regtab[imie]','$regtab[nazwisko]',:email,'$regtab[num]','$regtab[username]','$regtab[haslo]')";
-    $query = $db->prepare($sql);
-    $query->bindValue(':email', $email, PDO::PARAM_STR);
+    $query = $db->prepare("INSERT INTO klijeci VALUES (NULL,:nam,:subname,:email,:phone,:uname,:pass)");
+    $query->bindValue(':nam', $regtab['imie'], PDO::PARAM_STR);
+    $query->bindValue(':subname', $regtab['nazwisko'], PDO::PARAM_STR);
+    $query->bindValue(':email', $regtab['mail'], PDO::PARAM_STR);
+    $query->bindValue(':phone', $regtab['telefon'], PDO::PARAM_STR);
+    $query->bindValue(':uname', $regtab['login'], PDO::PARAM_STR);
+    $query->bindValue(':pass', $regtab['haslo'], PDO::PARAM_STR);
     $query->execute();
   }
 } else {
@@ -157,7 +167,7 @@ if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['num']
   </div>
   <div class="main">
     <?php
-    echo "<h1>Witaj<br>" . $regtab['username'] . "</h1>";
+    echo "<h1>Witaj<br>" . $regtab['login'] . "</h1>";
     echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania <i class='fas'>&#xf406;</i></a></h2>";
     ?>
     <br>

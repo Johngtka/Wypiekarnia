@@ -8,10 +8,18 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
   //przypisanie wartości z logowania do zmiennych z uwzględnieniem polskich znaków
   $login = $_POST['login'];
   $haslo = $_POST['password'];
-  $login = htmlentities($login, ENT_QUOTES, "UTF-8");
-  $haslo = htmlentities($haslo, ENT_QUOTES, "UTF-8");
-  $sql = "SELECT * FROM klijeci WHERE logi='$login' AND haslo='$haslo'";
-  $query = $db->prepare($sql);
+
+  // $login = htmlentities($login, ENT_QUOTES, "UTF-8");
+  // $haslo = htmlentities($haslo, ENT_QUOTES, "UTF-8");
+
+  $login = filter_input(INPUT_POST, 'login');
+  $haslo = filter_input(INPUT_POST, 'password');
+
+  $query = $db->prepare("SELECT * FROM klijeci WHERE logi=:uname AND haslo=:haslo");
+
+  $query->bindValue(':uname', $login, PDO::PARAM_STR);
+  $query->bindValue(':haslo', $haslo, PDO::PARAM_STR);
+
   if ($query->execute()) {
     //ustawienie zmiennej ilość jako metody zmiennej z rezultatem zapytania zwracającej liczbe wierszy
     $ilosc = $query->rowCount();

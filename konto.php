@@ -111,6 +111,7 @@ if (isset($_SESSION["user"])) {
         //warunek sprawdzający czy jest ustawiony error jeśli tak to wyświetlić error
         if (isset($_SESSION['err'])) {
           echo $_SESSION['err'];
+          unset($_SESSION['err']);
         }
         ?>
       </div>

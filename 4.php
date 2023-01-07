@@ -30,7 +30,7 @@ if (!isset($_SESSION['user'])) {
     header('Location: control.php');
     exit();
   } else {
-    $sql = "INSERT INTO zamowienia(id, nazwa_produkt, ilosc, dat, godzina, mail, telefon, kom) VALUES (NULL,'$_SESSION[op]','$orderdata[ilość]','$orderdata[data]','$orderdata[czas]','$orderdata[email]','$orderdata[telefon]','$orderdata[komentarz]')";
+    $sql = "INSERT INTO zamowienia VALUES (NULL,'$_SESSION[op]','$orderdata[ilość]','$orderdata[data]','$orderdata[czas]','$orderdata[email]','$orderdata[telefon]','$orderdata[komentarz]')";
     $query = $db->prepare($sql);
     $query->execute();
   }
