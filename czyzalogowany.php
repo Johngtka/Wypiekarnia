@@ -1,10 +1,14 @@
 <?php
 //zaczęcie sesji
-session_start();
+// session_start();
+require_once("PDO.php");
 //instrukcja sprawdzająca istnieje obiekt użytkownika
 if (isset($_SESSION["user"])) {
     //przypisanie obiektu logowania do zmiennej
     $zalogowany_urzytkownik = $_SESSION["user"];
+    $order = $db->prepare("SELECT COUNT(*) FROM zamowienia JOIN klijeci WHERE logi='$zalogowany_urzytkownik[login]'");
+    $order->execute();
+    $_SESSION['orders'] = $order->fetch()[0];
 } else {
 ?>
     <!-- przeciwny warunek do if generuje error -->

@@ -143,8 +143,8 @@ require_once("czyzalogowany.php");
     echo "<h1>Witaj<br>" . $zalogowany_urzytkownik['login']/*zmienna w której jest zapisana kolumna z tablicy obiektu użytkownika*/ . "</h1>";
     echo "<h2><a href='logout.php'><i class='fa'>&#xf08b;</i> Wyloguj</a></h2>";
     echo "<h2><a href='http://localhost/Wypiekarnia/'><i class='icon-home'></i> Strona Główna</a></h2>";
-    echo '<h2><a href="http://localhost/Wypiekarnia/basket.php"><i class="icon-basket"></i
-    > Koszyk</a></h2>';
+    echo "<h2><a href='http://localhost/Wypiekarnia/basket.php'><i class='icon-basket'></i
+    > Koszyk" . "(" . @$_SESSION['orders'] . ")" . "</a></h2>";
     echo "<h3><a href='http://localhost/Wypiekarnia/edit.php'>&#9998; Edytuj Konto</a></h3>";
     echo "<h3><a href='wyjscie.php'>&#128465; Usuń Konto</a></h3>";
     ?>

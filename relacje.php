@@ -1,15 +1,9 @@
 <?php
 require_once("PDO.php");
 $report = $_SESSION['rel'];
-$status = "w przygotowaniu";
-$prodsel = $db->prepare("SELECT id FROM produkty WHERE Nazwa='$_SESSION[op]'");
-$prodsel->execute();
-$row = $prodsel->fetch();
-
-$sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$row[id],'$status','$report[ordat]')";
+$sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$report[pid],'w przygotowaniu','$report[ordat]')";
 $relquery = $db->prepare($sql);
 $relquery->execute();
-// unset($_SESSION["op"]);
 ?>
 <!DOCTYPE html>
 <html>

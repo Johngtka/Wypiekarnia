@@ -1,6 +1,6 @@
 <?php
-require_once "PDO.php";
-if (!isset($_SESSION['user'])) {
+require_once("PDO.php");
+if (!isset($_POST['login']) && !isset($_POST['password'])) {
   header('Location: index.php');
   exit();
 }
