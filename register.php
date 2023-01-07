@@ -13,14 +13,6 @@ $regtab = [
 ];
 if (isset($regtab['imie']) && isset($regtab['nazwisko']) && isset($regtab['num']) && isset($regtab['username']) && isset($regtab['haslo'])) {
   $email = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-  // if (empty($email) || empty($regtab['haslo'])) {
-  //   $_SESSION['logdata'] = "Wpisz Ponownie ;-)";
-  //   header('Location: rejestracja.php');
-  // } else {
-  //   unset($_SESSION['logdata']);
-  //   exit();
-  // }
-  // 'mail' => $_POST['adres'],&& isset($regtab['mail']
   $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='$regtab[username]'");
   $checkuser->execute();
   if ($checkuser->rowCount() == 1) {

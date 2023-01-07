@@ -114,14 +114,15 @@ session_start();
       <div class="row">
         <label><b>Login:</b><input type="text" name="login" placeholder="Max 10 znaków" required /></label>
       </div>
-      <div class="row">
-        <label><b>Hasło:</b><input type="password" name="password" placeholder="..." required /></label>
-      </div>
       <?php
       if (isset($_SESSION['errchx'])) {
         echo $_SESSION['errchx'];
+        unset($_SESSION['errchx']);
       }
       ?>
+      <div class="row">
+        <label><b>Hasło:</b><input type="password" name="password" placeholder="..." required /></label>
+      </div>
       <div class="row">
         <label><input type="checkbox" name="rule" required /><b> - Akceptuje regulamin</b></label>
       </div>
