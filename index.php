@@ -1,5 +1,5 @@
 <?php
-require_once 'PDO.php';
+require_once('PDO.php');
 $sql = "SELECT COUNT(*) FROM aktualizacje";
 $query = $db->prepare($sql);
 $query->execute();

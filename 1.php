@@ -4,8 +4,15 @@ if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
+  $number = filter_input(INPUT_POST, 'i');
+  $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
+  $phone = filter_input(INPUT_POST, 'telefon');
+  $comment = filter_input(INPUT_POST, 'komentarz');
+
+  $orderdata = ['ilość' => $number, 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $mail, 'telefon' => $phone, 'komentarz' => $comment];
+
   $prodtype = @['ur' => $_POST['urodzinowy'], 'sm' => $_POST['smakosz'], 'jub' => $_POST['jubileuszowy'], 'slub' => $_POST['slubny']];
-  $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
+
   if (isset($prodtype['ur'])) {
     $opt = ['nazwa' => 'Tort Urodzinowy'];
     $_SESSION['op'] = $opt['nazwa'];
@@ -30,8 +37,14 @@ if (!isset($_SESSION['user'])) {
     header('Location: control.php');
     exit();
   } else {
-    $sql = "INSERT INTO zamowienia VALUES (NULL,'$_SESSION[op]','$orderdata[ilość]','$orderdata[data]','$orderdata[czas]','$orderdata[email]','$orderdata[telefon]','$orderdata[komentarz]')";
-    $query = $db->prepare($sql);
+    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
+    $query->bindValue(':nazwa', $_SESSION['op'], PDO::PARAM_STR);
+    $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
+    $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
+    $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
+    $query->bindValue(':mail', $orderdata['email'], PDO::PARAM_STR);
+    $query->bindValue(':telefon', $orderdata['telefon'], PDO::PARAM_STR);
+    $query->bindValue(':kom', $orderdata['komentarz'], PDO::PARAM_STR);
     $query->execute();
   }
 }

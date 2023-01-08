@@ -31,6 +31,42 @@ session_start();
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
+  <style>
+    ul>li::marker {
+      font-size: 30px;
+    }
+
+    .main h1 {
+      text-decoration: dashed underline;
+    }
+
+    .options {
+      font-size: 30px;
+      text-shadow: -1px 1px 2px #000,
+        1px 1px 2px #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+    }
+
+    .main ul>li {
+      font-size: 35px;
+      color: #fff;
+    }
+
+    .main ul>li>a {
+      /* opacity: 0.7; */
+      color: #d87e4c;
+      text-shadow: -1px 1px 2px #000,
+        1px 1px 2px #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+      text-decoration: underline;
+    }
+
+    .main ul>li>a:hover {
+      color: #d87e4c;
+    }
+  </style>
 </head>
 
 <body>
@@ -64,7 +100,9 @@ session_start();
   </div>
   <div class="main">
     <h1>Tutaj morzesz się z nami skontaktować i zgłaszać błędy</h1>
-    <p><b>-------------------------------------------------------------------------------------------------------------------------------------------------------------</b></p>
+    <ul>
+      <li><span class="options">Napisz do nas: </span><a href="mailto: bakeryspprt2023@gmail.com">Wypiekarnia-Support</a></li>
+    </ul>
     <div id="slider"></div>
     <footer>Lorem ipsum</footer>
   </div>

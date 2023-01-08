@@ -1,16 +1,26 @@
 <?php
+// podłączenie się do silnika pdo
 require_once("PDO.php");
+
+//warunek który sprawdza czy nie są ustawione login i hasło w formularzu logowania
 if (!isset($_POST['login']) && !isset($_POST['password'])) {
   header('Location: index.php');
   exit();
 }
+
+// przepuszczenie wartości z formularza rejestracji przez filtrację
+
 $name = filter_input(INPUT_POST, 'name');
 $subname = filter_input(INPUT_POST, 'subname');
 $email = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
 $phone = filter_input(INPUT_POST, 'telefon');
 $uname = filter_input(INPUT_POST, 'login');
 $pass = filter_input(INPUT_POST, 'password');
+
+// sprawdzenie czy przefiltrowane dane są ustawione
 if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($uname) && isset($pass)) {
+  // lokalna tablica asocjacyjna zawierająca połączenie skojażenia z danymi z filtracji
+
   $regtab = [
     'imie' => $name,
     'nazwisko' => $subname,
@@ -19,15 +29,23 @@ if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($
     'login' => $uname,
     'haslo' => $pass
   ];
-  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='$regtab[login]'");
+  // przygotowanie polecenia które sprawdzi czy już istnieje taki user
+
+  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='$regtab[login]' AND mail='$regtab[mail]'");
   $checkuser->execute();
+  // warunek sprawdzający czy wynik zapytania jest poprawny
+
   if ($checkuser->rowCount() == 1) {
     $_SESSION['errchx'] = '<span style="color: red"><b>*Taki użytkownik już istnieje</b></span>';
     header('Location: rejestracja.php');
     exit();
   } else {
     unset($_SESSION['errchx']);
+    // przygotowanie polecenia które wstawi usera 
+
     $query = $db->prepare("INSERT INTO klijeci VALUES (NULL,:nam,:subname,:email,:phone,:uname,:pass)");
+
+    // proces bindowania wartości z filtracji z tablicy asocjacyjnej pod dane tagi w zapytaniu
     $query->bindValue(':nam', $regtab['imie'], PDO::PARAM_STR);
     $query->bindValue(':subname', $regtab['nazwisko'], PDO::PARAM_STR);
     $query->bindValue(':email', $regtab['mail'], PDO::PARAM_STR);
