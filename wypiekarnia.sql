@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 09 Sty 2023, 18:06
+-- Czas generowania: 10 Sty 2023, 20:09
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -39,25 +39,25 @@ CREATE TABLE `aktualizacje` (
 --
 
 INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
-(1, 'Informację', '2020-12-10', 'Aktualizacja obejmuje dodanie formularzy zamówieniowych, oraz kilku innych opcji dotyczących interfaceu naszego sklepu'),
-(2, 'System U/R/L', '2021-02-10', 'Aktualizacja obejmuje rozpoczęcie pracy nad systemem umożliwiającym daiałania na kontach urzytkownika i logowanie'),
-(3, 'Podsumowanie', '2021-02-28', 'Aktualizacja obejmuje dodanie skryptu PHP który po wypełnieniu formularza z zamówieniem, podsumowuje zamówienia'),
-(4, 'Zaawansowany CSS', '2021-03-14', 'Aktualizacja obejmuje dodanie zaawansowanych akruszy stylów css i dodanie pewnych usprawnień'),
-(5, 'JS Fantazja', '2021-03-22', 'Aktualizacja obejmuje dodanie kodów JavaScriptu, w celu dodania trochę fantazji do naszej strony'),
-(6, 'System Logowania', '2021-04-17', 'Aktualizacja obejmuje stworzenie pełnego systemu U/R/L, który działa i dodanie panelu konta urzytkownika'),
-(7, 'System Logowania(aktualizacja)', '2021-04-25', 'Aktualizacja obejmuje dodanie więcej opcji panelu użytkownika takich jak np. (wylogowanie, usuwanie, czy nieskończona jeszcze możliwość edycji danych konta)'),
-(8, 'Usprawnienie', '2021-04-30', 'Aktualizacja obejmuje tytułowe usprawnienie połączeń między skryptami PHP i dodanie zabezpieczeń na poziomie systemu U/R/L i innych'),
-(9, 'Analiza', '2021-05-24', 'Aktualizacja obejmuje szczegułową analize całego systemu Wypiekarni oraz naprawienie znalezionych błędów i zabezpieczeń'),
-(10, 'Kontrolki', '2021-05-31', 'Aktualizacja obejmuje dodanie plików kontrolnych, które pełnią funkcję informacyjną dla użytkownika'),
-(11, 'Siła PHP', '2022-07-27', 'Dziś jeszcze mocniej zastosowaliśmy PHP, i wprowadziliśmy jeszcze więcej modyfikacji do naszego serwisu'),
-(12, 'Zewnętrzne informacje', '2022-07-30', 'Aktualizacja obejmuje przebudowanie całego systemu naszej witryny w taki sposób aby kod był napisany w systemie MODULARNO-PROCEDURALNYM'),
+(1, 'Informację', '2020-12-10', 'Aktualizacja obejmuje dodanie formularzy zamówieniowych, oraz kilku innych opcji dotyczących interface\'u naszego sklepu'),
+(2, 'System U/R/L', '2021-02-10', 'Aktualizacja obejmuje rozpoczęcie pracy nad systemem umożliwiającym działania na kontach użytkownika i logowanie'),
+(3, 'Podsumowanie', '2021-02-28', 'Aktualizacja obejmuje dodanie skryptu PHP który po wypełnieniu formularza z zamówieniem, podsumowuje zamówienie'),
+(4, 'Zaawansowany CSS', '2021-03-14', 'Aktualizacja obejmuje dodanie zaawansowanych akruszy stylów css i pewnych usprawnień'),
+(5, 'JS Fantazja', '2021-03-22', 'Aktualizacja obejmuje dodanie skryptów JS, w celu dodania trochę fantazji do naszej aplikacji'),
+(6, 'System Logowania', '2021-04-17', 'Aktualizacja obejmuje stworzenie pełnego systemu (U/R/L), który działa i dodanie panelu konta użytkownika'),
+(7, 'System Logowania(aktualizacja)', '2021-04-25', 'Aktualizacja obejmuje dodanie więcej opcji panelu użytkownika<br> takich jak np. (wylogowanie, usuwanie, czy nieskończona jeszcze możliwość edycji danych konta)'),
+(8, 'Usprawnienie', '2021-04-30', 'Aktualizacja obejmuje tytułowe usprawnienie połączeń między skryptami PHP,<br> i dodanie zabezpieczeń na poziomie systemu (U/R/L) i innych'),
+(9, 'Analiza', '2021-05-24', 'Aktualizacja obejmuje szczegółową analizę całego systemu \"Wypiekarni\"<br> oraz naprawienie znalezionych błędów i zabezpieczeń'),
+(10, 'Kontrolki', '2021-05-31', 'Aktualizacja obejmuje dodanie plików kontrolnych,<br> które pełnią funkcję informacyjną dla użytkownika,<br>oraz usprawniają niektóre procesy w aplikacji'),
+(11, 'Siła PHP', '2022-07-27', 'Dziś jeszcze mocniej zastosowaliśmy PHP i wprowadziliśmy jeszcze więcej modyfikacji do naszego serwisu'),
+(12, 'Zewnętrzne informacje', '2022-07-30', 'Aktualizacja obejmuje przebudowanie całego systemu naszej aplikacji<br> w taki sposób aby kod był napisany w API(MODULARNO-PROCEDURALNYM)'),
 (13, 'Aktualizacja Bazy', '2022-08-25', 'W tej aktualizacji zmieniliśmy strukturę naszej bazy danych'),
-(14, 'Ożywienie zamówień', '2022-10-28', 'W tej aktualizacji w końcu udało nam się ukończyć budowę pełnego systemu tworzenia zamówień z obsługą rodzajów produktów(ADIO) przy dodawaniu do bazy zamówienia.'),
-(15, 'Prace Naprawcze', '2022-11-04', 'Właśnie wyszła nowa aktualizacja która naprawia min. zabezpieczenie przed zaznaczeniem wielu checkboxów, oraz przygotowujemy się do uruchomienia koszyka'),
-(16, 'Ostatnie Poprawki', '2022-11-05', 'W tej aktualizacji dodaliśmy podstawową funkcjonalność koszyka mianowicie wyświetlenie zamówionych produktów. <br> Dodatkowo zmieniliśmy logo naszej strony \r\n z: <br><img id=\'k\' src=\'img/icon.png\'/><br> na: <br><img id=\'k\' src=\'ic.png\'/>'),
+(14, 'Ożywienie zamówień', '2022-10-28', 'W tej aktualizacji w końcu udało nam się ukończyć budowę pełnego systemu tworzenia zamówień<br> z obsługą rodzajów produktów (system: \"ADIO\") przy dodawaniu do bazy zamówienia.'),
+(15, 'Prace Naprawcze', '2022-11-04', 'Właśnie wyszła nowa aktualizacja która naprawia min.<br> zabezpieczenie przed zaznaczeniem wielu checkboxów,<br> oraz przygotowujemy się do uruchomienia koszyka'),
+(16, 'Ostatnie Poprawki', '2022-11-05', 'W tej aktualizacji dodaliśmy podstawową funkcjonalność koszyka mianowicie wyświetlenie zamówionych produktów. <br> Dodatkowo zmieniliśmy logo naszej aplikacji \r\n z: <br><img id=\'k\' src=\'img/icon.png\'/><br> na: <br><img id=\'k\' src=\'ic.png\'/>'),
 (17, 'System zamówień ukończony', '2022-12-19', 'W tej aktualizacji dodaliśmy możliwość ręcznego aktywowania zamówień przez użytkownika,<br> w celu lepszej automatyzacji pracy naszego sklepu. <br> Naprawiliśmy też kilka błędów związanych z koszykiem'),
 (18, 'Następny Update', '2023-01-05', 'W tej aktualizacji przebudowywujemy naszą aplikację, a właściwie silnik łączący się z bazą danych,<br> na silnik oparty o bibliotekę PDO która usprawni pracę nad serwisem.'),
-(19, 'Chwila na oddech', '2023-01-09', 'W tej aktualizacji chwilowo wstrzymujemy pracę nad naszą aplikacją<br> dopóki nie naprawimy jednego błędu związanego z koszykiem.<br> Oraz chcieliśmy poinformować o tym że zaistniała pierwsza opcja kontaktu z nami w zakładce kontakt.<br> Pozdrawiamy Twórcy witryny :-)');
+(19, 'Chwila na oddech', '2023-01-09', 'W tej aktualizacji chwilowo wstrzymujemy pracę nad naszą aplikacją<br> dopóki nie naprawimy jednego błędu związanego z koszykiem.<br> Oraz chcieliśmy poinformować o tym że zaistniała pierwsza opcja kontaktu z nami w zakładce kontakt.<br> Pozdrawiamy Twórcy  :-)');
 
 -- --------------------------------------------------------
 
