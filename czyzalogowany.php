@@ -1,7 +1,5 @@
 <?php
-//zaczęcie sesji
-// session_start();
-require_once("PDO.php");
+require_once('PDO.php');
 //instrukcja sprawdzająca istnieje obiekt użytkownika
 if (isset($_SESSION["user"])) {
     //przypisanie obiektu logowania do zmiennej
@@ -119,7 +117,7 @@ if (isset($_SESSION["user"])) {
             </ol>
         </div>
         <div class="main">
-            <h1><b><i>Musisz się zalogować!!!</i></b><br><br><a href="konto.php">Logowanie</a></h1>
+            <h1><b>Musisz się zalogować!!!</b><br><br><a href="konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a></h1>
             <footer>Lorem ipsum</footer>
         </div>
         <script src="js/bootstrap.min.js"></script>
@@ -127,6 +125,6 @@ if (isset($_SESSION["user"])) {
 
     </html>
 <?php
-    // jeśli istnieje obiekt użytkownika to nic się nie stanie, a właściwie to zmienna $zalogowany_urzytkownik trafi do pamięci serwerai będzie można z niej korzystać
+    // jeśli istnieje obiekt użytkownika to nic się nie stanie, a właściwie to zmienna $zalogowany_urzytkownik trafi do pamięci serwera i będzie można z niej korzystać
     exit();
 }

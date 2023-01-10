@@ -92,7 +92,7 @@ session_start();
             <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
+            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a>
           </li>
         </ul>
       </li>
@@ -101,7 +101,7 @@ session_start();
   <div class="main">
     <h1>Tutaj morzesz się z nami skontaktować i zgłaszać błędy</h1>
     <ul>
-      <li><span class="options">Napisz do nas: </span><a href="mailto: bakeryspprt2023@gmail.com">Wypiekarnia-Support</a></li>
+      <li><span class="options">Napisz do nas: </span><a href="mailto: bakeryspprt2023@gmail.com">Wypiekarnia Support</a></li>
     </ul>
     <div id="slider"></div>
     <footer>Lorem ipsum</footer>

@@ -41,6 +41,8 @@ var numer = Math.floor(Math.random() * 6) + 1;
 var timer1 = 0;
 var timer2 = 0;
 window.onload = () => {
+  setInterval(console_control, 1000)
+  console_control()
   timer1 = setInterval(zmienslajd, 5000)
   zmienslajd()
 }
@@ -52,9 +54,12 @@ function zmienslajd() {
   numer++;
   if (numer > 6) numer = 1;
 
-  var plik = '<a href="#"><img class="img-fluid" src="slajdy/slajd' + numer + '.png" /></a>';
+  var plik = '<img src="slajdy/slajd' + numer + '.png" />';
 
   document.querySelector('#slider').innerHTML = plik;
   $("#slider").fadeIn(500);
   timer2 = setTimeout("schowaj()", 4500);
+}
+function console_control() {
+  console.clear()
 }

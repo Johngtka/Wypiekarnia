@@ -1,6 +1,6 @@
 <?php
 // podłączenie się do silnika pdo
-require_once("PDO.php");
+require_once('PDO.php');
 
 //warunek który sprawdza czy nie są ustawione login i hasło w formularzu logowania
 if (!isset($_POST['login']) && !isset($_POST['password'])) {

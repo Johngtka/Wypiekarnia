@@ -1,6 +1,6 @@
 <?php
 // podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
-require_once("czyzalogowany.php");
+require_once('czyzalogowany.php');
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">

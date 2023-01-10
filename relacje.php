@@ -1,5 +1,5 @@
 <?php
-require_once("PDO.php");
+require_once('PDO.php');
 $report = $_SESSION['rel'];
 $sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$report[pid],'w przygotowaniu','$report[ordat]')";
 $relquery = $db->prepare($sql);
@@ -124,7 +124,7 @@ $relquery->execute();
                         <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
                     </li>
                     <li>
-                        <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
+                        <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a>
                     </li>
                 </ul>
             </li>

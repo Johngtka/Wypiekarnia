@@ -1,5 +1,5 @@
 <?php
-require_once "czyzalogowany.php";
+require_once('czyzalogowany.php');
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -93,7 +93,7 @@ require_once "czyzalogowany.php";
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
+            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a>
           </li>
         </ul>
       </li>

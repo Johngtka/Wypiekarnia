@@ -1,5 +1,5 @@
 <?php
-require_once 'PDO.php';
+require_once('PDO.php');
 if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
   header('Location: wyjscie.php');
   exit();

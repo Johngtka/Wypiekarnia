@@ -1,6 +1,6 @@
 <?php
 // podłączenie pod silnik PDO
-require_once("PDO.php");
+require_once('PDO.php');
 //warunek który sprawdza czy nie są ustawione login i hasło w formularzu logowania
 if (!isset($_POST['login']) || !isset($_POST['password'])) {
   header('Location: konto.php');
@@ -39,7 +39,7 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
         "haslo" => $row['haslo'],
       ];
       // ustawienie ciasteczka pod login użytkownika który trwa przez 24h
-      setcookie("sesuse", $row['logi'], time() + 86400);
+      setcookie("sesuse", $row['logi'], time() + (3600 * 24));
       unset($_SESSION['err']);
       header('Location: user.php');
     } else {

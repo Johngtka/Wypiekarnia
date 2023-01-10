@@ -4,6 +4,12 @@ $sql = "SELECT COUNT(*) FROM aktualizacje";
 $query = $db->prepare($sql);
 $query->execute();
 $_SESSION['akt'] = $query->fetch()[0];
+$log = @$_SESSION['user'];
+if (isset($log)) {
+  $_SESSION['profile'] = $log['login'];
+} else {
+  $_SESSION['profile'] = 'Zaloguj się';
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -59,7 +65,7 @@ $_SESSION['akt'] = $query->fetch()[0];
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
+            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a>
           </li>
         </ul>
       </li>

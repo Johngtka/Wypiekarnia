@@ -1,5 +1,5 @@
 <?php
-require_once("PDO.php");
+require_once('PDO.php');
 if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
@@ -151,7 +151,7 @@ if (!isset($_SESSION['user'])) {
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
+            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a>
           </li>
         </ul>
       </li>

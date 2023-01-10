@@ -1,7 +1,7 @@
 <?php
 session_start();
 // zabezpiecz enie przed bez celowym ponownym logowaniem
-if (isset($_SESSION["user"])) {
+if (isset($_SESSION['user'])) {
   header('Location: user.php');
   exit();
 }

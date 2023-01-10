@@ -14,6 +14,12 @@ input:focus {
   background-color: aqua;
 }
 
+#slider img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .up {
   border-bottom: 3px solid #b70000;
   background-color: #000;
@@ -94,8 +100,9 @@ ol>li>ul>li {
   font-family: "Special Elite", cursive;
 }
 
-ol>li>ul>li:hover {
-  border: 1px dashed #fff;
+.up ul>li:hover {
+  /* border: 1px dashed #fff; */
+  text-shadow: #fff 0.1em 0.1em 0.2em;
 }
 
 /*Resetowanie koloru do białego w liście opcji*/
@@ -138,8 +145,7 @@ ol>li:hover>ul {
 }
 
 /*stylizacja akapitu i nagłówka h1*/
-.main p,
-h1 {
+.main h1 {
   color: #000;
   text-shadow: #fff 0.1em 0.1em 0.2em;
   margin: 0;
@@ -153,11 +159,29 @@ h1 {
   border: #000 6px solid;
 }
 
+#slider img {
+  border-radius: 50px;
+  width: 800px;
+  height: 600px;
+  border: #000 6px solid;
+}
+
 /* skalowanie się zdjęcia gdy ekran jest więkrzy */
-@media screen and (min-width: 600px) {
-  .main img {
-    width: 800px;
-    height: 600px;
+@media screen and (max-width: 800px) {
+  #slider img {
+    border-radius: 0;
+    border: 0;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width:500px) {
+  #slider img {
+    border-radius: 0;
+    border: 0;
+    width: 100%;
+    height: auto;
   }
 }
 

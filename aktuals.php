@@ -1,5 +1,5 @@
 <?php
-require_once("PDO.php");
+require_once('PDO.php');
 $sql = "SELECT * FROM aktualizacje ORDER BY id DESC";
 $query = $db->prepare($sql);
 $query->execute();
@@ -97,7 +97,7 @@ $query->execute();
                         <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
                     </li>
                     <li>
-                        <a href="http://localhost/Wypiekarnia/konto.php">Konto <i class='fas'>&#xf406;</i></a>
+                        <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a>
                     </li>
                 </ul>
             </li>

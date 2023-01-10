@@ -1,6 +1,6 @@
 <?php
 // podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
-require_once("czyzalogowany.php");
+require_once('czyzalogowany.php');
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -34,81 +34,41 @@ require_once("czyzalogowany.php");
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    h1 {
-      width: 1000px;
-      height: 110px;
+    .panel {
+      width: 100%;
+      height: 120px;
       background-color: #000000;
       opacity: 0.5;
-      color: #ffffff;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 0;
-    }
-
-    h2 {
-      width: 1000px;
-      height: 110px;
-      background-color: #000;
-      opacity: 0.5;
+      text-align: center;
+      font-size: 40px;
       color: #fff;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 0;
-      padding-top: 25px;
+      padding-top: 30px;
+      padding-bottom: 30px;
     }
 
-    h3 {
-      width: 1000px;
-      height: 110px;
-      background-color: #000;
-      opacity: 0.5;
-      color: #fff;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 0;
-      padding-top: 25px;
-    }
-
-    @media screen and (max-width:600px) {
-
-      h1,
-      h2,
-      h3,
-      a {
-        width: 100%;
-      }
-
-    }
-
-    @media screen and (max-width:850px) {
-
-      h1,
-      h2,
-      h3,
-      a {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width:1000px) {
-
-      h1,
-      h2,
-      h3,
-      a {
-        width: 100%;
-      }
-    }
-
-    a {
+    .main a {
       text-decoration: none;
       color: #fff;
-      width: 400px;
-      height: 110px;
+      /* display: block; */
+      /* vertical-align: middle; */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     a:hover {
       color: #fff;
+    }
+
+    @media only screen and (max-width:600px)and (max-width:850px) and (max-width:1000px) {
+
+      h1,
+      a {
+        padding: 0;
+        width: 100%;
+      }
+
     }
   </style>
   <!--And of section-->
@@ -140,17 +100,15 @@ require_once("czyzalogowany.php");
   </div>
   <div class="main">
     <?php
-    echo "<h1>Witaj<br>" . $zalogowany_urzytkownik['login']/*zmienna w której jest zapisana kolumna z tablicy obiektu użytkownika*/ . "</h1>";
-    echo "<h2><a href='logout.php'><i class='fa'>&#xf08b;</i> Wyloguj</a></h2>";
-    echo "<h2><a href='http://localhost/Wypiekarnia/'><i class='icon-home'></i> Strona Główna</a></h2>";
-    echo "<h2><a href='http://localhost/Wypiekarnia/basket.php'><i class='icon-basket'></i
-    > Koszyk" . "(" . @$_SESSION['orders'] . ")" . "</a></h2>";
-    echo "<h3><a href='http://localhost/Wypiekarnia/edit.php'>&#9998; Edytuj Konto</a></h3>";
-    echo "<h3><a href='wyjscie.php'>&#128465; Usuń Konto</a></h3>";
+    echo "<div class='panel'><i class='fas'>&#xf406;</i> " . $zalogowany_urzytkownik['login'] . "</div>";
+    echo "<div class='panel'><a href='logout.php'><i class='fa'>&#xf08b;</i> Wyloguj</a></div>";
+    echo "<div class='panel'><a href='http://localhost/Wypiekarnia/'><i class='icon-home'></i> Strona Główna</a></div>";
+    echo "<div class='panel'><a href='http://localhost/Wypiekarnia/basket.php'><i class='icon-basket'></i
+    > Koszyk" . "(" . @$_SESSION['orders'] . ")" . "</a></div>";
+    echo "<div class='panel'><a href='http://localhost/Wypiekarnia/edit.php'>&#9998; Edytuj Konto</a></div>";
+    echo "<div class='panel'><a href='wyjscie.php'>&#128465; Usuń Konto</a></div>";
     ?>
-    <br>
-    <div id="slider">
-    </div><br><br><br><br>
+    <!-- <div id="slider"></div> -->
     <footer>Lorem ipsum</footer>
   </div>
   <script src="js/bootstrap.min.js"></script>

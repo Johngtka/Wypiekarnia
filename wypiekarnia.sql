@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 07 Sty 2023, 21:47
+-- Czas generowania: 09 Sty 2023, 18:06
 -- Wersja serwera: 10.4.25-MariaDB
 -- Wersja PHP: 8.1.10
 
@@ -56,7 +56,8 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (15, 'Prace Naprawcze', '2022-11-04', 'Właśnie wyszła nowa aktualizacja która naprawia min. zabezpieczenie przed zaznaczeniem wielu checkboxów, oraz przygotowujemy się do uruchomienia koszyka'),
 (16, 'Ostatnie Poprawki', '2022-11-05', 'W tej aktualizacji dodaliśmy podstawową funkcjonalność koszyka mianowicie wyświetlenie zamówionych produktów. <br> Dodatkowo zmieniliśmy logo naszej strony \r\n z: <br><img id=\'k\' src=\'img/icon.png\'/><br> na: <br><img id=\'k\' src=\'ic.png\'/>'),
 (17, 'System zamówień ukończony', '2022-12-19', 'W tej aktualizacji dodaliśmy możliwość ręcznego aktywowania zamówień przez użytkownika,<br> w celu lepszej automatyzacji pracy naszego sklepu. <br> Naprawiliśmy też kilka błędów związanych z koszykiem'),
-(18, 'Następny Ubdate', '2023-01-05', 'W tej aktualizacji przebudowywujemy naszą aplikację, a właściwie silnik łączący się z bazą danych,<br> na silnik oparty o bibliotekę PDO która usprawni pracę nad serwisem.');
+(18, 'Następny Update', '2023-01-05', 'W tej aktualizacji przebudowywujemy naszą aplikację, a właściwie silnik łączący się z bazą danych,<br> na silnik oparty o bibliotekę PDO która usprawni pracę nad serwisem.'),
+(19, 'Chwila na oddech', '2023-01-09', 'W tej aktualizacji chwilowo wstrzymujemy pracę nad naszą aplikacją<br> dopóki nie naprawimy jednego błędu związanego z koszykiem.<br> Oraz chcieliśmy poinformować o tym że zaistniała pierwsza opcja kontaktu z nami w zakładce kontakt.<br> Pozdrawiamy Twórcy witryny :-)');
 
 -- --------------------------------------------------------
 
@@ -150,7 +151,7 @@ CREATE TABLE `relacje` (
 CREATE TABLE `zamowienia` (
   `id` int(11) NOT NULL,
   `nazwa_produkt` text NOT NULL,
-  `ilosc` text NOT NULL,
+  `ilosc` int(11) NOT NULL,
   `dat` date NOT NULL,
   `godzina` time NOT NULL,
   `mail` text NOT NULL,
@@ -200,7 +201,7 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT dla tabeli `aktualizacje`
 --
 ALTER TABLE `aktualizacje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT dla tabeli `klijeci`
