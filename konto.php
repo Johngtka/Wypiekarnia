@@ -37,31 +37,14 @@ if (isset($_SESSION['user'])) {
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    @media screen and (max-width:600px) {
+    @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
       p,
       label {
         width: 100%;
       }
-    }
 
-    @media screen and (max-width:850px) {
-
-      .row,
-      p,
-      label {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width:1000px) {
-
-      .row,
-      p,
-      label {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -112,6 +95,10 @@ if (isset($_SESSION['user'])) {
         if (isset($_SESSION['err'])) {
           echo $_SESSION['err'];
           unset($_SESSION['err']);
+        }
+        if (isset($_SESSION['newlog'])) {
+          echo $_SESSION['newlog'];
+          unset($_SESSION['newlog']);
         }
         ?>
       </div>

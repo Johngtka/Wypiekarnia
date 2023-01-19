@@ -31,7 +31,7 @@ if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($
   ];
   // przygotowanie polecenia które sprawdzi czy już istnieje taki user
 
-  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='$regtab[login]' AND mail='$regtab[mail]'");
+  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi={$regtab['login']} AND mail={$regtab['mail']}");
   $checkuser->execute();
   // warunek sprawdzający czy wynik zapytania jest poprawny
 
@@ -49,7 +49,7 @@ if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($
     $query->bindValue(':nam', $regtab['imie'], PDO::PARAM_STR);
     $query->bindValue(':subname', $regtab['nazwisko'], PDO::PARAM_STR);
     $query->bindValue(':email', $regtab['mail'], PDO::PARAM_STR);
-    $query->bindValue(':phone', $regtab['telefon'], PDO::PARAM_STR);
+    $query->bindValue(':phone', $regtab['telefon'], PDO::PARAM_INT);
     $query->bindValue(':uname', $regtab['login'], PDO::PARAM_STR);
     $query->bindValue(':pass', $regtab['haslo'], PDO::PARAM_STR);
     $query->execute();
@@ -113,25 +113,7 @@ if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($
       padding-top: 25px;
     }
 
-    @media screen and (max-width:600px) {
-
-      h1,
-      h2,
-      a {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width:850px) {
-
-      h1,
-      h2,
-      a {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width:1000px) {
+    @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       h1,
       h2,

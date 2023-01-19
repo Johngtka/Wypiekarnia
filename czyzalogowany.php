@@ -1,10 +1,10 @@
 <?php
 require_once('PDO.php');
 //instrukcja sprawdzająca istnieje obiekt użytkownika
-if (isset($_SESSION["user"])) {
+if (isset($_SESSION['user'])) {
     //przypisanie obiektu logowania do zmiennej
-    $zalogowany_urzytkownik = $_SESSION["user"];
-    $order = $db->prepare("SELECT COUNT(*) FROM zamowienia JOIN klijeci WHERE logi='$zalogowany_urzytkownik[login]'");
+    $zalogowany_urzytkownik = $_SESSION['user'];
+    $order = $db->prepare("SELECT COUNT(*) FROM zamowienia JOIN klijeci WHERE logi={$zalogowany_urzytkownik['login']}");
     $order->execute();
     $_SESSION['orders'] = $order->fetch()[0];
 } else {
@@ -52,23 +52,7 @@ if (isset($_SESSION["user"])) {
                 margin-bottom: 0;
             }
 
-            @media screen and (max-width: 600px) {
-
-                h1,
-                a {
-                    width: 100%;
-                }
-            }
-
-            @media screen and (max-width:850px) {
-
-                h1,
-                a {
-                    width: 100%;
-                }
-            }
-
-            @media screen and (max-width:1000px) {
+            @media only screen and (max-width: 600px) and (max-width:850px) and (max-width:1000px) {
 
                 h1,
                 a {

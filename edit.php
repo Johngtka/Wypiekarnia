@@ -33,31 +33,14 @@ require_once('czyzalogowany.php');
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    @media screen and (max-width:600px) {
+    @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
       p,
       label {
         width: 100%;
       }
-    }
 
-    @media screen and (max-width:850px) {
-
-      .row,
-      p,
-      label {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width:1000px) {
-
-      .row,
-      p,
-      label {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -94,7 +77,14 @@ require_once('czyzalogowany.php');
   <div class="main">
     <form action="edited.php" method="POST">
       <h1>Tutaj jest edycja konta:</h1>
-      <div class="row">
+      <p><b>Tutaj wpisz dane które koniecznie chcesz zmienić</b></p>
+      <?php
+      if (isset($_SESSION['groot'])) {
+        echo $_SESSION['groot'];
+        unset($_SESSION['groot']);
+      }
+      ?>
+      <!-- <div class="row">
         <label>
           <p><b>Zmień Imie:</b></p><input type="text" name="imie" placeholder="Wpisz Imie">
         </label>
@@ -103,17 +93,7 @@ require_once('czyzalogowany.php');
         <label>
           <p><b>Zmień Nazwisko:</b></p><input type="text" name="subname" placeholder="Wpisz Nazwisko">
         </label>
-      </div>
-      <div class="row">
-        <label>
-          <p><b>Zmień e-mail:</b></p><input type="text" name="mail" placeholder="example@gmail.com">
-        </label>
-      </div>
-      <div class="row">
-        <label>
-          <p><b>Zmień Numer Talefonu:</b></p><input type="tel" name="telefon" placeholder="Max 9 Znaków">
-        </label>
-      </div>
+      </div> -->
       <div class="row">
         <label>
           <p><b>Zmień Login:</b></p><input type="text" name="login" placeholder="Max 10 znaków">
@@ -124,9 +104,20 @@ require_once('czyzalogowany.php');
           <p><b>Zmień Hasło:</b></p><input type="password" name="password" placeholder="...">
         </label>
       </div>
+      <div class="row">
+        <label>
+          <p><b>Zmień e-mail:</b></p><input type="text" name="mail" placeholder="example@gmail.com">
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="telefon" placeholder="Max 9 Znaków">
+        </label>
+      </div>
       <input type="reset" value="Wyczyść" />
       <input type="submit" value="Zmień" />
-    </form>
+    </form><br>
+    <div id="slider"></div>
     <footer>Lorem ipsum</footer>
   </div>
   <script src="js/bootstrap.min.js"></script>

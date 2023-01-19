@@ -1,23 +1,28 @@
-polecenie urzywane w rejestracji
-INSERT INTO klijęci(id, imie, nazwisko, mail, telefon, logi, haslo) VALUES (NULL,'$imie','$nazwisko','$adres','$telefon','$username','$haslo')'
+polecenie urzywane w rejestracji(rejestracja,register)
 
-polecenie używane w procesie usówania konta
-DELETE FROM klijeci WHERE logi='$log' AND haslo='$pass'
+INSERT INTO klijeci VALUES (NULL,:nam,:subname,:email,:phone,:uname,:pass)
+wwartości po : to są bindy które łączą nazwę bindu z wartością z której ma korzystać
 
-polecenie używane w procesie logowaia
-SELECT * FROM klijeci WHERE logi='%s' AND haslo='%s'
+oraz
 
-polecenie (dla admina) dodające aktualizacje
+SELECT * FROM klijeci WHERE logi={$regtab['login']} AND mail={$regtab['mail']}
+używane podczas weryfikacji czy user o podanym login i hasło istnieje
+
+polecenie używane w procesie usówania konta(wyjscie, userout)
+DELETE FROM klijeci WHERE logi={$log} AND haslo={$pass}
+oraz
+ALTER TABLE klijeci AUTO_INCREMENT=1
+służące do resetowania AI w tabeli klijeci
+
+polecenie używane w procesie logowaia(konto, login)
+SELECT * FROM klijeci WHERE logi=:uname AND haslo=:haslo
+wartości po : to są bindy które łączą nazwę bindu z wartością z której ma korzystać
+
+polecenie (dla admina) dodające aktualizacje(baza danych)
 INSERT INTO aktualizacje(id, Nazwa, `Data`, Opis) VALUES (NULL,"",DATE(""),"")
 
 polecenie służące do sumowania liczby aktualizacji i używane w index
 SELECT COUNT(*) FROM aktualizacje
 
-polecenie używane w koszyku
-SELECT produkty.Nazwa AS p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$_SESSION[op]'
-
-polecenie używane w koszyku jako źródło inro dla dodania relacji
-SELECT klijeci.id as cliid , produkty.id as prodid, zamowienia.dat as dat FROM klijeci JOIN zamowienia,produkty
-
-polecenie używane w relacjach
-INSERT INTO relacje VALUES (NULL,$report[kid],$report[pid],'$status','$report[ordat]')
+polecenie używane w koszyku(basket)
+SELECT produkty.Nazwa AS  p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi={$log['login']} AND Nazwa = {$desc}
