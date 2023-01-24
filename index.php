@@ -1,7 +1,6 @@
 <?php
 require_once('PDO.php');
-$sql = "SELECT COUNT(*) FROM aktualizacje";
-$query = $db->prepare($sql);
+$query = $db->prepare("SELECT COUNT(*) FROM aktualizacje");
 $query->execute();
 $_SESSION['akt'] = $query->fetch()[0];
 $log = @$_SESSION['user'];

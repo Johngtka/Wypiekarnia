@@ -43,7 +43,7 @@ if (!isset($_SESSION['user'])) {
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
     $query->bindValue(':mail', $orderdata['email'], PDO::PARAM_STR);
-    $query->bindValue(':telefon', $orderdata['telefon'], PDO::PARAM_STR);
+    $query->bindValue(':telefon', $orderdata['telefon'], PDO::PARAM_INT);
     $query->bindValue(':kom', $orderdata['komentarz'], PDO::PARAM_STR);
     $query->execute();
   }
@@ -110,29 +110,13 @@ if (!isset($_SESSION['user'])) {
       color: #fff;
     }
 
-    @media screen and (max-width:600px) {
+    @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       #cart,
       a {
         width: 100%;
       }
 
-    }
-
-    @media screen and (max-width:850px) {
-
-      #cart,
-      a {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width:1000px) {
-
-      #cart,
-      a {
-        width: 100%;
-      }
     }
   </style>
 </head>

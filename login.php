@@ -33,10 +33,10 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
       //zastosowanie metody która daje ostęp do kolumn poprawnego polecenia z tabeli
       $row = $query->fetch();
       // sesyjna tablica asocjacyjna zalogowanego poprawnie użytkownika która zawiera asocjacje do kolumn tabeli zwróconych poprawnym wykonaniem polecenia
-      $_SESSION["user"] = [
-        "id" => $row['id'],
-        "login" => $row['logi'],
-        "haslo" => $row['haslo'],
+      $_SESSION['user'] = [
+        'login' => $row['logi'],
+        'haslo' => $row['haslo'],
+        'email' => $row['mail']
       ];
       // ustawienie ciasteczka pod login użytkownika który trwa przez 24h
       setcookie("sesuse", $row['logi'], time() + (3600 * 24));

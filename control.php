@@ -61,7 +61,7 @@ if (!isset($_SESSION['user'])) {
             padding-top: 25px;
         }
 
-        @media screen and (max-width:600px) {
+        @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
             h1,
             h2,
@@ -69,24 +69,6 @@ if (!isset($_SESSION['user'])) {
                 width: 100%;
             }
 
-        }
-
-        @media screen and (max-width:850px) {
-
-            h1,
-            h2,
-            a {
-                width: 100%;
-            }
-        }
-
-        @media screen and (max-width:1000px) {
-
-            h1,
-            h2,
-            a {
-                width: 100%;
-            }
         }
 
         a {

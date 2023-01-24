@@ -1,9 +1,8 @@
 <?php
 require_once('PDO.php');
-$report = $_SESSION['rel'];
-$sql = "INSERT INTO relacje VALUES (NULL,$report[kid],$report[pid],'w przygotowaniu','$report[ordat]')";
-$relquery = $db->prepare($sql);
-$relquery->execute();
+// $report = $_SESSION['rel'];
+// $relquery = $db->prepare("INSERT INTO relacje VALUES (NULL,{$report['kid']},{$report['pid']},'w przygotowaniu',{$report['ordat']})");
+// $relquery->execute();
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,7 +67,7 @@ $relquery->execute();
             color: #fff;
         }
 
-        @media screen and (max-width:600px) {
+        @media only screen and (max-width:600px) and (max-width:850px)and (max-width:1000px) {
 
             #back,
             #ret,
@@ -76,24 +75,6 @@ $relquery->execute();
                 width: 100%;
             }
 
-        }
-
-        @media screen and (max-width:850px) {
-
-            #back,
-            #ret,
-            a {
-                width: 100%;
-            }
-        }
-
-        @media screen and (max-width:1000px) {
-
-            #back,
-            #ret,
-            a {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -131,8 +112,8 @@ $relquery->execute();
         </ol>
     </div>
     <div class="main">
-        <h1 id="back">Aktywowano zamówienie</h1>
-        <a id="ret" href="http://localhost/Wypiekarnia/basket.php">Powrót</a>
+        <!-- <h1 id="back">Aktywowano zamówienie</h1>
+        <a id="ret" href="http://localhost/Wypiekarnia/basket.php">Powrót</a> -->
         <div id="slider"></div>
         <footer>Lorem ipsum</footer>
     </div>

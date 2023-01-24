@@ -6,13 +6,13 @@ if (!isset($_SESSION['user'])) {
 } else {
   $log = $_SESSION['user'];
   $desc = @$_SESSION['op'];
-  $query = $db->prepare("SELECT produkty.Nazwa AS  p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='$log[login]' AND Nazwa = '$desc'");
+  $query = $db->prepare("SELECT produkty.Nazwa AS  p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi={$log['login']} AND Nazwa = {$desc}");
   $query->execute();
-  $sql = "SELECT klijeci.id as cliid , produkty.id as prodid, zamowienia.dat as dat FROM klijeci JOIN zamowienia,produkty";
-  $relq = $db->prepare($sql);
-  $relq->execute();
-  $date = $relq->fetch();
-  $_SESSION['rel'] = @["kid" => $date['cliid'], 'pid' => $date['prodid'], "ordat" => $date['dat']];
+
+  // $relq = $db->prepare("SELECT klijeci.id as cliid , produkty.id as prodid, zamowienia.dat as dat FROM klijeci JOIN zamowienia,produkty");
+  // $relq->execute();
+  // $date = $relq->fetch();
+  // $_SESSION['rel'] = @["kid" => $date['cliid'], 'pid' => $date['prodid'], "ordat" => $date['dat']];
 }
 ?>
 <!DOCTYPE html>
@@ -102,7 +102,7 @@ if (!isset($_SESSION['user'])) {
           ?></p>
       <p><?php echo $row["g"]
           ?>
-        <a href="http://localhost/Wypiekarnia/relacje.php"><button id="but">aktywuj zamówienie</button></a>
+        <!-- <a href="http://localhost/Wypiekarnia/relacje.php"><button id="but">aktywuj zamówienie</button></a> -->
       </p>
     <?php
     }

@@ -38,25 +38,7 @@ require_once('czyzalogowany.php');
       text-decoration-style: dashed;
     }
 
-    @media screen and (max-width:600px) {
-
-      .row,
-      p,
-      label {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width:850px) {
-
-      .row,
-      p,
-      label {
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width:1000px) {
+    @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
       p,
