@@ -36,7 +36,7 @@ if (!isset($_SESSION['user'])) {
       $_SESSION['num'] = 'Ciasto ' . $_SESSION['op'];
       $_SESSION['count'] = $count . "ę";
     } else {
-      $_SESSION['num'] = 'Ciast ' . $_SESSION['op'];
+      $_SESSION['num'] = 'Ciasta ' . $_SESSION['op'];
       $_SESSION['count'] = $count . "i";
     }
     $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);

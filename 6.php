@@ -34,7 +34,7 @@ if (!isset($_SESSION['user'])) {
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['num'] = 'Bułke' . $_SESSION['op'];
+      $_SESSION['num'] = 'Bułka ' . $_SESSION['op'];
       $_SESSION['count'] = $count . "ę";
     } else {
       $_SESSION['num'] = 'Bułeczek ' . $_SESSION['op'];
