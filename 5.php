@@ -7,22 +7,22 @@ if (!isset($_SESSION['user'])) {
   $prodtype = @['usa' => $_POST['czek'], 'kar' => $_POST['ziarna'], 'bak' => $_POST['bakaliowe'], 'can' => $_POST['cantuccini']];
   $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
   if (isset($prodtype['usa'])) {
-    $opt = ['nazwa' => ' z czekoladą (Amerykańskie)'];
+    $opt = ['nazwa' => 'Amerykańskie'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['zia'])) {
-    $opt = ['nazwa' => ' Ziarna w Karmelu'];
+    $opt = ['nazwa' => 'Ziarna w Karmelu'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['bak'])) {
-    $opt = ['nazwa' => ' owsiane z bakaliami'];
+    $opt = ['nazwa' => 'Owsiane z bakaliami'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['can'])) {
-    $opt = ['nazwa' => ' Cantuccini'];
+    $opt = ['nazwa' => 'Cantuccini'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }

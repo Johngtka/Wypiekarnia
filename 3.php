@@ -7,22 +7,22 @@ if (!isset($_SESSION['user'])) {
   $prodtype = @['jab' => $_POST['jablkowe'], 'wio' => $_POST['wiosenne'], 'co' => $_POST['czekorz'], 'mali' => $_POST['malinowe']];
   $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
   if (isset($prodtype['jab'])) {
-    $opt = ['nazwa' => ' jabłkowa na mlecznym kremie'];
+    $opt = ['nazwa' => 'Jabłkowa na mlecznym kremie'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['wio'])) {
-    $opt = ['nazwa' => ' wiosenna'];
+    $opt = ['nazwa' => 'Wiosenna'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['co'])) {
-    $opt = ['nazwa' => ' czekoladowo-orzechowa'];
+    $opt = ['nazwa' => 'Czekoladowo-orzechowa'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['mali'])) {
-    $opt = ['nazwa' => ' malinowa'];
+    $opt = ['nazwa' => 'Malinowa'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }

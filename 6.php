@@ -7,22 +7,22 @@ if (!isset($_SESSION['user'])) {
   $prodtype = @['prz' => $_POST['przenna'], 'kaj' => $_POST['kajzerka'], 'raz' => $_POST['razowa'], 'zia' => $_POST['ziarnista']];
   $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
   if (isset($prodtype['prz'])) {
-    $opt = ['nazwa' => ' Przenna'];
+    $opt = ['nazwa' => 'Przenna'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['kaj'])) {
-    $opt = ['nazwa' => ' Kajzerka'];
+    $opt = ['nazwa' => 'Kajzerka'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['raz'])) {
-    $opt = ['nazwa' => ' Razowa'];
+    $opt = ['nazwa' => 'Razowa'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['zia'])) {
-    $opt = ['nazwa' => ' Ziarnista'];
+    $opt = ['nazwa' => 'Ziarnista'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
@@ -34,7 +34,7 @@ if (!isset($_SESSION['user'])) {
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['num'] = 'Bułek' . $_SESSION['op'];
+      $_SESSION['num'] = 'Bułke' . $_SESSION['op'];
       $_SESSION['count'] = $count . "ę";
     } else {
       $_SESSION['num'] = 'Bułeczek ' . $_SESSION['op'];

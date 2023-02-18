@@ -7,22 +7,22 @@ if (!isset($_SESSION['user'])) {
   $prodtype = @['bia' => $_POST['biala'], 'cza' => $_POST['czarna'], 'mali' => $_POST['malinowa'], 'sez' => $_POST['sezonowa']];
   $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
   if (isset($prodtype['bia'])) {
-    $opt = ['nazwa' => ' Czekoladowa Biała'];
+    $opt = ['nazwa' => 'Czekoladowa Biała'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['cza'])) {
-    $opt = ['nazwa' => ' Czekoladowa Czarna'];
+    $opt = ['nazwa' => 'Czekoladowa Czarna'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['mali'])) {
-    $opt = ['nazwa' => ' Malinowa'];
+    $opt = ['nazwa' => 'Malinowa'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['sez'])) {
-    $opt = ['nazwa' => ' Sezonowa'];
+    $opt = ['nazwa' => 'Sezonowa'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }

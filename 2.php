@@ -12,17 +12,17 @@ if (!isset($_SESSION['user'])) {
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['ser'])) {
-    $opt = ['nazwa' => ' Drożdżowe'];
+    $opt = ['nazwa' => 'Sernik'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['bro'])) {
-    $opt = ['nazwa' => ' Browne'];
+    $opt = ['nazwa' => 'Browne'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['kid'])) {
-    $opt = ['nazwa' => ' dziecięce'];
+    $opt = ['nazwa' => 'Dziecięce'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
