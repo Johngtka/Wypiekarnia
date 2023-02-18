@@ -7,31 +7,39 @@ if (!isset($_SESSION['user'])) {
   $prodtype = @['jab' => $_POST['jablkowe'], 'wio' => $_POST['wiosenne'], 'co' => $_POST['czekorz'], 'mali' => $_POST['malinowe']];
   $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
   if (isset($prodtype['jab'])) {
-    $opt = ['nazwa' => 'Tarta jabłkowa na mlecznym kremie'];
+    $opt = ['nazwa' => ' jabłkowa na mlecznym kremie'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['wio'])) {
-    $opt = ['nazwa' => 'Tarta wiosenna'];
+    $opt = ['nazwa' => ' wiosenna'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['co'])) {
-    $opt = ['nazwa' => 'Tarta czekoladowo-orzechowa'];
+    $opt = ['nazwa' => ' czekoladowo-orzechowa'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['mali'])) {
-    $opt = ['nazwa' => 'Tarta malinowa'];
+    $opt = ['nazwa' => ' malinowa'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
+  $count = 'sztuk';
   if (isset($prodtype['jab']) && isset($prodtype['wio']) && isset($prodtype['co']) && isset($prodtype['mali'])) {
     header('Location: control.php');
     exit();
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
-    $query->bindValue(':nazwa', $_SESSION['op'], PDO::PARAM_STR);
+    if ($orderdata['ilość'] <= 1) {
+      $_SESSION['num'] = 'Tartę ' . $_SESSION['op'];
+      $_SESSION['count'] = $count . "ę";
+    } else {
+      $_SESSION['num'] = 'Tarty ' . $_SESSION['op'];
+      $_SESSION['count'] = $count . "i";
+    }
+    $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
@@ -149,8 +157,8 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś" . $orderdata['ilość'] . "</p>";
-    echo "<b>" . $_SESSION['op'] . "</b>";
+    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
+    echo "<b> (" . $_SESSION['num'] . ") </b>";
     echo "<p>Na adres" . $orderdata['email'] . "<p>";
     echo "<p>Numer Telefonu:" . $orderdata['telefon'] . "<p>";
     echo "<p>Na termin:" . $orderdata['data'] . "</p>";

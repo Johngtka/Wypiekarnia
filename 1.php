@@ -13,23 +13,24 @@ if (!isset($_SESSION['user'])) {
 
   $prodtype = @['ur' => $_POST['urodzinowy'], 'sm' => $_POST['smakosz'], 'jub' => $_POST['jubileuszowy'], 'slub' => $_POST['slubny']];
 
+  $count = 'sztuk';
   if (isset($prodtype['ur'])) {
-    $opt = ['nazwa' => 'Tort Urodzinowy'];
+    $opt = ['nazwa' => 'Urodzinowy'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['sm'])) {
-    $opt = ['nazwa' => 'Tort dla Smakoszy'];
+    $opt = ['nazwa' => 'dla Smakoszy'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['jub'])) {
-    $opt = ['nazwa' => 'Tort Jubileusz'];
+    $opt = ['nazwa' => 'Jubileusz'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
   if (isset($prodtype['slub'])) {
-    $opt = ['nazwa' => 'Tort Ślubny'];
+    $opt = ['nazwa' => 'Ślubny'];
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
@@ -38,7 +39,14 @@ if (!isset($_SESSION['user'])) {
     exit();
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
-    $query->bindValue(':nazwa', $_SESSION['op'], PDO::PARAM_STR);
+    if ($orderdata['ilość'] <= 1) {
+      $_SESSION['num'] = 'Tort ' . $_SESSION['op'];
+      $_SESSION['count'] = $count . "ę";
+    } else {
+      $_SESSION['num'] = 'Tortów ' . $_SESSION['op'];
+      $_SESSION['count'] = $count . "i";
+    }
+    $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
@@ -156,8 +164,8 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś" . $orderdata['ilość'] . "</p>";
-    echo "<b>" . $_SESSION['op'] . "</b>";
+    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
+    echo "<b> (" . $_SESSION['num'] . ") </b>";
     echo "<p>Na adres" . $orderdata['email'] . "<p>";
     echo "<p>Numer Telefonu:" . $orderdata['telefon'] . "<p>";
     echo "<p>Na termin:" . $orderdata['data'] . "</p>";
