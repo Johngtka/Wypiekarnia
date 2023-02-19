@@ -8,12 +8,21 @@ if (!isset($_SESSION['user'])) {
   $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
   $phone = filter_input(INPUT_POST, 'telefon');
   $comment = filter_input(INPUT_POST, 'komentarz');
-
-  $orderdata = ['ilość' => $number, 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $mail, 'telefon' => $phone, 'komentarz' => $comment];
-
-  $prodtype = @['ur' => $_POST['urodzinowy'], 'sm' => $_POST['smakosz'], 'jub' => $_POST['jubileuszowy'], 'slub' => $_POST['slubny']];
-
   $count = 'sztuk';
+  $orderdata = [
+    'ilość' => $number,
+    'data' => $_POST["data"],
+    'czas' => $_POST["czas"],
+    'email' => $mail,
+    'telefon' => $phone,
+    'komentarz' => $comment
+  ];
+  $prodtype = @[
+    'ur' => $_POST['urodzinowy'],
+    'sm' => $_POST['smakosz'],
+    'jub' => $_POST['jubileuszowy'],
+    'slub' => $_POST['slubny']
+  ];
   if (isset($prodtype['ur'])) {
     $opt = ['nazwa' => 'Urodzinowy'];
     $_SESSION['op'] = $opt['nazwa'];

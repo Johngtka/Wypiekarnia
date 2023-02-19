@@ -4,8 +4,25 @@ if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
-  $prodtype = @['dr' => $_POST['drozdzowe'], 'ser' => $_POST['sernik'], 'bro' => $_POST['brown'], 'kid' => $_POST['dziec']];
-  $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
+  $number = filter_input(INPUT_POST, 'i');
+  $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
+  $phone = filter_input(INPUT_POST, 'telefon');
+  $comment = filter_input(INPUT_POST, 'komentarz');
+  $count = 'sztuk';
+  $orderdata = [
+    'ilość' => $number,
+    'data' => $_POST["data"],
+    'czas' => $_POST["czas"],
+    'email' => $mail,
+    'telefon' => $phone,
+    'komentarz' => $comment
+  ];
+  $prodtype = @[
+    'dr' => $_POST['drozdzowe'],
+    'ser' => $_POST['sernik'],
+    'bro' => $_POST['brown'],
+    'kid' => $_POST['dziec']
+  ];
   if (isset($prodtype['dr'])) {
     $opt = ['nazwa' => ' Drożdżowe'];
     $_SESSION['op'] = $opt['nazwa'];
@@ -26,7 +43,6 @@ if (!isset($_SESSION['user'])) {
     $_SESSION['op'] = $opt['nazwa'];
     // setcookie('desc', $opt['nazwa']);
   }
-  $count = 'sztuk';
   if (isset($prodtype['dr']) && isset($prodtype['ser']) && isset($prodtype['bro']) && isset($prodtype['kid'])) {
     header('Location: control.php');
     exit();

@@ -4,8 +4,25 @@ if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
-  $prodtype = @['usa' => $_POST['czek'], 'kar' => $_POST['ziarna'], 'bak' => $_POST['bakaliowe'], 'can' => $_POST['cantuccini']];
-  $orderdata = ['ilość' => $_POST["i"], 'data' => $_POST["data"], 'czas' => $_POST["czas"], 'email' => $_POST["adres"], 'telefon' => $_POST["telefon"], 'komentarz' => $_POST["komentarz"]];
+  $number = filter_input(INPUT_POST, 'i');
+  $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
+  $phone = filter_input(INPUT_POST, 'telefon');
+  $comment = filter_input(INPUT_POST, 'komentarz');
+  $count = 'sztuk';
+  $orderdata = [
+    'ilość' => $number,
+    'data' => $_POST["data"],
+    'czas' => $_POST["czas"],
+    'email' => $mail,
+    'telefon' => $phone,
+    'komentarz' => $comment
+  ];
+  $prodtype = @[
+    'usa' => $_POST['czek'],
+    'kar' => $_POST['ziarna'],
+    'bak' => $_POST['bakaliowe'],
+    'can' => $_POST['cantuccini']
+  ];
   if (isset($prodtype['usa'])) {
     $opt = ['nazwa' => 'Amerykańskie'];
     $_SESSION['op'] = $opt['nazwa'];
