@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 19 Sty 2023, 19:09
+-- Czas generowania: 19 Lut 2023, 12:10
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -58,7 +58,8 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (17, 'System zamówień ukończony', '2022-12-19', 'W tej aktualizacji dodaliśmy możliwość ręcznego aktywowania zamówień przez użytkownika,<br> w celu lepszej automatyzacji pracy naszego sklepu. <br> Naprawiliśmy też kilka błędów związanych z koszykiem'),
 (18, 'Następny Update', '2023-01-05', 'W tej aktualizacji przebudowywujemy naszą aplikację, a właściwie silnik łączący się z bazą danych,<br> na silnik oparty o bibliotekę PDO która usprawni pracę nad serwisem.'),
 (19, 'Chwila na oddech', '2023-01-09', 'W tej aktualizacji chwilowo wstrzymujemy pracę nad naszą aplikacją<br> dopóki nie naprawimy jednego błędu związanego z koszykiem.<br> Oraz chcieliśmy poinformować o tym że zaistniała pierwsza opcja kontaktu z nami w zakładce kontakt.<br> Pozdrawiamy Twórcy  :-)'),
-(20, 'Remoncik', '2023-01-19', 'W tej aktualizacji przebudowaliśmy dogłębnie błędy, które się ostatnio pojawiły,<br>oraz naprawiliśmy też powtarzające się elementy arkuszy stylów css.<br>Pozdrawiamy Twórcy ;-)');
+(20, 'Remoncik', '2023-01-19', 'W tej aktualizacji przebudowaliśmy dogłębnie błędy, które się ostatnio pojawiły,<br>oraz naprawiliśmy też powtarzające się elementy arkuszy stylów css.<br>Pozdrawiamy Twórcy ;-)'),
+(21, 'Zmiany', '2023-02-19', 'W tej aktualizacji poddaliśmy formatowaniu pliki z podsumowaniem zamówień \"Nowe Funkcje\",<br> oraz wyłączyliśmy \"tymczasowo\" dostęp do koszyka w ramach jego napraw.<br> Pozdrawiamy Twórcy :-)');
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,7 @@ INSERT INTO `produkty` (`id`, `Nazwa`, `Cena`, `Masa`, `Składniki`, `Opis`) VAL
 (10, 'Tarta wiosenna', '30zł', '1Kg', 'Ciasto tartowe, owoce(Truskawki i Borówki), krem budyniowy z czekoladą białą ', 'Pyszna tarta, na randki i spotkania z przyjaciółmi'),
 (11, 'Tarta czekoladowo-orzechowa', '25zł', '1Kg', 'Ciasto tartowe, Krem czekoladowy, orzechy w karmelu', 'Pyszna tarta na jesienne wieczory'),
 (12, 'Tarta malinowa', '20zł', '1Kg', 'Ciasto tartowe, krem mleczno-czekoladowy, maliny', 'Przepyszna tarta na spotkania'),
-(13, 'Ciasteczka z czekoladą (Amerykańskie)', '5zł', '100gr', 'Mąka, masło, jajka, mleko, czekolada', 'Amerykańskie ciasteczka COCO'),
+(13, 'Amerykańskie', '5zł', '100gr', 'Mąka, masło, jajka, mleko, czekolada', 'Amerykańskie ciasteczka COCO'),
 (14, 'Ciasteczka Ziarna w Karmelu', '5zł', '100gr', 'karmel, ziarna', 'Na przekąske bardzo dobre'),
 (15, 'Ciasteczka owsiane z bakaliami', '7zł', '100gr', 'ziarna owsa, jajka, bakalie', 'Pyszne i zdrowe ciasteczka'),
 (16, 'Ciasteczka Cantuccini', '6zł', '150gr', 'Mąka, mleko, jajka, czekolada', 'Pyszne i lekkie Cantuccini po włosku'),
@@ -202,7 +203,7 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT dla tabeli `aktualizacje`
 --
 ALTER TABLE `aktualizacje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT dla tabeli `klijeci`
