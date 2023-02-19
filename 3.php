@@ -190,7 +190,7 @@ if (!isset($_SESSION['user'])) {
       <i class="icon-cc-mastercard"></i>
       <i class="icon-cc-paypal"></i>
     </div> -->
-    <h1 id="cart"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1>
+    <!-- <h1 id="cart"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1> -->
     <div id="slider"></div>
     <footer>Lorem ipsum</footer>
   </div>
