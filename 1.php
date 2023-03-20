@@ -1,14 +1,33 @@
 <?php
+// podłączenie połączenia z bazą
 require_once('PDO.php');
+// sprawdzenie czy nie jest zalogowany user
 if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
+  /* 
+    ustawienie filtracji na inputy:
+    - ilość
+    - adres
+    - telefon
+    - komentarz
+  */
   $number = filter_input(INPUT_POST, 'i');
   $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
   $phone = filter_input(INPUT_POST, 'telefon');
   $comment = filter_input(INPUT_POST, 'komentarz');
+  // ustawienie napisu potrzebnego do podsumowania
   $count = 'sztuk';
+  /*
+    tworzenie tablicy skojażeniowej z przefiltrowanymi u góry danymi oraz dodatkowymi:
+    - data
+    - czas
+    te 2 dane są pobrane bezpośrednio bo nie ma potrzeby filtrowania numerów
+    te polączenie daty i czasu z tablicą jest pod postacią:
+    'data' => $_POST["data"],
+    'czas' => $_POST["czas"],
+  */
   $orderdata = [
     'ilość' => $number,
     'data' => $_POST["data"],
@@ -17,44 +36,60 @@ if (!isset($_SESSION['user'])) {
     'telefon' => $phone,
     'komentarz' => $comment
   ];
+  /**
+   * tworzenie wyciszonej tablicy skojażeniowej dotyczącej checkboxów w formulażu
+   * działa tak, że wyciszenie checboxów jest konieczne bo mogą przesyłać wartości true lub false a w tablicach musi być tak,
+   * że wszystkie elementy muszą byc true.
+   * po to jest to wyciszenie aby nie było errorów związanych z możliwością jednego zaznaczenia np:
+   * e1 = true;
+   * e2 = false;
+   * e3 = false;
+   * e4 = false;
+   * to wtedy cała tablica = false a wyciszenie (@) niweluje errory
+   */
   $prodtype = @[
     'ur' => $_POST['urodzinowy'],
     'sm' => $_POST['smakosz'],
     'jub' => $_POST['jubileuszowy'],
     'slub' => $_POST['slubny']
   ];
+  /**
+   * poniżej jest blok który sprawdza czy są ustawione na true konkretne checkboxy np:
+   * chbx3 = true; a reszta = false to uruchamia się odpowiedni warunek 
+   */
   if (isset($prodtype['ur'])) {
-    $opt = ['nazwa' => 'Urodzinowy'];
-    $_SESSION['op'] = $opt['nazwa'];
-    // setcookie('desc', $opt['nazwa']);
+    $_SESSION['opt'] = 'Urodzinowy';
   }
   if (isset($prodtype['sm'])) {
-    $opt = ['nazwa' => 'dla Smakoszy'];
-    $_SESSION['op'] = $opt['nazwa'];
-    // setcookie('desc', $opt['nazwa']);
+    $_SESSION['opt'] = 'dla Smakoszy';
   }
   if (isset($prodtype['jub'])) {
-    $opt = ['nazwa' => 'Jubileusz'];
-    $_SESSION['op'] = $opt['nazwa'];
-    // setcookie('desc', $opt['nazwa']);
+    $_SESSION['opt'] = 'Jubileusz';
   }
   if (isset($prodtype['slub'])) {
-    $opt = ['nazwa' => 'Ślubny'];
-    $_SESSION['op'] = $opt['nazwa'];
-    // setcookie('desc', $opt['nazwa']);
+    $_SESSION['opt'] = 'Ślubny';
   }
+  /**
+   * warunek sprawdzania czy przypadkiem wszystkie checkboxy są zaznaczone, jeśli tak to error a jeśli nie to dodanie zamówienia do bazy 
+   */
   if (isset($prodtype['ur']) && isset($prodtype['sm']) && isset($prodtype['jub']) && isset($prodtype['slub'])) {
     header('Location: control.php');
     exit();
   } else {
+    // przygotowanie polecenia SQL wraz z bindami poniżej
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
+    /**
+     * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
+     * oraz gdy będzie coś innego (w else) to w sesji zapisze się sklejka tortów + nazwa tortu
+     */
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['num'] = 'Tort ' . $_SESSION['op'];
       $_SESSION['count'] = $count . "ę";
+      $_SESSION['num'] = 'Tort ' . $_SESSION['opt'];
     } else {
-      $_SESSION['num'] = 'Tortów ' . $_SESSION['op'];
       $_SESSION['count'] = $count . "i";
+      $_SESSION['num'] = 'Tortów ' . $_SESSION['opt'];
     }
+    // ustawienie bindów używanych w poleceniu SQL
     $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
@@ -97,7 +132,7 @@ if (!isset($_SESSION['user'])) {
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    #cart {
+    /* #cart {
       width: 1000px;
       height: 210px;
       background-color: #000;
@@ -121,7 +156,7 @@ if (!isset($_SESSION['user'])) {
 
     #cart a:first-child {
       padding-top: 8%;
-    }
+    } */
 
     a:hover {
       color: #fff;
@@ -129,7 +164,6 @@ if (!isset($_SESSION['user'])) {
 
     @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
-      #cart,
       a {
         width: 100%;
       }
@@ -174,11 +208,11 @@ if (!isset($_SESSION['user'])) {
     <?php
     echo "<h1>Podsumowanie</h1>";
     echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
-    echo "<b> (" . $_SESSION['num'] . ") </b>";
-    echo "<p>Na adres" . $orderdata['email'] . "<p>";
-    echo "<p>Numer Telefonu:" . $orderdata['telefon'] . "<p>";
-    echo "<p>Na termin:" . $orderdata['data'] . "</p>";
-    echo "<p>Godzinę:" . $orderdata['czas'] . "</p>";
+    echo "<p><b> (" . $_SESSION['num'] . ") </b></p>";
+    echo "<p>Na adres: " . $orderdata['email'] . "<p>";
+    echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
+    echo "<p>Na termin: " . $orderdata['data'] . "</p>";
+    echo "<p>Godzinę: " . $orderdata['czas'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
     echo "<br> " . $orderdata['komentarz'] . "<br><br>";
     echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";

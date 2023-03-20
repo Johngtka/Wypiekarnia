@@ -6,7 +6,7 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
 } else {
   $log = $_POST['login'];
   $pass = $_POST['haslo'];
-  $query = $db->prepare("DELETE FROM klijeci WHERE logi={$log} AND haslo={$pass}");
+  $query = $db->prepare("DELETE FROM klijeci WHERE logi='{$log}' AND haslo='{$pass}'");
   $query->execute();
   $aireset = $db->prepare("ALTER TABLE klijeci AUTO_INCREMENT=1");
   $aireset->execute();

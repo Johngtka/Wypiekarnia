@@ -17,21 +17,21 @@ $phone = filter_input(INPUT_POST, 'telefon');
 $uname = filter_input(INPUT_POST, 'login');
 $pass = filter_input(INPUT_POST, 'password');
 
+// lokalna tablica asocjacyjna zawierająca połączenie skojażenia z danymi z filtracji
+
+$regtab = [
+  'imie' => $name,
+  'nazwisko' => $subname,
+  'mail' => $email,
+  'telefon' => $phone,
+  'login' => $uname,
+  'haslo' => $pass
+];
+
 // sprawdzenie czy przefiltrowane dane są ustawione
-if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($uname) && isset($pass)) {
-  // lokalna tablica asocjacyjna zawierająca połączenie skojażenia z danymi z filtracji
-
-  $regtab = [
-    'imie' => $name,
-    'nazwisko' => $subname,
-    'mail' => $email,
-    'telefon' => $phone,
-    'login' => $uname,
-    'haslo' => $pass
-  ];
+if (isset($regtab)) {
   // przygotowanie polecenia które sprawdzi czy już istnieje taki user
-
-  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi={$regtab['login']} AND mail={$regtab['mail']}");
+  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='{$regtab['login']}' AND mail='{$regtab['mail']}'");
   $checkuser->execute();
   // warunek sprawdzający czy wynik zapytania jest poprawny
 
@@ -90,7 +90,7 @@ if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    h1 {
+    #d {
       width: 1000px;
       height: 110px;
       background-color: #000;
@@ -99,6 +99,7 @@ if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 0;
+      padding-top: 25px;
     }
 
     h2 {
@@ -167,7 +168,7 @@ if (isset($name) && isset($subname) && isset($email) && isset($phone) && isset($
   </div>
   <div class="main">
     <?php
-    echo "<h1>Witaj<br>" . $regtab['login'] . "</h1>";
+    echo "<h1 id='d'>Witaj<br>" . $regtab['login'] . "</h1>";
     echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania <i class='fas'>&#xf406;</i></a></h2>";
     ?>
     <br>

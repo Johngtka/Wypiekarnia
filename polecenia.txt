@@ -5,11 +5,11 @@ wwartości po : to są bindy które łączą nazwę bindu z wartością z które
 
 oraz
 
-SELECT * FROM klijeci WHERE logi={$regtab['login']} AND mail={$regtab['mail']}
+SELECT * FROM klijeci WHERE logi='{$regtab['login']}' AND mail='{$regtab['mail']}'
 używane podczas weryfikacji czy user o podanym login i hasło istnieje
 
 polecenie używane w procesie usówania konta(wyjscie, userout)
-DELETE FROM klijeci WHERE logi={$log} AND haslo={$pass}
+DELETE FROM klijeci WHERE logi='{$log}' AND haslo='{$pass}'
 oraz
 ALTER TABLE klijeci AUTO_INCREMENT=1
 służące do resetowania AI w tabeli klijeci
@@ -25,4 +25,4 @@ polecenie służące do sumowania liczby aktualizacji i używane w index
 SELECT COUNT(*) FROM aktualizacje
 
 polecenie używane w koszyku(basket)
-SELECT produkty.Nazwa AS  p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi={$log['login']} AND Nazwa = {$desc}
+SELECT produkty.Nazwa AS  p, zamowienia.ilosc AS i, zamowienia.dat AS d, zamowienia.godzina AS g FROM produkty JOIN klijeci, zamowienia WHERE logi='{$log['login']}' AND Nazwa ='{$desc}'

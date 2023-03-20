@@ -1,5 +1,5 @@
 <?php
-// podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
+// podłączenie dokumentu który sprawdza czy jest zalogowanu user
 require_once('czyzalogowany.php');
 ?>
 <!DOCTYPE html>
@@ -78,40 +78,24 @@ require_once('czyzalogowany.php');
     <form action="edited.php" method="POST">
       <h1>Tutaj jest edycja konta:</h1>
       <p><b>Tutaj wpisz dane które koniecznie chcesz zmienić</b></p>
-      <?php
-      if (isset($_SESSION['groot'])) {
-        echo $_SESSION['groot'];
-        unset($_SESSION['groot']);
-      }
-      ?>
-      <!-- <div class="row">
+      <div class="row">
         <label>
-          <p><b>Zmień Imie:</b></p><input type="text" name="imie" placeholder="Wpisz Imie">
+          <p><b>Zmień Login:</b></p><input type="text" name="login" placeholder="Max 10 znaków" required>
         </label>
       </div>
       <div class="row">
         <label>
-          <p><b>Zmień Nazwisko:</b></p><input type="text" name="subname" placeholder="Wpisz Nazwisko">
-        </label>
-      </div> -->
-      <div class="row">
-        <label>
-          <p><b>Zmień Login:</b></p><input type="text" name="login" placeholder="Max 10 znaków">
+          <p><b>Zmień Hasło:</b></p><input type="password" name="password" placeholder="..." required>
         </label>
       </div>
       <div class="row">
         <label>
-          <p><b>Zmień Hasło:</b></p><input type="password" name="password" placeholder="...">
+          <p><b>Zmień e-mail:</b></p><input type="text" name="mail" placeholder="example@gmail.com" required>
         </label>
       </div>
       <div class="row">
         <label>
-          <p><b>Zmień e-mail:</b></p><input type="text" name="mail" placeholder="example@gmail.com">
-        </label>
-      </div>
-      <div class="row">
-        <label>
-          <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="telefon" placeholder="Max 9 Znaków">
+          <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="telefon" placeholder="Max 9 Znaków" required>
         </label>
       </div>
       <input type="reset" value="Wyczyść" />

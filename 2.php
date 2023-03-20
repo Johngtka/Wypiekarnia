@@ -24,24 +24,16 @@ if (!isset($_SESSION['user'])) {
     'kid' => $_POST['dziec']
   ];
   if (isset($prodtype['dr'])) {
-    $opt = ['nazwa' => ' Drożdżowe'];
-    $_SESSION['op'] = $opt['nazwa'];
-    // setcookie('desc', $opt['nazwa']);
+    $_SESSION['opt'] = 'Drożdżowe';
   }
   if (isset($prodtype['ser'])) {
-    $opt = ['nazwa' => 'Sernik'];
-    $_SESSION['op'] = $opt['nazwa'];
-    // setcookie('desc', $opt['nazwa']);
+    $_SESSION['opt'] = 'Sernik';
   }
   if (isset($prodtype['bro'])) {
-    $opt = ['nazwa' => 'Browne'];
-    $_SESSION['op'] = $opt['nazwa'];
-    // setcookie('desc', $opt['nazwa']);
+    $_SESSION['opt'] = 'Browne';
   }
   if (isset($prodtype['kid'])) {
-    $opt = ['nazwa' => 'Dziecięce'];
-    $_SESSION['op'] = $opt['nazwa'];
-    // setcookie('desc', $opt['nazwa']);
+    $_SESSION['opt'] = 'Dziecięce';
   }
   if (isset($prodtype['dr']) && isset($prodtype['ser']) && isset($prodtype['bro']) && isset($prodtype['kid'])) {
     header('Location: control.php');
@@ -49,11 +41,11 @@ if (!isset($_SESSION['user'])) {
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['num'] = 'Ciasto ' . $_SESSION['op'];
       $_SESSION['count'] = $count . "ę";
+      $_SESSION['num'] = 'Ciasto ' . $_SESSION['opt'];
     } else {
-      $_SESSION['num'] = 'Ciasta ' . $_SESSION['op'];
       $_SESSION['count'] = $count . "i";
+      $_SESSION['num'] = 'Ciasta ' . $_SESSION['opt'];
     }
     $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
@@ -97,7 +89,7 @@ if (!isset($_SESSION['user'])) {
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
-    #cart {
+    /* #cart {
       width: 1000px;
       height: 210px;
       background-color: #000;
@@ -121,7 +113,7 @@ if (!isset($_SESSION['user'])) {
 
     #cart a:first-child {
       padding-top: 8%;
-    }
+    } */
 
     a:hover {
       color: #fff;
@@ -129,7 +121,6 @@ if (!isset($_SESSION['user'])) {
 
     @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
-      #cart,
       a {
         width: 100%;
       }
@@ -174,11 +165,11 @@ if (!isset($_SESSION['user'])) {
     <?php
     echo "<h1>Podsumowanie</h1>";
     echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
-    echo "<b> (" . $_SESSION['num'] . ") </b>";
-    echo "<p>Na adres" . $orderdata['email'] . "<p>";
-    echo "<p>Numer Telefonu:" . $orderdata['telefon'] . "<p>";
-    echo "<p>Na termin:" . $orderdata['data'] . "</p>";
-    echo "<p>Godzinę:" . $orderdata['czas'] . "</p>";
+    echo "<p><b> (" . $_SESSION['num'] . ") </b></p>";
+    echo "<p>Na adres: " . $orderdata['email'] . "<p>";
+    echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
+    echo "<p>Na termin: " . $orderdata['data'] . "</p>";
+    echo "<p>Godzinę: " . $orderdata['czas'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
     echo "<br> " . $orderdata['komentarz'] . "<br><br>";
     echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";

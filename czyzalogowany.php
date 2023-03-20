@@ -1,6 +1,6 @@
 <?php
 require_once('PDO.php');
-//instrukcja sprawdzająca istnieje obiekt użytkownika
+//instrukcja sprawdzająca jest zalogowany user
 if (isset($_SESSION['user'])) {
     //przypisanie obiektu logowania do zmiennej
     $zalogowany_urzytkownik = $_SESSION['user'];

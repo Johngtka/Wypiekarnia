@@ -1,5 +1,5 @@
 <?php
-// podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
+// podłączenie dokumentu który sprawdza czy jest zalogowany user
 require_once('czyzalogowany.php');
 ?>
 <!DOCTYPE html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 19 Lut 2023, 12:17
+-- Czas generowania: 20 Mar 2023, 20:06
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -59,7 +59,8 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (18, 'Następny Update', '2023-01-05', 'W tej aktualizacji przebudowywujemy naszą aplikację, a właściwie silnik łączący się z bazą danych,<br> na silnik oparty o bibliotekę PDO która usprawni pracę nad serwisem.'),
 (19, 'Chwila na oddech', '2023-01-09', 'W tej aktualizacji chwilowo wstrzymujemy pracę nad naszą aplikacją<br> dopóki nie naprawimy jednego błędu związanego z koszykiem.<br> Oraz chcieliśmy poinformować o tym że zaistniała pierwsza opcja kontaktu z nami w zakładce kontakt.<br> Pozdrawiamy Twórcy  :-)'),
 (20, 'Remoncik', '2023-01-19', 'W tej aktualizacji naprawiliśmy dogłębnie błędy, które się ostatnio pojawiły,<br>oraz naprawiliśmy też powtarzające się elementy arkuszy stylów css.<br>Pozdrawiamy Twórcy ;-)'),
-(21, 'Zmiany', '2023-02-19', 'W tej aktualizacji poddaliśmy formatowaniu pliki z podsumowaniem zamówień \"Nowe Funkcje\",<br> oraz wyłączyliśmy \"tymczasowo\" dostęp do koszyka w ramach jego napraw.<br> Pozdrawiamy Twórcy :-)');
+(21, 'Zmiany', '2023-02-19', 'W tej aktualizacji poddaliśmy formatowaniu pliki z podsumowaniem zamówień \"Nowe Funkcje\",<br> oraz wyłączyliśmy \"tymczasowo\" dostęp do koszyka w ramach jego napraw.<br> Pozdrawiamy Twórcy :-)'),
+(22, 'Proces Naprawczy', '2023-03-20', 'W tej Aktualizacji naprawiliśmy szczególne błędy znajdujące się w kodzie naszej aplikacji.</br>Dodatkowo zoptymalizowaliśmy całą aplikację aby jej kod był bardziej dla nas czytelny.</br>Pozdrawiamy Twórcy :-)');
 
 -- --------------------------------------------------------
 
@@ -82,8 +83,7 @@ CREATE TABLE `klijeci` (
 --
 
 INSERT INTO `klijeci` (`id`, `imie`, `nazwisko`, `mail`, `telefon`, `logi`, `haslo`) VALUES
-(1, 'Janusz', 'Kowalski', 'jkowalski@wp.pl', '123123123', 'jkowalski56', 'qwerty'),
-(2, 'kot', 'dusiciel', 'kotd@gmail.com', '456456456', 'kotidu2137', 'qwerty');
+(1, 'Janusz', 'Kowalski', 'jkowalski@wp.pl', '12121212', 'jkowalski56', 'qwerty');
 
 -- --------------------------------------------------------
 
@@ -203,13 +203,13 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT dla tabeli `aktualizacje`
 --
 ALTER TABLE `aktualizacje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT dla tabeli `klijeci`
 --
 ALTER TABLE `klijeci`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `produkty`
