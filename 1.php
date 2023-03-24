@@ -58,16 +58,16 @@ if (!isset($_SESSION['user'])) {
    * chbx3 = true; a reszta = false to uruchamia się odpowiedni warunek 
    */
   if (isset($prodtype['ur'])) {
-    $_SESSION['opt'] = 'Urodzinowy';
+    $opt = 'Urodzinowy';
   }
   if (isset($prodtype['sm'])) {
-    $_SESSION['opt'] = 'dla Smakoszy';
+    $opt = 'dla Smakoszy';
   }
   if (isset($prodtype['jub'])) {
-    $_SESSION['opt'] = 'Jubileusz';
+    $opt = 'Jubileusz';
   }
   if (isset($prodtype['slub'])) {
-    $_SESSION['opt'] = 'Ślubny';
+    $opt = 'Ślubny';
   }
   /**
    * warunek sprawdzania czy przypadkiem wszystkie checkboxy są zaznaczone, jeśli tak to error a jeśli nie to dodanie zamówienia do bazy 
@@ -83,14 +83,14 @@ if (!isset($_SESSION['user'])) {
      * oraz gdy będzie coś innego (w else) to w sesji zapisze się sklejka tortów + nazwa tortu
      */
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['count'] = $count . "ę";
-      $_SESSION['num'] = 'Tort ' . $_SESSION['opt'];
+      $conf = $count . "ę";
+      $num = 'Tort ' . $opt;
     } else {
-      $_SESSION['count'] = $count . "i";
-      $_SESSION['num'] = 'Tortów ' . $_SESSION['opt'];
+      $conf = $count . "i";
+      $num = 'Tortów ' . $opt;
     }
     // ustawienie bindów używanych w poleceniu SQL
-    $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
+    $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
@@ -207,8 +207,8 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
-    echo "<p><b> (" . $_SESSION['num'] . ") </b></p>";
+    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $conf . "</p>";
+    echo "<p><b> (" . $num . ") </b></p>";
     echo "<p>Na adres: " . $orderdata['email'] . "<p>";
     echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
     echo "<p>Na termin: " . $orderdata['data'] . "</p>";

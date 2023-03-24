@@ -24,16 +24,16 @@ if (!isset($_SESSION['user'])) {
     'kid' => $_POST['dziec']
   ];
   if (isset($prodtype['dr'])) {
-    $_SESSION['opt'] = 'Drożdżowe';
+    $opt = 'Drożdżowe';
   }
   if (isset($prodtype['ser'])) {
-    $_SESSION['opt'] = 'Sernik';
+    $opt = 'Sernik';
   }
   if (isset($prodtype['bro'])) {
-    $_SESSION['opt'] = 'Browne';
+    $opt = 'Browne';
   }
   if (isset($prodtype['kid'])) {
-    $_SESSION['opt'] = 'Dziecięce';
+    $opt = 'Dziecięce';
   }
   if (isset($prodtype['dr']) && isset($prodtype['ser']) && isset($prodtype['bro']) && isset($prodtype['kid'])) {
     header('Location: control.php');
@@ -41,13 +41,13 @@ if (!isset($_SESSION['user'])) {
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['count'] = $count . "ę";
-      $_SESSION['num'] = 'Ciasto ' . $_SESSION['opt'];
+      $conf = $count . "ę";
+      $num = 'Ciasto ' . $opt;
     } else {
-      $_SESSION['count'] = $count . "i";
-      $_SESSION['num'] = 'Ciasta ' . $_SESSION['opt'];
+      $conf = $count . "i";
+      $num = 'Ciasta ' . $opt;
     }
-    $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
+    $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
@@ -164,8 +164,8 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
-    echo "<p><b> (" . $_SESSION['num'] . ") </b></p>";
+    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $conf . "</p>";
+    echo "<p><b> (" . $num . ") </b></p>";
     echo "<p>Na adres: " . $orderdata['email'] . "<p>";
     echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
     echo "<p>Na termin: " . $orderdata['data'] . "</p>";

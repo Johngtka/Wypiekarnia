@@ -24,16 +24,16 @@ if (!isset($_SESSION['user'])) {
     'can' => $_POST['cantuccini']
   ];
   if (isset($prodtype['usa'])) {
-    $_SESSION['opt'] = 'Amerykańskie';
+    $opt = 'Amerykańskie';
   }
   if (isset($prodtype['zia'])) {
-    $_SESSION['opt'] = 'Ziarna w Karmelu';
+    $opt = 'Ziarna w Karmelu';
   }
   if (isset($prodtype['bak'])) {
-    $_SESSION['opt'] = 'Owsiane z bakaliami';
+    $opt = 'Owsiane z bakaliami';
   }
   if (isset($prodtype['can'])) {
-    $_SESSION['opt'] = 'Cantuccini';
+    $opt = 'Cantuccini';
   }
   $count = 'sztuk';
   if (isset($prodtype['usa']) && isset($prodtype['kar']) && isset($prodtype['bak']) && isset($prodtype['can'])) {
@@ -42,13 +42,13 @@ if (!isset($_SESSION['user'])) {
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['count'] = $count . "ę";
-      $_SESSION['num'] = 'Ciasteczko ' . $_SESSION['opt'];
+      $conf = $count . "ę";
+      $num = 'Ciasteczko ' . $opt;
     } else {
-      $_SESSION['count'] = $count . "i";
-      $_SESSION['num'] = 'Ciasteczka ' . $_SESSION['opt'];
+      $conf = $count . "i";
+      $num = 'Ciasteczka ' . $opt;
     }
-    $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
+    $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
@@ -165,8 +165,8 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
-    echo "<p><b> (" . $_SESSION['num'] . ") </b></p>";
+    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $conf . "</p>";
+    echo "<p><b> (" . $num . ") </b></p>";
     echo "<p>Na adres: " . $orderdata['email'] . "<p>";
     echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
     echo "<p>Na termin: " . $orderdata['data'] . "</p>";

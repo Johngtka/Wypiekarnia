@@ -24,16 +24,16 @@ if (!isset($_SESSION['user'])) {
     'zia' => $_POST['ziarnista']
   ];
   if (isset($prodtype['prz'])) {
-    $_SESSION['opt'] = 'Przenna';
+    $opt = 'Przenna';
   }
   if (isset($prodtype['kaj'])) {
-    $_SESSION['opt'] = 'Kajzerka';
+    $opt = 'Kajzerka';
   }
   if (isset($prodtype['raz'])) {
-    $_SESSION['opt'] = 'Razowa';
+    $opt = 'Razowa';
   }
   if (isset($prodtype['zia'])) {
-    $_SESSION['opt'] = 'Ziarnista';
+    $opt = 'Ziarnista';
   }
   $count = 'sztuk';
   if (isset($prodtype['prz']) && isset($prodtype['kaj']) && isset($prodtype['raz']) && isset($prodtype['zia'])) {
@@ -42,13 +42,13 @@ if (!isset($_SESSION['user'])) {
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['count'] = $count . "ę";
-      $_SESSION['num'] = 'Bułka ' . $_SESSION['opt'];
+      $conf = $count . "ę";
+      $num = 'Bułka ' . $opt;
     } else {
-      $_SESSION['count'] = $count . "i";
-      $_SESSION['num'] = 'Bułeczek ' . $_SESSION['opt'];
+      $conf = $count . "i";
+      $num = 'Bułeczek ' . $opt;
     }
-    $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
+    $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
@@ -165,8 +165,8 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
-    echo "<p><b> (" . $_SESSION['num'] . ") </b></p>";
+    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $conf . "</p>";
+    echo "<p><b> (" . $num . ") </b></p>";
     echo "<p>Na adres: " . $orderdata['email'] . "<p>";
     echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
     echo "<p>Na termin: " . $orderdata['data'] . "</p>";

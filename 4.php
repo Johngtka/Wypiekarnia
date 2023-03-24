@@ -24,16 +24,16 @@ if (!isset($_SESSION['user'])) {
     'sez' => $_POST['sezonowa']
   ];
   if (isset($prodtype['bia'])) {
-    $_SESSION['opt'] = 'Czekoladowa Biała';
+    $opt = 'Czekoladowa Biała';
   }
   if (isset($prodtype['cza'])) {
-    $_SESSION['opt'] = 'Czekoladowa Czarna';
+    $opt = 'Czekoladowa Czarna';
   }
   if (isset($prodtype['mali'])) {
-    $_SESSION['opt'] = 'Malinowa';
+    $opt = 'Malinowa';
   }
   if (isset($prodtype['sez'])) {
-    $_SESSION['opt'] = 'Sezonowa';
+    $opt = 'Sezonowa';
   }
   $count = 'sztuk';
   if (isset($prodtype['bia']) && isset($prodtype['cza']) && isset($prodtype['mali']) && isset($prodtype['sez'])) {
@@ -42,13 +42,13 @@ if (!isset($_SESSION['user'])) {
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
     if ($orderdata['ilość'] <= 1) {
-      $_SESSION['count'] = $count . "ę";
-      $_SESSION['num'] = 'Babeczkę ' . $_SESSION['opt'];
+      $conf = $count . "ę";
+      $num = 'Babeczkę ' . $opt;
     } else {
-      $_SESSION['count'] = $count . "i";
-      $_SESSION['num'] = 'Babeczki ' . $_SESSION['opt'];
+      $conf = $count . "i";
+      $num = 'Babeczki ' . $opt;
     }
-    $query->bindValue(':nazwa', $_SESSION['num'], PDO::PARAM_STR);
+    $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
@@ -165,8 +165,8 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $_SESSION['count'] . "</p>";
-    echo "<p><b> (" . $_SESSION['num'] . ") </b></p>";
+    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $conf . "</p>";
+    echo "<p><b> (" . $num . ") </b></p>";
     echo "<p>Na adres: " . $orderdata['email'] . "<p>";
     echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
     echo "<p>Na termin: " . $orderdata['data'] . "</p>";
