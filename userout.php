@@ -10,6 +10,10 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
   $query->execute();
   $aireset = $db->prepare("ALTER TABLE klijeci AUTO_INCREMENT=1");
   $aireset->execute();
+  $query2 = $db->prepare("ALTER TABLE klijeci DROP id");
+  $query2->execute();
+  $addid = $db->prepare("ALTER TABLE `klijeci` ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id`)");
+  $addid->execute();
   unset($_SESSION['user']);
 }
 ?>
