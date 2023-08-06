@@ -1,5 +1,5 @@
 {
-  "name": "font",
+  "name": "",
   "css_prefix_text": "icon-",
   "css_use_suffix": false,
   "hinting": true,
@@ -31,15 +31,9 @@
       "src": "fontawesome"
     },
     {
-      "uid": "2626e3a1bbcd90e45849af3b58a1d594",
-      "css": "trash",
+      "uid": "d7271d490b71df4311e32cdacae8b331",
+      "css": "home",
       "code": 59394,
-      "src": "entypo"
-    },
-    {
-      "uid": "9affc98d652b86628d650ee58dbf0357",
-      "css": "basket",
-      "code": 59395,
       "src": "fontawesome"
     },
     {
@@ -49,21 +43,45 @@
       "src": "fontawesome"
     },
     {
-      "uid": "d7271d490b71df4311e32cdacae8b331",
-      "css": "home",
+      "uid": "9affc98d652b86628d650ee58dbf0357",
+      "css": "basket",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "3d8cc269fdad8a4cda55a20542a84e5c",
+      "css": "credit-card",
       "code": 59396,
       "src": "fontawesome"
     },
     {
       "uid": "bf882b30900da12fca090d9796bc3030",
       "css": "mail",
-      "code": 59397,
+      "code": 59395,
       "src": "fontawesome"
     },
     {
-      "uid": "7ea4150d9eb2d2ade9491d5ad905718c",
-      "css": "credit-card-alt",
-      "code": 62083,
+      "uid": "818981e2ad316f18ae61cfa805d41309",
+      "css": "user-circle",
+      "code": 62141,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "1e77a2yvsq3owssduo2lcgsiven57iv5",
+      "css": "pencil",
+      "code": 59392,
+      "src": "typicons"
+    },
+    {
+      "uid": "2626e3a1bbcd90e45849af3b58a1d594",
+      "css": "trash",
+      "code": 59397,
+      "src": "entypo"
+    },
+    {
+      "uid": "0d20938846444af8deb1920dc85a29fb",
+      "css": "logout",
+      "code": 59398,
       "src": "fontawesome"
     }
   ]

@@ -19,13 +19,13 @@ if (isset($_SESSION['user'])) {
         <meta name="description" content="Zamów swoje ulubione delicje" />
         <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
         <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
-        <link rel="stylesheet" href="css1/font.css" type="text/css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
         <link rel="stylesheet" href="style.css" type="text/css" />
         <script src="scripts.js"></script>
-        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <script src="jquery-3.7.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <!--sekcja czcionek-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -79,32 +79,24 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <div id="eggs" class="invisible"></div>
             </div>
-            <ol>
+            <ul>
                 <li>
-                    <a href="#">
-                        <span id="menu-text">MENU</span> &#9776;
+                    <a href="http://localhost/Wypiekarnia/">Strona Główna
+                        <i class="icon-home"></i>
                     </a>
-                    <ul>
-                        <li>
-                            <a href="http://localhost/Wypiekarnia/">Strona Główna
-                                <i class="icon-home"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
-                        </li>
-                    </ul>
                 </li>
-            </ol>
+                <li>
+                    <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+                </li>
+                <li>
+                    <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+                </li>
+            </ul>
         </div>
         <div class="main">
-            <h1><b>Musisz się zalogować!!!</b><br><br><a href="konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a></h1>
+            <h1><b>Musisz się zalogować!!!</b><br><br><a href="konto.php"><?php echo $_SESSION['profile']; ?> <i class="icon-user-circle"></i></a></h1>
             <footer>Lorem ipsum</footer>
         </div>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 
     </html>

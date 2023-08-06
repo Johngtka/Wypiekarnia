@@ -11,13 +11,13 @@ require_once('czyzalogowany.php');
   <meta name="description" content="Zamów swoje ulubione delicje" />
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
-  <link rel="stylesheet" href="css1/font.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
   <script src="scripts.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,12 +53,7 @@ require_once('czyzalogowany.php');
       </div>
       <div id="eggs" class="invisible"></div>
     </div>
-    <ol>
-      <li>
-        <a href="#">
-          <span id="menu-text">MENU</span> &#9776;
-        </a>
-        <ul>
+    <ul>
           <li>
             <a href="http://localhost/Wypiekarnia/">Strona Główna
               <i class="icon-home"></i>
@@ -71,21 +66,19 @@ require_once('czyzalogowany.php');
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='fas'>&#xf406;</i></a>
+            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='icon-user-circle'></i></a>
           </li>
-        </ul>
-      </li>
-    </ol>
+    </ul>
   </div>
   <div class="main1">
     <form action="2.php" method="POST">
       <div class="row">
         <legend><b>Rodzaj Ciasta:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="drozdzowe" value="1"><b>Drożdżowe(15zł/Kg)</label></b></br>
-          <label><input type="checkbox" name="sernik" value="2"><b>Sernik(20zł/Kg)</label></b></br>
-          <label><input type="checkbox" name="brown" value="3"><b>Brown'e(25zł/Kg)</label></b></br>
-          <label><input type="checkbox" name="dziec" value="4"><b>Dziecięce(30zł/Kg)</b></label>
+          <label><input type="checkbox" name="drozdzowe"><b>Drożdżowe(15zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="sernik"><b>Sernik(20zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="brown"><b>Brown'e(25zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="dziec"><b>Dziecięce(30zł/Kg)</b></label>
         </div>
       </div>
 
@@ -118,7 +111,6 @@ require_once('czyzalogowany.php');
     </form>
     <footer>Lorem ipsum</footer>
   </div>
-  <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

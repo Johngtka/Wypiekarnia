@@ -11,14 +11,13 @@ require_once('czyzalogowany.php');
   <meta name="description" content="Zamów swoje ulubione delicje" />
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" href="css1/font.css" type="text/css" />
-  <link rel="stylesheet" href="style.css" type="text/css" />
   <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
   <script src="scripts.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="jquery-3.7.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,36 +81,28 @@ require_once('czyzalogowany.php');
       </div>
       <div id="eggs" class="invisible"></div>
     </div>
-    <ol>
-      <li>
-        <a href="#">
-          <span id="menu-text">MENU</span> &#9776;
-        </a>
-        <ul>
+    <ul>
           <li>
             <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
-        </ul>
-      </li>
-    </ol>
+    </ul>
   </div>
   <div class="main">
     <?php
-    echo "<div class='panel'><i class='fas'>&#xf406;</i> " . $zalogowany_urzytkownik['login'] . "</div>";
+    echo "<div class='panel'><i class='icon-user-circle'></i> " . $zalogowany_urzytkownik['login'] . "</div>";
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/'><i class='icon-home'></i> Strona Główna</a></div>";
-    echo "<div class='panel'><a href='http://localhost/Wypiekarnia/edit.php'>&#9998; Edytuj Konto</a></div>";
-    echo "<div class='panel'><a href='wyjscie.php'>&#128465; Usuń Konto</a></div>";
-    echo "<div class='panel'><a href='logout.php'><i class='fa'>&#xf08b;</i> Wyloguj</a></div>";
+    echo "<div class='panel'><a href='http://localhost/Wypiekarnia/edit.php'><i class='icon-pencil'></i> Edytuj Konto</a></div>";
+    echo "<div class='panel'><a href='wyjscie.php'><i class='icon-trash'></i> Usuń Konto</a></div>";
+    echo "<div class='panel'><a href='logout.php'><i class='icon-logout'></i> Wyloguj</a></div>";
     // echo "<div class='panel'><a href='http://localhost/Wypiekarnia/basket.php'><i class='icon-basket'></i
     // > Koszyk" . "(" . @$_SESSION['orders'] . ")" . "</a></div>";
     ?>
     <!-- <div id="slider"></div> -->
     <footer>Lorem ipsum</footer>
   </div>
-  <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

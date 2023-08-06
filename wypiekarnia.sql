@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 20 Mar 2023, 20:06
--- Wersja serwera: 10.4.27-MariaDB
--- Wersja PHP: 8.2.0
+-- Generation Time: Aug 06, 2023 at 05:42 PM
+-- Wersja serwera: 10.4.28-MariaDB
+-- Wersja PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `wypiekarnia`
+-- Database: `wypiekarnia`
 --
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE `aktualizacje` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `aktualizacje`
+-- Dumping data for table `aktualizacje`
 --
 
 INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
@@ -60,7 +60,8 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (19, 'Chwila na oddech', '2023-01-09', 'W tej aktualizacji chwilowo wstrzymujemy pracę nad naszą aplikacją<br> dopóki nie naprawimy jednego błędu związanego z koszykiem.<br> Oraz chcieliśmy poinformować o tym że zaistniała pierwsza opcja kontaktu z nami w zakładce kontakt.<br> Pozdrawiamy Twórcy  :-)'),
 (20, 'Remoncik', '2023-01-19', 'W tej aktualizacji naprawiliśmy dogłębnie błędy, które się ostatnio pojawiły,<br>oraz naprawiliśmy też powtarzające się elementy arkuszy stylów css.<br>Pozdrawiamy Twórcy ;-)'),
 (21, 'Zmiany', '2023-02-19', 'W tej aktualizacji poddaliśmy formatowaniu pliki z podsumowaniem zamówień \"Nowe Funkcje\",<br> oraz wyłączyliśmy \"tymczasowo\" dostęp do koszyka w ramach jego napraw.<br> Pozdrawiamy Twórcy :-)'),
-(22, 'Proces Naprawczy', '2023-03-20', 'W tej Aktualizacji naprawiliśmy szczególne błędy znajdujące się w kodzie naszej aplikacji.</br>Dodatkowo zoptymalizowaliśmy całą aplikację aby jej kod był bardziej dla nas czytelny.</br>Pozdrawiamy Twórcy :-)');
+(22, 'Proces Naprawczy', '2023-03-20', 'W tej Aktualizacji naprawiliśmy szczególne błędy znajdujące się w kodzie naszej aplikacji.</br>Dodatkowo zoptymalizowaliśmy całą aplikację aby jej kod był bardziej dla nas czytelny.</br>Pozdrawiamy Twórcy :-)'),
+(23, 'Nowe Funkcje', '2023-08-05', 'W tej aktualizacji naprawiliśmy krytyczne błędy w kodzie formulaży zamówień oraz</br> zaktualizowano ikony serwisu wraz z aktualizacją silnika JQuery.</br> Usunięto też rozwijane menu i poddano je elastyzacji.</br> Wprowadzono też ogólny porządek w kodzie naszego sklepu.</br>Pozdrawiamy Twórcy :-)');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,7 @@ CREATE TABLE `klijeci` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `klijeci`
+-- Dumping data for table `klijeci`
 --
 
 INSERT INTO `klijeci` (`id`, `imie`, `nazwisko`, `mail`, `telefon`, `logi`, `haslo`) VALUES
@@ -101,7 +102,7 @@ CREATE TABLE `produkty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `produkty`
+-- Dumping data for table `produkty`
 --
 
 INSERT INTO `produkty` (`id`, `Nazwa`, `Cena`, `Masa`, `Składniki`, `Opis`) VALUES
@@ -117,7 +118,7 @@ INSERT INTO `produkty` (`id`, `Nazwa`, `Cena`, `Masa`, `Składniki`, `Opis`) VAL
 (10, 'Tarta wiosenna', '30zł', '1Kg', 'Ciasto tartowe, owoce(Truskawki i Borówki), krem budyniowy z czekoladą białą ', 'Pyszna tarta, na randki i spotkania z przyjaciółmi'),
 (11, 'Tarta czekoladowo-orzechowa', '25zł', '1Kg', 'Ciasto tartowe, Krem czekoladowy, orzechy w karmelu', 'Pyszna tarta na jesienne wieczory'),
 (12, 'Tarta malinowa', '20zł', '1Kg', 'Ciasto tartowe, krem mleczno-czekoladowy, maliny', 'Przepyszna tarta na spotkania'),
-(13, 'Amerykańskie', '5zł', '100gr', 'Mąka, masło, jajka, mleko, czekolada', 'Amerykańskie ciasteczka COCO'),
+(13, 'Ciasteczka Amerykańskie', '5zł', '100gr', 'Mąka, masło, jajka, mleko, czekolada', 'Amerykańskie ciasteczka COCO'),
 (14, 'Ciasteczka Ziarna w Karmelu', '5zł', '100gr', 'karmel, ziarna', 'Na przekąske bardzo dobre'),
 (15, 'Ciasteczka owsiane z bakaliami', '7zł', '100gr', 'ziarna owsa, jajka, bakalie', 'Pyszne i zdrowe ciasteczka'),
 (16, 'Ciasteczka Cantuccini', '6zł', '150gr', 'Mąka, mleko, jajka, czekolada', 'Pyszne i lekkie Cantuccini po włosku'),
@@ -196,35 +197,35 @@ ALTER TABLE `zamowienia`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `aktualizacje`
+-- AUTO_INCREMENT for table `aktualizacje`
 --
 ALTER TABLE `aktualizacje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT dla tabeli `klijeci`
+-- AUTO_INCREMENT for table `klijeci`
 --
 ALTER TABLE `klijeci`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT dla tabeli `produkty`
+-- AUTO_INCREMENT for table `produkty`
 --
 ALTER TABLE `produkty`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT dla tabeli `relacje`
+-- AUTO_INCREMENT for table `relacje`
 --
 ALTER TABLE `relacje`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `zamowienia`
+-- AUTO_INCREMENT for table `zamowienia`
 --
 ALTER TABLE `zamowienia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

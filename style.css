@@ -1,287 +1,246 @@
 body {
-  background-color: #000;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-image: url("img/tło.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-image: url("img/tło.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 input:focus {
-  background-color: aqua;
+    background-color: aqua;
 }
 
 #slider img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .up {
-  border-bottom: 3px solid #b70000;
-  background-color: #000;
-  /* height: 240px; */
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  color: #fff;
-  font-family: "Gloria Hallelujah", cursive;
-  display: flex;
-  justify-content: space-between;
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
-@media screen and (max-width:600px) {
-  .up {
+    border-bottom: 3px solid #b70000;
+    background-color: #000;
+    /* height: 240px; */
+    margin: 0;
     padding: 0;
-  }
-}
-
-#logo {
-  margin: 0;
-  /* margin-left: 50px; */
-  width: 200px;
-  padding: 0;
-  /* height: 200px; */
-  float: left;
-}
-
-div#eggs {
-  font-size: 20px;
-  margin-left: 10px;
-  margin: 0;
-  font-family: "Archivo Narrow", sans-serif;
-}
-
-ol {
-  margin: 0;
-}
-
-/*pozycja menu*/
-ol>li {
-  float: right;
-  list-style-type: none;
-  padding: 0;
-  font-size: 50px;
-  text-align: center;
-  margin: 0;
-}
-
-/*linki w menu*/
-ol>li>a {
-  text-decoration: none;
-  margin-right: 50px;
-  color: #fff;
-}
-
-/*Resetowanie do koloru białego a nie niebieskiego linku*/
-ol>li>a:hover {
-  color: #fff;
-}
-
-/*Stylizacja listy opcji w menu*/
-ol>li>ul {
-  list-style-type: none;
-  position: absolute;
-  /* height: 20px; */
-  padding: 0;
-  margin: 0;
-  right: 50px;
-  font-size: 15px;
-  display: none;
-}
-
-/*Stylizacja opcji w liście*/
-ol>li>ul>li {
-  font-family: "Special Elite", cursive;
-}
-
-.up ul>li:hover {
-  /* border: 1px dashed #fff; */
-  text-shadow: #fff 0.1em 0.1em 0.2em;
-}
-
-/*Resetowanie koloru do białego w liście opcji*/
-ol>li>ul>li>a:hover {
-  color: #fff;
-}
-
-/*Stylizacja linku w opcji*/
-ul>li>a {
-  text-decoration: none;
-  color: #fff;
-}
-
-/*ukrywanie listy opcji*/
-ol>li:hover>ul {
-  display: block;
+    width: 100%;
+    color: #fff;
+    font-family: "Gloria Hallelujah", cursive;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 30px;
 }
 
 @media screen and (max-width: 600px) {
-  #menu-text {
-    display: none;
-  }
+    .up {
+        padding: 0;
+    }
+    .up > ul > li {
+        font-size: 15px;
+        padding-right: 20px;
+    }
+}
 
-  #a img {
-    width: 100px;
-    height: 100px;
-  }
+#logo {
+    margin: 0;
+    /* margin-left: 50px; */
+    width: 200px;
+    padding: 0;
+    /* height: 200px; */
+    float: left;
+}
+
+div#eggs {
+    font-size: 20px;
+    margin-left: 10px;
+    margin: 0;
+    font-family: "Archivo Narrow", sans-serif;
+}
+/*Stylizacja listy opcji w menu*/
+.up > ul {
+    list-style-type: none;
+    padding-top: 20px !important;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+/*Stylizacja opcji w liście*/
+.up > ul > li {
+    font-family: "Special Elite", cursive;
+    text-align: right;
+}
+
+.up > ul > li > a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.up ul > li:hover {
+    text-shadow: #fff 0.1em 0.1em 0.2em;
+}
+
+@media screen and (max-width: 600px) {
+    #a img {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 #a {
-  margin: 0;
+    margin: 0;
 }
 
 /*stylizacja main*/
 .main {
-  padding: 0;
-  text-align: center;
-  height: 100%dvh;
-  width: 100%;
+    padding: 0;
+    text-align: center;
+    height: 100%dvh;
+    width: 100%;
 }
 
 /*stylizacja akapitu i nagłówka h1*/
 .main h1 {
-  color: #000;
-  text-shadow: #fff 0.1em 0.1em 0.2em;
-  margin: 0;
+    color: #000;
+    text-shadow: #fff 0.1em 0.1em 0.2em;
+    margin: 0;
 }
 
 /*stylizacja zdjęć w main*/
 .main img {
-  border-radius: 50px;
-  width: 80vw;
-  height: 80vw;
-  border: #000 6px solid;
+    border-radius: 50px;
+    width: 80vw;
+    height: 80vw;
+    border: #000 6px solid;
 }
 
 #slider img {
-  border-radius: 50px;
-  width: 800px;
-  height: 600px;
-  border: #000 6px solid;
+    border-radius: 50px;
+    width: 800px;
+    height: 600px;
+    border: #000 6px solid;
 }
 
 /* skalowanie się zdjęcia gdy ekran jest więkrzy */
 @media screen and (max-width: 800px) {
-  #slider img {
-    border-radius: 0;
-    border: 0;
-    width: 100%;
-    height: auto;
-  }
+    #slider img {
+        border-radius: 0;
+        border: 0;
+        width: 100%;
+        height: auto;
+    }
 }
 
-@media screen and (max-width:500px) {
-  #slider img {
-    border-radius: 0;
-    border: 0;
-    width: 100%;
-    height: auto;
-  }
+@media screen and (max-width: 500px) {
+    #slider img {
+        border-radius: 0;
+        border: 0;
+        width: 100%;
+        height: auto;
+    }
 }
 
 /*stylizacja linków które są zdjęciami w index*/
 .main a {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 
 .main a:hover {
-  opacity: 5;
+    opacity: 5;
 }
 
 /*stylizacja stylizacja obrazków w kafelkach w index*/
 .peace img {
-  width: 250px;
-  height: 200px;
+    width: 250px;
+    height: 200px;
 }
 
 .peace img:hover {
-  border: #fff 2px solid;
+    border: #fff 2px solid;
 }
 
 /*stylizacja samego kafelka z linkami*/
 .peace {
-  display: inline-block;
-  margin-top: 10px;
-  border: #000 2px solid;
+    display: inline-block;
+    margin-top: 10px;
+    border: #000 2px solid;
 }
 
 .peace a {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 
 .peace a:hover {
-  opacity: 9;
+    opacity: 9;
 }
 
 figure {
-  margin: 8px;
-  padding: 0;
+    margin: 8px;
+    padding: 0;
 }
 
 .peace:hover {
-  background-color: #000;
-  border: #fff 2px solid;
+    background-color: #000;
+    border: #fff 2px solid;
 }
 
 figcaption {
-  margin-top: 8px;
-  padding: 0;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fff;
-  height: 30px;
-  color: #000;
-  border: #000 2px solid;
+    margin-top: 8px;
+    padding: 0;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    height: 30px;
+    color: #000;
+    border: #000 2px solid;
 }
 
 figure a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /*stylizacja stopki całego dokumentu*/
 footer {
-  background-color: #000;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 50px;
-  min-height: 20px;
-  font-family: "Cinzel", serif;
-  border-top: 3px #b70000 solid;
+    background-color: #000;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    min-height: 20px;
+    font-family: "Cinzel", serif;
+    border-top: 3px #b70000 solid;
 }
 
 /*stylizacja wierszy formularza*/
 .row {
-  margin: 20px 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1000px;
+    margin: 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
 }
 
 /*stylizacja kolumn formularza*/
 .col {
-  display: inline-block;
-  margin: 0 10px;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 /*stylizacja pola z komentarzemw formularzu*/
 #komentarz {
-  resize: none;
+    resize: none;
 }
 
 /*stylizacja drógiego main który jest w aktualizacjach*/
 .main1 {
-  color: #000;
-  width: 100%;
-  height: 100%dvh;
-  text-shadow: #fff 0.1em 0.1em 0.2em;
+    color: #000;
+    width: 100%;
+    height: 100%dvh;
+    text-shadow: #fff 0.1em 0.1em 0.2em;
 }
 
 /*stylizacja ramki z płatnościami*/
@@ -299,3 +258,4 @@ footer {
   padding: 0;
   display: inline-block;
 } */
+
