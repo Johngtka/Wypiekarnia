@@ -22,9 +22,9 @@ if (isset($log)) {
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
-  <script src="scripts.js"></script>
-  <script src="jquery-3.7.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script src="scripts.js"></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,7 +43,7 @@ if (isset($log)) {
 
 <body>
   <div class="up">
-    <div id="logo" onclick="x()">
+    <div id="logo" onclick="showTimerWithDate()">
       <div id="a">
         <img src="img/logo1.png" title="Logo" alt="Logo" />
       </div>
@@ -58,7 +58,7 @@ if (isset($log)) {
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
+            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile'] ?><i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>
@@ -152,8 +152,8 @@ if (isset($log)) {
         donec ac odio tempor orci dapibus ultrices in iaculis.</b>
     </p>
     <div id="slider"></div>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
   </div>
 </body>
 

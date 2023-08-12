@@ -4,16 +4,23 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
   header('Location: wyjscie.php');
   exit();
 } else {
-  $log = $_POST['login'];
-  $pass = $_POST['haslo'];
-  $query = $db->prepare("DELETE FROM klijeci WHERE logi='{$log}' AND haslo='{$pass}'");
+
+  $log = filter_input(INPUT_POST, 'login');
+  $pass = filter_input(INPUT_POST, 'haslo');
+
+  $query = $db->prepare("DELETE FROM klijeci WHERE logi=:user AND haslo=:pass");
+
+  $query->bindParam(':user', $log , PDO::PARAM_STR);
+  $query->bindParam(':pass', $pass , PDO::PARAM_STR);
+
   $query->execute();
-  $aireset = $db->prepare("ALTER TABLE klijeci AUTO_INCREMENT=1");
-  $aireset->execute();
+
   $query2 = $db->prepare("ALTER TABLE klijeci DROP id");
   $query2->execute();
+
   $addid = $db->prepare("ALTER TABLE `klijeci` ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id`)");
   $addid->execute();
+  
   unset($_SESSION['user']);
 }
 ?>
@@ -30,9 +37,9 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
-  <script src="scripts.js"></script>
-  <script src="jquery-3.7.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script src="scripts.js"></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,7 +70,7 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
 
 <body>
   <div class="up">
-    <div id="logo" onclick="x()">
+    <div id="logo" onclick="showTimerWithDate()">
       <div id="a">
         <img src="img/logo1.png" title="Logo" alt="Logo" />
       </div>

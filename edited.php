@@ -8,7 +8,7 @@ if (!isset($_SESSION['user'])) {
     $username = filter_input(INPUT_POST, 'login');
     $pass = filter_input(INPUT_POST, 'password');
     $adres = filter_input(INPUT_POST, 'mail', FILTER_VALIDATE_EMAIL);
-    $num = filter_input(INPUT_POST, 'telefon');
+    $num = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
     $editdata = [
         'login' => $username,
         'haslo' => $pass,

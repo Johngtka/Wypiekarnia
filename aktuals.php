@@ -10,15 +10,15 @@ $query->execute();
     <meta charset="utf-8" />
     <title>Aktualizacje</title>
     <meta name="description" content="Zamów swoje ulubione delicje" />
-  <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
-  <link rel="stylesheet" href="style.css" type="text/css" />
-  <script src="scripts.js"></script>
-  <script src="jquery-3.7.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+    <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="js/bootstrap.min.js"></script>
+    <script src="jquery-3.7.0.min.js"></script>
+    <script src="scripts.js"></script>
     <!--sekcja czcionek-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -75,7 +75,7 @@ $query->execute();
 
 <body>
     <div class="up">
-        <div id="logo" onclick="x()">
+        <div id="logo" onclick="showTimerWithDate()">
             <div id="a">
                 <img src="img/logo1.png" title="Logo" alt="Logo" />
             </div>

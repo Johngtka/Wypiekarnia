@@ -14,9 +14,9 @@ session_start();
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
-  <script src="scripts.js"></script>
-  <script src="jquery-3.7.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script src="scripts.js"></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,7 +45,7 @@ session_start();
 
 <body>
   <div class="up">
-    <div id="logo" onclick="x()">
+    <div id="logo" onclick="showTimerWithDate()">
       <div id="a">
         <img src="img/logo1.png" title="Logo" alt="Logo" />
       </div>
@@ -89,10 +89,10 @@ session_start();
         <label><b>Login:</b><input type="text" name="login" placeholder="Max 10 znaków" required /></label>
       </div>
       <?php
-      if (isset($_SESSION['errchx'])) {
-        echo $_SESSION['errchx'];
-        unset($_SESSION['errchx']);
-      }
+        if (isset($_SESSION['errchx'])) {
+          echo $_SESSION['errchx'];
+          unset($_SESSION['errchx']);
+        }
       ?>
       <div class="row">
         <label><b>Hasło:</b><input type="password" name="password" placeholder="..." required /></label>
@@ -102,9 +102,8 @@ session_start();
       </div>
       <input type="submit" value="Zarejestruj" />
     </form>
-    <div id="slider"></div>
-    <footer>Lorem ipsum</footer>
   </div>
+  <footer>Lorem ipsum</footer>
 </body>
 
 </html>

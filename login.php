@@ -3,21 +3,17 @@
 require_once('PDO.php');
 //warunek który sprawdza czy nie są ustawione login i hasło w formularzu logowania
 if (!isset($_POST['login']) || !isset($_POST['password'])) {
+
   header('Location: konto.php');
   exit();
+
 } else {
-  //przypisanie wartości z logowania do zmiennych
-  $login = $_POST['login'];
-  $haslo = $_POST['password'];
 
-  // $login = htmlentities($login, ENT_QUOTES, "UTF-8");
-  // $haslo = htmlentities($haslo, ENT_QUOTES, "UTF-8");
-
-  // przepuszczenie wartości z formularza logowania przez filtrację
+  // przepuszczenie wartości z pól formularza logowania przez filtrację
   $login = filter_input(INPUT_POST, 'login');
   $haslo = filter_input(INPUT_POST, 'password');
 
-  // przygotowanie polecenia sql bez wartości które są tagami
+  // przygotowanie polecenia sql bez wartości które są bindami
   $query = $db->prepare("SELECT * FROM klijeci WHERE logi=:uname AND haslo=:haslo");
 
   // procedura bindowania wartości pod tagi które są przesyłane w zapytaniu

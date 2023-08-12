@@ -1,40 +1,40 @@
 window.onload = () => {
   setInterval(console_control, 1000)
   console_control()
-  setInterval(zmienslajd, 5000)
-  zmienslajd()
+  setInterval(changeSlide, 5000)
+  changeSlide()
 }
 
-function zegarek() {
-  const dzisiaj = new Date()
-  let dzien = dzisiaj.getDate()
-  let miesiac = dzisiaj.getMonth() + 1
-  let rok = dzisiaj.getFullYear()
-  let godzina = dzisiaj.getHours()
-  let minuta = dzisiaj.getMinutes()
-  let sekunda = dzisiaj.getSeconds()
-  if (miesiac < 10) {
-    miesiac = '0' + miesiac
+function timerScope() {
+  const time = new Date()
+  let day = time.getDate()
+  let month = time.getMonth() + 1
+  let year = time.getFullYear()
+  let hour = time.getHours()
+  let minute = time.getMinutes()
+  let second = time.getSeconds()
+  if (month < 10) {
+    month = '0' + month
   }
-  if (godzina < 10) {
-    godzina = '0' + godzina
+  if (hour < 10) {
+    hour = '0' + hour
   }
-  if (minuta < 10) {
-    minuta = '0' + minuta
+  if (minute < 10) {
+    minute = '0' + minute
   }
-  if (sekunda < 10) {
-    sekunda = '0' + sekunda
+  if (second < 10) {
+    second = '0' + second
   }
-  document.querySelector('#eggs').innerHTML = dzien + '/' + miesiac + '/' + rok + '|' + godzina + ':' + minuta + ':' + sekunda
+  document.querySelector('#eggs').innerHTML = day + '/' + month + '/' + year + '|' + hour + ':' + minute + ':' + second
 }
 
-let timerTask = null
-function x() {
+function showTimerWithDate() {
   const logo = document.querySelector('#a')
   const timer = document.querySelector('#eggs')
+  let timerTask = null
   if (logo.classList.toggle('invisible')) {
-    zegarek()
-    timerTask = setInterval(zegarek, 1000)
+    timerScope()
+    timerTask = setInterval(timerScope, 1000)
   } else if (timerTask) {
     clearInterval(timerTask)
     timerTask = null
@@ -43,11 +43,12 @@ function x() {
 }
 
 let numer = Math.floor(Math.random() * 6) + 1
-function schowaj() {
+
+function hide() {
   $('#slider').fadeOut(500)
 }
 
-function zmienslajd() {
+function changeSlide() {
   numer++
   if (numer > 6) numer = 1
 
@@ -55,7 +56,7 @@ function zmienslajd() {
 
   document.querySelector('#slider').innerHTML = plik
   $('#slider').fadeIn(500)
-  setTimeout(schowaj, 4500)
+  setTimeout(hide, 4500)
 }
 
 function console_control() {

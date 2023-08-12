@@ -13,7 +13,7 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
 $name = filter_input(INPUT_POST, 'name');
 $subname = filter_input(INPUT_POST, 'subname');
 $email = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-$phone = filter_input(INPUT_POST, 'telefon');
+$phone = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
 $uname = filter_input(INPUT_POST, 'login');
 $pass = filter_input(INPUT_POST, 'password');
 
@@ -31,7 +31,11 @@ $regtab = [
 // sprawdzenie czy przefiltrowane dane są ustawione
 if (isset($regtab)) {
   // przygotowanie polecenia które sprawdzi czy już istnieje taki user
-  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi='{$regtab['login']}' AND mail='{$regtab['mail']}'");
+  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi=:ulogin AND mail=:email");
+
+  $checkuser->bindParam(':ulogin', $regtab['login'], PDO::PARAM_STR);
+  $checkuser->bindParam(':email', $regtab['mail'], PDO::PARAM_STR);
+
   $checkuser->execute();
   // warunek sprawdzający czy wynik zapytania jest poprawny
 
@@ -72,9 +76,9 @@ if (isset($regtab)) {
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
-  <script src="scripts.js"></script>
-  <script src="jquery-3.7.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script src="scripts.js"></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -91,8 +95,7 @@ if (isset($regtab)) {
   <!--koniec sekcji czcionek-->
   <style type="text/css">
     #d {
-      width: 1000px;
-      height: 110px;
+      height: 120px;
       background-color: #000;
       opacity: 0.5;
       color: #fff;
@@ -103,8 +106,7 @@ if (isset($regtab)) {
     }
 
     h2 {
-      width: 1000px;
-      height: 110px;
+      height: 120px;
       background-color: #000;
       opacity: 0.5;
       color: #fff;
@@ -114,9 +116,15 @@ if (isset($regtab)) {
       padding-top: 25px;
     }
 
-    @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
-
-      h1,
+    @media only screen and (min-width:600px) {
+      #d,
+      h2,
+      a {
+        width: 80%;
+      }
+    }
+    @media only screen and (max-width:600px) {
+      #d,
       h2,
       a {
         width: 100%;
@@ -138,7 +146,7 @@ if (isset($regtab)) {
 
 <body>
   <div class="up">
-    <div id="logo" onclick="x()">
+    <div id="logo" onclick="showTimerWithDate()">
       <div id="a">
         <img src="img/logo1.png" title="Logo" alt="Logo" />
       </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2023 at 05:42 PM
+-- Generation Time: Aug 11, 2023 at 09:41 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -61,7 +61,8 @@ INSERT INTO `aktualizacje` (`id`, `Nazwa`, `Data`, `Opis`) VALUES
 (20, 'Remoncik', '2023-01-19', 'W tej aktualizacji naprawiliśmy dogłębnie błędy, które się ostatnio pojawiły,<br>oraz naprawiliśmy też powtarzające się elementy arkuszy stylów css.<br>Pozdrawiamy Twórcy ;-)'),
 (21, 'Zmiany', '2023-02-19', 'W tej aktualizacji poddaliśmy formatowaniu pliki z podsumowaniem zamówień \"Nowe Funkcje\",<br> oraz wyłączyliśmy \"tymczasowo\" dostęp do koszyka w ramach jego napraw.<br> Pozdrawiamy Twórcy :-)'),
 (22, 'Proces Naprawczy', '2023-03-20', 'W tej Aktualizacji naprawiliśmy szczególne błędy znajdujące się w kodzie naszej aplikacji.</br>Dodatkowo zoptymalizowaliśmy całą aplikację aby jej kod był bardziej dla nas czytelny.</br>Pozdrawiamy Twórcy :-)'),
-(23, 'Nowe Funkcje', '2023-08-05', 'W tej aktualizacji naprawiliśmy krytyczne błędy w kodzie formulaży zamówień oraz</br> zaktualizowano ikony serwisu wraz z aktualizacją silnika JQuery.</br> Usunięto też rozwijane menu i poddano je elastyzacji.</br> Wprowadzono też ogólny porządek w kodzie naszego sklepu.</br>Pozdrawiamy Twórcy :-)');
+(23, 'Nowe Funkcje', '2023-08-05', 'W tej aktualizacji naprawiliśmy krytyczne błędy w kodzie formulaży zamówień oraz</br> zaktualizowano ikony serwisu wraz z aktualizacją silnika JQuery.</br> Usunięto też rozwijane menu i poddano je elastyzacji.</br> Wprowadzono też ogólny porządek w kodzie naszego sklepu.</br>Pozdrawiamy Twórcy :-)'),
+(24, 'Ogólne Usprawnienia', '2023-08-11', 'W tej aktualizacji naprawiliśmy składnię kodu naszego sklepu i przekształciliśmy delikatnie </br> kody skryptów JS na bardziej optymalne dla czytania. </br>Dostosowaliśmy też skalowalność w pionie naszego serwisu, przypominamy o możliwości </br> proponowania zmian i kontaktu z nami w zakładce kontakt. </br> Pozdrawiamy Twórcy :-)');
 
 -- --------------------------------------------------------
 
@@ -204,7 +205,7 @@ ALTER TABLE `zamowienia`
 -- AUTO_INCREMENT for table `aktualizacje`
 --
 ALTER TABLE `aktualizacje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `klijeci`
