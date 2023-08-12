@@ -6,6 +6,13 @@ if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
+  // walidacja polegająca na sprawdzeniu czy wartość z formulaża nie posiada kombinacji liczb z literami
+  if(!ctype_digit($_POST['telefon'])){
+    $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
+    header('Location: cake.php');
+    exit();
+  }
+
   /* 
     ustawienie filtracji na inputy:
     - ilość
@@ -13,12 +20,14 @@ if (!isset($_SESSION['user'])) {
     - telefon
     - komentarz
   */
+
+  $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'i');
   $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-  $phone = filter_input(INPUT_POST, 'telefon');
+  $phone = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'komentarz');
   // ustawienie napisu potrzebnego do podsumowania
-  $count = 'sztuk';
+
   /*
     tworzenie tablicy skojażeniowej z przefiltrowanymi u góry danymi oraz dodatkowymi:
     - data
@@ -28,7 +37,7 @@ if (!isset($_SESSION['user'])) {
     'data' => $_POST["data"],
     'czas' => $_POST["czas"],
   */
-  $orderdata = [
+  $orderData = [
     'ilość' => $number,
     'data' => $_POST["data"],
     'czas' => $_POST["czas"],
@@ -47,7 +56,7 @@ if (!isset($_SESSION['user'])) {
    * e4 = false;
    * to wtedy cała tablica = false a wyciszenie (@) niweluje errory
    */
-  $prodtype = @[
+  $prodType = @[
     'ur' => $_POST['urodzinowy'],
     'sm' => $_POST['smakosz'],
     'jub' => $_POST['jubileuszowy'],
@@ -57,22 +66,22 @@ if (!isset($_SESSION['user'])) {
    * poniżej jest blok który sprawdza czy są ustawione na true konkretne checkboxy np:
    * chbx3 = true; a reszta = false to uruchamia się odpowiedni warunek 
    */
-  if (isset($prodtype['ur'])) {
+  if (isset($prodType['ur'])) {
     $opt = 'Urodzinowy';
   }
-  if (isset($prodtype['sm'])) {
+  if (isset($prodType['sm'])) {
     $opt = 'dla Smakoszy';
   }
-  if (isset($prodtype['jub'])) {
+  if (isset($prodType['jub'])) {
     $opt = 'Jubileusz';
   }
-  if (isset($prodtype['slub'])) {
+  if (isset($prodType['slub'])) {
     $opt = 'Ślubny';
   }
   /**
    * warunek sprawdzania czy przypadkiem wszystkie checkboxy są zaznaczone, jeśli tak to error a jeśli nie to dodanie zamówienia do bazy 
    */
-  if (isset($prodtype['ur']) && isset($prodtype['sm']) && isset($prodtype['jub']) && isset($prodtype['slub'])) {
+  if (isset($prodType['ur']) && isset($prodType['sm']) && isset($prodType['jub']) && isset($prodType['slub'])) {
     header('Location: control.php');
     exit();
   } else {
@@ -82,7 +91,7 @@ if (!isset($_SESSION['user'])) {
      * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
      * oraz gdy będzie coś innego (w else) to w sesji zapisze się sklejka tortów + nazwa tortu
      */
-    if ($orderdata['ilość'] <= 1) {
+    if ($orderData['ilość'] <= 1) {
       $conf = $count . "ę";
       $num = 'Tort ' . $opt;
     } else {
@@ -91,12 +100,12 @@ if (!isset($_SESSION['user'])) {
     }
     // ustawienie bindów używanych w poleceniu SQL
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
-    $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
-    $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
-    $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
-    $query->bindValue(':mail', $orderdata['email'], PDO::PARAM_STR);
-    $query->bindValue(':telefon', $orderdata['telefon'], PDO::PARAM_INT);
-    $query->bindValue(':kom', $orderdata['komentarz'], PDO::PARAM_STR);
+    $query->bindValue(':ilosc', $orderData['ilość'], PDO::PARAM_INT);
+    $query->bindValue(':dat', $orderData['data'], PDO::PARAM_STR);
+    $query->bindValue(':czas', $orderData['czas'], PDO::PARAM_STR);
+    $query->bindValue(':mail', $orderData['email'], PDO::PARAM_STR);
+    $query->bindValue(':telefon', $orderData['telefon'], PDO::PARAM_INT);
+    $query->bindValue(':kom', $orderData['komentarz'], PDO::PARAM_STR);
     $query->execute();
   }
 }
