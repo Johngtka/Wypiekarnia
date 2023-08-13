@@ -4,11 +4,19 @@ if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
+
+  if(!ctype_digit($_POST['telefon'])){
+    $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
+    header('Location: bulki.php');
+    exit();
+  }
+
+  $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'i');
   $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-  $phone = filter_input(INPUT_POST, 'telefon');
+  $phone = filter_input(INPUT_POST, 'telefon' , FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'komentarz');
-  $count = 'sztuk';
+
   $orderdata = [
     'ilość' => $number,
     'data' => $_POST["data"],
@@ -17,30 +25,36 @@ if (!isset($_SESSION['user'])) {
     'telefon' => $phone,
     'komentarz' => $comment
   ];
+
   $prodtype = @[
     'prz' => $_POST['przenna'],
     'kaj' => $_POST['kajzerka'],
     'raz' => $_POST['razowa'],
     'zia' => $_POST['ziarnista']
   ];
+
   if (isset($prodtype['prz'])) {
     $opt = 'Przenna';
   }
+
   if (isset($prodtype['kaj'])) {
     $opt = 'Kajzerka';
   }
+
   if (isset($prodtype['raz'])) {
     $opt = 'Razowa';
   }
+
   if (isset($prodtype['zia'])) {
     $opt = 'Ziarnista';
   }
-  $count = 'sztuk';
+
   if (isset($prodtype['prz']) && isset($prodtype['kaj']) && isset($prodtype['raz']) && isset($prodtype['zia'])) {
     header('Location: control.php');
     exit();
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
+
     if ($orderdata['ilość'] <= 1) {
       $conf = $count . "ę";
       $num = 'Bułka ' . $opt;
@@ -48,6 +62,7 @@ if (!isset($_SESSION['user'])) {
       $conf = $count . "i";
       $num = 'Bułeczek ' . $opt;
     }
+
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);

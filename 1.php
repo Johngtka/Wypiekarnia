@@ -69,15 +69,19 @@ if (!isset($_SESSION['user'])) {
   if (isset($prodType['ur'])) {
     $opt = 'Urodzinowy';
   }
+  
   if (isset($prodType['sm'])) {
     $opt = 'dla Smakoszy';
   }
+
   if (isset($prodType['jub'])) {
     $opt = 'Jubileusz';
   }
+
   if (isset($prodType['slub'])) {
     $opt = 'Ślubny';
   }
+
   /**
    * warunek sprawdzania czy przypadkiem wszystkie checkboxy są zaznaczone, jeśli tak to error a jeśli nie to dodanie zamówienia do bazy 
    */
@@ -98,6 +102,7 @@ if (!isset($_SESSION['user'])) {
       $conf = $count . "i";
       $num = 'Tortów ' . $opt;
     }
+    
     // ustawienie bindów używanych w poleceniu SQL
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderData['ilość'], PDO::PARAM_INT);

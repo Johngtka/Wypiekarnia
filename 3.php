@@ -4,11 +4,19 @@ if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
+
+  if(!ctype_digit($_POST['telefon'])){
+    $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
+    header('Location: tarty.php');
+    exit();
+  }
+
+  $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'i');
   $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-  $phone = filter_input(INPUT_POST, 'telefon');
+  $phone = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'komentarz');
-  $count = 'sztuk';
+
   $orderdata = [
     'ilość' => $number,
     'data' => $_POST["data"],
@@ -17,30 +25,37 @@ if (!isset($_SESSION['user'])) {
     'telefon' => $phone,
     'komentarz' => $comment
   ];
+
   $prodtype = @[
     'jab' => $_POST['jablkowe'],
     'wio' => $_POST['wiosenne'],
     'co' => $_POST['czekorz'],
     'mali' => $_POST['malinowe']
   ];
+
   if (isset($prodtype['jab'])) {
     $opt = 'Jabłkowa na mlecznym kremie';
   }
+
   if (isset($prodtype['wio'])) {
     $opt = 'Wiosenna';
   }
+
   if (isset($prodtype['co'])) {
     $opt = 'Czekoladowo-orzechowa';
   }
+
   if (isset($prodtype['mali'])) {
     $opt = 'Malinowa';
   }
-  $count = 'sztuk';
+
   if (isset($prodtype['jab']) && isset($prodtype['wio']) && isset($prodtype['co']) && isset($prodtype['mali'])) {
     header('Location: control.php');
     exit();
   } else {
+
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
+
     if ($orderdata['ilość'] <= 1) {
       $conf = $count . "ę";
       $num = 'Tartę ' . $opt;
@@ -48,6 +63,7 @@ if (!isset($_SESSION['user'])) {
       $conf = $count . "i";
       $num = 'Tarty ' . $opt;
     }
+
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
