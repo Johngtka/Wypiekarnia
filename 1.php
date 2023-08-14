@@ -64,16 +64,16 @@ if (!isset($_SESSION['user'])) {
    *   
    *   to wtedy produkt wyśle się do bazy
    * 
-   * }else if( [warości z tablicy] === true ){
+   * } else if( [warości z tablicy] === true ) {
    * 
    *    wtedy będzie error
    *  
    * } else {
    *    w przeciwnym wypadku
    * 
-   *    if( [wartości z tablicy] > 1 && === true ){
+   *    if( [wartości z tablicy] > 1 && === true ) {
    *      
-   *    to wtedy do bazy wyśle się ostatni zaznaczony produkt i zostanie   wygenerowana konfiguracja podsumowania zamówienia
+   *    to wtedy do bazy wyśle się ostatni zaznaczony produkt i zostanie wygenerowana konfiguracja podsumowania zamówienia
    *    do tego produktu
    * 
    *    }     
@@ -120,7 +120,7 @@ if (!isset($_SESSION['user'])) {
 
     /**
      * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
-     * oraz gdy będzie coś innego (w else) to w sesji zapisze się sklejka tortów + nazwa tortu
+     * oraz gdy będzie coś innego (w else) to zapisze się sklejka tortów + nazwa tortu
     */
 
     if ($orderData['ilość'] <= 1) {
