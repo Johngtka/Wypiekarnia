@@ -17,7 +17,7 @@ if (!isset($_SESSION['user'])) {
   $phone = filter_input(INPUT_POST, 'telefon' , FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'komentarz');
 
-  $orderdata = [
+  $orderData = [
     'ilość' => $number,
     'data' => $_POST["data"],
     'czas' => $_POST["czas"],
@@ -26,36 +26,36 @@ if (!isset($_SESSION['user'])) {
     'komentarz' => $comment
   ];
 
-  $prodtype = @[
+  $prodType = @[
     'prz' => $_POST['przenna'],
     'kaj' => $_POST['kajzerka'],
     'raz' => $_POST['razowa'],
     'zia' => $_POST['ziarnista']
   ];
 
-  if (isset($prodtype['prz'])) {
+  if (isset($prodType['prz'])) {
     $opt = 'Przenna';
   }
 
-  if (isset($prodtype['kaj'])) {
+  if (isset($prodType['kaj'])) {
     $opt = 'Kajzerka';
   }
 
-  if (isset($prodtype['raz'])) {
+  if (isset($prodType['raz'])) {
     $opt = 'Razowa';
   }
 
-  if (isset($prodtype['zia'])) {
+  if (isset($prodType['zia'])) {
     $opt = 'Ziarnista';
   }
 
-  if (isset($prodtype['prz']) && isset($prodtype['kaj']) && isset($prodtype['raz']) && isset($prodtype['zia'])) {
+  if (isset($prodType['prz']) && isset($prodType['kaj']) && isset($prodType['raz']) && isset($prodType['zia'])) {
     header('Location: control.php');
     exit();
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
 
-    if ($orderdata['ilość'] <= 1) {
+    if ($orderData['ilość'] <= 1) {
       $conf = $count . "ę";
       $num = 'Bułka ' . $opt;
     } else {
@@ -64,12 +64,12 @@ if (!isset($_SESSION['user'])) {
     }
 
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
-    $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
-    $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
-    $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
-    $query->bindValue(':mail', $orderdata['email'], PDO::PARAM_STR);
-    $query->bindValue(':telefon', $orderdata['telefon'], PDO::PARAM_INT);
-    $query->bindValue(':kom', $orderdata['komentarz'], PDO::PARAM_STR);
+    $query->bindValue(':ilosc', $orderData['ilość'], PDO::PARAM_INT);
+    $query->bindValue(':dat', $orderData['data'], PDO::PARAM_STR);
+    $query->bindValue(':czas', $orderData['czas'], PDO::PARAM_STR);
+    $query->bindValue(':mail', $orderData['email'], PDO::PARAM_STR);
+    $query->bindValue(':telefon', $orderData['telefon'], PDO::PARAM_INT);
+    $query->bindValue(':kom', $orderData['komentarz'], PDO::PARAM_STR);
     $query->execute();
   }
 }
@@ -174,14 +174,14 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $conf . "</p>";
+    echo "<p>Zamówiłeś " . $orderData['ilość'] . " " . $conf . "</p>";
     echo "<p><b> (" . $num . ") </b></p>";
-    echo "<p>Na adres: " . $orderdata['email'] . "<p>";
-    echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
-    echo "<p>Na termin: " . $orderdata['data'] . "</p>";
-    echo "<p>Godzinę: " . $orderdata['czas'] . "</p>";
+    echo "<p>Na adres: " . $orderData['email'] . "<p>";
+    echo "<p>Numer Telefonu: " . $orderData['telefon'] . "<p>";
+    echo "<p>Na termin: " . $orderData['data'] . "</p>";
+    echo "<p>Godzinę: " . $orderData['czas'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
-    echo "<br> " . $orderdata['komentarz'] . "<br><br>";
+    echo "<br> " . $orderData['komentarz'] . "<br><br>";
     echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     ?>
     <!-- <div class="pay">

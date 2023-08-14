@@ -88,7 +88,7 @@ require_once('czyzalogowany.php');
 
       <div class="row">
         <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
-        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="111-222-333" required /></label>
+        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="111222333" required /></label>
         <?php
           if(isset($_SESSION['noNumberCorrect'])){
             echo $_SESSION['noNumberCorrect'];

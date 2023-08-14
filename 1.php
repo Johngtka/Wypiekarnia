@@ -6,6 +6,7 @@ if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
+
   // walidacja polegająca na sprawdzeniu czy wartość z formulaża nie posiada kombinacji liczb z literami
   if(!ctype_digit($_POST['telefon'])){
     $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
@@ -215,14 +216,14 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $conf . "</p>";
+    echo "<p>Zamówiłeś " . $orderData['ilość'] . " " . $conf . "</p>";
     echo "<p><b> (" . $num . ") </b></p>";
-    echo "<p>Na adres: " . $orderdata['email'] . "<p>";
-    echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
-    echo "<p>Na termin: " . $orderdata['data'] . "</p>";
-    echo "<p>Godzinę: " . $orderdata['czas'] . "</p>";
+    echo "<p>Na adres: " . $orderData['email'] . "<p>";
+    echo "<p>Numer Telefonu: " . $orderData['telefon'] . "<p>";
+    echo "<p>Na termin: " . $orderData['data'] . "</p>";
+    echo "<p>Godzinę: " . $orderData['czas'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
-    echo "<br> " . $orderdata['komentarz'] . "<br><br>";
+    echo "<br> " . $orderData['komentarz'] . "<br><br>";
     echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     ?>
     <!-- <div class="pay">
@@ -233,8 +234,8 @@ if (!isset($_SESSION['user'])) {
     </div> -->
     <!-- <h1 id="cart"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1> -->
     <div id="slider"></div>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
 </body>
 
 </html>

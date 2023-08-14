@@ -6,61 +6,70 @@ require_once('PDO.php');
 if (!isset($_POST['login']) && !isset($_POST['password'])) {
   header('Location: index.php');
   exit();
-}
+} else {
 
-// przepuszczenie wartości z formularza rejestracji przez filtrację
-
-$name = filter_input(INPUT_POST, 'name');
-$subname = filter_input(INPUT_POST, 'subname');
-$email = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-$phone = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
-$uname = filter_input(INPUT_POST, 'login');
-$pass = filter_input(INPUT_POST, 'password');
-
-// lokalna tablica asocjacyjna zawierająca połączenie skojażenia z danymi z filtracji
-
-$regtab = [
-  'imie' => $name,
-  'nazwisko' => $subname,
-  'mail' => $email,
-  'telefon' => $phone,
-  'login' => $uname,
-  'haslo' => $pass
-];
-
-// sprawdzenie czy przefiltrowane dane są ustawione
-if (isset($regtab)) {
-  // przygotowanie polecenia które sprawdzi czy już istnieje taki user
-  $checkuser = $db->prepare("SELECT * FROM klijeci WHERE logi=:ulogin AND mail=:email");
-
-  $checkuser->bindParam(':ulogin', $regtab['login'], PDO::PARAM_STR);
-  $checkuser->bindParam(':email', $regtab['mail'], PDO::PARAM_STR);
-
-  $checkuser->execute();
-  // warunek sprawdzający czy wynik zapytania jest poprawny
-
-  if ($checkuser->rowCount() == 1) {
-    $_SESSION['errchx'] = '<span style="color: red"><b>*Taki użytkownik już istnieje</b></span>';
+  if(!ctype_digit($_POST['phone'])){
+    $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
     header('Location: rejestracja.php');
     exit();
-  } else {
-    unset($_SESSION['errchx']);
-    // przygotowanie polecenia które wstawi usera 
-
-    $query = $db->prepare("INSERT INTO klijeci VALUES (NULL,:nam,:subname,:email,:phone,:uname,:pass)");
-
-    // proces bindowania wartości z filtracji z tablicy asocjacyjnej pod dane tagi w zapytaniu
-    $query->bindValue(':nam', $regtab['imie'], PDO::PARAM_STR);
-    $query->bindValue(':subname', $regtab['nazwisko'], PDO::PARAM_STR);
-    $query->bindValue(':email', $regtab['mail'], PDO::PARAM_STR);
-    $query->bindValue(':phone', $regtab['telefon'], PDO::PARAM_INT);
-    $query->bindValue(':uname', $regtab['login'], PDO::PARAM_STR);
-    $query->bindValue(':pass', $regtab['haslo'], PDO::PARAM_STR);
-    $query->execute();
   }
-} else {
-  header('Location: rejestracja.php');
-  exit();
+
+  // przepuszczenie wartości z formularza rejestracji przez filtrację
+
+  $name = filter_input(INPUT_POST, 'name');
+  $surname = filter_input(INPUT_POST, 'surname');
+  $email = filter_input(INPUT_POST, 'location', FILTER_VALIDATE_EMAIL);
+  $phone = filter_input(INPUT_POST, 'phone', FILTER_VALIDATE_INT);
+  $uname = filter_input(INPUT_POST, 'login');
+  $pass = filter_input(INPUT_POST, 'password');
+
+  // lokalna tablica asocjacyjna zawierająca połączenie skojażenia z danymi z filtracji
+
+  $regTab = [
+    'imie' => $name,
+    'nazwisko' => $surname,
+    'mail' => $email,
+    'telefon' => $phone,
+    'login' => $uname,
+    'haslo' => $pass
+  ];
+
+  // sprawdzenie czy przefiltrowane dane są ustawione
+  if (isset($regTab)) {
+    // przygotowanie polecenia które sprawdzi czy już istnieje taki user
+    $checkUser = $db->prepare("SELECT * FROM klijeci WHERE logi=:uLogin AND mail=:email");
+
+    $checkUser->bindParam(':uLogin', $regTab['login'], PDO::PARAM_STR);
+    $checkUser->bindParam(':email', $regTab['mail'], PDO::PARAM_STR);
+
+    $checkUser->execute();
+    // warunek sprawdzający czy wynik zapytania jest poprawny
+
+    if ($checkUser->rowCount() == 1) {
+
+      $_SESSION['errchx'] = '<span style="color: red"><b>*Taki użytkownik już istnieje</b></span>';
+      header('Location: rejestracja.php');
+      exit();
+
+    } else {
+      unset($_SESSION['errchx']);
+      // przygotowanie polecenia które wstawi usera 
+
+      $query = $db->prepare("INSERT INTO klijeci VALUES (NULL,:nam,:surname,:email,:phone,:uname,:pass)");
+
+      // proces bindowania wartości z filtracji z tablicy asocjacyjnej pod dane tagi w zapytaniu
+      $query->bindValue(':nam', $regTab['imie'], PDO::PARAM_STR);
+      $query->bindValue(':surname', $regTab['nazwisko'], PDO::PARAM_STR);
+      $query->bindValue(':email', $regTab['mail'], PDO::PARAM_STR);
+      $query->bindValue(':phone', $regTab['telefon'], PDO::PARAM_INT);
+      $query->bindValue(':uname', $regTab['login'], PDO::PARAM_STR);
+      $query->bindValue(':pass', $regTab['haslo'], PDO::PARAM_STR);
+      $query->execute();
+    }
+  } else {
+    header('Location: rejestracja.php');
+    exit();
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -120,7 +129,7 @@ if (isset($regtab)) {
       #d,
       h2,
       a {
-        width: 80%;
+        width: 60%;
       }
     }
     @media only screen and (max-width:600px) {
@@ -169,7 +178,7 @@ if (isset($regtab)) {
   </div>
   <div class="main">
     <?php
-    echo "<h1 id='d'>Witaj<br>" . $regtab['login'] . "</h1>";
+    echo "<h1 id='d'>Witaj<br>" . $regTab['login'] . "</h1>";
     echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania <i class='icon-user-circle'></i></a></h2>";
     ?>
     <br>

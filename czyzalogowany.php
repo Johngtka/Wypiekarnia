@@ -94,7 +94,7 @@ if (isset($_SESSION['user'])) {
             </ul>
         </div>
         <div class="main">
-            <h1><b>Musisz się zalogować!!!</b><br><br><a href="konto.php"><?php echo $_SESSION['profile']; ?> <i class="icon-user-circle"></i></a></h1>
+            <h1><b>Musisz się zalogować!!!</b><br><br><a href="konto.php">Zaloguj się<i class="icon-user-circle"></i></a></h1>
             <div id="slider"></div>
             <footer>Lorem ipsum</footer>
         </div>

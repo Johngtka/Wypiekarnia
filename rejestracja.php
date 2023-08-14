@@ -75,15 +75,21 @@ session_start();
       </div>
       <div class="row">
         <label>
-          <b>Nazwisko:</b><input type="text" name="subname" placeholder="Wpisz Nazwisko" required /><br>
+          <b>Nazwisko:</b><input type="text" name="surname" placeholder="Wpisz Nazwisko" required /><br>
         </label>
       </div>
       <div class="row">
         <label>
-          <b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label>
+          <b>Adres Email:</b><input type="email" name="location" placeholder="example@gmail.com" required /></label>
       </div>
       <div class="row">
-        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="Max 9 znaków" required /></label>
+      <label><b>Numer Telefonu:</b><input type="tel" name="phone" placeholder="111-222-333" required /></label>
+        <?php
+          if(isset($_SESSION['noNumberCorrect'])){
+            echo $_SESSION['noNumberCorrect'];
+            unset($_SESSION['noNumberCorrect']);
+          }
+        ?>
       </div>
       <div class="row">
         <label><b>Login:</b><input type="text" name="login" placeholder="Max 10 znaków" required /></label>
