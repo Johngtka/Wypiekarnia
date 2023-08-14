@@ -1,43 +1,53 @@
 <?php
-// podłączenie połączenia z bazą
+// podłączenie silnika umożliwiającego łącza z bazą
 require_once('PDO.php');
-// sprawdzenie czy nie jest zalogowany user
+
+// sprawdzenie czy użytkownik jest zalogowany jeśli tak to else
 if (!isset($_SESSION['user'])) {
+
   header('Location: czyzalogowany.php');
   exit();
+
 } else {
 
-  // walidacja polegająca na sprawdzeniu czy wartość z formulaża nie posiada kombinacji liczb z literami
+  // walidacja polegająca na sprawdzeniu czy wartość POST z inputa | telefon | nie posiada nic innego jak tylko liczby
+
   if(!ctype_digit($_POST['telefon'])){
+
     $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
     header('Location: cake.php');
     exit();
+
   }
 
   /* 
-    ustawienie filtracji na inputy:
+    Przepuszczenie wartości POST przez filtrację:
+
     - ilość
     - adres
     - telefon
     - komentarz
-  */
 
+    FILTER_VALIDATE_EMAIL/_INT powodują że do bazy nie przejdzie nic innego jak tylko poprawny email lub liczba
+
+    zmienna [ count ] służy do konfiguracji odmiany ilości produktów w podsumowaniu
+  */
   $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'i');
   $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
   $phone = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'komentarz');
-  // ustawienie napisu potrzebnego do podsumowania
 
   /*
     tworzenie tablicy skojażeniowej z przefiltrowanymi u góry danymi oraz dodatkowymi:
+
     - data
     - czas
-    te 2 dane są pobrane bezpośrednio bo nie ma potrzeby filtrowania numerów
-    te polączenie daty i czasu z tablicą jest pod postacią:
-    'data' => $_POST["data"],
-    'czas' => $_POST["czas"],
+
+    te 2 dane są pobrane bezpośrednio z POST 
+    bo nie ma potrzeby filtrowania wartości na które użytkownik nie ma wpływu
   */
+
   $orderData = [
     'ilość' => $number,
     'data' => $_POST["data"],
@@ -46,27 +56,43 @@ if (!isset($_SESSION['user'])) {
     'telefon' => $phone,
     'komentarz' => $comment
   ];
-  /**
-   * tworzenie wyciszonej tablicy skojażeniowej dotyczącej checkboxów w formulażu
-   * działa tak, że wyciszenie checboxów jest konieczne bo mogą przesyłać wartości true lub false a w tablicach musi być tak,
-   * że wszystkie elementy muszą byc true.
-   * po to jest to wyciszenie aby nie było errorów związanych z możliwością jednego zaznaczenia np:
-   * e1 = true;
-   * e2 = false;
-   * e3 = false;
-   * e4 = false;
-   * to wtedy cała tablica = false a wyciszenie (@) niweluje errory
-   */
+
+  /** 
+   * Utworzenie wyciszonej tablicy asocjacyjnej, służącej do obsługi zamawiania jednego produktu.
+   * 
+   * if ( [wartości z tablicy] === [ e1=true, e2=false, e3=false, e4=false ] ) {
+   *   
+   *   to wtedy produkt wyśle się do bazy
+   * 
+   * }else if( [warości z tablicy] === true ){
+   * 
+   *    wtedy będzie error
+   *  
+   * } else {
+   *    w przeciwnym wypadku
+   * 
+   *    if( [wartości z tablicy] > 1 && === true ){
+   *      
+   *    to wtedy do bazy wyśle się ostatni zaznaczony produkt i zostanie   wygenerowana konfiguracja podsumowania zamówienia
+   *    do tego produktu
+   * 
+   *    }     
+   * }
+  */ 
+
   $prodType = @[
     'ur' => $_POST['urodzinowy'],
     'sm' => $_POST['smakosz'],
     'jub' => $_POST['jubileuszowy'],
     'slub' => $_POST['slubny']
   ];
+
   /**
-   * poniżej jest blok który sprawdza czy są ustawione na true konkretne checkboxy np:
-   * chbx3 = true; a reszta = false to uruchamia się odpowiedni warunek 
-   */
+   * bloki warunkowe ustawiające zmienną na odpowiedną warość 
+   * w przypadku wystąpienia jednej wartości z tablicy $prodType === true 
+   * co oznacza zaznaczony odpowiedni checkbox z produktem
+  */
+
   if (isset($prodType['ur'])) {
     $opt = 'Urodzinowy';
   }
@@ -83,19 +109,20 @@ if (!isset($_SESSION['user'])) {
     $opt = 'Ślubny';
   }
 
-  /**
-   * warunek sprawdzania czy przypadkiem wszystkie checkboxy są zaznaczone, jeśli tak to error a jeśli nie to dodanie zamówienia do bazy 
-   */
   if (isset($prodType['ur']) && isset($prodType['sm']) && isset($prodType['jub']) && isset($prodType['slub'])) {
+
     header('Location: control.php');
     exit();
+
   } else {
     // przygotowanie polecenia SQL wraz z bindami poniżej
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
+
     /**
      * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
      * oraz gdy będzie coś innego (w else) to w sesji zapisze się sklejka tortów + nazwa tortu
-     */
+    */
+
     if ($orderData['ilość'] <= 1) {
       $conf = $count . "ę";
       $num = 'Tort ' . $opt;
