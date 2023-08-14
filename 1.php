@@ -1,5 +1,5 @@
 <?php
-// podłączenie silnika umożliwiającego łącza z bazą
+// podłączenie silnika umożliwiającego łącze z bazą
 require_once('PDO.php');
 
 // sprawdzenie czy użytkownik jest zalogowany jeśli tak to else
