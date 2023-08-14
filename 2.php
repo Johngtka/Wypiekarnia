@@ -5,10 +5,20 @@ if (!isset($_SESSION['user'])) {
   exit();
 } else {
 
+  if($_POST['i'] <= 0){
+  
+    $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
+    header('Location: cake.php');
+    exit();
+
+  }
+
   if(!ctype_digit($_POST['telefon'])){
-    $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
+
+    $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
     header('Location: ciasta.php');
     exit();
+
   }
 
   $count = 'sztuk';

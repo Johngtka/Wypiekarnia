@@ -10,11 +10,19 @@ if (!isset($_SESSION['user'])) {
 
 } else {
 
+  if($_POST['i'] <= 0){
+  
+    $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
+    header('Location: cake.php');
+    exit();
+
+  }
+
   // walidacja polegająca na sprawdzeniu czy wartość POST z inputa | telefon | nie posiada nic innego jak tylko liczby
 
   if(!ctype_digit($_POST['telefon'])){
 
-    $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
+    $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
     header('Location: cake.php');
     exit();
 
