@@ -10,8 +10,8 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
 
   $query = $db->prepare("DELETE FROM klijeci WHERE logi=:user AND haslo=:pass");
 
-  $query->bindParam(':user', $log , PDO::PARAM_STR);
-  $query->bindParam(':pass', $pass , PDO::PARAM_STR);
+  $query->bindValue(':user', $log , PDO::PARAM_STR);
+  $query->bindValue(':pass', $pass , PDO::PARAM_STR);
 
   $query->execute();
 

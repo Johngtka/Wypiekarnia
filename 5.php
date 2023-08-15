@@ -4,12 +4,30 @@ if (!isset($_SESSION['user'])) {
   header('Location: czyzalogowany.php');
   exit();
 } else {
+
+  if($_POST['i'] <= 0){
+  
+    $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
+    header('Location: cake.php');
+    exit();
+
+  }
+
+  if(!ctype_digit($_POST['telefon'])){
+
+    $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
+    header('Location: ciastka.php');
+    exit();
+
+  }
+
+  $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'i');
   $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-  $phone = filter_input(INPUT_POST, 'telefon');
+  $phone = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'komentarz');
-  $count = 'sztuk';
-  $orderdata = [
+
+  $orderData = [
     'ilość' => $number,
     'data' => $_POST["data"],
     'czas' => $_POST["czas"],
@@ -17,44 +35,52 @@ if (!isset($_SESSION['user'])) {
     'telefon' => $phone,
     'komentarz' => $comment
   ];
-  $prodtype = @[
+
+  $prodType = @[
     'usa' => $_POST['czek'],
     'kar' => $_POST['ziarna'],
     'bak' => $_POST['bakaliowe'],
     'can' => $_POST['cantuccini']
   ];
-  if (isset($prodtype['usa'])) {
+
+  if (isset($prodType['usa'])) {
     $opt = 'Amerykańskie';
   }
-  if (isset($prodtype['zia'])) {
+
+  if (isset($prodType['zia'])) {
     $opt = 'Ziarna w Karmelu';
   }
-  if (isset($prodtype['bak'])) {
+
+  if (isset($prodType['bak'])) {
     $opt = 'Owsiane z bakaliami';
   }
-  if (isset($prodtype['can'])) {
+
+  if (isset($prodType['can'])) {
     $opt = 'Cantuccini';
   }
-  $count = 'sztuk';
-  if (isset($prodtype['usa']) && isset($prodtype['kar']) && isset($prodtype['bak']) && isset($prodtype['can'])) {
+
+  if (isset($prodType['usa']) && isset($prodType['kar']) && isset($prodType['bak']) && isset($prodType['can'])) {
     header('Location: control.php');
     exit();
   } else {
+    
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
-    if ($orderdata['ilość'] <= 1) {
+
+    if ($orderData['ilość'] <= 1) {
       $conf = $count . "ę";
       $num = 'Ciasteczko ' . $opt;
     } else {
       $conf = $count . "i";
       $num = 'Ciasteczka ' . $opt;
     }
+
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
-    $query->bindValue(':ilosc', $orderdata['ilość'], PDO::PARAM_INT);
-    $query->bindValue(':dat', $orderdata['data'], PDO::PARAM_STR);
-    $query->bindValue(':czas', $orderdata['czas'], PDO::PARAM_STR);
-    $query->bindValue(':mail', $orderdata['email'], PDO::PARAM_STR);
-    $query->bindValue(':telefon', $orderdata['telefon'], PDO::PARAM_INT);
-    $query->bindValue(':kom', $orderdata['komentarz'], PDO::PARAM_STR);
+    $query->bindValue(':ilosc', $orderData['ilość'], PDO::PARAM_INT);
+    $query->bindValue(':dat', $orderData['data'], PDO::PARAM_STR);
+    $query->bindValue(':czas', $orderData['czas'], PDO::PARAM_STR);
+    $query->bindValue(':mail', $orderData['email'], PDO::PARAM_STR);
+    $query->bindValue(':telefon', $orderData['telefon'], PDO::PARAM_INT);
+    $query->bindValue(':kom', $orderData['komentarz'], PDO::PARAM_STR);
     $query->execute();
   }
 }
@@ -159,14 +185,14 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderdata['ilość'] . " " . $conf . "</p>";
+    echo "<p>Zamówiłeś " . $orderData['ilość'] . " " . $conf . "</p>";
     echo "<p><b> (" . $num . ") </b></p>";
-    echo "<p>Na adres: " . $orderdata['email'] . "<p>";
-    echo "<p>Numer Telefonu: " . $orderdata['telefon'] . "<p>";
-    echo "<p>Na termin: " . $orderdata['data'] . "</p>";
-    echo "<p>Godzinę: " . $orderdata['czas'] . "</p>";
+    echo "<p>Na adres: " . $orderData['email'] . "<p>";
+    echo "<p>Numer Telefonu: " . $orderData['telefon'] . "<p>";
+    echo "<p>Na termin: " . $orderData['data'] . "</p>";
+    echo "<p>Godzinę: " . $orderData['czas'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
-    echo "<br> " . $orderdata['komentarz'] . "<br><br>";
+    echo "<br> " . $orderData['komentarz'] . "<br><br>";
     echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     ?>
     <!-- <div class="pay">

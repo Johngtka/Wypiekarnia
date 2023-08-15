@@ -2,6 +2,12 @@
 require_once('PDO.php');
 $query = $db->prepare("SELECT * FROM aktualizacje ORDER BY id DESC");
 $query->execute();
+$log = @$_SESSION['profile'];
+if (isset($log)) {
+  $nick = $log;
+} else {
+  $nick = 'Zaloguj się';
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -91,7 +97,7 @@ $query->execute();
                         <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
                     </li>
                     <li>
-                        <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?><i class='icon-user-circle'></i></a>
+                        <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick; ?><i class='icon-user-circle'></i></a>
                     </li>
                 </ul>
     </div>

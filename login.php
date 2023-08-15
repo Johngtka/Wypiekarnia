@@ -22,21 +22,30 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
 
   // sprawdzenie czy zostało poprawnie wykonane polecenie
   if ($query->execute()) {
+
     //ustawienie zmiennej ilość która zawiera zwróconą liczbe wierszy przez zapytanie
     $ilosc = $query->rowCount();
+
     // sprawdzenie czy wynik zapytania jest koniecznie równy 1 
     if ($ilosc == 1) {
+
       //zastosowanie metody która daje ostęp do kolumn poprawnego polecenia z tabeli
       $row = $query->fetch();
+
       // sesyjna tablica asocjacyjna zalogowanego poprawnie użytkownika która zawiera asocjacje do kolumn tabeli zwróconych poprawnym wykonaniem polecenia
       $_SESSION['user'] = [
         'login' => $row['logi'],
         'haslo' => $row['haslo'],
         'email' => $row['mail']
       ];
+
+      $_SESSION['profile'] = $row['logi'];
+
       // ustawienie ciasteczka pod login użytkownika który trwa przez 24h
       setcookie("sesuse", $row['logi'], time() + (3600 * 24));
+
       unset($_SESSION['err']);
+      
       header('Location: user.php');
     } else {
       // info o niepoprawnych danych logowania

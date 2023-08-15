@@ -84,10 +84,22 @@ require_once('czyzalogowany.php');
 
       <div class="row">
         <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" required /></label>
+        <?php
+          if(isset($_SESSION['noNumber'])){
+            echo $_SESSION['noNumber'];
+            unset($_SESSION['noNumber']);
+          }
+        ?>
       </div>
       <div class="row">
         <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
-        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" required /></label>
+        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="111222333" required /></label>
+        <?php
+          if(isset($_SESSION['noPhoneCorrect'])){
+            echo $_SESSION['noPhoneCorrect'];
+            unset($_SESSION['noPhoneCorrect']);
+          }
+        ?>
       </div>
 
       <div class="row">

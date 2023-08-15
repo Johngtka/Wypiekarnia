@@ -1,5 +1,11 @@
 <?php
 session_start();
+$log = @$_SESSION['profile'];
+if (isset($log)) {
+  $nick = $log;
+} else {
+  $nick = 'Zaloguj się';
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -87,7 +93,7 @@ session_start();
             <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class="icon-user-circle"></i></a>
+            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick; ?> <i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>

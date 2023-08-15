@@ -3,11 +3,11 @@ require_once('PDO.php');
 $query = $db->prepare("SELECT COUNT(*) FROM aktualizacje");
 $query->execute();
 $_SESSION['akt'] = $query->fetch()[0];
-$log = @$_SESSION['user'];
+$log = @$_SESSION['profile'];
 if (isset($log)) {
-  $_SESSION['profile'] = $log['login'];
+  $nick = $log;
 } else {
-  $_SESSION['profile'] = 'Zaloguj się';
+  $nick = 'Zaloguj się';
 }
 ?>
 <!DOCTYPE html>
@@ -58,7 +58,7 @@ if (isset($log)) {
             <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile'] ?><i class="icon-user-circle"></i></a>
+            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick ?><i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>

@@ -101,8 +101,9 @@ require_once('czyzalogowany.php');
     // > Koszyk" . "(" . @$_SESSION['orders'] . ")" . "</a></div>";
     ?>
     <!-- <div id="slider"></div> -->
-    <footer>Lorem ipsum</footer>
+    
   </div>
+  <footer>Lorem ipsum</footer>
 </body>
 
 </html>

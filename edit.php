@@ -90,6 +90,12 @@ require_once('czyzalogowany.php');
         <label>
           <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="telefon" placeholder="Max 9 Znaków" required>
         </label>
+        <?php
+          if(isset($_SESSION['noNumberCorrect'])){
+            echo $_SESSION['noNumberCorrect'];
+            unset($_SESSION['noNumberCorrect']);
+          }
+        ?>
       </div>
       <input type="reset" value="Wyczyść" />
       <input type="submit" value="Zmień" />
