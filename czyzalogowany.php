@@ -92,7 +92,11 @@ if (isset($_SESSION['user'])) {
             </ul>
         </div>
         <div class="main">
-            <h1><b>Musisz się zalogować!!!</b><br><br><a href="konto.php">Zaloguj się<i class="icon-user-circle"></i></a></h1>
+            <h1>
+                <b>Musisz się zalogować!!!</b>
+                <br><br>
+                <a href="http://localhost/Wypiekarnia/account.php">Zaloguj się<i class="icon-user-circle"></i></a>
+            </h1>
             <div id="slider"></div>
             <footer>Lorem ipsum</footer>
         </div>

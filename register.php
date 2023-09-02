@@ -176,7 +176,7 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
   <div class="main">
     <?php
     echo "<h1 id='d'>Witaj<br>" . $regTab['login'] . "</h1>";
-    echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania <i class='icon-user-circle'></i></a></h2>";
+    echo "<h2><a href='http://localhost/Wypiekarnia/account.php'>Strona Logowania <i class='icon-user-circle'></i></a></h2>";
     ?>
     <br>
     <div id="slider"></div>
