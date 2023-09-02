@@ -88,18 +88,16 @@ if (isset($log)) {
             <div id="eggs" class="invisible"></div>
         </div>
         <ul>
-                    <li>
-                        <a href="http://localhost/Wypiekarnia/">Strona Główna
-                            <i class="icon-home"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick; ?><i class='icon-user-circle'></i></a>
-                    </li>
-                </ul>
+            <li>
+                <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+            </li>
+            <li>
+                <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+            </li>
+            <li>
+                <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick; ?><i class='icon-user-circle'></i></a>
+            </li>
+        </ul>
     </div>
     <div class="main">
         <div id="c">

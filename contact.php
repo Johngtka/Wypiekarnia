@@ -85,15 +85,13 @@ if (isset($log)) {
     </div>
     <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <i class="icon-home"></i>
-            </a>
+              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick; ?> <i class="icon-user-circle"></i></a>
+              <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick; ?> <i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>

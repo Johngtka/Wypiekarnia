@@ -53,17 +53,15 @@ session_start();
     </div>
     <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <i class="icon-home"></i>
-            </a>
+              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
-    </ul> 
+    </ul>
   </div>
   <div class="main">
     <h1>Rejestracja:</h1>
