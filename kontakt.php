@@ -90,7 +90,7 @@ if (isset($log)) {
             </a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+            <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
             <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick; ?> <i class="icon-user-circle"></i></a>

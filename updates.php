@@ -107,10 +107,10 @@ if (isset($log)) {
             while ($row = $query->fetch()) {
             ?>
                 <div id="front-zwrot">
-                    <b><i><?php echo $row['Nazwa'] ?></i></b>
-                    <p><?php echo $row['Data'] ?></p>
+                    <b><i><?php echo $row['name'] ?></i></b>
+                    <p><?php echo $row['date'] ?></p>
                     <div style="clear: both"></div>
-                    <p id="#"><?php echo $row['Opis'] ?></p>
+                    <p id="#"><?php echo $row['description'] ?></p>
                 </div>
             <?php
             }
