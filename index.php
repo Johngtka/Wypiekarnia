@@ -161,7 +161,6 @@ if (isset($log)) {
     <div id="slider"></div>
     <footer>Lorem ipsum</footer>
   </div>
-  </div>
 </body>
 
 </html>
