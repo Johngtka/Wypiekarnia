@@ -1,6 +1,6 @@
 <?php
 // podłączenie dokumentu który sprawdza czy jest zalogowanu user
-require_once('czyzalogowany.php');
+require_once('loginVerify.php');
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">

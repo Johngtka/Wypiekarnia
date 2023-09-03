@@ -1,5 +1,5 @@
 <?php
-require_once('czyzalogowany.php');
+require_once('loginVerify.php');
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">

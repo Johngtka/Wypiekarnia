@@ -1,7 +1,7 @@
 <?php
 require_once('PDO.php');
 if (!isset($_SESSION['user'])) {
-  header('Location: http://localhost/Wypiekarnia/czyzalogowany.php');
+  header('Location: http://localhost/Wypiekarnia/loginVerify.php');
   exit();
 } else {
 

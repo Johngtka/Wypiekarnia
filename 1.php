@@ -5,7 +5,7 @@ require_once('PDO.php');
 // sprawdzenie czy użytkownik jest zalogowany jeśli tak to else
 if (!isset($_SESSION['user'])) {
 
-  header('Location: http://localhost/Wypiekarnia/czyzalogowany.php');
+  header('Location: http://localhost/Wypiekarnia/loginVerify.php');
   exit();
 
 } else {
