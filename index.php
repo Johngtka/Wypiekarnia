@@ -84,7 +84,7 @@ if (isset($log)) {
     <h1><b>Nasze Produkty:</b></h1>
     <br />
 
-    <a href="http://localhost/Wypiekarnia/cake.php">
+    <a href="http://localhost/Wypiekarnia/cakes.php">
     <div class="peace">
       <figure>
         <img src="slajdy/slajd1.png" alt="Torty" />
@@ -93,7 +93,7 @@ if (isset($log)) {
     </div>
     </a>
 
-    <a href="http://localhost/Wypiekarnia/ciasta.php">
+    <a href="http://localhost/Wypiekarnia/pies.php">
     <div class="peace">
       <figure>
         <img src="slajdy/slajd2.png" alt="Ciasta" />
@@ -102,7 +102,7 @@ if (isset($log)) {
     </div>
     </a>
 
-    <a href="http://localhost/Wypiekarnia/tarty.php">
+    <a href="http://localhost/Wypiekarnia/tarts.php">
     <div class="peace">
       <figure>
         <img src="slajdy/slajd3.png" alt="Tarty" />
@@ -113,7 +113,7 @@ if (isset($log)) {
 
     <div style="clear: both;"></div>
     
-    <a href="http://localhost/Wypiekarnia/babeczki.php">
+    <a href="http://localhost/Wypiekarnia/muffins.php">
     <div class="peace">
       <figure>
         <img src="slajdy/slajd4.png" alt="Babeczki" />
@@ -122,7 +122,7 @@ if (isset($log)) {
     </div>
     </a>
 
-    <a href="http://localhost/Wypiekarnia/ciastka.php">
+    <a href="http://localhost/Wypiekarnia/cookies.php">
     <div class="peace">
       <figure>
         <img src="slajdy/slajd5.png" alt="Ciasteczka" />
@@ -131,7 +131,7 @@ if (isset($log)) {
     </div>
     </a>
 
-    <a href="http://localhost/Wypiekarnia/bulki.php">
+    <a href="http://localhost/Wypiekarnia/buns.php">
     <div class="peace">
       <figure>
         <img src="slajdy/slajd6.png" alt="Bułeczki" />
