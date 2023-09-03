@@ -95,7 +95,7 @@ if (isset($_SESSION['user'])) {
       </div>
       <input type="submit" value="Zaloguj" /><br><br>
     </form>
-    <form action="rejestracja.php" method="POST"><input type="submit" value="Zarejestruj"></form>
+    <form action="registerForm.php" method="POST"><input type="submit" value="Zarejestruj"></form>
     <div id="slider"></div>
     <footer>Lorem ipsum</footer>
   </div>

@@ -1,14 +1,14 @@
 <?php
 require_once('PDO.php');
 if (!isset($_SESSION['user'])) {
-  header('Location: czyzalogowany.php');
+  header('Location: http://localhost/Wypiekarnia/czyzalogowany.php');
   exit();
 } else {
 
   if($_POST['i'] <= 0){
   
     $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
-    header('Location: cake.php');
+    header('Location: http://localhost/Wypiekarnia/bulki.php');
     exit();
 
   }
@@ -16,7 +16,7 @@ if (!isset($_SESSION['user'])) {
   if(!ctype_digit($_POST['telefon'])){
 
     $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
-    header('Location: bulki.php');
+    header('Location: http://localhost/Wypiekarnia/bulki.php');
     exit();
 
   }
@@ -60,7 +60,7 @@ if (!isset($_SESSION['user'])) {
   }
 
   if (isset($prodType['prz']) && isset($prodType['kaj']) && isset($prodType['raz']) && isset($prodType['zia'])) {
-    header('Location: control.php');
+    header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
@@ -174,7 +174,7 @@ if (!isset($_SESSION['user'])) {
               <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-              <a href="http://localhost/Wypiekarnia/account.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
+              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>

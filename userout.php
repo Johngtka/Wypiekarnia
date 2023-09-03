@@ -1,7 +1,7 @@
 <?php
 require_once('PDO.php');
 if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
-  header('Location: wyjscie.php');
+  header('Location: http://localhost/Wypiekarnia/exit.php');
   exit();
 } else {
 

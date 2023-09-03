@@ -1,14 +1,14 @@
 <?php
 require_once('PDO.php');
 if (!isset($_SESSION['user'])) {
-  header('Location: czyzalogowany.php');
+  header('Location: http://localhost/Wypiekarnia/czyzalogowany.php');
   exit();
 } else {
 
   if($_POST['i'] <= 0){
   
     $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
-    header('Location: cake.php');
+    header('Location: http://localhost/Wypiekarnia/ciasta.php');
     exit();
 
   }
@@ -16,7 +16,7 @@ if (!isset($_SESSION['user'])) {
   if(!ctype_digit($_POST['telefon'])){
 
     $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
-    header('Location: ciasta.php');
+    header('Location: http://localhost/Wypiekarnia/ciasta.php');
     exit();
 
   }
@@ -60,7 +60,7 @@ if (!isset($_SESSION['user'])) {
   }
 
   if (isset($prodType['dr']) && isset($prodType['ser']) && isset($prodType['bro']) && isset($prodType['kid'])) {
-    header('Location: control.php');
+    header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {
 
@@ -175,7 +175,7 @@ if (!isset($_SESSION['user'])) {
               <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-              <a href="http://localhost/Wypiekarnia/account.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
+              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>

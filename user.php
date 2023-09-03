@@ -95,8 +95,8 @@ require_once('czyzalogowany.php');
     echo "<div class='panel'><i class='icon-user-circle'></i> " . $zalogowany_urzytkownik['login'] . "</div>";
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/'><i class='icon-home'></i> Strona Główna</a></div>";
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/edit.php'><i class='icon-pencil'></i> Edytuj Konto</a></div>";
-    echo "<div class='panel'><a href='wyjscie.php'><i class='icon-trash'></i> Usuń Konto</a></div>";
-    echo "<div class='panel'><a href='logout.php'><i class='icon-logout'></i> Wyloguj</a></div>";
+    echo "<div class='panel'><a href='http://localhost/Wypiekarnia/exit.php'><i class='icon-trash'></i> Usuń Konto</a></div>";
+    echo "<div class='panel'><a href='http://localhost/Wypiekarnia/logout.php'><i class='icon-logout'></i> Wyloguj</a></div>";
     // echo "<div class='panel'><a href='http://localhost/Wypiekarnia/basket.php'><i class='icon-basket'></i
     // > Koszyk" . "(" . @$_SESSION['orders'] . ")" . "</a></div>";
     ?>
