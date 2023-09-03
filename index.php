@@ -110,8 +110,9 @@ if (isset($log)) {
       </figure>
     </div>
     </a>
-    <!-- <div style="clear: both;"></div> -->
-  <br><br>
+
+    <div style="clear: both;"></div>
+    
     <a href="http://localhost/Wypiekarnia/babeczki.php">
     <div class="peace">
       <figure>
