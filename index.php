@@ -83,55 +83,62 @@ if (isset($log)) {
     </p>
     <h1><b>Nasze Produkty:</b></h1>
     <br />
+
+    <a href="http://localhost/Wypiekarnia/cake.php">
     <div class="peace">
       <figure>
-        <a href="http://localhost/Wypiekarnia/cake.php"><img src="slajdy/slajd1.png" alt="Torty" /></a>
-        <a href="#">
-          <figcaption><b>Torty</b></figcaption>
-        </a>
+        <img src="slajdy/slajd1.png" alt="Torty" />
+        <figcaption><b>Torty</b></figcaption>
       </figure>
     </div>
+    </a>
+
+    <a href="http://localhost/Wypiekarnia/ciasta.php">
     <div class="peace">
       <figure>
-        <a href="http://localhost/Wypiekarnia/ciasta.php"><img src="slajdy/slajd2.png" alt="Ciasta" /></a>
-        <a href="#">
-          <figcaption><b>Ciasta</b></figcaption>
-        </a>
+        <img src="slajdy/slajd2.png" alt="Ciasta" />
+        <figcaption><b>Ciasta</b></figcaption>
       </figure>
     </div>
+    </a>
+
+    <a href="http://localhost/Wypiekarnia/tarty.php">
     <div class="peace">
       <figure>
-        <a href="http://localhost/Wypiekarnia/tarty.php"><img src="slajdy/slajd3.png" alt="Tarty" /></a>
-        <a href="#">
-          <figcaption><b>Tarty</b></figcaption>
-        </a>
+        <img src="slajdy/slajd3.png" alt="Tarty" />
+        <figcaption><b>Tarty</b></figcaption>
       </figure>
     </div>
-    <br /><br />
+    </a>
+    <!-- <div style="clear: both;"></div> -->
+  <br><br>
+    <a href="http://localhost/Wypiekarnia/babeczki.php">
     <div class="peace">
       <figure>
-        <a href="http://localhost/Wypiekarnia/babeczki.php"><img src="slajdy/slajd4.png" alt="Babeczki" /></a>
-        <a href="#">
-          <figcaption><b>Babeczki</b></figcaption>
-        </a>
+        <img src="slajdy/slajd4.png" alt="Babeczki" />
+        <figcaption><b>Babeczki</b></figcaption>
       </figure>
     </div>
+    </a>
+
+    <a href="http://localhost/Wypiekarnia/ciastka.php">
     <div class="peace">
       <figure>
-        <a href="http://localhost/Wypiekarnia/ciastka.php"><img src="slajdy/slajd5.png" alt="Ciasteczka" /></a>
-        <a href="#">
-          <figcaption><b>Ciasteczka</b></figcaption>
-        </a>
+        <img src="slajdy/slajd5.png" alt="Ciasteczka" />
+        <figcaption><b>Ciasteczka</b></figcaption>
       </figure>
     </div>
+    </a>
+
+    <a href="http://localhost/Wypiekarnia/bulki.php">
     <div class="peace">
       <figure>
-        <a href="http://localhost/Wypiekarnia/bulki.php"><img src="slajdy/slajd6.png" alt="Bułeczki" /></a>
-        <a href="#">
-          <figcaption><b>Bułeczki</b></figcaption>
-        </a>
+        <img src="slajdy/slajd6.png" alt="Bułeczki" />
+        <figcaption><b>Bułeczki</b></figcaption>
       </figure>
     </div>
+    </a>
+
     <h1><b>Nasza Galeria:</b></h1>
     <p>
       <b><br />Mauris nunc congue nisi vitae suscipit tellus. At quis risus
