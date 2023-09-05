@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Wrz 05, 2023 at 01:31 PM
+-- Generation Time: Wrz 05, 2023 at 01:40 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -63,7 +63,7 @@ INSERT INTO `aktualizacje` (`id`, `name`, `date`, `description`) VALUES
 (22, 'Proces Naprawczy', '2023-03-20', 'W tej Aktualizacji naprawiliśmy szczególne błędy znajdujące się w kodzie naszej aplikacji.</br>Dodatkowo zoptymalizowaliśmy całą aplikację aby jej kod był bardziej dla nas czytelny.</br>Pozdrawiamy Twórcy :-)'),
 (23, 'Nowe Funkcje', '2023-08-05', 'W tej aktualizacji naprawiliśmy krytyczne błędy w kodzie formulaży zamówień oraz</br> zaktualizowano ikony serwisu wraz z aktualizacją silnika JQuery.</br> Usunięto też rozwijane menu i poddano je elastyzacji.</br> Wprowadzono też ogólny porządek w kodzie naszego sklepu.</br>Pozdrawiamy Twórcy :-)'),
 (24, 'Ogólne Usprawnienia', '2023-08-11', 'W tej aktualizacji naprawiliśmy składnię kodu naszego sklepu i przekształciliśmy delikatnie </br> kody skryptów JS na bardziej optymalne dla czytania. </br>Dostosowaliśmy też skalowalność w pionie naszego serwisu, przypominamy o możliwości </br> proponowania zmian i kontaktu z nami w zakładce kontakt. </br> Pozdrawiamy Twórcy :-)'),
-(25, 'Zmiana Zabezpieczeń', '2023-08-14', 'W tej aktualizacji naprawiliśmy zabezpieczenia funkcji naszego sklepu oraz silnik wyświetlający </br> login zalogowanego użytkownika w mensssssu, jeśli użytkownik nie jest zalogowany </br> to wyświetlić napis \'Zaloguj się\'. </br> Zastosowano również lepszą czytelność kodu oraz dodano walidację </br> numeru telefonu, wszędzie tam gdzie to jest możliwe. </br> Pozdrawiamy Twórcy :-)'),
+(25, 'Zmiana Zabezpieczeń', '2023-08-14', 'W tej aktualizacji naprawiliśmy zabezpieczenia funkcji naszego sklepu oraz silnik wyświetlający </br> login zalogowanego użytkownika w menu, jeśli użytkownik nie jest zalogowany </br> to wyświetlić napis \'Zaloguj się\'. </br> Zastosowano również lepszą czytelność kodu oraz dodano walidację </br> numeru telefonu, wszędzie tam gdzie to jest możliwe. </br> Pozdrawiamy Twórcy :-)'),
 (26, 'Nowe Zarządzanie', '2023-09-05', 'Ta aktualizacja obejmuje dodanie zewnętrznej aplikacji do sterowania </br> zdarzeniami wypiekarni np. (Aktualizacje, Produkty itd). </br> Zmieniliśmy też logo naszego sklepu które ma symbolizować połączenie 2 aplikacji w jeden serwis oto one: </br> <img id=\'k\' src=\'logo.png\'/> </br> Przerobiliśmy też cały system plików wypiekarni, aby był bardziej zoptymalizowany pod nowe technologie. </br> Pozdrawiamy twórcy :-)');
 
 -- --------------------------------------------------------
