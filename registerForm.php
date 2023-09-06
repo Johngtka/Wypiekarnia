@@ -1,17 +1,16 @@
 <?php
-// podłączenie dokumentu który sprawdza czy jest zalogowanu user
-require_once('czyzalogowany.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
   <meta charset="utf-8" />
-  <title>Edycja Zamówienia</title>
+  <title>Rejestracja</title>
   <meta name="description" content="Zamów swoje ulubione delicje" />
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="./logo.png" sizes="64x64" type="image/png" />
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
@@ -40,7 +39,6 @@ require_once('czyzalogowany.php');
       label {
         width: 100%;
       }
-
     }
   </style>
 </head>
@@ -55,70 +53,58 @@ require_once('czyzalogowany.php');
     </div>
     <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <i class="icon-home"></i>
-            </a>
+              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
-          <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?><i class='icon-user-circle'></i></a>
+              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
     </ul>
   </div>
-  <div class="main1">
-    <form action="1.php" method="POST">
+  <div class="main">
+    <h1>Rejestracja:</h1>
+    <form action="register.php" method="POST">
       <div class="row">
-        <legend><b>Rodzaj Tortu:</b></legend>
-        <div style="margin-top:10px;">
-          <label><input type="checkbox" name="urodzinowy"><b>Urodzinowy(50zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="smakosz"><b>Dla Smakoszy(20zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="jubileuszowy"><b>Jubileuszowy(30zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="slubny"><b>Ślubny(40zł/Kg)</b></label>
-        </div>
+        <label>
+          <b>Imie:</b><input type="text" name="name" placeholder="Wpisz Imie" required />
+        </label>
       </div>
-
       <div class="row">
-        <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" required /></label>
+        <label>
+          <b>Nazwisko:</b><input type="text" name="surname" placeholder="Wpisz Nazwisko" required /><br>
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          <b>Adres Email:</b><input type="email" name="location" placeholder="example@gmail.com" required /></label>
+      </div>
+      <div class="row">
+      <label><b>Numer Telefonu:</b><input type="tel" name="phone" placeholder="111-222-333" required /></label>
         <?php
-          if(isset($_SESSION['noNumber'])){
-            echo $_SESSION['noNumber'];
-            unset($_SESSION['noNumber']);
+          if(isset($_SESSION['noNumberCorrect'])){
+            echo $_SESSION['noNumberCorrect'];
+            unset($_SESSION['noNumberCorrect']);
           }
         ?>
       </div>
       <div class="row">
-        <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
-        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="111222333" required /></label>
-        <?php
-          if(isset($_SESSION['noPhoneCorrect'])){
-            echo $_SESSION['noPhoneCorrect'];
-            unset($_SESSION['noPhoneCorrect']);
-          }
-        ?>
+        <label><b>Login:</b><input type="text" name="login" placeholder="Max 10 znaków" required /></label>
       </div>
-
+      <?php
+        if (isset($_SESSION['errchx'])) {
+          echo $_SESSION['errchx'];
+          unset($_SESSION['errchx']);
+        }
+      ?>
       <div class="row">
-        <label><b>Data dostawy:</b><input type="date" name="data" require /></label><br /><br />
-        <label><b>Czas dostawy:</b><input type="time" name="czas" min="10:00" max="23:00" required /></label>
+        <label><b>Hasło:</b><input type="password" name="password" placeholder="..." required /></label>
       </div>
-
       <div class="row">
-        <div><label><b>Uwagi do zamówienia:</b></label></div><br>
-        <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" required></textarea>
+        <label><input type="checkbox" name="rule" required /><b> - Akceptuje regulamin</b></label>
       </div>
-
-      <div class="row">
-        <input type="submit" value="Zamów!" />
-      </div>
-
-      <div class="row">
-        <input type="reset" value="Wyczyść" />
-      </div>
+      <input type="submit" value="Zarejestruj" />
     </form>
   </div>
   <footer>Lorem ipsum</footer>

@@ -4,7 +4,7 @@ require_once('PDO.php');
 //warunek który sprawdza czy nie są ustawione login i hasło w formularzu logowania
 if (!isset($_POST['login']) || !isset($_POST['password'])) {
 
-  header('Location: konto.php');
+  header('Location: http://localhost/Wypiekarnia/loginForm.php');
   exit();
 
 } else {
@@ -50,7 +50,7 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
     } else {
       // info o niepoprawnych danych logowania
       $_SESSION['err'] = '<span style="color: red"><b>*Nieprawidłowy login lub hasło</b></span>';
-      header('Location: konto.php');
+      header('Location: http://localhost/Wypiekarnia/loginForm.php');
     }
   }
 }

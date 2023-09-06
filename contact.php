@@ -1,16 +1,22 @@
 <?php
-require_once('czyzalogowany.php');
+session_start();
+$log = @$_SESSION['profile'];
+if (isset($log)) {
+  $nick = $log;
+} else {
+  $nick = 'Zaloguj się';
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
   <meta charset="utf-8" />
-  <title>Kasowanie Konta</title>
+  <title>Kontakt</title>
   <meta name="description" content="Zamów swoje ulubione delicje" />
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="./logo.png" sizes="64x64" type="image/png" />
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
@@ -31,20 +37,40 @@ require_once('czyzalogowany.php');
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
-  <style type="text/css">
-    h1 {
-      text-shadow: none;
-      text-decoration: underline;
-      text-decoration-style: dashed;
+  <style>
+    ul>li::marker {
+      font-size: 30px;
     }
 
-    @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
+    .main h1 {
+      text-decoration: dashed underline;
+    }
 
-      .row,
-      p,
-      label {
-        width: 100%;
-      }
+    .options {
+      font-size: 30px;
+      text-shadow: -1px 1px 2px #000,
+        1px 1px 2px #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+    }
+
+    .main ul>li {
+      font-size: 35px;
+      color: #fff;
+    }
+
+    .main ul>li>a {
+      /* opacity: 0.7; */
+      color: #d87e4c;
+      text-shadow: -1px 1px 2px #000,
+        1px 1px 2px #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+      text-decoration: underline;
+    }
+
+    .main ul>li>a:hover {
+      color: #d87e4c;
     }
   </style>
 </head>
@@ -59,44 +85,24 @@ require_once('czyzalogowany.php');
     </div>
     <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <i class="icon-home"></i>
-            </a>
+              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
-          <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='icon-user-circle'></i></a>
+              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $nick; ?> <i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>
   <div class="main">
-    <br>
-    <h1>Tutaj Morzesz</h1>
-    <h1>Usunąć Swoje Konto</h1>
-    <form action="userout.php" method="POST">
-      <div class="row">
-        <label>
-          <b>Login:</b><input type="text" name="login" placeholder="Wpisz Login" required />
-        </label>
-      </div>
-      <div class="row">
-        <label>
-          <b>Hasło:</b><input type="password" name="haslo" placeholder="Wpisz hasło" required />
-        </label>
-      </div>
-      <div class="row">
-        <label><input type="checkbox" required><b> - Akceptuje Decyzje</b></label></br>
-      </div>
-      <input type="submit" value="Usuń Profil" />
-    </form>
+    <h1>Tutaj morzesz się z nami skontaktować i zgłaszać błędy</h1>
+    <ul>
+      <li><span class="options">Napisz do nas: </span><a href="mailto: bakeryspprt2023@gmail.com">Wypiekarnia Support</a></li>
+    </ul>
     <div id="slider"></div>
-    <footer>Lorem ipsum</footer>
   </div>
+  <footer>Lorem ipsum</footer>
 </body>
 
 </html>

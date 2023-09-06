@@ -10,7 +10,7 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
 
   if(!ctype_digit($_POST['phone'])){
     $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
-    header('Location: rejestracja.php');
+    header('Location: http://localhost/Wypiekarnia/registerForm.php');
     exit();
   }
 
@@ -48,7 +48,7 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
     if ($checkUser->rowCount() == 1) {
 
       $_SESSION['errchx'] = '<span style="color: red"><b>*Taki użytkownik już istnieje</b></span>';
-      header('Location: rejestracja.php');
+      header('Location: http://localhost/Wypiekarnia/registerForm.php');
       exit();
 
     } else {
@@ -67,7 +67,7 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
       $query->execute();
     }
   } else {
-    header('Location: rejestracja.php');
+    header('Location: http://localhost/Wypiekarnia/registerForm.php');
     exit();
   }
 }
@@ -81,7 +81,7 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
   <meta name="description" content="Zamów swoje ulubione delicje" />
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="./logo.png" sizes="64x64" type="image/png" />
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
@@ -163,23 +163,20 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
     </div>
     <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <i class="icon-home"></i>
-            </a>
+              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)
-            </a>
+              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
     </ul>
   </div>
   <div class="main">
     <?php
     echo "<h1 id='d'>Witaj<br>" . $regTab['login'] . "</h1>";
-    echo "<h2><a href='http://localhost/Wypiekarnia/konto.php'>Strona Logowania <i class='icon-user-circle'></i></a></h2>";
+    echo "<h2><a href='http://localhost/Wypiekarnia/loginForm.php'>Strona Logowania <i class='icon-user-circle'></i></a></h2>";
     ?>
     <br>
     <div id="slider"></div>

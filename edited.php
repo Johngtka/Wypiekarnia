@@ -1,13 +1,13 @@
 <?php
 require_once('PDO.php');
 if (!isset($_SESSION['user'])) {
-    header('Location: edit.php');
+    header('Location: http://localhost/Wypiekarnia/edit.php');
     exit();
 } else {
 
     if(!ctype_digit($_POST['telefon'])){
         $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
-        header('Location: edit.php');
+        header('Location: http://localhost/Wypiekarnia/edit.php');
         exit();
     }
 
@@ -32,6 +32,6 @@ if (!isset($_SESSION['user'])) {
         $query->bindValue(':pass', $editData['haslo'], PDO::PARAM_STR);
         $query->execute();
         $_SESSION['newlog'] = '<span style="color: green"><b>*Dane zaktualizowane, Zaloguj się ponownie</b></span>;';
-        header('Location: logout.php');
+        header('Location: http://localhost/Wypiekarnia/logout.php');
     }
 }

@@ -1,6 +1,6 @@
 <?php
-// podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
-require_once('czyzalogowany.php');
+// podłączenie dokumentu który sprawdza czy jest zalogowanu user
+require_once('loginVerify.php');
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -11,7 +11,7 @@ require_once('czyzalogowany.php');
   <meta name="description" content="Zamów swoje ulubione delicje" />
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="./logo.png" sizes="64x64" type="image/png" />
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
@@ -40,6 +40,7 @@ require_once('czyzalogowany.php');
       label {
         width: 100%;
       }
+
     }
   </style>
 </head>
@@ -54,32 +55,31 @@ require_once('czyzalogowany.php');
     </div>
     <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <i class="icon-home"></i>
-            </a>
+              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
+              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>
   <div class="main1">
-    <form action="3.php" method="POST">
+    <form action="2.php" method="POST">
       <div class="row">
-        <legend><b>Rodzaj Tarty:</b></legend>
+        <legend><b>Rodzaj Ciasta:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="jablkowe"><b>Jabłkowa na mlecznym kremie(35zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="wiosenne"><b>Wiosenna(30zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="czekorz"><b>Czekoladowo-Orzechowa(25zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="malinowe"><b>Malinowa(20zł/Kg)</b></label>
+          <label><input type="checkbox" name="drozdzowe"><b>Drożdżowe(15zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="sernik"><b>Sernik(20zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="brown"><b>Brown'e(25zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="dziec"><b>Dziecięce(30zł/Kg)</b></label>
         </div>
       </div>
+
       <div class="row">
         <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" required /></label>
         <?php
@@ -110,9 +110,11 @@ require_once('czyzalogowany.php');
         <div><label><b>Uwagi do zamówienia:</b></label></div>
         <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" required></textarea>
       </div>
+
       <div class="row">
         <input type="submit" value="Zamów!" />
       </div>
+
       <div class="row">
         <input type="reset" value="Wyczyść" />
       </div>

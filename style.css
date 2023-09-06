@@ -122,6 +122,7 @@ div#eggs {
 
 /*stylizacja linków które są zdjęciami w index*/
 .main a {
+    text-decoration: none;
     opacity: 0.9;
 }
 
@@ -165,21 +166,26 @@ div#eggs {
     }
 }
 
+/*stylizacja samego kafelka z linkami*/
+.peace {
+    display: inline-block;
+    margin-top: 10px;
+    border: #000 2px solid;
+}
+
+.peace:hover {
+    background-color: #000;
+    border: #fff 2px solid;
+}
+
 /*stylizacja stylizacja obrazków w kafelkach w index*/
 .peace img {
     width: 250px;
     height: 200px;
 }
 
-.peace img:hover {
+.peace:hover img {
     border: #fff 2px solid;
-}
-
-/*stylizacja samego kafelka z linkami*/
-.peace {
-    display: inline-block;
-    margin-top: 10px;
-    border: #000 2px solid;
 }
 
 .peace a {
@@ -195,9 +201,8 @@ figure {
     padding: 0;
 }
 
-.peace:hover {
-    background-color: #000;
-    border: #fff 2px solid;
+figure a {
+    text-decoration: none;
 }
 
 figcaption {
@@ -210,10 +215,6 @@ figcaption {
     height: 30px;
     color: #000;
     border: #000 2px solid;
-}
-
-figure a {
-    text-decoration: none;
 }
 
 /*stylizacja stopki całego dokumentu*/

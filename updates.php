@@ -18,7 +18,7 @@ if (isset($log)) {
     <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
+    <link rel="icon" href="./logo.png" sizes="64x64" type="image/png" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
@@ -88,18 +88,16 @@ if (isset($log)) {
             <div id="eggs" class="invisible"></div>
         </div>
         <ul>
-                    <li>
-                        <a href="http://localhost/Wypiekarnia/">Strona Główna
-                            <i class="icon-home"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $nick; ?><i class='icon-user-circle'></i></a>
-                    </li>
-                </ul>
+            <li>
+                <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+            </li>
+            <li>
+                <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+            </li>
+            <li>
+                <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $nick; ?><i class='icon-user-circle'></i></a>
+            </li>
+        </ul>
     </div>
     <div class="main">
         <div id="c">
@@ -107,10 +105,10 @@ if (isset($log)) {
             while ($row = $query->fetch()) {
             ?>
                 <div id="front-zwrot">
-                    <b><i><?php echo $row['Nazwa'] ?></i></b>
-                    <p><?php echo $row['Data'] ?></p>
+                    <b><i><?php echo $row['name'] ?></i></b>
+                    <p><?php echo $row['date'] ?></p>
                     <div style="clear: both"></div>
-                    <p id="#"><?php echo $row['Opis'] ?></p>
+                    <p id="#"><?php echo $row['description'] ?></p>
                 </div>
             <?php
             }

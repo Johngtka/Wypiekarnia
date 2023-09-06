@@ -1,6 +1,6 @@
 <?php
-// podłączenie dokumentu który sprawdza czy jest zalogowany user
-require_once('czyzalogowany.php');
+// podłączenie dokumentu który sprawdza czy jest zalogowanu user
+require_once('loginVerify.php');
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -11,7 +11,7 @@ require_once('czyzalogowany.php');
   <meta name="description" content="Zamów swoje ulubione delicje" />
   <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./ic.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="./logo.png" sizes="64x64" type="image/png" />
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
@@ -55,30 +55,28 @@ require_once('czyzalogowany.php');
     </div>
     <ul>
           <li>
-            <a href="http://localhost/Wypiekarnia/">Strona Główna
-              <i class="icon-home"></i>
-            </a>
+              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/aktuals.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/kontakt.php">Kontakt<i class="icon-phone-squared"></i></a>
+              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
           </li>
           <li>
-            <a href="http://localhost/Wypiekarnia/konto.php"><?php echo $_SESSION['profile']; ?> <i class='icon-user-circle'></i></a>
+              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
           </li>
     </ul>
   </div>
   <div class="main1">
-    <form action="6.php" method="POST">
+    <form action="1.php" method="POST">
       <div class="row">
-        <legend><b>Rodzaj Bułek:</b></legend>
+        <legend><b>Rodzaj Tortu:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="przenna"><b>Bułka Przenna(0,60gr/1szt)</b></label></br>
-          <label><input type="checkbox" name="kajzerka"><b>Bułka Kajzerka(0,80gr/1szt)</b></label></br>
-          <label><input type="checkbox" name="razowa"><b>Bułka Razowa(0,90gr/1szt)</b></label></br>
-          <label><input type="checkbox" name="ziarnista"><b>Bułka Ziarnista(0,50gr/1szt)</b></label>
+          <label><input type="checkbox" name="urodzinowy"><b>Urodzinowy(50zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="smakosz"><b>Dla Smakoszy(20zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="jubileuszowy"><b>Jubileuszowy(30zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="slubny"><b>Ślubny(40zł/Kg)</b></label>
         </div>
       </div>
 
@@ -91,7 +89,6 @@ require_once('czyzalogowany.php');
           }
         ?>
       </div>
-
       <div class="row">
         <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
         <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="111222333" required /></label>
@@ -104,12 +101,12 @@ require_once('czyzalogowany.php');
       </div>
 
       <div class="row">
-        <label><b>Data dostawy:</b><input type="date" name="data" required /></label><br /><br />
+        <label><b>Data dostawy:</b><input type="date" name="data" require /></label><br /><br />
         <label><b>Czas dostawy:</b><input type="time" name="czas" min="10:00" max="23:00" required /></label>
       </div>
 
       <div class="row">
-        <div><label><b>Uwagi do zamówienia:</b></label></div>
+        <div><label><b>Uwagi do zamówienia:</b></label></div><br>
         <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" required></textarea>
       </div>
 
