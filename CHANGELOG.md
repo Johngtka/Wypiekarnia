@@ -1,11 +1,11 @@
 ### New Versions Changelogs
 
-## 1.2.0 (2023-09-06)
+# 1.2.0 (2023-09-06)
 
-# Features
+## Features
 
 -   feat: new logo and sub-pages changes ([#2](https://github.com/Johngtka/Wypiekarnia/pull/2))
 
-# Fixes
+## Fixes
 
 -   fix: fixed the secure of service([#1](https://github.com/Johngtka/Wypiekarnia/pull/1))
