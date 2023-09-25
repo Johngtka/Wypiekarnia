@@ -54,18 +54,18 @@ require_once('loginVerify.php');
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main1">
@@ -77,17 +77,16 @@ require_once('loginVerify.php');
           <label><input type="checkbox" name="ziarna"><b>Ciastka Ziarna w Karmelu(5zł/100gr)</b></label></br>
           <label><input type="checkbox" name="bakaliowe"><b>Ciastka Owsiane z bakaliami(7zł/100gr)</b></label></br>
           <label><input type="checkbox" name="cantuccini"><b>Ciastka Cantuccini(6zł/100gr)</b></label>
-          <label><input type="checkbox" name="cantuccini"><b>Ciastka Cantuccini(6zł/100gr)</b></label>
         </div>
       </div>
 
       <div class="row">
         <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" required /></label>
         <?php
-          if(isset($_SESSION['noNumber'])){
-            echo $_SESSION['noNumber'];
-            unset($_SESSION['noNumber']);
-          }
+        if (isset($_SESSION['noNumber'])) {
+          echo $_SESSION['noNumber'];
+          unset($_SESSION['noNumber']);
+        }
         ?>
       </div>
 
@@ -95,10 +94,10 @@ require_once('loginVerify.php');
         <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
         <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="111222333" required /></label>
         <?php
-          if(isset($_SESSION['noPhoneCorrect'])){
-            echo $_SESSION['noPhoneCorrect'];
-            unset($_SESSION['noPhoneCorrect']);
-          }
+        if (isset($_SESSION['noPhoneCorrect'])) {
+          echo $_SESSION['noPhoneCorrect'];
+          unset($_SESSION['noPhoneCorrect']);
+        }
         ?>
       </div>
 

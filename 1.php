@@ -7,25 +7,22 @@ if (!isset($_SESSION['user'])) {
 
   header('Location: http://localhost/Wypiekarnia/loginVerify.php');
   exit();
-
 } else {
 
-  if($_POST['i'] <= 0){
-  
+  if ($_POST['i'] <= 0) {
+
     $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
     header('Location: http://localhost/Wypiekarnia/cake.php');
     exit();
-
   }
 
   // walidacja polegająca na sprawdzeniu czy wartość POST z inputa | telefon | nie posiada nic innego jak tylko liczby
 
-  if(!ctype_digit($_POST['telefon'])){
+  if (!ctype_digit($_POST['telefon'])) {
 
     $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
     header('Location: http://localhost/Wypiekarnia/cake.php');
     exit();
-
   }
 
   /* 
@@ -86,7 +83,7 @@ if (!isset($_SESSION['user'])) {
    * 
    *    }     
    * }
-  */ 
+   */
 
   $prodType = @[
     'ur' => $_POST['urodzinowy'],
@@ -99,12 +96,12 @@ if (!isset($_SESSION['user'])) {
    * bloki warunkowe ustawiające zmienną na odpowiedną warość 
    * w przypadku wystąpienia jednej wartości z tablicy $prodType === true 
    * co oznacza zaznaczony odpowiedni checkbox z produktem
-  */
+   */
 
   if (isset($prodType['ur'])) {
     $opt = 'Urodzinowy';
   }
-  
+
   if (isset($prodType['sm'])) {
     $opt = 'dla Smakoszy';
   }
@@ -121,7 +118,6 @@ if (!isset($_SESSION['user'])) {
 
     header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
-
   } else {
     // przygotowanie polecenia SQL wraz z bindami poniżej
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
@@ -129,7 +125,7 @@ if (!isset($_SESSION['user'])) {
     /**
      * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
      * oraz gdy będzie coś innego (w else) to zapisze się sklejka tortów + nazwa tortu
-    */
+     */
 
     if ($orderData['ilość'] <= 1) {
       $conf = $count . "ę";
@@ -138,7 +134,7 @@ if (!isset($_SESSION['user'])) {
       $conf = $count . "i";
       $num = 'Tortów ' . $opt;
     }
-    
+
     // ustawienie bindów używanych w poleceniu SQL
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderData['ilość'], PDO::PARAM_INT);
@@ -231,18 +227,18 @@ if (!isset($_SESSION['user'])) {
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -256,7 +252,6 @@ if (!isset($_SESSION['user'])) {
     echo "<p>Godzinę: " . $orderData['czas'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
     echo "<br> " . $orderData['komentarz'] . "<br><br>";
-    echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     ?>
     <!-- <div class="pay">
       <i class="icon-credit-card-alt"></i>

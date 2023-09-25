@@ -5,22 +5,20 @@ if (!isset($_SESSION['user'])) {
   exit();
 } else {
 
-  if($_POST['i'] <= 0){
-  
+  if ($_POST['i'] <= 0) {
+
     $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
     header('Location: http://localhost/Wypiekarnia/babeczki.php');
     exit();
-
   }
 
-  if(!ctype_digit($_POST['telefon'])){
+  if (!ctype_digit($_POST['telefon'])) {
 
     $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
     header('Location: http://localhost/Wypiekarnia/babeczki.php');
     exit();
-
   }
-  
+
   $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'i');
   $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
@@ -72,7 +70,7 @@ if (!isset($_SESSION['user'])) {
       $conf = $count . "i";
       $num = 'Babeczki ' . $opt;
     }
-    
+
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderData['ilość'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderData['data'], PDO::PARAM_STR);
@@ -164,18 +162,18 @@ if (!isset($_SESSION['user'])) {
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -189,7 +187,6 @@ if (!isset($_SESSION['user'])) {
     echo "<p>Godzinę: " . $orderData['czas'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
     echo "<br> " . $orderData['komentarz'] . "<br><br>";
-    echo "<input type='button' onclick='window.print()' value='Drukuj Potwierdzenie'/>";
     ?>
     <!-- <div class="pay">
       <i class="icon-credit-card-alt"></i>
@@ -199,8 +196,9 @@ if (!isset($_SESSION['user'])) {
     </div> -->
     <!-- <h1 id="cart"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1> -->
     <div id="slider"></div>
+    <footer>Lorem ipsum</footer>
   </div>
-  <footer>Lorem ipsum</footer>
+
 </body>
 
 </html>
