@@ -1,6 +1,10 @@
 <?php
 // podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
 require_once('loginVerify.php');
+require_once('PDO.php');
+$query = $db->prepare("SELECT COUNT(*) FROM promocje");
+$query->execute();
+$salesCount = $query->fetch()[0];
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -62,7 +66,6 @@ require_once('loginVerify.php');
 
     @media only screen and (max-width:600px)and (max-width:850px) and (max-width:1000px) {
 
-      h1,
       a {
         padding: 0;
         width: 100%;
@@ -82,12 +85,12 @@ require_once('loginVerify.php');
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -96,12 +99,13 @@ require_once('loginVerify.php');
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/'><i class='icon-home'></i> Strona Główna</a></div>";
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/edit.php'><i class='icon-pencil'></i> Edytuj Konto</a></div>";
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/exit.php'><i class='icon-trash'></i> Usuń Konto</a></div>";
+    echo "<div class='panel'><a href='http://localhost/Wypiekarnia/sales.php'><i class='icon-bell'></i> Promocje (" . $salesCount . ")</a></div>";
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/logout.php'><i class='icon-logout'></i> Wyloguj</a></div>";
     // echo "<div class='panel'><a href='http://localhost/Wypiekarnia/basket.php'><i class='icon-basket'></i
     // > Koszyk" . "(" . @$_SESSION['orders'] . ")" . "</a></div>";
     ?>
     <!-- <div id="slider"></div> -->
-    
+
   </div>
   <footer>Lorem ipsum</footer>
 </body>

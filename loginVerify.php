@@ -95,7 +95,7 @@ if (isset($_SESSION['user'])) {
             <h1>
                 <b>Musisz się zalogować!!!</b>
                 <br><br>
-                <a href="http://localhost/Wypiekarnia/loginForm.php">Zaloguj się<i class="icon-user-circle"></i></a>
+                <a href="http://localhost/Wypiekarnia/loginForm.php">Zaloguj się <i class="icon-login"></i></a>
             </h1>
             <div id="slider"></div>
             <footer>Lorem ipsum</footer>
