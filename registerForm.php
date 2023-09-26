@@ -32,6 +32,28 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
+    .formButtons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    button[type="submit"],
+    .backLink {
+      align-items: center;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 2px #000 solid;
+      margin: 5px;
+    }
+
+    .backLink a {
+      color: #000;
+    }
+
     @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
@@ -52,15 +74,15 @@ session_start();
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -81,22 +103,22 @@ session_start();
           <b>Adres Email:</b><input type="email" name="location" placeholder="example@gmail.com" required /></label>
       </div>
       <div class="row">
-      <label><b>Numer Telefonu:</b><input type="tel" name="phone" placeholder="111-222-333" required /></label>
+        <label><b>Numer Telefonu:</b><input type="tel" name="phone" placeholder="111-222-333" required /></label>
         <?php
-          if(isset($_SESSION['noNumberCorrect'])){
-            echo $_SESSION['noNumberCorrect'];
-            unset($_SESSION['noNumberCorrect']);
-          }
+        if (isset($_SESSION['noNumberCorrect'])) {
+          echo $_SESSION['noNumberCorrect'];
+          unset($_SESSION['noNumberCorrect']);
+        }
         ?>
       </div>
       <div class="row">
         <label><b>Login:</b><input type="text" name="login" placeholder="Max 10 znaków" required /></label>
       </div>
       <?php
-        if (isset($_SESSION['errchx'])) {
-          echo $_SESSION['errchx'];
-          unset($_SESSION['errchx']);
-        }
+      if (isset($_SESSION['errchx'])) {
+        echo $_SESSION['errchx'];
+        unset($_SESSION['errchx']);
+      }
       ?>
       <div class="row">
         <label><b>Hasło:</b><input type="password" name="password" placeholder="..." required /></label>
@@ -104,7 +126,10 @@ session_start();
       <div class="row">
         <label><input type="checkbox" name="rule" required /><b> - Akceptuje regulamin</b></label>
       </div>
-      <input type="submit" value="Zarejestruj" />
+      <div class="formButtons">
+        <button class="backLink"><a href="http://localhost/Wypiekarnia/loginForm.php">Powrót <i class="icon-undo"></i></a></button>
+        <button type="submit">Zarejestruj <i class="icon-export"></i></button>
+      </div>
     </form>
   </div>
   <footer>Lorem ipsum</footer>

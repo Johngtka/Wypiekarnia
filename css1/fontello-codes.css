@@ -8,6 +8,8 @@
 .icon-logout:before { content: '\e806'; } /* '' */
 .icon-login:before { content: '\e807'; } /* '' */
 .icon-bell:before { content: '\e808'; } /* '' */
+.icon-undo:before { content: '\e809'; } /* '' */
+.icon-export:before { content: '\e80a'; } /* '' */
 .icon-phone-squared:before { content: '\f098'; } /* '' */
 .icon-cc-visa:before { content: '\f1f0'; } /* '' */
 .icon-cc-mastercard:before { content: '\f1f1'; } /* '' */

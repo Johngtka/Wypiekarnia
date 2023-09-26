@@ -97,6 +97,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "ce5e29aa5208417700e7f7012a236c00",
+      "css": "undo",
+      "code": 59401,
+      "src": "iconic"
+    },
+    {
+      "uid": "895405dfac8a3b7b2f23b183c6608ee6",
+      "css": "export",
+      "code": 59402,
+      "src": "fontawesome"
+    },
+    {
       "uid": "c3371cca5561d470f45ae0a9c485b7ec",
       "css": "registered",
       "code": 62045,
