@@ -127,7 +127,7 @@ session_start();
         <label><input type="checkbox" name="rule" required /><b> - Akceptuje regulamin</b></label>
       </div>
       <div class="formButtons">
-        <button class="backLink"><a href="http://localhost/Wypiekarnia/loginForm.php">Powrót <i class="icon-undo"></i></a></button>
+        <a href="http://localhost/Wypiekarnia/loginForm.php"><button type="button" class="backLink">Powrót <i class="icon-undo"></i></button></a>
         <button type="submit">Zarejestruj <i class="icon-export"></i></button>
       </div>
     </form>

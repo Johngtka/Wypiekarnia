@@ -47,7 +47,6 @@ if (isset($_SESSION['user'])) {
 
     button[type="submit"],
     .regLink {
-      align-items: center;
       padding: 10px;
       border-radius: 10px;
       font-weight: bold;
@@ -117,7 +116,7 @@ if (isset($_SESSION['user'])) {
       </div>
       <div class="formButtons">
         <button type="submit">Zaloguj Się <i class="icon-login"></i></button>
-        <button class="regLink"><a href="http://localhost/Wypiekarnia/registerForm.php">Zarejestruj Się <i class="icon-registered"></i></a></button>
+        <a href="http://localhost/Wypiekarnia/registerForm.php"><button type="button" class="regLink">Zarejestruj Się <i class="icon-registered"></i></button></a>
       </div>
     </form>
     <div id="slider"></div>
