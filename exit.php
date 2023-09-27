@@ -38,6 +38,21 @@ require_once('loginVerify.php');
       text-decoration-style: dashed;
     }
 
+    .formButtons {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    button[type='submit'] {
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 2px #000 solid;
+      margin: 5px;
+    }
+
     @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
@@ -58,15 +73,15 @@ require_once('loginVerify.php');
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -87,7 +102,9 @@ require_once('loginVerify.php');
       <div class="row">
         <label><input type="checkbox" required><b> - Akceptuje Decyzje</b></label></br>
       </div>
-      <input type="submit" value="Usuń Profil" />
+      <div class="formButtons">
+        <button type="submit">Usuń Profil<i class="icon-export"></i></button>
+      </div>
     </form>
     <div id="slider"></div>
     <footer>Lorem ipsum</footer>

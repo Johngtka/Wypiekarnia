@@ -33,6 +33,22 @@ require_once('loginVerify.php');
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
+    .formButtons {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    button[type='submit'],
+    button[type='reset'] {
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 2px #000 solid;
+      margin: 5px;
+    }
+
     @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
@@ -111,12 +127,9 @@ require_once('loginVerify.php');
         <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" required></textarea>
       </div>
 
-      <div class="row">
-        <input type="submit" value="Zamów!" />
-      </div>
-
-      <div class="row">
-        <input type="reset" value="Wyczyść" />
+      <div class="formButtons">
+        <button type="submit">Zamów<i class="icon-export"></i></button>
+        <button type="reset">Wyczyść<i class="icon-cancel-circled-outline"></i></button>
       </div>
     </form>
   </div>

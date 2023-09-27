@@ -84,21 +84,21 @@ if (isset($log)) {
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $nick; ?> <i class="icon-user-circle"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $nick; ?> <i class="icon-user-circle"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
     <h1>Tutaj morzesz się z nami skontaktować i zgłaszać błędy</h1>
     <ul>
-      <li><span class="options">Napisz do nas: </span><a href="mailto: bakeryspprt2023@gmail.com">Wypiekarnia Support</a></li>
+      <li><span class="options">Napisz do nas: </span><a href="mailto: bakeryspprt2023@gmail.com"><i class="icon-mail"></i>Wypiekarnia Support</a></li>
     </ul>
     <div id="slider"></div>
   </div>
