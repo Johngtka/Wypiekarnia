@@ -68,6 +68,10 @@ if (isset($_SESSION['user'])) {
             a:hover {
                 color: #fff;
             }
+
+            footer {
+                margin-top: 20px;
+            }
         </style>
     </head>
 
@@ -98,7 +102,7 @@ if (isset($_SESSION['user'])) {
                 <a href="http://localhost/Wypiekarnia/loginForm.php">Zaloguj się <i class="icon-login"></i></a>
             </h1>
             <div id="slider"></div>
-            <footer>Lorem ipsum</footer>
+            <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
         </div>
     </body>
 

@@ -132,7 +132,7 @@ require_once('loginVerify.php');
       </div>
     </form>
   </div>
-  <footer>Lorem ipsum</footer>
+  <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
 </body>
 
 </html>

@@ -67,6 +67,10 @@ if (isset($_SESSION['user'])) {
       }
 
     }
+
+    footer {
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -120,7 +124,7 @@ if (isset($_SESSION['user'])) {
       </div>
     </form>
     <div id="slider"></div>
-    <footer>Lorem ipsum</footer>
+    <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>
 </body>
 

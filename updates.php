@@ -4,9 +4,9 @@ $query = $db->prepare("SELECT * FROM aktualizacje ORDER BY id DESC");
 $query->execute();
 $log = @$_SESSION['profile'];
 if (isset($log)) {
-  $nick = $log;
+    $nick = $log;
 } else {
-  $nick = 'Zaloguj się';
+    $nick = 'Zaloguj się';
 }
 ?>
 <!DOCTYPE html>
@@ -114,7 +114,7 @@ if (isset($log)) {
             }
             ?>
         </div>
-        <footer>Lorem ipsum</footer>
+        <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
     </div>
 </body>
 

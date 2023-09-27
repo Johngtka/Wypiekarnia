@@ -107,7 +107,7 @@ $salesCount = $query->fetch()[0];
     <!-- <div id="slider"></div> -->
 
   </div>
-  <footer>Lorem ipsum</footer>
+  <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
 </body>
 
 </html>

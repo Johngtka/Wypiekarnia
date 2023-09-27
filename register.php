@@ -8,7 +8,7 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
   exit();
 } else {
 
-  if(!ctype_digit($_POST['phone'])){
+  if (!ctype_digit($_POST['phone'])) {
     $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
     header('Location: http://localhost/Wypiekarnia/registerForm.php');
     exit();
@@ -50,7 +50,6 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
       $_SESSION['errchx'] = '<span style="color: red"><b>*Taki użytkownik już istnieje</b></span>';
       header('Location: http://localhost/Wypiekarnia/registerForm.php');
       exit();
-
     } else {
       unset($_SESSION['errchx']);
       // przygotowanie polecenia które wstawi usera 
@@ -126,13 +125,16 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
     }
 
     @media only screen and (min-width:600px) {
+
       #d,
       h2,
       a {
         width: 60%;
       }
     }
+
     @media only screen and (max-width:600px) {
+
       #d,
       h2,
       a {
@@ -162,15 +164,15 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -181,7 +183,7 @@ if (!isset($_POST['login']) && !isset($_POST['password'])) {
     <br>
     <div id="slider"></div>
     <br><br><br><br>
-    <footer>Lorem ipsum</footer>
+    <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>
 </body>
 

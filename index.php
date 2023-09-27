@@ -40,6 +40,11 @@ if (isset($log)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
+  <style type="text/css">
+    footer {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -160,7 +165,7 @@ if (isset($log)) {
         donec ac odio tempor orci dapibus ultrices in iaculis.</b>
     </p>
     <div id="slider"></div>
-    <footer>Lorem ipsum</footer>
+    <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>
 </body>
 

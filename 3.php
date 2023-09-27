@@ -197,7 +197,7 @@ if (!isset($_SESSION['user'])) {
     </div> -->
     <!-- <h1 id="cart"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1> -->
     <div id="slider"></div>
-    <footer>Lorem ipsum</footer>
+    <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>
 
 </body>

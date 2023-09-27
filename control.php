@@ -107,7 +107,7 @@ if (!isset($_SESSION['user'])) {
             echo "<h1><b><i>Musisz dokonać tylko 1 wyboru,<br> lub zrobić wiele zamówień!!!</i></b></h1>";
             echo '<h2><a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a></h2>';
             ?>
-            <footer>Lorem ipsum</footer>
+            <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
         </div>
     </body>
 
