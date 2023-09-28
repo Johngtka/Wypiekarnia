@@ -1,6 +1,8 @@
 <?php
 // podłączenie dokumentu który sprawdza czy jest zalogowanu user
 require_once('loginVerify.php');
+$query = $db->prepare("SELECT * FROM promocje");
+$query->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -32,6 +34,65 @@ require_once('loginVerify.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
     <!--koniec sekcji czcionek-->
+    <style type="text/css">
+        .salesPanel {
+            width: fit-content;
+            height: 100vh;
+            padding: 5%;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            background-color: #fff;
+            border: 2px solid #000;
+            justify-content: center;
+            border-radius: 40px;
+        }
+
+        .saleTile {
+            width: 20%;
+            padding-left: 20px;
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .saleTile h1 {
+            color: #fff;
+            text-shadow: none;
+        }
+
+        .saleTile p {
+            font-size: 10px;
+        }
+
+
+        @media screen and (max-width: 1050px) {
+            .salesPanel {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 !important;
+                height: auto;
+            }
+
+            .saleTile {
+                padding: 0 !important;
+                height: auto;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -58,6 +119,19 @@ require_once('loginVerify.php');
         </ul>
     </div>
     <div class="main">
+        <div class="salesPanel">
+            <?php
+            while ($row = $query->fetch()) {
+            ?>
+                <div class="saleTile">
+                    <h1>-<?php echo $row['Value'] ?>%</h1>
+                    <span><?php echo $row['ProductName'] ?></span>
+                    <p><?php echo $row['StartDate'] ?>-><?php echo $row['EndDate'] ?></p>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
 
     </div>
     <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
