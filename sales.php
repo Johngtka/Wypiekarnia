@@ -50,7 +50,7 @@ $query->execute();
         }
 
         .saleTile {
-            width: 20%;
+            width: auto;
             padding-left: 20px;
             padding-right: 20px;
             display: flex;
@@ -67,10 +67,23 @@ $query->execute();
             text-shadow: none;
         }
 
-        .saleTile p {
-            font-size: 10px;
+        .salesPanel span {
+            font-size: 16px;
         }
 
+        .saleTile p {
+            background-color: #f00;
+            border: 2px solid #fff;
+            padding: 5px;
+            font-size: 15px;
+        }
+
+        .saleTile h1,
+        span,
+        p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
 
         @media screen and (max-width: 1050px) {
             .salesPanel {
@@ -126,7 +139,7 @@ $query->execute();
                 <div class="saleTile">
                     <h1>-<?php echo $row['Value'] ?>%</h1>
                     <span><?php echo $row['ProductName'] ?></span>
-                    <p><?php echo $row['StartDate'] ?>-><?php echo $row['EndDate'] ?></p>
+                    <p><?php echo $row['StartDate'] ?> - <?php echo $row['EndDate'] ?></p>
                 </div>
             <?php
             }
