@@ -6,7 +6,6 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
 
   header('Location: http://localhost/Wypiekarnia/loginForm.php');
   exit();
-
 } else {
 
   // przepuszczenie wartości z pól formularza logowania przez filtrację
@@ -39,13 +38,11 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
         'email' => $row['mail']
       ];
 
-      $_SESSION['profile'] = $row['logi'];
-
       // ustawienie ciasteczka pod login użytkownika który trwa przez 24h
       setcookie("sesuse", $row['logi'], time() + (3600 * 24));
 
       unset($_SESSION['err']);
-      
+
       header('Location: user.php');
     } else {
       // info o niepoprawnych danych logowania

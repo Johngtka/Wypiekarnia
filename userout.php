@@ -21,7 +21,7 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
   $addid = $db->prepare("ALTER TABLE `klijeci` ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id`)");
   $addid->execute();
 
-  unset($_SESSION['user']);
+  unset($_SESSION['user'], $_SESSION['exportUserData'], $_SESSION['profile']);
 }
 ?>
 <!DOCTYPE html>

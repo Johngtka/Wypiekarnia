@@ -1,8 +1,8 @@
 <?php
 session_start();
-$log = @$_SESSION['profile'];
+$log = @$_SESSION['user'];
 if (isset($log)) {
-  $nick = $log;
+  $nick = $log['login'];
 } else {
   $nick = 'Zaloguj się';
 }

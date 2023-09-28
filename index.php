@@ -3,9 +3,9 @@ require_once('PDO.php');
 $query = $db->prepare("SELECT COUNT(*) FROM aktualizacje");
 $query->execute();
 $_SESSION['akt'] = $query->fetch()[0];
-$log = @$_SESSION['profile'];
+$log = @$_SESSION['user'];
 if (isset($log)) {
-  $nick = $log;
+  $nick = $log['login'];
 } else {
   $nick = 'Zaloguj się';
 }

@@ -85,6 +85,12 @@ $query->execute();
             margin-bottom: 10px;
         }
 
+        .saleTile h1:hover,
+        span:hover,
+        p:hover {
+            cursor: default !important;
+        }
+
         @media screen and (max-width: 1050px) {
             .salesPanel {
                 flex-direction: column;
@@ -127,7 +133,7 @@ $query->execute();
                 <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
             </li>
             <li>
-                <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
+                <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['user']['login']; ?><i class="icon-user-circle"></i></a>
             </li>
         </ul>
     </div>

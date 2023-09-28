@@ -1,7 +1,6 @@
 <?php
 // podłączenie dokumentu który sprawdza czy obiekt użytkownika istnieje
 require_once('loginVerify.php');
-require_once('PDO.php');
 $query = $db->prepare("SELECT COUNT(*) FROM promocje");
 $query->execute();
 $salesCount = $query->fetch()[0];
