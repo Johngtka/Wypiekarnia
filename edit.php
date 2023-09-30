@@ -33,6 +33,22 @@ require_once('loginVerify.php');
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
+    .formButtons {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    button[type='submit'],
+    button[type='reset'] {
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 2px #000 solid;
+      margin: 5px;
+    }
+
     @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
@@ -54,15 +70,15 @@ require_once('loginVerify.php');
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -89,17 +105,20 @@ require_once('loginVerify.php');
           <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="telefon" placeholder="Max 9 Znaków" required>
         </label>
         <?php
-          if(isset($_SESSION['noNumberCorrect'])){
-            echo $_SESSION['noNumberCorrect'];
-            unset($_SESSION['noNumberCorrect']);
-          }
+        if (isset($_SESSION['noNumberCorrect'])) {
+          echo $_SESSION['noNumberCorrect'];
+          unset($_SESSION['noNumberCorrect']);
+        }
         ?>
       </div>
-      <input type="reset" value="Wyczyść" />
-      <input type="submit" value="Zmień" />
+      <div class="formButtons">
+        <button type="reset">Wyczyść<i class="icon-cancel-circled-outline"></i></button>
+        <button type="submit">Zmień<i class="icon-export"></i></button>
+      </div>
     </form><br>
     <div id="slider"></div>
-    <footer>Lorem ipsum</footer>
+    <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>
 </body>
+
 </html>

@@ -1,20 +1,15 @@
 <?php
-require_once('PDO.php');
-$query = $db->prepare("SELECT * FROM aktualizacje ORDER BY id DESC");
+// podłączenie dokumentu który sprawdza czy jest zalogowanu user
+require_once('loginVerify.php');
+$query = $db->prepare("SELECT * FROM promocje");
 $query->execute();
-$log = @$_SESSION['user'];
-if (isset($log)) {
-    $nick = $log['login'];
-} else {
-    $nick = 'Zaloguj się';
-}
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
     <meta charset="utf-8" />
-    <title>Aktualizacje</title>
+    <title>Promocje</title>
     <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,41 +35,81 @@ if (isset($log)) {
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
     <!--koniec sekcji czcionek-->
     <style type="text/css">
-        #front-zwrot {
-            width: auto;
-            height: auto;
-            background-color: #000;
-            opacity: 0.5;
-            color: #fff;
-            padding: 20px;
+        .salesPanel {
+            width: fit-content;
+            height: 100vh;
+            padding: 5%;
+            margin-top: 20px;
             margin-left: auto;
             margin-right: auto;
-            margin: 0;
-            text-shadow: #000;
-            border-top: #fff solid 1px;
+            display: flex;
+            background-color: #fff;
+            border: 2px solid #000;
+            justify-content: center;
+            border-radius: 40px;
         }
 
-        #front-zwrot>b {
-            display: inline-block;
+        .saleTile {
+            width: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            align-items: center;
+            justify-content: center;
             background-color: #000;
             color: #fff;
         }
 
-        #c {
-            overflow-y: scroll;
-            height: 100vh;
-        }
-
-        #front-zwrot>p {
-            display: inline-block;
+        .saleTile h1 {
             color: #fff;
-            width: 100%;
+            text-shadow: none;
         }
 
-        #k {
-            border-radius: 0;
-            width: 128px;
-            height: 128px;
+        .salesPanel span {
+            font-size: 16px;
+        }
+
+        .saleTile p {
+            background-color: #f00;
+            border: 2px solid #fff;
+            padding: 5px;
+            font-size: 15px;
+        }
+
+        .saleTile h1,
+        span,
+        p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .saleTile h1:hover,
+        span:hover,
+        p:hover {
+            cursor: default !important;
+        }
+
+        @media screen and (max-width: 1050px) {
+            .salesPanel {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 !important;
+                height: auto;
+            }
+
+            .saleTile {
+                padding: 0 !important;
+                height: auto;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        footer {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -92,30 +127,33 @@ if (isset($log)) {
                 <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
             </li>
             <li>
+                <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+            </li>
+            <li>
                 <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
             </li>
             <li>
-                <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $nick; ?><i class='icon-user-circle'></i></a>
+                <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['user']['login']; ?><i class="icon-user-circle"></i></a>
             </li>
         </ul>
     </div>
     <div class="main">
-        <div id="c">
+        <div class="salesPanel">
             <?php
             while ($row = $query->fetch()) {
             ?>
-                <div id="front-zwrot">
-                    <b><i><?php echo $row['name'] ?></i></b>
-                    <p><?php echo $row['date'] ?></p>
-                    <div style="clear: both"></div>
-                    <p id="#"><?php echo $row['description'] ?></p>
+                <div class="saleTile">
+                    <h1>-<?php echo $row['Value'] ?>%</h1>
+                    <span><?php echo $row['ProductName'] ?></span>
+                    <p><?php echo $row['StartDate'] ?> - <?php echo $row['EndDate'] ?></p>
                 </div>
             <?php
             }
             ?>
         </div>
-        <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
+
     </div>
+    <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
 </body>
 
 </html>

@@ -37,6 +37,27 @@ if (isset($_SESSION['user'])) {
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
+    .formButtons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    button[type="submit"],
+    .regLink {
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 2px #000 solid;
+      margin: 5px;
+    }
+
+    .regLink a {
+      color: #000;
+    }
+
     @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
@@ -45,6 +66,10 @@ if (isset($_SESSION['user'])) {
         width: 100%;
       }
 
+    }
+
+    footer {
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -58,15 +83,15 @@ if (isset($_SESSION['user'])) {
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -93,12 +118,13 @@ if (isset($_SESSION['user'])) {
         }
         ?>
       </div>
-      <input type="submit" value="Zaloguj" /><br><br>
+      <div class="formButtons">
+        <button type="submit">Zaloguj Się <i class="icon-login"></i></button>
+        <a href="http://localhost/Wypiekarnia/registerForm.php"><button type="button" class="regLink">Zarejestruj Się <i class="icon-registered"></i></button></a>
+      </div>
     </form>
-    <form action="registerForm.php" method="POST"><input type="submit" value="Zarejestruj"></form>
-    <br><br>
     <div id="slider"></div>
-    <footer>Lorem ipsum</footer>
+    <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>
 </body>
 

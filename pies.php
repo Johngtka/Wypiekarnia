@@ -33,6 +33,22 @@ require_once('loginVerify.php');
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
   <!--koniec sekcji czcionek-->
   <style type="text/css">
+    .formButtons {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    button[type='submit'],
+    button[type='reset'] {
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 2px #000 solid;
+      margin: 5px;
+    }
+
     @media only screen and (max-width:600px) and (max-width:850px) and (max-width:1000px) {
 
       .row,
@@ -54,18 +70,18 @@ require_once('loginVerify.php');
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['profile']; ?><i class="icon-user-circle"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $_SESSION['user']['login']; ?><i class="icon-user-circle"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main1">
@@ -83,10 +99,10 @@ require_once('loginVerify.php');
       <div class="row">
         <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" required /></label>
         <?php
-          if(isset($_SESSION['noNumber'])){
-            echo $_SESSION['noNumber'];
-            unset($_SESSION['noNumber']);
-          }
+        if (isset($_SESSION['noNumber'])) {
+          echo $_SESSION['noNumber'];
+          unset($_SESSION['noNumber']);
+        }
         ?>
       </div>
 
@@ -94,10 +110,10 @@ require_once('loginVerify.php');
         <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
         <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="111222333" required /></label>
         <?php
-          if(isset($_SESSION['noPhoneCorrect'])){
-            echo $_SESSION['noPhoneCorrect'];
-            unset($_SESSION['noPhoneCorrect']);
-          }
+        if (isset($_SESSION['noPhoneCorrect'])) {
+          echo $_SESSION['noPhoneCorrect'];
+          unset($_SESSION['noPhoneCorrect']);
+        }
         ?>
       </div>
 
@@ -111,16 +127,13 @@ require_once('loginVerify.php');
         <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" required></textarea>
       </div>
 
-      <div class="row">
-        <input type="submit" value="Zamów!" />
-      </div>
-
-      <div class="row">
-        <input type="reset" value="Wyczyść" />
+      <div class="formButtons">
+        <button type="submit">Zamów<i class="icon-export"></i></button>
+        <button type="reset">Wyczyść<i class="icon-cancel-circled-outline"></i></button>
       </div>
     </form>
   </div>
-  <footer>Lorem ipsum</footer>
+  <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
 </body>
 
 </html>

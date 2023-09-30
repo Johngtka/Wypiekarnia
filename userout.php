@@ -10,8 +10,8 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
 
   $query = $db->prepare("DELETE FROM klijeci WHERE logi=:user AND haslo=:pass");
 
-  $query->bindValue(':user', $log , PDO::PARAM_STR);
-  $query->bindValue(':pass', $pass , PDO::PARAM_STR);
+  $query->bindValue(':user', $log, PDO::PARAM_STR);
+  $query->bindValue(':pass', $pass, PDO::PARAM_STR);
 
   $query->execute();
 
@@ -20,8 +20,8 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
 
   $addid = $db->prepare("ALTER TABLE `klijeci` ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id`)");
   $addid->execute();
-  
-  unset($_SESSION['user']);
+
+  unset($_SESSION['user'], $_SESSION['exportUserData'], $_SESSION['profile']);
 }
 ?>
 <!DOCTYPE html>
@@ -77,15 +77,15 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
       <div id="eggs" class="invisible"></div>
     </div>
     <ul>
-          <li>
-              <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
-          </li>
-          <li>
-              <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
-          </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
+      </li>
+      <li>
+        <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+      </li>
     </ul>
   </div>
   <div class="main">
@@ -96,7 +96,7 @@ if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
     </h6>
     <h2><a href='http://localhost/Wypiekarnia/'>Strona Główna <i class="icon-home"></i></a></h2>
     <div id="slider"></div>
-    <footer>Lorem ipsum</footer>
+    <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>
 </body>
 

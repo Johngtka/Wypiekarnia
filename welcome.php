@@ -1,20 +1,12 @@
 <?php
-require_once('PDO.php');
-$query = $db->prepare("SELECT * FROM aktualizacje ORDER BY id DESC");
-$query->execute();
-$log = @$_SESSION['user'];
-if (isset($log)) {
-    $nick = $log['login'];
-} else {
-    $nick = 'Zaloguj się';
-}
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 
 <head>
     <meta charset="utf-8" />
-    <title>Aktualizacje</title>
+    <title>Witamy</title>
     <meta name="description" content="Zamów swoje ulubione delicje" />
     <meta name="keywords" content="ciasta, torty, i, wypieki, na, każdą, okazję" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,41 +32,55 @@ if (isset($log)) {
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
     <!--koniec sekcji czcionek-->
     <style type="text/css">
-        #front-zwrot {
-            width: auto;
-            height: auto;
+        #d {
+            height: 120px;
             background-color: #000;
             opacity: 0.5;
             color: #fff;
-            padding: 20px;
             margin-left: auto;
             margin-right: auto;
-            margin: 0;
-            text-shadow: #000;
-            border-top: #fff solid 1px;
+            margin-bottom: 0;
+            padding-top: 25px;
         }
 
-        #front-zwrot>b {
-            display: inline-block;
+        h2 {
+            height: 120px;
             background-color: #000;
+            opacity: 0.5;
             color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0;
+            padding-top: 25px;
         }
 
-        #c {
-            overflow-y: scroll;
-            height: 100vh;
+        @media only screen and (min-width:600px) {
+
+            #d,
+            h2,
+            a {
+                width: 60%;
+            }
         }
 
-        #front-zwrot>p {
-            display: inline-block;
+        @media only screen and (max-width:600px) {
+
+            #d,
+            h2,
+            a {
+                width: 100%;
+            }
+        }
+
+        a {
+            text-decoration: none;
             color: #fff;
-            width: 100%;
+            width: 400px;
+            height: 110px;
         }
 
-        #k {
-            border-radius: 0;
-            width: 128px;
-            height: 128px;
+        a:hover {
+            color: #fff;
         }
     </style>
 </head>
@@ -92,28 +98,21 @@ if (isset($log)) {
                 <a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a>
             </li>
             <li>
-                <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
+                <a href="http://localhost/Wypiekarnia/updates.php">Aktualizacje &#9781; (<?php echo $_SESSION['akt'] ?>)</a>
             </li>
             <li>
-                <a href="http://localhost/Wypiekarnia/loginForm.php"><?php echo $nick; ?><i class='icon-user-circle'></i></a>
+                <a href="http://localhost/Wypiekarnia/contact.php">Kontakt<i class="icon-phone-squared"></i></a>
             </li>
         </ul>
     </div>
     <div class="main">
-        <div id="c">
-            <?php
-            while ($row = $query->fetch()) {
-            ?>
-                <div id="front-zwrot">
-                    <b><i><?php echo $row['name'] ?></i></b>
-                    <p><?php echo $row['date'] ?></p>
-                    <div style="clear: both"></div>
-                    <p id="#"><?php echo $row['description'] ?></p>
-                </div>
-            <?php
-            }
-            ?>
-        </div>
+        <?php
+        echo "<h1 id='d'>Witaj<br>" . $_SESSION['exportUserData'] . "</h1>";
+        echo "<h2><a href='http://localhost/Wypiekarnia/loginForm.php'>Strona Logowania <i class='icon-user-circle'></i></a></h2>";
+        ?>
+        <br>
+        <div id="slider"></div>
+        <br><br><br><br>
         <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
     </div>
 </body>

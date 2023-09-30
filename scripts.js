@@ -1,4 +1,5 @@
 window.onload = () => {
+  yearCounter()
   setInterval(console_control, 1000)
   console_control()
   setInterval(changeSlide, 5000)
@@ -25,7 +26,13 @@ function timerScope() {
   if (second < 10) {
     second = '0' + second
   }
-  document.querySelector('#eggs').innerHTML = day + '/' + month + '/' + year + '|' + hour + ':' + minute + ':' + second
+  document.querySelector('#eggs').innerHTML = day + '.' + month + '.' + year + ' | ' + hour + ':' + minute + ':' + second
+}
+
+function yearCounter(){
+  const time = new Date()
+  let footers = document.querySelector('#actualYear')
+  footers.innerHTML = '&copy;'+ time.getFullYear()
 }
 
 function showTimerWithDate() {

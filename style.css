@@ -223,9 +223,10 @@ footer {
     width: 100%;
     text-align: center;
     color: #fff;
-    font-size: 50px;
-    min-height: 20px;
-    font-family: "Cinzel", serif;
+    font-size: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: "Cinzel", sans-serif;
     border-top: 3px #b70000 solid;
 }
 
