@@ -2,7 +2,7 @@
 
 ### New Versions Changelogs
 
-# 1.4.0 (2023-09-30)
+### [1.4.0](https://github.com/Johngtka/Wypiekarnia/compare/v.1.2.0...v.1.4.0) (2023-09-30)
 
 ## Features
 
@@ -14,7 +14,7 @@
 -   fix: repaired the orders summary
     (([#3](https://github.com/Johngtka/Wypiekarnia/pull/3)))
 
-# 1.2.0 (2023-09-06)
+### 1.2.0 (2023-09-06)
 
 ## Features
 
