@@ -1,11 +1,27 @@
+<!-- @format -->
+
 ### New Versions Changelogs
+
+# 1.4.0 (2023-09-30)
+
+## Features
+
+-   feat: new sale sub page for future
+    ([#4](https://github.com/Johngtka/Wypiekarnia/pull/4))
+
+## Fixes
+
+-   fix: repaired the orders summary
+    (([#3](https://github.com/Johngtka/Wypiekarnia/pull/3)))
 
 # 1.2.0 (2023-09-06)
 
 ## Features
 
--   feat: new logo and sub-pages changes ([#2](https://github.com/Johngtka/Wypiekarnia/pull/2))
+-   feat: new logo and sub-pages changes
+    ([#2](https://github.com/Johngtka/Wypiekarnia/pull/2))
 
 ## Fixes
 
--   fix: fixed the secure of service([#1](https://github.com/Johngtka/Wypiekarnia/pull/1))
+-   fix: fixed the secure of
+    service([#1](https://github.com/Johngtka/Wypiekarnia/pull/1))
