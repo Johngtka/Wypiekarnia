@@ -4,13 +4,11 @@ require_once('PDO.php');
 
 // sprawdzenie czy użytkownik jest zalogowany jeśli tak to else
 if (!isset($_SESSION['user'])) {
-
   header('Location: http://localhost/Wypiekarnia/loginVerify.php');
   exit();
 } else {
 
-  if ($_POST['i'] <= 0) {
-
+  if ($_POST['count'] <= 0) {
     $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
     header('Location: http://localhost/Wypiekarnia/cake.php');
     exit();
@@ -18,8 +16,7 @@ if (!isset($_SESSION['user'])) {
 
   // walidacja polegająca na sprawdzeniu czy wartość POST z inputa | telefon | nie posiada nic innego jak tylko liczby
 
-  if (!ctype_digit($_POST['telefon'])) {
-
+  if (!ctype_digit($_POST['phone'])) {
     $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
     header('Location: http://localhost/Wypiekarnia/cake.php');
     exit();
@@ -38,10 +35,10 @@ if (!isset($_SESSION['user'])) {
     zmienna [ count ] służy do konfiguracji odmiany ilości produktów w podsumowaniu
   */
   $count = 'sztuk';
-  $number = filter_input(INPUT_POST, 'i');
-  $mail = filter_input(INPUT_POST, 'adres', FILTER_VALIDATE_EMAIL);
-  $phone = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
-  $comment = filter_input(INPUT_POST, 'komentarz');
+  $number = filter_input(INPUT_POST, 'count');
+  $mail = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+  $phone = filter_input(INPUT_POST, 'phone', FILTER_VALIDATE_INT);
+  $comment = filter_input(INPUT_POST, 'comment');
 
   /*
     tworzenie tablicy skojażeniowej z przefiltrowanymi u góry danymi oraz dodatkowymi:
@@ -54,12 +51,12 @@ if (!isset($_SESSION['user'])) {
   */
 
   $orderData = [
-    'ilość' => $number,
-    'data' => $_POST["data"],
-    'czas' => $_POST["czas"],
+    'count' => $number,
+    'date' => $_POST["date"],
+    'time' => $_POST["time"],
     'email' => $mail,
-    'telefon' => $phone,
-    'komentarz' => $comment
+    'phone' => $phone,
+    'comment' => $comment
   ];
 
   /** 
@@ -115,7 +112,6 @@ if (!isset($_SESSION['user'])) {
   }
 
   if (isset($prodType['ur']) && isset($prodType['sm']) && isset($prodType['jub']) && isset($prodType['slub'])) {
-
     header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {
@@ -127,7 +123,7 @@ if (!isset($_SESSION['user'])) {
      * oraz gdy będzie coś innego (w else) to zapisze się sklejka tortów + nazwa tortu
      */
 
-    if ($orderData['ilość'] <= 1) {
+    if ($orderData['count'] <= 1) {
       $conf = $count . "ę";
       $num = 'Tort ' . $opt;
     } else {
@@ -137,12 +133,12 @@ if (!isset($_SESSION['user'])) {
 
     // ustawienie bindów używanych w poleceniu SQL
     $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
-    $query->bindValue(':ilosc', $orderData['ilość'], PDO::PARAM_INT);
-    $query->bindValue(':dat', $orderData['data'], PDO::PARAM_STR);
-    $query->bindValue(':czas', $orderData['czas'], PDO::PARAM_STR);
+    $query->bindValue(':ilosc', $orderData['count'], PDO::PARAM_INT);
+    $query->bindValue(':dat', $orderData['date'], PDO::PARAM_STR);
+    $query->bindValue(':czas', $orderData['time'], PDO::PARAM_STR);
     $query->bindValue(':mail', $orderData['email'], PDO::PARAM_STR);
-    $query->bindValue(':telefon', $orderData['telefon'], PDO::PARAM_INT);
-    $query->bindValue(':kom', $orderData['komentarz'], PDO::PARAM_STR);
+    $query->bindValue(':telefon', $orderData['phone'], PDO::PARAM_INT);
+    $query->bindValue(':kom', $orderData['comment'], PDO::PARAM_STR);
     $query->execute();
   }
 }
@@ -244,14 +240,14 @@ if (!isset($_SESSION['user'])) {
   <div class="main">
     <?php
     echo "<h1>Podsumowanie</h1>";
-    echo "<p>Zamówiłeś " . $orderData['ilość'] . " " . $conf . "</p>";
+    echo "<p>Zamówiłeś " . $orderData['count'] . " " . $conf . "</p>";
     echo "<p><b> (" . $num . ") </b></p>";
     echo "<p>Na adres: " . $orderData['email'] . "<p>";
-    echo "<p>Numer Telefonu: " . $orderData['telefon'] . "<p>";
-    echo "<p>Na termin: " . $orderData['data'] . "</p>";
-    echo "<p>Godzinę: " . $orderData['czas'] . "</p>";
+    echo "<p>Numer Telefonu: " . $orderData['phone'] . "<p>";
+    echo "<p>Na termin: " . $orderData['date'] . "</p>";
+    echo "<p>Godzinę: " . $orderData['time'] . "</p>";
     echo "<h1>Z komentarzem:</h1>";
-    echo "<br> " . $orderData['komentarz'] . "<br><br>";
+    echo "<br> " . $orderData['comment'] . "<br><br>";
     ?>
     <!-- <div class="pay">
       <i class="icon-credit-card-alt"></i>

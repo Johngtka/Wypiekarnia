@@ -97,7 +97,7 @@ require_once('loginVerify.php');
       </div>
 
       <div class="row">
-        <label><b>Ilość:</b><input type="number" placeholder="..." name="i" step="1" required /></label>
+        <label><b>Ilość:</b><input type="number" placeholder="..." name="count" step="1" required /></label>
         <?php
         if (isset($_SESSION['noNumber'])) {
           echo $_SESSION['noNumber'];
@@ -106,8 +106,8 @@ require_once('loginVerify.php');
         ?>
       </div>
       <div class="row">
-        <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="adres" required /></label><br /><br />
-        <label><b>Numer Telefonu:</b><input type="tel" name="telefon" placeholder="111222333" required /></label>
+        <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="email" required /></label><br /><br />
+        <label><b>Numer Telefonu:</b><input type="tel" name="phone" placeholder="111222333" required /></label>
         <?php
         if (isset($_SESSION['noPhoneCorrect'])) {
           echo $_SESSION['noPhoneCorrect'];
@@ -117,13 +117,13 @@ require_once('loginVerify.php');
       </div>
 
       <div class="row">
-        <label><b>Data dostawy:</b><input type="date" name="data" require /></label><br /><br />
-        <label><b>Czas dostawy:</b><input type="time" name="czas" min="10:00" max="23:00" required /></label>
+        <label><b>Data dostawy:</b><input type="date" name="date" require /></label><br /><br />
+        <label><b>Czas dostawy:</b><input type="time" name="time" min="10:00" max="23:00" required /></label>
       </div>
 
       <div class="row">
         <div><label><b>Uwagi do zamówienia:</b></label></div><br>
-        <textarea name="komentarz" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" required></textarea>
+        <textarea name="comment" id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" required></textarea>
       </div>
 
       <div class="formButtons">
