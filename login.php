@@ -13,7 +13,7 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
   $password = filter_input(INPUT_POST, 'password');
 
   // przygotowanie polecenia sql bez wartości które są bindami
-  $query = $db->prepare("SELECT * FROM klijeci WHERE login=:uName AND password=:uPAss");
+  $query = $db->prepare("SELECT * FROM klijeci WHERE login=:uName AND password=:uPass");
 
   // procedura bindowania wartości pod tagi które są przesyłane w zapytaniu
   $query->bindValue(':uName', $login, PDO::PARAM_STR);
