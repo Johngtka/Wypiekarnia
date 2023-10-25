@@ -96,7 +96,7 @@ require_once('loginVerify.php');
       </div>
       <div class="row">
         <label>
-          <b>Hasło:</b><input type="password" name="haslo" placeholder="Wpisz hasło" required />
+          <b>Hasło:</b><input type="password" name="password" placeholder="Wpisz hasło" required />
         </label>
       </div>
       <div class="row">

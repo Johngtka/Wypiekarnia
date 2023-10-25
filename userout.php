@@ -1,19 +1,19 @@
 <?php
 require_once('PDO.php');
-if (!isset($_POST['login']) || !isset($_POST['haslo'])) {
+if (!isset($_POST['login']) || !isset($_POST['password'])) {
   header('Location: http://localhost/Wypiekarnia/exit.php');
   exit();
 } else {
 
   $log = filter_input(INPUT_POST, 'login');
-  $pass = filter_input(INPUT_POST, 'haslo');
+  $pass = filter_input(INPUT_POST, 'password');
 
-  $query = $db->prepare("DELETE FROM klijeci WHERE logi=:user AND haslo=:pass");
+  $query1 = $db->prepare("DELETE FROM klijeci WHERE login=:user AND password=:pass");
 
-  $query->bindValue(':user', $log, PDO::PARAM_STR);
-  $query->bindValue(':pass', $pass, PDO::PARAM_STR);
+  $query1->bindValue(':user', $log, PDO::PARAM_STR);
+  $query1->bindValue(':pass', $pass, PDO::PARAM_STR);
 
-  $query->execute();
+  $query1->execute();
 
   $query2 = $db->prepare("ALTER TABLE klijeci DROP id");
   $query2->execute();

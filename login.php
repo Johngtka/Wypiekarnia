@@ -13,7 +13,7 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
   $haslo = filter_input(INPUT_POST, 'password');
 
   // przygotowanie polecenia sql bez wartości które są bindami
-  $query = $db->prepare("SELECT * FROM klijeci WHERE logi=:uname AND haslo=:haslo");
+  $query = $db->prepare("SELECT * FROM klijeci WHERE login=:uname AND password=:haslo");
 
   // procedura bindowania wartości pod tagi które są przesyłane w zapytaniu
   $query->bindValue(':uname', $login, PDO::PARAM_STR);
@@ -33,13 +33,13 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
 
       // sesyjna tablica asocjacyjna zalogowanego poprawnie użytkownika która zawiera asocjacje do kolumn tabeli zwróconych poprawnym wykonaniem polecenia
       $_SESSION['user'] = [
-        'login' => $row['logi'],
-        'haslo' => $row['haslo'],
-        'email' => $row['mail']
+        'login' => $row['login'],
+        'haslo' => $row['password'],
+        'email' => $row['email']
       ];
 
       // ustawienie ciasteczka pod login użytkownika który trwa przez 24h
-      setcookie("sesuse", $row['logi'], time() + (3600 * 24));
+      setcookie("sesuse", $row['login'], time() + (3600 * 24));
 
       unset($_SESSION['err']);
 

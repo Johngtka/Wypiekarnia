@@ -5,7 +5,7 @@ if (!isset($_SESSION['user'])) {
     exit();
 } else {
 
-    if(!ctype_digit($_POST['telefon'])){
+    if (!ctype_digit($_POST['phone'])) {
         $_SESSION['noNumberCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
         header('Location: http://localhost/Wypiekarnia/edit.php');
         exit();
@@ -14,24 +14,24 @@ if (!isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
     $username = filter_input(INPUT_POST, 'login');
     $pass = filter_input(INPUT_POST, 'password');
-    $location = filter_input(INPUT_POST, 'mail', FILTER_VALIDATE_EMAIL);
-    $phone = filter_input(INPUT_POST, 'telefon', FILTER_VALIDATE_INT);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $phone = filter_input(INPUT_POST, 'phone', FILTER_VALIDATE_INT);
 
     $editData = [
-        'login' => $username,
-        'haslo' => $pass,
-        'adres' => $location,
-        'telefon' => $phone
+        'newLogin=' => $username,
+        'newPassword' => $pass,
+        'newEmail' => $email,
+        'newPhone' => $phone
     ];
 
     if (isset($editData)) {
-        $query = $db->prepare("UPDATE klijeci SET mail=:email, telefon=:num, logi=:uname, haslo=:pass WHERE logi='{$user['login']}'");
-        $query->bindValue(':email', $editData['adres'], PDO::PARAM_STR);
-        $query->bindValue(':num', $editData['telefon'], PDO::PARAM_INT);
-        $query->bindValue(':uname', $editData['login'], PDO::PARAM_STR);
-        $query->bindValue(':pass', $editData['haslo'], PDO::PARAM_STR);
+        $query = $db->prepare("UPDATE klijeci SET email=:email, phone=:num, login=:uname, password=:pass WHERE login='{$user['login']}'");
+        $query->bindValue(':email', $editData['newEmail'], PDO::PARAM_STR);
+        $query->bindValue(':num', $editData['newPhone'], PDO::PARAM_INT);
+        $query->bindValue(':uname', $editData['newLogin'], PDO::PARAM_STR);
+        $query->bindValue(':pass', $editData['newPassword'], PDO::PARAM_STR);
         $query->execute();
-        $_SESSION['newlog'] = '<span style="color: green"><b>*Dane zaktualizowane, Zaloguj się ponownie</b></span>;';
+        $_SESSION['newLog'] = '<span style="color: green"><b>*Dane zaktualizowane, Zaloguj się ponownie</b></span>;';
         header('Location: http://localhost/Wypiekarnia/logout.php');
     }
 }

@@ -97,12 +97,12 @@ require_once('loginVerify.php');
       </div>
       <div class="row">
         <label>
-          <p><b>Zmień e-mail:</b></p><input type="text" name="mail" placeholder="example@gmail.com" required>
+          <p><b>Zmień e-mail:</b></p><input type="text" name="email" placeholder="example@gmail.com" required>
         </label>
       </div>
       <div class="row">
         <label>
-          <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="telefon" placeholder="Max 9 Znaków" required>
+          <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="phone" placeholder="Max 9 Znaków" required>
         </label>
         <?php
         if (isset($_SESSION['noNumberCorrect'])) {

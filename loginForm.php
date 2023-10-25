@@ -112,9 +112,9 @@ if (isset($_SESSION['user'])) {
           echo $_SESSION['err'];
           unset($_SESSION['err']);
         }
-        if (isset($_SESSION['newlog'])) {
-          echo $_SESSION['newlog'];
-          unset($_SESSION['newlog']);
+        if (isset($_SESSION['newLog'])) {
+          echo $_SESSION['newLog'];
+          unset($_SESSION['newLog']);
         }
         ?>
       </div>
