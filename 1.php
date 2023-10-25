@@ -36,7 +36,6 @@ if (!isset($_SESSION['user'])) {
   */
   $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'count');
-  $mail = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
   $phone = filter_input(INPUT_POST, 'phone', FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'comment');
 
@@ -54,7 +53,6 @@ if (!isset($_SESSION['user'])) {
     'count' => $number,
     'date' => $_POST["date"],
     'time' => $_POST["time"],
-    'email' => $mail,
     'phone' => $phone,
     'comment' => $comment
   ];
@@ -96,19 +94,19 @@ if (!isset($_SESSION['user'])) {
    */
 
   if (isset($prodType['ur'])) {
-    $opt = 'Urodzinowy';
+    $prodNameSelected = 'Tort Urodzinowy';
   }
 
   if (isset($prodType['sm'])) {
-    $opt = 'dla Smakoszy';
+    $prodNameSelected = 'Tort dla Smakoszy';
   }
 
   if (isset($prodType['jub'])) {
-    $opt = 'Jubileusz';
+    $prodNameSelected = 'Tort Jubileusz';
   }
 
   if (isset($prodType['slub'])) {
-    $opt = 'Ślubny';
+    $prodNameSelected = 'Tort Ślubny';
   }
 
   if (isset($prodType['ur']) && isset($prodType['sm']) && isset($prodType['jub']) && isset($prodType['slub'])) {
@@ -116,7 +114,7 @@ if (!isset($_SESSION['user'])) {
     exit();
   } else {
     // przygotowanie polecenia SQL wraz z bindami poniżej
-    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:mail,:telefon,:kom)");
+    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:telefon,:kom)");
 
     /**
      * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
@@ -125,18 +123,15 @@ if (!isset($_SESSION['user'])) {
 
     if ($orderData['count'] <= 1) {
       $conf = $count . "ę";
-      $num = 'Tort ' . $opt;
     } else {
       $conf = $count . "i";
-      $num = 'Tortów ' . $opt;
     }
 
     // ustawienie bindów używanych w poleceniu SQL
-    $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
+    $query->bindValue(':nazwa', $prodNameSelected, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderData['count'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderData['date'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderData['time'], PDO::PARAM_STR);
-    $query->bindValue(':mail', $orderData['email'], PDO::PARAM_STR);
     $query->bindValue(':telefon', $orderData['phone'], PDO::PARAM_INT);
     $query->bindValue(':kom', $orderData['comment'], PDO::PARAM_STR);
     $query->execute();
@@ -241,8 +236,8 @@ if (!isset($_SESSION['user'])) {
     <?php
     echo "<h1>Podsumowanie</h1>";
     echo "<p>Zamówiłeś " . $orderData['count'] . " " . $conf . "</p>";
-    echo "<p><b> (" . $num . ") </b></p>";
-    echo "<p>Na adres: " . $orderData['email'] . "<p>";
+    echo "<p><b> (" . $prodNameSelected . ") </b></p>";
+    echo "<p>Na e-mail: " . $_SESSION['user']['email'] . "<p>";
     echo "<p>Numer Telefonu: " . $orderData['phone'] . "<p>";
     echo "<p>Na termin: " . $orderData['date'] . "</p>";
     echo "<p>Godzinę: " . $orderData['time'] . "</p>";
