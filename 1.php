@@ -114,7 +114,7 @@ if (!isset($_SESSION['user'])) {
     exit();
   } else {
     // przygotowanie polecenia SQL wraz z bindami poniżej
-    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:telefon,:kom)");
+    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:telefon,:login,:kom)");
 
     /**
      * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
@@ -133,6 +133,7 @@ if (!isset($_SESSION['user'])) {
     $query->bindValue(':dat', $orderData['date'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderData['time'], PDO::PARAM_STR);
     $query->bindValue(':telefon', $orderData['phone'], PDO::PARAM_INT);
+    $query->bindValue(':login', $_SESSION['user']['login'], PDO::PARAM_STR);
     $query->bindValue(':kom', $orderData['comment'], PDO::PARAM_STR);
     $query->execute();
   }

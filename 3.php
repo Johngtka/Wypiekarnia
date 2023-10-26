@@ -38,19 +38,19 @@ if (!isset($_SESSION['user'])) {
   ];
 
   if (isset($prodType['jab'])) {
-    $prodName = 'Tarta Jabłkowa na mlecznym kremie';
+    $prodNameSelected = 'Tarta Jabłkowa na mlecznym kremie';
   }
 
   if (isset($prodType['wio'])) {
-    $prodName = 'Tarta Wiosenna';
+    $prodNameSelected = 'Tarta Wiosenna';
   }
 
   if (isset($prodType['co'])) {
-    $prodName = 'Tarta Czekoladowo-orzechowa';
+    $prodNameSelected = 'Tarta Czekoladowo-orzechowa';
   }
 
   if (isset($prodType['mali'])) {
-    $prodName = 'Tarta Malinowa';
+    $prodNameSelected = 'Tarta Malinowa';
   }
 
   if (isset($prodType['jab']) && isset($prodType['wio']) && isset($prodType['co']) && isset($prodType['mali'])) {
@@ -58,7 +58,8 @@ if (!isset($_SESSION['user'])) {
     exit();
   } else {
 
-    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:telefon,:kom)");
+    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:telefon,:login,:kom)");
+
 
     if ($orderData['count'] <= 1) {
       $conf = $count . "ę";
@@ -66,11 +67,12 @@ if (!isset($_SESSION['user'])) {
       $conf = $count . "i";
     }
 
-    $query->bindValue(':nazwa', $num, PDO::PARAM_STR);
+    $query->bindValue(':nazwa', $prodNameSelected, PDO::PARAM_STR);
     $query->bindValue(':ilosc', $orderData['count'], PDO::PARAM_INT);
     $query->bindValue(':dat', $orderData['date'], PDO::PARAM_STR);
     $query->bindValue(':czas', $orderData['time'], PDO::PARAM_STR);
     $query->bindValue(':telefon', $orderData['phone'], PDO::PARAM_INT);
+    $query->bindValue(':login', $_SESSION['user']['login'], PDO::PARAM_STR);
     $query->bindValue(':kom', $orderData['comment'], PDO::PARAM_STR);
     $query->execute();
   }
