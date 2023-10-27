@@ -87,27 +87,35 @@ require_once('loginVerify.php');
       <p><b>Tutaj wpisz dane które koniecznie chcesz zmienić</b></p>
       <div class="row">
         <label>
-          <p><b>Zmień Login:</b></p><input type="text" name="login" placeholder="Max 10 znaków" required>
+          <p><b>Zmień Login:</b></p><input type="text" name="login" placeholder="Max 10 znaków">
         </label>
       </div>
       <div class="row">
         <label>
-          <p><b>Zmień Hasło:</b></p><input type="password" name="password" placeholder="..." required>
+          <p><b>Zmień Hasło:</b></p><input type="password" name="password" placeholder="...">
         </label>
       </div>
       <div class="row">
         <label>
-          <p><b>Zmień e-mail:</b></p><input type="text" name="email" placeholder="example@gmail.com" required>
+          <p><b>Zmień e-mail:</b></p><input type="text" name="email" placeholder="example@gmail.com">
         </label>
       </div>
       <div class="row">
         <label>
-          <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="phone" placeholder="Max 9 Znaków" required>
+          <p><b>Zmień Numer Telefonu:</b></p><input type="tel" name="phone" placeholder="Max 9 Znaków">
         </label>
         <?php
         if (isset($_SESSION['noNumberCorrect'])) {
           echo $_SESSION['noNumberCorrect'];
           unset($_SESSION['noNumberCorrect']);
+        }
+        ?>
+      </div>
+      <div class="row">
+        <?php
+        if (isset($_SESSION['editErrorInfo'])) {
+          echo $_SESSION['editErrorInfo'];
+          unset($_SESSION['editErrorInfo']);
         }
         ?>
       </div>

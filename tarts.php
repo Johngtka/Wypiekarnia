@@ -106,7 +106,6 @@ require_once('loginVerify.php');
       </div>
 
       <div class="row">
-        <label><b>Adres Email:</b><input type="email" placeholder="example@gmail.com" name="email" required /></label><br /><br />
         <label><b>Numer Telefonu:</b><input type="tel" placeholder="111222333" name="phone" required /></label>
         <?php
         if (isset($_SESSION['noPhoneCorrect'])) {

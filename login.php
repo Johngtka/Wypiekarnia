@@ -10,23 +10,23 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
 
   // przepuszczenie wartości z pól formularza logowania przez filtrację
   $login = filter_input(INPUT_POST, 'login');
-  $haslo = filter_input(INPUT_POST, 'password');
+  $password = filter_input(INPUT_POST, 'password');
 
   // przygotowanie polecenia sql bez wartości które są bindami
-  $query = $db->prepare("SELECT * FROM klijeci WHERE login=:uname AND password=:haslo");
+  $query = $db->prepare("SELECT * FROM klijeci WHERE login=:uName AND password=:uPass");
 
   // procedura bindowania wartości pod tagi które są przesyłane w zapytaniu
-  $query->bindValue(':uname', $login, PDO::PARAM_STR);
-  $query->bindValue(':haslo', $haslo, PDO::PARAM_STR);
+  $query->bindValue(':uName', $login, PDO::PARAM_STR);
+  $query->bindValue(':uPass', $password, PDO::PARAM_STR);
 
   // sprawdzenie czy zostało poprawnie wykonane polecenie
   if ($query->execute()) {
 
     //ustawienie zmiennej ilość która zawiera zwróconą liczbe wierszy przez zapytanie
-    $ilosc = $query->rowCount();
+    $count = $query->rowCount();
 
     // sprawdzenie czy wynik zapytania jest koniecznie równy 1 
-    if ($ilosc == 1) {
+    if ($count == 1) {
 
       //zastosowanie metody która daje ostęp do kolumn poprawnego polecenia z tabeli
       $row = $query->fetch();
@@ -34,12 +34,12 @@ if (!isset($_POST['login']) || !isset($_POST['password'])) {
       // sesyjna tablica asocjacyjna zalogowanego poprawnie użytkownika która zawiera asocjacje do kolumn tabeli zwróconych poprawnym wykonaniem polecenia
       $_SESSION['user'] = [
         'login' => $row['login'],
-        'haslo' => $row['password'],
+        'password' => $row['password'],
         'email' => $row['email']
       ];
 
       // ustawienie ciasteczka pod login użytkownika który trwa przez 24h
-      setcookie("sesuse", $row['login'], time() + (3600 * 24));
+      setcookie("sesUse", $row['login'], time() + (3600 * 24));
 
       unset($_SESSION['err']);
 
