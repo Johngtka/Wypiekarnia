@@ -2,7 +2,7 @@
 
 ### New Versions Changelogs
 
-### [1.6.0](https://github.com/Johngtka/Wypiekarnia/compare/v.1.4.0...v.1.6.0) (2023.10.27)
+### [1.6.0](https://github.com/Johngtka/Wypiekarnia/compare/v.1.4.0...v.1.6.0) (2023-10-27)
 
 ### Features
 
