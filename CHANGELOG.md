@@ -2,6 +2,20 @@
 
 ### New Versions Changelogs
 
+### [1.6.0](https://github.com/Johngtka/Wypiekarnia/compare/v.1.4.0...v.1.6.0) (2023.10.27)
+
+### Features
+
+-   new logic of ordering system with some details and changes
+    ([#7](https://github.com/Johngtka/Wypiekarnia/pull/7))
+
+### Fixes
+
+-   fixed names of form fields and more
+    ([#5](https://github.com/Johngtka/Wypiekarnia/pull/5))
+
+## Pull Request ([#6](https://github.com/Johngtka/Wypiekarnia/pull/5)) was closed without merging
+
 ### [1.4.0](https://github.com/Johngtka/Wypiekarnia/compare/v.1.2.0...v.1.4.0) (2023-09-30)
 
 ## Features
