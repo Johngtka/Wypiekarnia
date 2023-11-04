@@ -283,7 +283,7 @@ if (!isset($_SESSION['user'])) {
       <div class="summaryContent">
         <?php
         echo "<h1>Podsumowanie</h1>";
-        echo "<p ><b>Zamówienie z dnia: " . $orderTimeStamp['orderDateforUser'] . ' ' . $orderTimeStamp['orderTime'] . "</b></p>";
+        echo "<p><b>Zamówienie z dnia: " . $orderTimeStamp['orderDateforUser'] . ' ' . $orderTimeStamp['orderTime'] . "</b></p>";
         echo "<p>Zamówiłeś " . $orderData['count'] . " " . $conf . "</p>";
         echo "<p><b> (" . $prodNameSelected . ") </b></p>";
         echo "<p>Numer Telefonu: " . $orderData['phone'] . "<p>";
