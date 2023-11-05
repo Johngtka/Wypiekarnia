@@ -24,8 +24,6 @@ if (!isset($_SESSION['user'])) {
 
   $orderData = [
     'count' => $number,
-    'date' => $_POST["date"],
-    'time' => $_POST["time"],
     'phone' => $phone,
     'comment' => $comment
   ];
@@ -58,8 +56,13 @@ if (!isset($_SESSION['user'])) {
     exit();
   } else {
 
-    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:nazwa,:ilosc,:dat,:czas,:telefon,:login,:kom)");
+    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:name, :count, :orderDate, :orderTime, :phone, :login, :comment)");
 
+    $orderTimeStamp = [
+      'orderDate' => date('Y.m.d'),
+      'orderTime' => date('H:i'),
+      'orderDateForUser' => date('d.m.Y')
+    ];
 
     if ($orderData['count'] <= 1) {
       $conf = $count . "ę";
@@ -67,13 +70,13 @@ if (!isset($_SESSION['user'])) {
       $conf = $count . "i";
     }
 
-    $query->bindValue(':nazwa', $prodNameSelected, PDO::PARAM_STR);
-    $query->bindValue(':ilosc', $orderData['count'], PDO::PARAM_INT);
-    $query->bindValue(':dat', $orderData['date'], PDO::PARAM_STR);
-    $query->bindValue(':czas', $orderData['time'], PDO::PARAM_STR);
-    $query->bindValue(':telefon', $orderData['phone'], PDO::PARAM_INT);
+    $query->bindValue(':name', $prodNameSelected, PDO::PARAM_STR);
+    $query->bindValue(':count', $orderData['count'], PDO::PARAM_INT);
+    $query->bindValue(':orderDate', $orderTimeStamp['orderDate'], PDO::PARAM_STR);
+    $query->bindValue(':orderTime', $orderTimeStamp['orderTime'], PDO::PARAM_STR);
+    $query->bindValue(':phone', $orderData['phone'], PDO::PARAM_INT);
     $query->bindValue(':login', $_SESSION['user']['login'], PDO::PARAM_STR);
-    $query->bindValue(':kom', $orderData['comment'], PDO::PARAM_STR);
+    $query->bindValue(':comment', $orderData['comment'], PDO::PARAM_STR);
     $query->execute();
   }
 }
@@ -98,7 +101,6 @@ if (!isset($_SESSION['user'])) {
   <script src="jquery-3.7.0.min.js"></script>
   <script src="scripts.js"></script>
 
-  <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -142,7 +144,7 @@ if (!isset($_SESSION['user'])) {
 
     .summaryPanel {
       margin: 5%;
-      padding: 5%;
+      padding: 3%;
       margin-left: auto;
       margin-right: auto;
       display: flex;
@@ -170,7 +172,7 @@ if (!isset($_SESSION['user'])) {
     @media screen and (min-width:1000px) {
 
       .summaryPanel {
-        width: 50%;
+        width: 40%;
         border-radius: 5%;
       }
 
@@ -218,11 +220,10 @@ if (!isset($_SESSION['user'])) {
       <div class="summaryContent">
         <?php
         echo "<h1>Podsumowanie</h1>";
+        echo "<p><b>Zamówienie z dnia: " . $orderTimeStamp['orderDateForUser'] . ' ' . $orderTimeStamp['orderTime'] . "</b></p>";
         echo "<p>Zamówiłeś " . $orderData['count'] . " " . $conf . "</p>";
         echo "<p><b> (" . $prodNameSelected . ") </b></p>";
         echo "<p>Numer Telefonu: " . $orderData['phone'] . "<p>";
-        echo "<p>Na termin: " . $orderData['date'] . "</p>";
-        echo "<p>Godzinę: " . $orderData['time'] . "</p>";
         echo "<h1>Z komentarzem:</h1>";
         echo "<p> " . $orderData['comment'] . "</p>";
         echo "<p><b> *Po przetworzeniu twojego zamówienia </br> wszystke informację dostaniesz na e-mail: " . $_SESSION['user']['email'] . "</b><p>";

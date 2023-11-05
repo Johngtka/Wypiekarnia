@@ -122,7 +122,7 @@ if (!isset($_SESSION['user'])) {
     $orderTimeStamp = [
       'orderDate' => date('Y.m.d'),
       'orderTime' => date('H:i'),
-      'orderDateforUser' => date('d.m.Y')
+      'orderDateForUser' => date('d.m.Y')
     ];
 
     if ($orderData['count'] <= 1) {
@@ -163,7 +163,6 @@ if (!isset($_SESSION['user'])) {
   <script src="jquery-3.7.0.min.js"></script>
   <script src="scripts.js"></script>
 
-  <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -283,7 +282,7 @@ if (!isset($_SESSION['user'])) {
       <div class="summaryContent">
         <?php
         echo "<h1>Podsumowanie</h1>";
-        echo "<p><b>Zamówienie z dnia: " . $orderTimeStamp['orderDateforUser'] . ' ' . $orderTimeStamp['orderTime'] . "</b></p>";
+        echo "<p><b>Zamówienie z dnia: " . $orderTimeStamp['orderDateForUser'] . ' ' . $orderTimeStamp['orderTime'] . "</b></p>";
         echo "<p>Zamówiłeś " . $orderData['count'] . " " . $conf . "</p>";
         echo "<p><b> (" . $prodNameSelected . ") </b></p>";
         echo "<p>Numer Telefonu: " . $orderData['phone'] . "<p>";

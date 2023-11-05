@@ -117,11 +117,6 @@ require_once('loginVerify.php');
       </div>
 
       <div class="row">
-        <label><b>Data dostawy:</b><input type="date" name="date" required /></label><br /><br />
-        <label><b>Czas dostawy:</b><input type="time" min="10:00" max="23:00" name="time" required /></label>
-      </div>
-
-      <div class="row">
         <div><label><b>Uwagi do zamówienia:</b></label></div>
         <textarea id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" name="comment" required></textarea>
       </div>

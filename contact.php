@@ -23,7 +23,7 @@ if (isset($log)) {
   <script src="js/bootstrap.min.js"></script>
   <script src="jquery-3.7.0.min.js"></script>
   <script src="scripts.js"></script>
-  <!--sekcja czcionek-->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -36,8 +36,8 @@ if (isset($log)) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
-  <!--koniec sekcji czcionek-->
-  <style>
+
+  <style type="text/css">
     ul>li::marker {
       font-size: 30px;
     }
