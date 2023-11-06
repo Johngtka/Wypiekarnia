@@ -21,7 +21,7 @@ if (!isset($_SESSION['user'])) {
         <script src="js/bootstrap.min.js"></script>
         <script src="jquery-3.7.0.min.js"></script>
         <script src="scripts.js"></script>
-        <!--sekcja czcionek-->
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -34,7 +34,7 @@ if (!isset($_SESSION['user'])) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
-        <!--koniec sekcji czcionek-->
+
         <style type="text/css">
             h1 {
                 width: 100%;
@@ -103,7 +103,6 @@ if (!isset($_SESSION['user'])) {
         </div>
         <div class="main1">
             <?php
-            // komunikat wyświetlany jak ktoś chce zamówić wszystkie produkty na raz
             echo "<h1><b><i>Musisz dokonać tylko 1 wyboru,<br> lub zrobić wiele zamówień!!!</i></b></h1>";
             echo '<h2><a href="http://localhost/Wypiekarnia/">Strona Główna <i class="icon-home"></i></a></h2>';
             ?>

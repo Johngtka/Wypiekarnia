@@ -1,5 +1,4 @@
 <?php
-// podłączenie dokumentu który sprawdza czy jest zalogowanu user
 require_once('loginVerify.php');
 ?>
 <!DOCTYPE html>
@@ -18,7 +17,7 @@ require_once('loginVerify.php');
   <script src="js/bootstrap.min.js"></script>
   <script src="jquery-3.7.0.min.js"></script>
   <script src="scripts.js"></script>
-  <!--sekcja czcionek-->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -31,7 +30,7 @@ require_once('loginVerify.php');
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
-  <!--koniec sekcji czcionek-->
+
   <style type="text/css">
     .formButtons {
       display: flex;
@@ -114,11 +113,6 @@ require_once('loginVerify.php');
           unset($_SESSION['noPhoneCorrect']);
         }
         ?>
-      </div>
-
-      <div class="row">
-        <label><b>Data dostawy:</b><input type="date" name="date" required /></label><br /><br />
-        <label><b>Czas dostawy:</b><input type="time" min="10:00" max="23:00" name="time" required /></label>
       </div>
 
       <div class="row">

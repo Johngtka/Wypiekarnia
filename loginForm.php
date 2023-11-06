@@ -1,6 +1,5 @@
 <?php
 require_once('PDO.php');
-// zabezpiecz enie przed bez celowym ponownym logowaniem
 if (isset($_SESSION['user'])) {
   header('Location: user.php');
   exit();
@@ -22,7 +21,7 @@ if (isset($_SESSION['user'])) {
   <script src="js/bootstrap.min.js"></script>
   <script src="jquery-3.7.0.min.js"></script>
   <script src="scripts.js"></script>
-  <!--sekcja czcionek-->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet" />
@@ -35,7 +34,7 @@ if (isset($_SESSION['user'])) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
-  <!--koniec sekcji czcionek-->
+
   <style type="text/css">
     .formButtons {
       width: 100%;
@@ -107,7 +106,6 @@ if (isset($_SESSION['user'])) {
           <b>Hasło:</b><input type="password" name="password" placeholder="Wpisz Hasło" required />
         </label>
         <?php
-        //warunek sprawdzający czy jest ustawiony error jeśli tak to wyświetlić error
         if (isset($_SESSION['err'])) {
           echo $_SESSION['err'];
           unset($_SESSION['err']);
