@@ -121,7 +121,7 @@ $query->execute();
             document.execCommand("copy");
             document.body.removeChild(dummy);
 
-            alert("Kod promocyjny skopiowany: " + code);
+            alert("Kod promocyjny skopiowany!!!");
         }
     </script>
 </head>
