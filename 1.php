@@ -22,6 +22,10 @@ if (!isset($_SESSION['user'])) {
     exit();
   }
 
+  if (isset($_POST['discountCode'])) {
+    $discountCode = filter_input(INPUT_POST, 'discountCode');
+  }
+
   /* 
     Przepuszczenie wartości POST przez filtrację:
 

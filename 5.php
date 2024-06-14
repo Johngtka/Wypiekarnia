@@ -17,6 +17,10 @@ if (!isset($_SESSION['user'])) {
     exit();
   }
 
+  if (isset($_POST['discountCode'])) {
+    $discountCode = filter_input(INPUT_POST, 'discountCode');
+  }
+
   $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'count');
   $phone = filter_input(INPUT_POST, 'phone', FILTER_VALIDATE_INT);

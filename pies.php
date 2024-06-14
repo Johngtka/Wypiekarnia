@@ -125,7 +125,7 @@ require_once('loginVerify.php');
 
       <div class="row discountCodeInputBlock">
         <label><input type="checkbox" onclick="showDiscountCodeInput()"> - <b>Posiadam kod rabatowy?</b></label>
-        <input class="discountCodeInput" type="search" name="discountCode" disabled>
+        <input class="discountCodeInput" name="discountCode" type="search" name="discountCode" disabled>
       </div>
 
       <div class="formButtons">
