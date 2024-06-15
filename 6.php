@@ -17,9 +17,7 @@ if (!isset($_SESSION['user'])) {
     exit();
   }
 
-  if (isset($_POST['discountCode'])) {
-    $discountCode = filter_input(INPUT_POST, 'discountCode');
-  }
+  $discountCode = isset($_POST['discountCode']) ? filter_input(INPUT_POST, 'discountCode') : '';
 
   $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'count');
@@ -60,7 +58,7 @@ if (!isset($_SESSION['user'])) {
     exit();
   } else {
 
-    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:name, :count, :orderDate, :orderTime, :phone, :login, :comment)");
+    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:name, :count, :orderDate, :orderTime, :phone, :login, :comment, :SaleCode)");
 
     $orderTimeStamp = [
       'orderDate' => date('Y.m.d'),
@@ -81,6 +79,7 @@ if (!isset($_SESSION['user'])) {
     $query->bindValue(':phone', $orderData['phone'], PDO::PARAM_INT);
     $query->bindValue(':login', $_SESSION['user']['login'], PDO::PARAM_STR);
     $query->bindValue(':comment', $orderData['comment'], PDO::PARAM_STR);
+    $query->bindValue(':SaleCode', $discountCode !== '' ? $discountCode : 'No Discount Code', PDO::PARAM_STR);
     $query->execute();
   }
 }

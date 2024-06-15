@@ -25,9 +25,7 @@ if (!isset($_SESSION['user'])) {
 
   // dodatkowa bramka zapisująca kod rabatory jeśli istnieje do zmiennej
 
-  if (isset($_POST['discountCode'])) {
-    $discountCode = filter_input(INPUT_POST, 'discountCode');
-  }
+  $discountCode = isset($_POST['discountCode']) ? filter_input(INPUT_POST, 'discountCode') : '';
 
   /* 
 
@@ -142,7 +140,7 @@ if (!isset($_SESSION['user'])) {
     $query->bindValue(':phone', $orderData['phone'], PDO::PARAM_INT);
     $query->bindValue(':login', $_SESSION['user']['login'], PDO::PARAM_STR);
     $query->bindValue(':comment', $orderData['comment'], PDO::PARAM_STR);
-    $query->bindValue(':SaleCode', $discountCode, PDO::PARAM_STR);
+    $query->bindValue(':SaleCode', $discountCode !== '' ? $discountCode : 'No Discount Code', PDO::PARAM_STR);
     $query->execute();
   }
 }
