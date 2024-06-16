@@ -17,12 +17,12 @@ if (!isset($_SESSION['user'])) {
     exit();
   }
 
-  $discountCode = isset($_POST['discountCode']) ? filter_input(INPUT_POST, 'discountCode') : '';
-
   $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'count');
   $phone = filter_input(INPUT_POST, 'phone', FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'comment');
+
+  $discountCode = isset($_POST['discountCode']) ? filter_input(INPUT_POST, 'discountCode') : '';
 
   $orderData = [
     'count' => $number,

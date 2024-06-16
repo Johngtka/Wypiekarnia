@@ -23,10 +23,6 @@ if (!isset($_SESSION['user'])) {
     exit();
   }
 
-  // dodatkowa bramka zapisująca kod rabatory jeśli istnieje do zmiennej
-
-  $discountCode = isset($_POST['discountCode']) ? filter_input(INPUT_POST, 'discountCode') : '';
-
   /* 
 
     Przepuszczenie następujących wartości POST przez filtrację:
@@ -42,6 +38,10 @@ if (!isset($_SESSION['user'])) {
   $number = filter_input(INPUT_POST, 'count');
   $phone = filter_input(INPUT_POST, 'phone', FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'comment');
+
+  // dodatkowa bramka zapisująca kod rabatory jeśli istnieje do zmiennej
+
+  $discountCode = isset($_POST['discountCode']) ? filter_input(INPUT_POST, 'discountCode') : '';
 
   // spisywanie wszystkich danych [ Ilość, Telefon i Komentarz] do jednej tablicy asocjacyjnej
 
