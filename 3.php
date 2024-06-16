@@ -79,6 +79,7 @@ if (!isset($_SESSION['user'])) {
     $query->bindValue(':orderTime', $orderTimeStamp['orderTime'], PDO::PARAM_STR);
     $query->bindValue(':phone', $orderData['phone'], PDO::PARAM_INT);
     $query->bindValue(':login', $_SESSION['user']['login'], PDO::PARAM_STR);
+    $query->bindValue(':comment', $orderData['comment'], PDO::PARAM_STR);
     $query->bindValue(':SaleCode', $discountCode !== '' ? $discountCode : 'No Discount Code', PDO::PARAM_STR);
     $query->execute();
   }
