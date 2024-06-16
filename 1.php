@@ -113,7 +113,7 @@ if (!isset($_SESSION['user'])) {
     // przygotowanie polecenia SQL wraz z bindami poniżej
     $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:name, :count, :orderDate, :orderTime, :phone, :login, :comment, :SaleCode)");
 
-    // utworzenie tablizy z danymi zamówienia [ Data( DD.MM.YYYY (dla użytkownika), YYYY.MM.DD (dla firmy) ) i godziny zamówienia ( HH:MM ) ]
+    // utworzenie tablicy z danymi zamówienia [ Data( DD.MM.YYYY (dla użytkownika), YYYY.MM.DD (dla firmy) ) i godziny zamówienia ( HH:MM ) ]
 
     $orderTimeStamp = [
       'orderDate' => date('Y.m.d'),
