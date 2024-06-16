@@ -2,6 +2,16 @@
 
 ### New Versions Changelogs
 
+### [2.6.0](https://github.com/Johngtka/Wypiekarnia/compare/v.1.6.0...v.2.6.0) (2024-06-16)
+
+### Features
+
+-   feat: new functionality of orders for Discount Code input and all others
+    changes ([#9](https://github.com/Johngtka/Wypiekarnia/pull/9))
+
+-   feat: new changes to the order sending engine with code compression
+    ([#8](https://github.com/Johngtka/Wypiekarnia/pull/8))
+
 ### [1.6.0](https://github.com/Johngtka/Wypiekarnia/compare/v.1.4.0...v.1.6.0) (2023-10-27)
 
 ### Features
