@@ -15,8 +15,10 @@ require_once('loginVerify.php');
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="css1/fontello.css" type="text/css" />
   <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="stylesheet" href="./discountCodeStyleBlock.css">
   <script src="js/bootstrap.min.js"></script>
   <script src="jquery-3.7.0.min.js"></script>
+  <script src="./discountCodeFunctions.js"></script>
   <script src="scripts.js"></script>
   <!--sekcja czcionek-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -118,6 +120,11 @@ require_once('loginVerify.php');
       <div class="row">
         <div><label><b>Uwagi do zamówienia:</b></label></div>
         <textarea id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" name="comment" required></textarea>
+      </div>
+
+      <div class="row discountCodeInputBlock">
+        <label><input type="checkbox" onclick="showDiscountCodeInput()"> - <b>Posiadam kod rabatowy?</b></label>
+        <input class="discountCodeInput" name="discountCode" type="search" name="discountCode" disabled>
       </div>
 
       <div class="formButtons">

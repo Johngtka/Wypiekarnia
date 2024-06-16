@@ -112,6 +112,18 @@ $query->execute();
             margin-top: 20px;
         }
     </style>
+    <script>
+        function copyToClipboard(code) {
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = code;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            alert("Kod promocyjny skopiowany!!!");
+        }
+    </script>
 </head>
 
 <body>
@@ -146,6 +158,7 @@ $query->execute();
                     <h1>-<?php echo $row['Value'] ?>%</h1>
                     <span><?php echo $row['ProductName'] ?></span>
                     <p><?php echo $row['StartDate'] ?> - <?php echo $row['EndDate'] ?></p>
+                    <h5><button style="width: 100%; display:flex; justify-content: center; padding-top: 10px; padding-bottom: 10px; padding-left:10px; padding-right:10px; margin-top:15px; border-radius: 10px; font-weight: bold" onclick="copyToClipboard('<?php echo $row['SaleCode'] ?>')">Skopiuj Kod📋</button></h3>
                 </div>
             <?php
             }

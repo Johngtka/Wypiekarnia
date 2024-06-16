@@ -1,5 +1,5 @@
 <?php
-// podłączenie silnika umożliwiającego łącze z bazą
+// podłączenie silnika umożliwiającego connect z bazą
 require_once('PDO.php');
 
 // sprawdzenie czy użytkownik jest zalogowany jeśli tak to else
@@ -7,6 +7,7 @@ if (!isset($_SESSION['user'])) {
   header('Location: http://localhost/Wypiekarnia/loginVerify.php');
   exit();
 } else {
+  // walidacja polegająca na sprawdzeniu czy wartość POST inputa z ilością produktów do zamówienia nie jest <=0
 
   if ($_POST['count'] <= 0) {
     $_SESSION['noNumber'] = '<span style="color: red"><b>*Wpisz poprawną ILOŚĆ!!!</b></span>';
@@ -14,7 +15,7 @@ if (!isset($_SESSION['user'])) {
     exit();
   }
 
-  // walidacja polegająca na sprawdzeniu czy wartość POST z inputa | telefon | nie posiada nic innego jak tylko liczby
+  // walidacja polegająca na sprawdzeniu czy wartość POST inputa numeru telefonu nie posiada nic innego jak tylko liczby
 
   if (!ctype_digit($_POST['phone'])) {
     $_SESSION['noPhoneCorrect'] = '<span style="color: red"><b>*Wpisz poprawny NUMER!!! telefonu</b></span>';
@@ -23,31 +24,26 @@ if (!isset($_SESSION['user'])) {
   }
 
   /* 
-    Przepuszczenie wartości POST przez filtrację:
+
+    Przepuszczenie następujących wartości POST przez filtrację:
 
     - ilość
-    - adres
     - telefon
     - komentarz
 
-    FILTER_VALIDATE_EMAIL/_INT powodują że do bazy nie przejdzie nic innego jak tylko poprawny email lub liczba
-
     zmienna [ count ] służy do konfiguracji odmiany ilości produktów w podsumowaniu
+
   */
   $count = 'sztuk';
   $number = filter_input(INPUT_POST, 'count');
   $phone = filter_input(INPUT_POST, 'phone', FILTER_VALIDATE_INT);
   $comment = filter_input(INPUT_POST, 'comment');
 
-  /*
-    tworzenie tablicy skojażeniowej z przefiltrowanymi u góry danymi oraz dodatkowymi:
+  // dodatkowa bramka zapisująca kod rabatory jeśli istnieje do zmiennej
 
-    - data
-    - czas
+  $discountCode = isset($_POST['discountCode']) ? filter_input(INPUT_POST, 'discountCode') : '';
 
-    te 2 dane są pobrane bezpośrednio z POST 
-    bo nie ma potrzeby filtrowania wartości na które użytkownik nie ma wpływu
-  */
+  // spisywanie wszystkich danych [ Ilość, Telefon i Komentarz] do jednej tablicy asocjacyjnej
 
   $orderData = [
     'count' => $number,
@@ -107,23 +103,28 @@ if (!isset($_SESSION['user'])) {
     $prodNameSelected = 'Tort Ślubny';
   }
 
+  // bramka zabezpieczająca przed zaznaczeniem wszystkich checkboxów
+
   if (isset($prodType['ur']) && isset($prodType['sm']) && isset($prodType['jub']) && isset($prodType['slub'])) {
     header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {
-    // przygotowanie polecenia SQL wraz z bindami poniżej
-    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:name, :count, :orderDate, :orderTime, :phone, :login, :comment)");
 
-    /**
-     * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
-     * oraz gdy będzie coś innego (w else) to zapisze się sklejka tortów + nazwa tortu
-     */
+    // przygotowanie polecenia SQL wraz z bindami poniżej
+    $query = $db->prepare("INSERT INTO zamowienia VALUES (NULL,:name, :count, :orderDate, :orderTime, :phone, :login, :comment, :SaleCode)");
+
+    // utworzenie tablicy z danymi zamówienia [ Data( DD.MM.YYYY (dla użytkownika), YYYY.MM.DD (dla firmy) ) i godziny zamówienia ( HH:MM ) ]
 
     $orderTimeStamp = [
       'orderDate' => date('Y.m.d'),
       'orderTime' => date('H:i'),
       'orderDateForUser' => date('d.m.Y')
     ];
+
+    /**
+     * zwykła konfigurazja podsumowania jeśli ilość będzie <=1 to przypisze się sklejka tort + nazwa wybranego tortu (bez modyfikacji)
+     * oraz gdy będzie coś innego (w else) to zapisze się sklejka tortów + nazwa tortu
+     */
 
     if ($orderData['count'] <= 1) {
       $conf = $count . "ę";
@@ -139,6 +140,7 @@ if (!isset($_SESSION['user'])) {
     $query->bindValue(':phone', $orderData['phone'], PDO::PARAM_INT);
     $query->bindValue(':login', $_SESSION['user']['login'], PDO::PARAM_STR);
     $query->bindValue(':comment', $orderData['comment'], PDO::PARAM_STR);
+    $query->bindValue(':SaleCode', $discountCode !== '' ? $discountCode : 'No Discount Code', PDO::PARAM_STR);
     $query->execute();
   }
 }
