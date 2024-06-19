@@ -91,10 +91,10 @@ require_once('loginVerify.php');
       <div class="row">
         <legend><b>Rodzaj Babeczki:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="biala"><b>Babeczka Czekoladowa Biała(8zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="czarna"><b>Babeczka Czekoladowa Czarna(8zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="malinowa"><b>Babeczka Malinowa(8zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="sezonowa"><b>Babeczka Sezonowa(8zł/100gr)</b></label>
+          <label><input type="checkbox" name="M1"><b>Babeczka Czekoladowa Biała(8zł/100gr)</b></label></br>
+          <label><input type="checkbox" name="M2"><b>Babeczka Czekoladowa Czarna(8zł/100gr)</b></label></br>
+          <label><input type="checkbox" name="M3"><b>Babeczka Malinowa(8zł/100gr)</b></label></br>
+          <label><input type="checkbox" name="M4"><b>Babeczka Sezonowa(8zł/100gr)</b></label>
         </div>
       </div>
 

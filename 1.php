@@ -75,10 +75,10 @@ if (!isset($_SESSION['user'])) {
    */
 
   $prodType = @[
-    'ur' => $_POST['urodzinowy'],
-    'sm' => $_POST['smakosz'],
-    'jub' => $_POST['jubileuszowy'],
-    'slub' => $_POST['slubny']
+    'Birthday' => $_POST['T1'],
+    'ForGourmets' => $_POST['T2'],
+    'Jubilee' => $_POST['T3'],
+    'Wedding' => $_POST['T4']
   ];
 
   /**
@@ -87,25 +87,25 @@ if (!isset($_SESSION['user'])) {
    * co oznacza zaznaczony odpowiedni checkbox z produktem
    */
 
-  if (isset($prodType['ur'])) {
+  if (isset($prodType['Birthday'])) {
     $prodNameSelected = 'Tort Urodzinowy';
   }
 
-  if (isset($prodType['sm'])) {
+  if (isset($prodType['ForGourmets'])) {
     $prodNameSelected = 'Tort dla Smakoszy';
   }
 
-  if (isset($prodType['jub'])) {
+  if (isset($prodType['Jubilee'])) {
     $prodNameSelected = 'Tort Jubileusz';
   }
 
-  if (isset($prodType['slub'])) {
+  if (isset($prodType['Wedding'])) {
     $prodNameSelected = 'Tort Ślubny';
   }
 
   // bramka zabezpieczająca przed zaznaczeniem wszystkich checkboxów
 
-  if (isset($prodType['ur']) && isset($prodType['sm']) && isset($prodType['jub']) && isset($prodType['slub'])) {
+  if (isset($prodType['Birthday']) && isset($prodType['ForGourmets']) && isset($prodType['Jubilee']) && isset($prodType['Wedding'])) {
     header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {

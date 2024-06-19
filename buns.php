@@ -90,10 +90,10 @@ require_once('loginVerify.php');
       <div class="row">
         <legend><b>Rodzaj Bułek:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="przenna"><b>Bułka Przenna(0,60gr/1szt)</b></label></br>
-          <label><input type="checkbox" name="kajzerka"><b>Bułka Kajzerka(0,80gr/1szt)</b></label></br>
-          <label><input type="checkbox" name="razowa"><b>Bułka Razowa(0,90gr/1szt)</b></label></br>
-          <label><input type="checkbox" name="ziarnista"><b>Bułka Ziarnista(0,50gr/1szt)</b></label>
+          <label><input type="checkbox" name="B1"><b>Bułka Przenna(0,60gr/1szt)</b></label></br>
+          <label><input type="checkbox" name="B2"><b>Bułka Kajzerka(0,80gr/1szt)</b></label></br>
+          <label><input type="checkbox" name="B3"><b>Bułka Razowa(0,90gr/1szt)</b></label></br>
+          <label><input type="checkbox" name="B4"><b>Bułka Ziarnista(0,50gr/1szt)</b></label>
         </div>
       </div>
 

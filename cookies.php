@@ -90,10 +90,10 @@ require_once('loginVerify.php');
       <div class="row">
         <legend><b>Rodzaj Ciastek:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="czek"><b>Ciastka z czekoladą(5zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="ziarna"><b>Ciastka Ziarna w Karmelu(5zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="bakaliowe"><b>Ciastka Owsiane z bakaliami(7zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="cantuccini"><b>Ciastka Cantuccini(6zł/100gr)</b></label>
+          <label><input type="checkbox" name="Coo1"><b>Ciastka z czekoladą(5zł/100gr)</b></label></br>
+          <label><input type="checkbox" name="Coo2"><b>Ciastka Ziarna w Karmelu(5zł/100gr)</b></label></br>
+          <label><input type="checkbox" name="Coo3"><b>Ciastka Owsiane z bakaliami(7zł/100gr)</b></label></br>
+          <label><input type="checkbox" name="Coo4"><b>Ciastka Cantuccini(6zł/100gr)</b></label>
         </div>
       </div>
 
