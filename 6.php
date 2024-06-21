@@ -31,29 +31,29 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'prz' => $_POST['przenna'],
-    'kaj' => $_POST['kajzerka'],
-    'raz' => $_POST['razowa'],
-    'zia' => $_POST['ziarnista']
+    'Wheat' => $_POST['B1'],
+    'Kajser' => $_POST['B2'],
+    'Wholemeal' => $_POST['B3'],
+    'Grain' => $_POST['B4']
   ];
 
-  if (isset($prodType['prz'])) {
+  if (isset($prodType['Wheat'])) {
     $prodNameSelected = 'Bułka Przenna';
   }
 
-  if (isset($prodType['kaj'])) {
+  if (isset($prodType['Kajser'])) {
     $prodNameSelected = 'Bułka Kajzerka';
   }
 
-  if (isset($prodType['raz'])) {
+  if (isset($prodType['Wholemeal'])) {
     $prodNameSelected = 'Bułka Razowa';
   }
 
-  if (isset($prodType['zia'])) {
+  if (isset($prodType['Grain'])) {
     $prodNameSelected = 'Bułka Ziarnista';
   }
 
-  if (isset($prodType['prz']) && isset($prodType['kaj']) && isset($prodType['raz']) && isset($prodType['zia'])) {
+  if (isset($prodType['Wheat']) && isset($prodType['Kajser']) && isset($prodType['Wholemeal']) && isset($prodType['Grain'])) {
     header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {

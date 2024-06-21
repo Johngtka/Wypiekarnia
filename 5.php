@@ -31,29 +31,29 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'usa' => $_POST['czek'],
-    'kar' => $_POST['ziarna'],
-    'bak' => $_POST['bakaliowe'],
-    'can' => $_POST['cantuccini']
+    'American' => $_POST['Coo1'],
+    'Caramels' => $_POST['Coo2'],
+    'Bakalie' => $_POST['Coo3'],
+    'Cantuccini' => $_POST['Coo4']
   ];
 
-  if (isset($prodType['usa'])) {
+  if (isset($prodType['American'])) {
     $prodNameSelected = 'Ciastko Amerykańskie';
   }
 
-  if (isset($prodType['zia'])) {
+  if (isset($prodType['Caramels'])) {
     $prodNameSelected = 'Ciastko Ziarna w Karmelu';
   }
 
-  if (isset($prodType['bak'])) {
+  if (isset($prodType['Bakalie'])) {
     $prodNameSelected = 'Ciastko z bakaliami';
   }
 
-  if (isset($prodType['can'])) {
+  if (isset($prodType['Cantuccini'])) {
     $prodNameSelected = 'Ciastko Cantuccini';
   }
 
-  if (isset($prodType['usa']) && isset($prodType['kar']) && isset($prodType['bak']) && isset($prodType['can'])) {
+  if (isset($prodType['American']) && isset($prodType['Caramels']) && isset($prodType['Bakalie']) && isset($prodType['Cantuccini'])) {
     header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {

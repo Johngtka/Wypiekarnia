@@ -31,11 +31,12 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'bia' => $_POST['biala'],
-    'cza' => $_POST['czarna'],
-    'mali' => $_POST['malinowa'],
-    'sez' => $_POST['sezonowa']
+    'bia' => $_POST['M1'],
+    'cza' => $_POST['M2'],
+    'mali' => $_POST['M3'],
+    'sez' => $_POST['M4']
   ];
+
   if (isset($prodType['bia'])) {
     $prodNameSelected = 'Babeczka Czekoladowa Biała';
   }

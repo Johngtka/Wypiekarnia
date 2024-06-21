@@ -90,10 +90,10 @@ require_once('loginVerify.php');
       <div class="row">
         <legend><b>Rodzaj Tortu:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="urodzinowy"><b>Urodzinowy(50zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="smakosz"><b>Dla Smakoszy(20zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="jubileuszowy"><b>Jubileuszowy(30zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="slubny"><b>Ślubny(40zł/Kg)</b></label>
+          <label><input type="checkbox" name="T1"><b>Urodzinowy(50zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="T2"><b>Dla Smakoszy(20zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="T3"><b>Jubileuszowy(30zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="T4"><b>Ślubny(40zł/Kg)</b></label>
         </div>
       </div>
 

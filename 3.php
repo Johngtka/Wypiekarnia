@@ -31,29 +31,29 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'jab' => $_POST['jablkowe'],
-    'wio' => $_POST['wiosenne'],
-    'co' => $_POST['czekorz'],
-    'mali' => $_POST['malinowe']
+    'Apple' => $_POST['Ta1'],
+    'Spring' => $_POST['Ta2'],
+    'ChocolateNut' => $_POST['Ta3'],
+    'Raspberry' => $_POST['Ta4']
   ];
 
-  if (isset($prodType['jab'])) {
+  if (isset($prodType['Apple'])) {
     $prodNameSelected = 'Tarta Jabłkowa na mlecznym kremie';
   }
 
-  if (isset($prodType['wio'])) {
+  if (isset($prodType['Spring'])) {
     $prodNameSelected = 'Tarta Wiosenna';
   }
 
-  if (isset($prodType['co'])) {
+  if (isset($prodType['ChocolateNut'])) {
     $prodNameSelected = 'Tarta Czekoladowo-orzechowa';
   }
 
-  if (isset($prodType['mali'])) {
+  if (isset($prodType['Raspberry'])) {
     $prodNameSelected = 'Tarta Malinowa';
   }
 
-  if (isset($prodType['jab']) && isset($prodType['wio']) && isset($prodType['co']) && isset($prodType['mali'])) {
+  if (isset($prodType['Apple']) && isset($prodType['Spring']) && isset($prodType['ChocolateNut']) && isset($prodType['Raspberry'])) {
     header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {

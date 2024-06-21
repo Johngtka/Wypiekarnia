@@ -90,10 +90,10 @@ require_once('loginVerify.php');
       <div class="row">
         <legend><b>Rodzaj Tarty:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="jablkowe"><b>Jabłkowa na mlecznym kremie(35zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="wiosenne"><b>Wiosenna(30zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="czekorz"><b>Czekoladowo-Orzechowa(25zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="malinowe"><b>Malinowa(20zł/Kg)</b></label>
+          <label><input type="checkbox" name="Ta1"><b>Jabłkowa na mlecznym kremie(35zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="Ta2"><b>Wiosenna(30zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="Ta3"><b>Czekoladowo-Orzechowa(25zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="Ta4"><b>Malinowa(20zł/Kg)</b></label>
         </div>
       </div>
 

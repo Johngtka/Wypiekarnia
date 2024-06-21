@@ -31,29 +31,29 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'dr' => $_POST['drozdzowe'],
-    'ser' => $_POST['sernik'],
-    'bro' => $_POST['brown'],
-    'kid' => $_POST['dziec']
+    'Yeast' => $_POST['C1'],
+    'Cheese' => $_POST['C2'],
+    'Browne' => $_POST['C3'],
+    'ForChildren' => $_POST['C4']
   ];
 
-  if (isset($prodType['dr'])) {
+  if (isset($prodType['Yeast'])) {
     $prodNameSelected = 'Ciasto Drożdżowe';
   }
 
-  if (isset($prodType['ser'])) {
+  if (isset($prodType['Cheese'])) {
     $prodNameSelected = 'Ciasto Sernik';
   }
 
-  if (isset($prodType['bro'])) {
+  if (isset($prodType['Browne'])) {
     $prodNameSelected = 'Ciasto Browne';
   }
 
-  if (isset($prodType['kid'])) {
+  if (isset($prodType['ForChildren'])) {
     $prodNameSelected = 'Ciasto Dziecięce';
   }
 
-  if (isset($prodType['dr']) && isset($prodType['ser']) && isset($prodType['bro']) && isset($prodType['kid'])) {
+  if (isset($prodType['Yeast']) && isset($prodType['Cheese']) && isset($prodType['Browne']) && isset($prodType['ForChildren'])) {
     header('Location: http://localhost/Wypiekarnia/control.php');
     exit();
   } else {

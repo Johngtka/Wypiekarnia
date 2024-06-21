@@ -91,10 +91,10 @@ require_once('loginVerify.php');
       <div class="row">
         <legend><b>Rodzaj Ciasta:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="drozdzowe"><b>Drożdżowe(15zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="sernik"><b>Sernik(20zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="brown"><b>Brown'e(25zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="dziec"><b>Dziecięce(30zł/Kg)</b></label>
+          <label><input type="checkbox" name="C1"><b>Drożdżowe(15zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="C2"><b>Sernik(20zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="C3"><b>Brown'e(25zł/Kg)</b></label></br>
+          <label><input type="checkbox" name="C4"><b>Dziecięce(30zł/Kg)</b></label>
         </div>
       </div>
 
