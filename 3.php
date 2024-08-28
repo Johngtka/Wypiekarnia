@@ -50,7 +50,7 @@ if (!isset($_SESSION['user'])) {
   }
 
   if (isset($prodType['Raspberry'])) {
-    $prodNameSelected = 'Tarta - Malinowa	';
+    $prodNameSelected = 'Tarta - Malinowa';
   }
 
   if (isset($prodType['Apple']) && isset($prodType['Spring']) && isset($prodType['ChocolateNut']) && isset($prodType['Raspberry'])) {

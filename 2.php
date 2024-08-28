@@ -50,7 +50,7 @@ if (!isset($_SESSION['user'])) {
   }
 
   if (isset($prodType['ForChildren'])) {
-    $prodNameSelected = 'Ciasto - Dziecięce	';
+    $prodNameSelected = 'Ciasto - Dziecięce';
   }
 
   if (isset($prodType['Yeast']) && isset($prodType['Cheese']) && isset($prodType['Browne']) && isset($prodType['ForChildren'])) {
