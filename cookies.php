@@ -1,5 +1,9 @@
 <?php
 require_once('loginVerify.php');
+require_once('PDO.php');
+
+$query = $db->prepare("SELECT id, name, price FROM produkty WHERE name LIKE 'Ciasteczka%'");
+$query->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -88,12 +92,15 @@ require_once('loginVerify.php');
   <div class="main1">
     <form action="5.php" method="POST">
       <div class="row">
-        <legend><b>Rodzaj Ciastek:</b></legend>
+        <legend><b>Rodzaj:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="Coo1"><b>Ciastka z czekoladą(5zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="Coo2"><b>Ciastka Ziarna w Karmelu(5zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="Coo3"><b>Ciastka Owsiane z bakaliami(7zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="Coo4"><b>Ciastka Cantuccini(6zł/100gr)</b></label>
+          <?php
+          while ($row = $query->fetch()) {
+          ?>
+            <label><input type="checkbox" name="<?php echo $row['id']; ?>"><b> <?php echo $row['name']; ?> ( <?php echo $row['price']; ?>zł/Kg )</b></label><br>
+          <?php
+          }
+          ?>
         </div>
       </div>
 
@@ -119,7 +126,7 @@ require_once('loginVerify.php');
 
       <div class="row">
         <div><label><b>Uwagi do zamówienia:</b></label></div>
-        <textarea id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" name="comment" required></textarea>
+        <textarea id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" name="comment"></textarea>
       </div>
 
       <div class="row discountCodeInputBlock">

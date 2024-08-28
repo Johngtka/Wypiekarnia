@@ -31,26 +31,26 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'American' => $_POST['Coo1'],
-    'Caramels' => $_POST['Coo2'],
-    'Bakalie' => $_POST['Coo3'],
-    'Cantuccini' => $_POST['Coo4']
+    'American' => $_POST['13'],
+    'Caramels' => $_POST['14'],
+    'Bakalie' => $_POST['15'],
+    'Cantuccini' => $_POST['16']
   ];
 
   if (isset($prodType['American'])) {
-    $prodNameSelected = 'Ciastko Amerykańskie';
+    $prodNameSelected = 'Ciasteczka - Amerykańskie';
   }
 
   if (isset($prodType['Caramels'])) {
-    $prodNameSelected = 'Ciastko Ziarna w Karmelu';
+    $prodNameSelected = 'Ciasteczka - Ziarna w Karmelu';
   }
 
   if (isset($prodType['Bakalie'])) {
-    $prodNameSelected = 'Ciastko z bakaliami';
+    $prodNameSelected = 'Ciasteczka - Owsiane z Bakaliami';
   }
 
   if (isset($prodType['Cantuccini'])) {
-    $prodNameSelected = 'Ciastko Cantuccini';
+    $prodNameSelected = 'Ciasteczka - Cantuccini';
   }
 
   if (isset($prodType['American']) && isset($prodType['Caramels']) && isset($prodType['Bakalie']) && isset($prodType['Cantuccini'])) {

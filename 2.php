@@ -31,26 +31,26 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'Yeast' => $_POST['C1'],
-    'Cheese' => $_POST['C2'],
-    'Browne' => $_POST['C3'],
-    'ForChildren' => $_POST['C4']
+    'Yeast' => $_POST['5'],
+    'Cheese' => $_POST['6'],
+    'Browne' => $_POST['7'],
+    'ForChildren' => $_POST['8']
   ];
 
   if (isset($prodType['Yeast'])) {
-    $prodNameSelected = 'Ciasto Drożdżowe';
+    $prodNameSelected = 'Ciasto - Drożdżowe';
   }
 
   if (isset($prodType['Cheese'])) {
-    $prodNameSelected = 'Ciasto Sernik';
+    $prodNameSelected = 'Ciasto - Sernik';
   }
 
   if (isset($prodType['Browne'])) {
-    $prodNameSelected = 'Ciasto Browne';
+    $prodNameSelected = 'Ciasto - Browne';
   }
 
   if (isset($prodType['ForChildren'])) {
-    $prodNameSelected = 'Ciasto Dziecięce';
+    $prodNameSelected = 'Ciasto - Dziecięce	';
   }
 
   if (isset($prodType['Yeast']) && isset($prodType['Cheese']) && isset($prodType['Browne']) && isset($prodType['ForChildren'])) {

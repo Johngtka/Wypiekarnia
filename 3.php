@@ -31,26 +31,26 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'Apple' => $_POST['Ta1'],
-    'Spring' => $_POST['Ta2'],
-    'ChocolateNut' => $_POST['Ta3'],
-    'Raspberry' => $_POST['Ta4']
+    'Apple' => $_POST['9'],
+    'Spring' => $_POST['10'],
+    'ChocolateNut' => $_POST['11'],
+    'Raspberry' => $_POST['12']
   ];
 
   if (isset($prodType['Apple'])) {
-    $prodNameSelected = 'Tarta Jabłkowa na mlecznym kremie';
+    $prodNameSelected = 'Tarta - Jabłkowa na Mlecznym Kremie';
   }
 
   if (isset($prodType['Spring'])) {
-    $prodNameSelected = 'Tarta Wiosenna';
+    $prodNameSelected = 'Tarta - Wiosenna';
   }
 
   if (isset($prodType['ChocolateNut'])) {
-    $prodNameSelected = 'Tarta Czekoladowo-orzechowa';
+    $prodNameSelected = 'Tarta - Czekoladowo-Orzechowa';
   }
 
   if (isset($prodType['Raspberry'])) {
-    $prodNameSelected = 'Tarta Malinowa';
+    $prodNameSelected = 'Tarta - Malinowa	';
   }
 
   if (isset($prodType['Apple']) && isset($prodType['Spring']) && isset($prodType['ChocolateNut']) && isset($prodType['Raspberry'])) {

@@ -75,10 +75,10 @@ if (!isset($_SESSION['user'])) {
    */
 
   $prodType = @[
-    'Birthday' => $_POST['T1'],
-    'ForGourmets' => $_POST['T2'],
-    'Jubilee' => $_POST['T3'],
-    'Wedding' => $_POST['T4']
+    'Birthday' => $_POST['1'],
+    'ForGourmets' => $_POST['2'],
+    'Jubilee' => $_POST['3'],
+    'Wedding' => $_POST['4']
   ];
 
   /**
@@ -88,19 +88,19 @@ if (!isset($_SESSION['user'])) {
    */
 
   if (isset($prodType['Birthday'])) {
-    $prodNameSelected = 'Tort Urodzinowy';
+    $prodNameSelected = 'Tort - Urodzinowy';
   }
 
   if (isset($prodType['ForGourmets'])) {
-    $prodNameSelected = 'Tort dla Smakoszy';
+    $prodNameSelected = 'Tort - Dla Smakoszy';
   }
 
   if (isset($prodType['Jubilee'])) {
-    $prodNameSelected = 'Tort Jubileusz';
+    $prodNameSelected = 'Tort - Jubileuszowy';
   }
 
   if (isset($prodType['Wedding'])) {
-    $prodNameSelected = 'Tort Ślubny';
+    $prodNameSelected = 'Tort - Ślubny';
   }
 
   // bramka zabezpieczająca przed zaznaczeniem wszystkich checkboxów

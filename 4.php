@@ -31,26 +31,26 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'bia' => $_POST['M1'],
-    'cza' => $_POST['M2'],
-    'mali' => $_POST['M3'],
-    'sez' => $_POST['M4']
+    'bia' => $_POST['21'],
+    'cza' => $_POST['22'],
+    'mali' => $_POST['23'],
+    'sez' => $_POST['24']
   ];
 
   if (isset($prodType['bia'])) {
-    $prodNameSelected = 'Babeczka Czekoladowa Biała';
+    $prodNameSelected = 'Babeczka - Czekoladowa Biała';
   }
 
   if (isset($prodType['cza'])) {
-    $prodNameSelected = 'Babeczka Czekoladowa Czarna';
+    $prodNameSelected = 'Babeczka - Czekoladowa Czarna';
   }
 
   if (isset($prodType['mali'])) {
-    $prodNameSelected = 'Babeczka Malinowa';
+    $prodNameSelected = 'Babeczka - Malinowa';
   }
 
   if (isset($prodType['sez'])) {
-    $prodNameSelected = 'Babeczka Sezonowa';
+    $prodNameSelected = 'Babeczka - Sezonowa';
   }
 
   if (isset($prodType['bia']) && isset($prodType['cza']) && isset($prodType['mali']) && isset($prodType['sez'])) {

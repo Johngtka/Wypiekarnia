@@ -31,26 +31,26 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'Wheat' => $_POST['B1'],
-    'Kajser' => $_POST['B2'],
-    'Wholemeal' => $_POST['B3'],
-    'Grain' => $_POST['B4']
+    'Wheat' => $_POST['17'],
+    'Kajser' => $_POST['18'],
+    'Wholemeal' => $_POST['19'],
+    'Grain' => $_POST['20']
   ];
 
   if (isset($prodType['Wheat'])) {
-    $prodNameSelected = 'Bułka Przenna';
+    $prodNameSelected = 'Bułka - Przenna';
   }
 
   if (isset($prodType['Kajser'])) {
-    $prodNameSelected = 'Bułka Kajzerka';
+    $prodNameSelected = 'Bułka - Kajzerka';
   }
 
   if (isset($prodType['Wholemeal'])) {
-    $prodNameSelected = 'Bułka Razowa';
+    $prodNameSelected = 'Bułka - Razowa';
   }
 
   if (isset($prodType['Grain'])) {
-    $prodNameSelected = 'Bułka Ziarnista';
+    $prodNameSelected = 'Bułka - Ziarnista';
   }
 
   if (isset($prodType['Wheat']) && isset($prodType['Kajser']) && isset($prodType['Wholemeal']) && isset($prodType['Grain'])) {

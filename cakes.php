@@ -1,5 +1,9 @@
 <?php
 require_once('loginVerify.php');
+require_once('PDO.php');
+
+$query = $db->prepare("SELECT id, name, price FROM produkty WHERE name LIKE 'Tort%'");
+$query->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -88,12 +92,15 @@ require_once('loginVerify.php');
   <div class="main1">
     <form action="1.php" method="POST">
       <div class="row">
-        <legend><b>Rodzaj Tortu:</b></legend>
+        <legend><b>Rodzaj:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="T1"><b>Urodzinowy(50zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="T2"><b>Dla Smakoszy(20zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="T3"><b>Jubileuszowy(30zł/Kg)</b></label></br>
-          <label><input type="checkbox" name="T4"><b>Ślubny(40zł/Kg)</b></label>
+          <?php
+          while ($row = $query->fetch()) {
+          ?>
+            <label><input type="checkbox" name="<?php echo $row['id']; ?>"><b> <?php echo $row['name']; ?> ( <?php echo $row['price']; ?>zł/Kg )</b></label><br>
+          <?php
+          }
+          ?>
         </div>
       </div>
 
@@ -119,7 +126,7 @@ require_once('loginVerify.php');
 
       <div class="row">
         <div><label><b>Uwagi do zamówienia:</b></label></div>
-        <textarea id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" name="comment" required></textarea>
+        <textarea id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" name="comment"></textarea>
       </div>
 
       <div class="row discountCodeInputBlock">
