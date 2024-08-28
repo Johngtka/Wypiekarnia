@@ -128,11 +128,10 @@ $query->execute();
 
 <body>
     <div class="up">
-        <div id="logo" onclick="showTimerWithDate()">
+        <div id="logo">
             <div id="a">
                 <img src="img/logo1.png" title="Logo" alt="Logo" />
             </div>
-            <div id="eggs" class="invisible"></div>
         </div>
         <ul>
             <li>

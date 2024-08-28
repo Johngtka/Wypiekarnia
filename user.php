@@ -77,11 +77,10 @@ $salesCount = $query->fetch()[0];
 
 <body>
   <div class="up">
-    <div id="logo" onclick="showTimerWithDate()">
+    <div id="logo">
       <div id="a">
         <img src="img/logo1.png" title="Logo" alt="Logo" />
       </div>
-      <div id="eggs" class="invisible"></div>
     </div>
     <ul>
       <li>
@@ -100,11 +99,7 @@ $salesCount = $query->fetch()[0];
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/exit.php'><i class='icon-trash'></i> Usuń Konto</a></div>";
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/sales.php'><i class='icon-bell'></i> Promocje (" . $salesCount . ")</a></div>";
     echo "<div class='panel'><a href='http://localhost/Wypiekarnia/logout.php'><i class='icon-logout'></i> Wyloguj</a></div>";
-    // echo "<div class='panel'><a href='http://localhost/Wypiekarnia/basket.php'><i class='icon-basket'></i
-    // > Koszyk" . "(" . @$_SESSION['orders'] . ")" . "</a></div>";
     ?>
-    <!-- <div id="slider"></div> -->
-
   </div>
   <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
 </body>
