@@ -92,7 +92,7 @@ $query->execute();
   <div class="main1">
     <form action="2.php" method="POST">
       <div class="row">
-        <legend><b>Rodzaj:</b></legend>
+        <legend><b>Wybierz Produkt:</b></legend>
         <div style="margin-top:10px;">
           <?php
           while ($row = $query->fetch()) {
