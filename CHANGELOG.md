@@ -7,7 +7,7 @@
 ### Features
 
 -   new improvement for app order system with code fixes
-    ([#11](https://github.com/Johngtka/Wypiekarnia/pull/10))
+    ([#11](https://github.com/Johngtka/Wypiekarnia/pull/11))
 
 ### Fixes
 
