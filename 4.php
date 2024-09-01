@@ -31,26 +31,26 @@ if (!isset($_SESSION['user'])) {
   ];
 
   $prodType = @[
-    'bia' => $_POST['M1'],
-    'cza' => $_POST['M2'],
-    'mali' => $_POST['M3'],
-    'sez' => $_POST['M4']
+    'bia' => $_POST['21'],
+    'cza' => $_POST['22'],
+    'mali' => $_POST['23'],
+    'sez' => $_POST['24']
   ];
 
   if (isset($prodType['bia'])) {
-    $prodNameSelected = 'Babeczka Czekoladowa Biała';
+    $prodNameSelected = 'Babeczka - Czekoladowa Biała';
   }
 
   if (isset($prodType['cza'])) {
-    $prodNameSelected = 'Babeczka Czekoladowa Czarna';
+    $prodNameSelected = 'Babeczka - Czekoladowa Czarna';
   }
 
   if (isset($prodType['mali'])) {
-    $prodNameSelected = 'Babeczka Malinowa';
+    $prodNameSelected = 'Babeczka - Malinowa';
   }
 
   if (isset($prodType['sez'])) {
-    $prodNameSelected = 'Babeczka Sezonowa';
+    $prodNameSelected = 'Babeczka - Sezonowa';
   }
 
   if (isset($prodType['bia']) && isset($prodType['cza']) && isset($prodType['mali']) && isset($prodType['sez'])) {
@@ -118,33 +118,6 @@ if (!isset($_SESSION['user'])) {
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
 
   <style type="text/css">
-    /* #cart {
-      width: 1000px;
-      height: 210px;
-      background-color: #000;
-      opacity: 0.5;
-      color: #fff;
-      display: flex;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 0;
-    }
-
-    #cart a {
-      text-decoration: none;
-      color: #fff;
-      width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      height: 210px;
-    }
-
-    #cart a:first-child {
-      padding-top: 8%;
-    } */
-
-
     .summaryPanel {
       margin: 5%;
       padding: 3%;
@@ -197,11 +170,10 @@ if (!isset($_SESSION['user'])) {
 
 <body>
   <div class="up">
-    <div id="logo" onclick="showTimerWithDate()">
+    <div id="logo">
       <div id="a">
         <img src="img/logo1.png" title="Logo" alt="Logo" />
       </div>
-      <div id="eggs" class="invisible"></div>
     </div>
     <ul>
       <li>
@@ -234,13 +206,6 @@ if (!isset($_SESSION['user'])) {
       </div>
     </div>
 
-    <!-- <div class="pay">
-      <i class="icon-credit-card-alt"></i>
-      <i class="icon-cc-visa"></i>
-      <i class="icon-cc-mastercard"></i>
-      <i class="icon-cc-paypal"></i>
-    </div> -->
-    <!-- <h1 id="cart"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1> -->
     <div id="slider"></div>
     <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>

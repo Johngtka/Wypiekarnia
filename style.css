@@ -54,12 +54,6 @@ input:focus {
     float: left;
 }
 
-div#eggs {
-    font-size: 20px;
-    margin-left: 10px;
-    margin: 0;
-    font-family: "Archivo Narrow", sans-serif;
-}
 /*Stylizacja listy opcji w menu*/
 .up > ul {
     list-style-type: none;

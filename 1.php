@@ -75,10 +75,10 @@ if (!isset($_SESSION['user'])) {
    */
 
   $prodType = @[
-    'Birthday' => $_POST['T1'],
-    'ForGourmets' => $_POST['T2'],
-    'Jubilee' => $_POST['T3'],
-    'Wedding' => $_POST['T4']
+    'Birthday' => $_POST['1'],
+    'ForGourmets' => $_POST['2'],
+    'Jubilee' => $_POST['3'],
+    'Wedding' => $_POST['4']
   ];
 
   /**
@@ -88,19 +88,19 @@ if (!isset($_SESSION['user'])) {
    */
 
   if (isset($prodType['Birthday'])) {
-    $prodNameSelected = 'Tort Urodzinowy';
+    $prodNameSelected = 'Tort - Urodzinowy';
   }
 
   if (isset($prodType['ForGourmets'])) {
-    $prodNameSelected = 'Tort dla Smakoszy';
+    $prodNameSelected = 'Tort - Dla Smakoszy';
   }
 
   if (isset($prodType['Jubilee'])) {
-    $prodNameSelected = 'Tort Jubileusz';
+    $prodNameSelected = 'Tort - Jubileuszowy';
   }
 
   if (isset($prodType['Wedding'])) {
-    $prodNameSelected = 'Tort Ślubny';
+    $prodNameSelected = 'Tort - Ślubny';
   }
 
   // bramka zabezpieczająca przed zaznaczeniem wszystkich checkboxów
@@ -179,33 +179,6 @@ if (!isset($_SESSION['user'])) {
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet" />
 
   <style type="text/css">
-    /* #cart {
-      width: 1000px;
-      height: 210px;
-      background-color: #000;
-      opacity: 0.5;
-      color: #fff;
-      display: flex;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 0;
-    }
-
-    #cart a {
-      text-decoration: none;
-      color: #fff;
-      width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      height: 210px;
-    }
-
-    #cart a:first-child {
-      padding-top: 8%;
-    } */
-
-
     .summaryPanel {
       margin: 5%;
       padding: 3%;
@@ -258,11 +231,10 @@ if (!isset($_SESSION['user'])) {
 
 <body>
   <div class="up">
-    <div id="logo" onclick="showTimerWithDate()">
+    <div id="logo">
       <div id="a">
         <img src="img/logo1.png" title="Logo" alt="Logo" />
       </div>
-      <div id="eggs" class="invisible"></div>
     </div>
     <ul>
       <li>
@@ -301,7 +273,7 @@ if (!isset($_SESSION['user'])) {
       <i class="icon-cc-mastercard"></i>
       <i class="icon-cc-paypal"></i>
     </div> -->
-    <!-- <h1 id="cart"><a href="http://localhost/Wypiekarnia/basket.php">Do Koszyka</a></h1> -->
+
     <div id="slider"></div>
     <footer>Wypiekarnia.pl <span id="actualYear"></span> Wszelkie Prawa Zastrzeżone</footer>
   </div>

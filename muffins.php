@@ -1,6 +1,10 @@
 <?php
 // podłączenie dokumentu który sprawdza czy jest zalogowanu user
 require_once('loginVerify.php');
+require_once('PDO.php');
+
+$query = $db->prepare("SELECT id, name, price FROM produkty WHERE name LIKE 'Babeczka%'");
+$query->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -65,11 +69,10 @@ require_once('loginVerify.php');
 
 <body>
   <div class="up">
-    <div id="logo" onclick="showTimerWithDate()">
+    <div id="logo">
       <div id="a">
         <img src="img/logo1.png" title="Logo" alt="Logo" />
       </div>
-      <div id="eggs" class="invisible"></div>
     </div>
     <ul>
       <li>
@@ -89,12 +92,15 @@ require_once('loginVerify.php');
   <div class="main1">
     <form action="4.php" method="POST">
       <div class="row">
-        <legend><b>Rodzaj Babeczki:</b></legend>
+        <legend><b>Wybierz Produkt:</b></legend>
         <div style="margin-top:10px;">
-          <label><input type="checkbox" name="M1"><b>Babeczka Czekoladowa Biała(8zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="M2"><b>Babeczka Czekoladowa Czarna(8zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="M3"><b>Babeczka Malinowa(8zł/100gr)</b></label></br>
-          <label><input type="checkbox" name="M4"><b>Babeczka Sezonowa(8zł/100gr)</b></label>
+          <?php
+          while ($row = $query->fetch()) {
+          ?>
+            <label><input type="checkbox" name="<?php echo $row['id']; ?>"><b> <?php echo $row['name']; ?> ( <?php echo $row['price']; ?>zł/Kg )</b></label><br>
+          <?php
+          }
+          ?>
         </div>
       </div>
 
@@ -120,7 +126,7 @@ require_once('loginVerify.php');
 
       <div class="row">
         <div><label><b>Uwagi do zamówienia:</b></label></div>
-        <textarea id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" name="comment" required></textarea>
+        <textarea id="komentarz" rows="5" cols="80" placeholder="Dodatkowe Informacje" name="comment"></textarea>
       </div>
 
       <div class="row discountCodeInputBlock">
